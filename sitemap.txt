@@ -1,6 +1,9 @@
 https://bysocket.com/who_is_chengxuyuan_niwajiang/
 https://bysocket.com/spring_boot_hello_world/
+https://bysocket.com/spring-boot-mybatis/
 https://bysocket.com/
 https://bysocket.com/tags/Java/
+https://bysocket.com/tags/MyBatis/
+https://bysocket.com/tags/IDEA/
 https://bysocket.com/categories/%E6%80%9D%E8%80%83/
 https://bysocket.com/categories/Spring-Boot/

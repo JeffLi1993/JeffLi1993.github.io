@@ -6,45 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     
-    <title>Spring Boot Hello World 基于 IDEA 案例详解 | 程序员泥瓦匠</title>
+    <title>Spring Boot 整合 MyBatis 配置等案例教程 | 程序员泥瓦匠</title>
 
-    <meta name="description" content="&lt;h2 id=&#34;一、Spring-Boot-是什么&#34;&gt;&lt;a href=&#34;#一、Spring-Boot-是什么&#34; class=&#34;headerlink&#34; title=&#34;一、Spring Boot 是什么&#34;&gt;&lt;/a&gt;一、Spring Boot 是什么&lt;/h2&gt;&lt;p&gt;世界上最好的文档来源自官方的《Spring Boot Reference Guide》，是这样介绍的：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can “just run”…Most Spring Boot applications need very little Spring configuration.&lt;/p&gt;
-&lt;/blockquote&gt;">
+    <meta name="description" content="&lt;p&gt;运行环境：JDK 7 或 8、Maven 3.0+&lt;br&gt;技术栈：SpringBoot 1.5+、SpringBoot Mybatis Starter 1.2+ 、MyBatis 3.4+&lt;/p&gt;
+&lt;h2 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;距离第一篇 Spring Boot 系列的博文 3 个月了。《Springboot 整合 Mybatis 的完整 Web 案例》第一篇出来是 XML 配置 SQL 的形式。虽然 XML 形式是我比较推荐的，但是注解形式也是方便的。尤其一些小系统，快速的 CRUD 轻量级的系统。&lt;/p&gt;">
     <meta name="keywords" content="">
 
     
 
     <meta property="og:locale" content="cn" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content= "Spring Boot Hello World 基于 IDEA 案例详解 | 程序员泥瓦匠"  />
-    <meta property="og:description" content= "&lt;h2 id=&#34;一、Spring-Boot-是什么&#34;&gt;&lt;a href=&#34;#一、Spring-Boot-是什么&#34; class=&#34;headerlink&#34; title=&#34;一、Spring Boot 是什么&#34;&gt;&lt;/a&gt;一、Spring Boot 是什么&lt;/h2&gt;&lt;p&gt;世界上最好的文档来源自官方的《Spring Boot Reference Guide》，是这样介绍的：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can “just run”…Most Spring Boot applications need very little Spring configuration.&lt;/p&gt;
-&lt;/blockquote&gt;" />
-    <meta property="og:url" content="https://bysocket.com/spring_boot_hello_world/index.html" />
+    <meta property="og:title" content= "Spring Boot 整合 MyBatis 配置等案例教程 | 程序员泥瓦匠"  />
+    <meta property="og:description" content= "&lt;p&gt;运行环境：JDK 7 或 8、Maven 3.0+&lt;br&gt;技术栈：SpringBoot 1.5+、SpringBoot Mybatis Starter 1.2+ 、MyBatis 3.4+&lt;/p&gt;
+&lt;h2 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;距离第一篇 Spring Boot 系列的博文 3 个月了。《Springboot 整合 Mybatis 的完整 Web 案例》第一篇出来是 XML 配置 SQL 的形式。虽然 XML 形式是我比较推荐的，但是注解形式也是方便的。尤其一些小系统，快速的 CRUD 轻量级的系统。&lt;/p&gt;" />
+    <meta property="og:url" content="https://bysocket.com/spring-boot-mybatis/index.html" />
     <meta property="og:site_name" content="" />
     <meta property="article:author" content="泥瓦匠" />
     <meta property="article:publisher" content="" />
-    <meta property="og:description" content="&lt;h2 id=&#34;一、Spring-Boot-是什么&#34;&gt;&lt;a href=&#34;#一、Spring-Boot-是什么&#34; class=&#34;headerlink&#34; title=&#34;一、Spring Boot 是什么&#34;&gt;&lt;/a&gt;一、Spring Boot 是什么&lt;/h2&gt;&lt;p&gt;世界上最好的文档来源自官方的《Spring Boot Reference Guide》，是这样介绍的：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can “just run”…Most Spring Boot applications need very little Spring configuration.&lt;/p&gt;
-&lt;/blockquote&gt;" />
-    <meta name="twitter:title" content="Spring Boot Hello World 基于 IDEA 案例详解 | 程序员泥瓦匠"/>
-    <meta name="twitter:description" content="&lt;h2 id=&#34;一、Spring-Boot-是什么&#34;&gt;&lt;a href=&#34;#一、Spring-Boot-是什么&#34; class=&#34;headerlink&#34; title=&#34;一、Spring Boot 是什么&#34;&gt;&lt;/a&gt;一、Spring Boot 是什么&lt;/h2&gt;&lt;p&gt;世界上最好的文档来源自官方的《Spring Boot Reference Guide》，是这样介绍的：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can “just run”…Most Spring Boot applications need very little Spring configuration.&lt;/p&gt;
-&lt;/blockquote&gt;"/>
+    <meta property="og:description" content="&lt;p&gt;运行环境：JDK 7 或 8、Maven 3.0+&lt;br&gt;技术栈：SpringBoot 1.5+、SpringBoot Mybatis Starter 1.2+ 、MyBatis 3.4+&lt;/p&gt;
+&lt;h2 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;距离第一篇 Spring Boot 系列的博文 3 个月了。《Springboot 整合 Mybatis 的完整 Web 案例》第一篇出来是 XML 配置 SQL 的形式。虽然 XML 形式是我比较推荐的，但是注解形式也是方便的。尤其一些小系统，快速的 CRUD 轻量级的系统。&lt;/p&gt;" />
+    <meta name="twitter:title" content="Spring Boot 整合 MyBatis 配置等案例教程 | 程序员泥瓦匠"/>
+    <meta name="twitter:description" content="&lt;p&gt;运行环境：JDK 7 或 8、Maven 3.0+&lt;br&gt;技术栈：SpringBoot 1.5+、SpringBoot Mybatis Starter 1.2+ 、MyBatis 3.4+&lt;/p&gt;
+&lt;h2 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;距离第一篇 Spring Boot 系列的博文 3 个月了。《Springboot 整合 Mybatis 的完整 Web 案例》第一篇出来是 XML 配置 SQL 的形式。虽然 XML 形式是我比较推荐的，但是注解形式也是方便的。尤其一些小系统，快速的 CRUD 轻量级的系统。&lt;/p&gt;"/>
     <script type="application/ld+json">
         {
-            "description": "&lt;h2 id=&#34;一、Spring-Boot-是什么&#34;&gt;&lt;a href=&#34;#一、Spring-Boot-是什么&#34; class=&#34;headerlink&#34; title=&#34;一、Spring Boot 是什么&#34;&gt;&lt;/a&gt;一、Spring Boot 是什么&lt;/h2&gt;&lt;p&gt;世界上最好的文档来源自官方的《Spring Boot Reference Guide》，是这样介绍的：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can “just run”…Most Spring Boot applications need very little Spring configuration.&lt;/p&gt;
-&lt;/blockquote&gt;",
+            "description": "&lt;p&gt;运行环境：JDK 7 或 8、Maven 3.0+&lt;br&gt;技术栈：SpringBoot 1.5+、SpringBoot Mybatis Starter 1.2+ 、MyBatis 3.4+&lt;/p&gt;
+&lt;h2 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;距离第一篇 Spring Boot 系列的博文 3 个月了。《Springboot 整合 Mybatis 的完整 Web 案例》第一篇出来是 XML 配置 SQL 的形式。虽然 XML 形式是我比较推荐的，但是注解形式也是方便的。尤其一些小系统，快速的 CRUD 轻量级的系统。&lt;/p&gt;",
             "author": { "@type": "Person", "name": "泥瓦匠" },
             "@type": "BlogPosting",
-            "url": "https://bysocket.com/spring_boot_hello_world/index.html",
+            "url": "https://bysocket.com/spring-boot-mybatis/index.html",
             "publisher": {
             "@type": "Organization",
             "logo": {
@@ -53,11 +43,11 @@
             },
             "name": "泥瓦匠"
             },
-            "headline": "Spring Boot Hello World 基于 IDEA 案例详解 | 程序员泥瓦匠",
-            "datePublished": "2023-01-13T06:50:15.000Z",
+            "headline": "Spring Boot 整合 MyBatis 配置等案例教程 | 程序员泥瓦匠",
+            "datePublished": "2023-01-13T15:50:15.000Z",
             "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": "https://bysocket.com/spring_boot_hello_world/index.html"
+                "@id": "https://bysocket.com/spring-boot-mybatis/index.html"
             },
             "@context": "http://schema.org"
         }
@@ -186,7 +176,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-clcu4el6d0000tb3s5ls2h3rw" class="article article-type-post" itemscope
+    <article id="post-clcupj4nd0000ym3s5vlf1xmh" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -202,7 +192,7 @@
             
   
     <h1 class="article-title" itemprop="name">
-      Spring Boot Hello World 基于 IDEA 案例详解
+      Spring Boot 整合 MyBatis 配置等案例教程
     </h1>
   
 
@@ -212,7 +202,7 @@
         <div class="article-more-info article-more-info-post hairline">
 
             <div class="article-date">
-  <time datetime="2023-01-13T06:50:15.000Z" itemprop="datePublished">2023-01-13</time>
+  <time datetime="2023-01-13T15:50:15.000Z" itemprop="datePublished">2023-01-13</time>
 </div>
 
             
@@ -223,7 +213,7 @@
 
             
             <div class="article-tag">
-                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li></ul>
             </div>
             
 
@@ -232,41 +222,79 @@
         </div>
 
         <div class="article-entry post-inner-html hairline" itemprop="articleBody">
-            <h2 id="一、Spring-Boot-是什么"><a href="#一、Spring-Boot-是什么" class="headerlink" title="一、Spring Boot 是什么"></a>一、Spring Boot 是什么</h2><p>世界上最好的文档来源自官方的《Spring Boot Reference Guide》，是这样介绍的：</p>
-<blockquote>
-<p>Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can “just run”…Most Spring Boot applications need very little Spring configuration.</p>
-</blockquote>
+            <p>运行环境：JDK 7 或 8、Maven 3.0+<br>技术栈：SpringBoot 1.5+、SpringBoot Mybatis Starter 1.2+ 、MyBatis 3.4+</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>距离第一篇 Spring Boot 系列的博文 3 个月了。《Springboot 整合 Mybatis 的完整 Web 案例》第一篇出来是 XML 配置 SQL 的形式。虽然 XML 形式是我比较推荐的，但是注解形式也是方便的。尤其一些小系统，快速的 CRUD 轻量级的系统。</p>
 <span id="more"></span>
 
-<p>Spring Boot(英文中是“引导”的意思)，是用来简化Spring应用的搭建到开发的过程。应用开箱即用，只要通过 “just run”（可能是 java -jar 或 tomcat 或 maven插件run 或 shell脚本），就可以启动项目。二者，Spring Boot 只要很少的Spring配置文件（例如那些xml，property）。 因为“习惯优先于配置”的原则，使得Spring Boot在快速开发应用和微服务架构实践中得到广泛应用。   Javaer装好JDK环境和Maven工具就可以开始学习Boot了~</p>
-<h2 id="二、Spring-Boot-Hello-World-实战详解"><a href="#二、Spring-Boot-Hello-World-实战详解" class="headerlink" title="二、Spring Boot Hello World 实战详解"></a>二、Spring Boot Hello World 实战详解</h2><p>首先得有个 maven 基础项目，可以直接使用 Maven 骨架工程生成 Maven 骨架 Web 项目，即 man archetype:generate 命令：</p>
-<pre><code>mvn archetype:generate -DgroupId=springboot -DartifactId=springboot-helloworld -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+<p>这里感谢晓春的 Pull Request，提供了 springboot-mybatis-annotation 的实现。</p>
+<h2 id="一、运行-springboot-mybatis-annotation-工程"><a href="#一、运行-springboot-mybatis-annotation-工程" class="headerlink" title="一、运行 springboot-mybatis-annotation 工程"></a>一、运行 springboot-mybatis-annotation 工程</h2><p>由于这篇文章和 《Springboot 整合 Mybatis 的完整 Web 案例》 类似，所以运行这块环境配置大家参考另外一篇兄弟文章。</p>
+<p>然后Application 应用启动类的 main 函数，然后在浏览器访问：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://localhost:8080/api/city?cityName=%E6%B8%A9%E5%B2%AD%E5%B8%82">http://localhost:8080/api/city?cityName=温岭市</a></p>
+</blockquote>
+<p>可以看到返回的 JSON 结果：</p>
+<pre><code>&#123;
+    &quot;id&quot;: 1,
+    &quot;provinceId&quot;: 1,
+    &quot;cityName&quot;: &quot;温岭市&quot;,
+    &quot;description&quot;: &quot;我的家在温岭。&quot;
+&#125;
 </code></pre>
-<h3 id="2-1-pom-xml配置"><a href="#2-1-pom-xml配置" class="headerlink" title="2.1  pom.xml配置"></a>2.1  pom.xml配置</h3><p>代码如下：</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+<h2 id="三、springboot-mybatis-annotation-工程配置详解"><a href="#三、springboot-mybatis-annotation-工程配置详解" class="headerlink" title="三、springboot-mybatis-annotation 工程配置详解"></a>三、springboot-mybatis-annotation 工程配置详解</h2><p>1.pom 添加 Mybatis 依赖</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
     &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
-
+ 
     &lt;groupId&gt;springboot&lt;/groupId&gt;
-    &lt;artifactId&gt;springboot-helloworld&lt;/artifactId&gt;
+    &lt;artifactId&gt;springboot-mybatis-annotation&lt;/artifactId&gt;
     &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
-    &lt;name&gt;springboot-helloworld :: HelloWorld Demo&lt;/name&gt;
-
+    &lt;packaging&gt;jar&lt;/packaging&gt;
+ 
+    &lt;name&gt;springboot-mybatis-annotation&lt;/name&gt;
+    &lt;description&gt;Springboot-mybatis :: 整合Mybatis Annotation Demo&lt;/description&gt;
+ 
     &lt;!-- Spring Boot 启动父依赖 --&gt;
     &lt;parent&gt;
         &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
         &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
-        &lt;version&gt;1.3.3.RELEASE&lt;/version&gt;
+        &lt;version&gt;1.5.1.RELEASE&lt;/version&gt;
     &lt;/parent&gt;
-
+ 
+    &lt;properties&gt;
+        &lt;mybatis-spring-boot&gt;1.2.0&lt;/mybatis-spring-boot&gt;
+        &lt;mysql-connector&gt;5.1.39&lt;/mysql-connector&gt;
+    &lt;/properties&gt;
+ 
     &lt;dependencies&gt;
-        &lt;!-- Spring Boot web依赖 --&gt;
+ 
+        &lt;!-- Spring Boot Web 依赖 --&gt;
         &lt;dependency&gt;
             &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
             &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
         &lt;/dependency&gt;
-
+ 
+        &lt;!-- Spring Boot Test 依赖 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+ 
+        &lt;!-- Spring Boot Mybatis 依赖 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;
+            &lt;version&gt;$&#123;mybatis-spring-boot&#125;&lt;/version&gt;
+        &lt;/dependency&gt;
+ 
+        &lt;!-- MySQL 连接驱动依赖 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;mysql&lt;/groupId&gt;
+            &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+            &lt;version&gt;$&#123;mysql-connector&#125;&lt;/version&gt;
+        &lt;/dependency&gt;
+ 
         &lt;!-- Junit --&gt;
         &lt;dependency&gt;
             &lt;groupId&gt;junit&lt;/groupId&gt;
@@ -274,67 +302,39 @@
             &lt;version&gt;4.12&lt;/version&gt;
         &lt;/dependency&gt;
     &lt;/dependencies&gt;
+ 
+ 
 &lt;/project&gt;
 </code></pre>
-<p>只要加入一个 Spring Boot 启动父依赖即可。</p>
-<h3 id="2-2-Controller-层"><a href="#2-2-Controller-层" class="headerlink" title="2.2 Controller 层"></a>2.2 Controller 层</h3><p>HelloWorldController的代码如下：</p>
-<pre><code>/**
- * Spring Boot HelloWorld案例
- *
- * Created by bysocket on 16/4/26.
- */
-@RestController
-public class HelloWorldController &#123;
+<p>2.在 CityDao 城市数据操作层接口类添加注解 @Mapper、@Select 和 @Results</p>
+<pre><code class="java">/**
+* 城市 DAO 接口类
+*
+* Created by xchunzhao on 02/05/2017.
+*/
+@Mapper // 标志为 Mybatis 的 Mapper
+public interface CityDao &#123;
  
-    @RequestMapping(&quot;/&quot;)
-    public String sayHello() &#123;
-        return &quot;Hello,World!&quot;;
-    &#125;
+    /**
+    * 根据城市名称，查询城市信息
+    *
+    * @param cityName 城市名
+    */
+    @Select(&quot;SELECT * FROM city&quot;)
+    // 返回 Map 结果集
+    @Results(&#123;
+        @Result(property = &quot;id&quot;, column = &quot;id&quot;),
+        @Result(property = &quot;provinceId&quot;, column = &quot;province_id&quot;),
+        @Result(property = &quot;cityName&quot;, column = &quot;city_name&quot;),
+        @Result(property = &quot;description&quot;, column = &quot;description&quot;),
+    &#125;)
+    City findByName(@Param(&quot;cityName&quot;) String cityName);
 &#125;
 </code></pre>
-<p>@RestController和@RequestMapping注解是来自SpringMVC的注解，它们不是SpringBoot的特定部分。<br>1.@RestController：提供实现了REST API，可以服务JSON,XML或者其他。这里是以String的形式渲染出结果。<br>2. @RequestMapping：提供路由信息，”&#x2F;“路径的HTTP Request都会被映射到sayHello方法进行处理。具体参考，世界上最好的文档来源自官方的《 Spring Framework Document》</p>
-<h3 id="2-3-Spring-Boot-启动应用类"><a href="#2-3-Spring-Boot-启动应用类" class="headerlink" title="2.3 Spring Boot 启动应用类"></a>2.3 Spring Boot 启动应用类</h3><p>和第一段描述一样，开箱即用。如下面Application类：</p>
-<pre><code>/**
- * Spring Boot应用启动类
- *
- * Created by bysocket on 16/4/26.
- */
-@SpringBootApplication
-public class Application &#123;
- 
-    public static void main(String[] args) &#123;
-        SpringApplication.run(Application.class,args);
-    &#125;
-&#125;
-</code></pre>
-<ol>
-<li>@SpringBootApplication：Spring Boot 应用的标识</li>
-<li>Application很简单，一个main函数作为主入口。SpringApplication引导应用，并将Application本身作为参数传递给run方法。具体run方法会启动嵌入式的Tomcat并初始化Spring环境及其各Spring组件。</li>
-</ol>
-<h3 id="2-4-Controller-层测试类"><a href="#2-4-Controller-层测试类" class="headerlink" title="2.4 Controller 层测试类"></a>2.4 Controller 层测试类</h3><p>一个好的程序，不能缺少好的UT。针对HelloWorldController的UT如下：</p>
-<pre><code>/**
- * Spring Boot HelloWorldController 测试 - &#123;@link HelloWorldController&#125;
- *
- * Created by bysocket on 16/4/26.
- */
-public class HelloWorldControllerTest &#123;
- 
-    @Test
-    public void testSayHello() &#123;
-        assertEquals(&quot;Hello,World!&quot;,new HelloWorldController().sayHello());
-    &#125;
-&#125;
-</code></pre>
-<h2 id="三、Spring-Boot-Hello-World-案例运行"><a href="#三、Spring-Boot-Hello-World-案例运行" class="headerlink" title="三、Spring Boot Hello World 案例运行"></a>三、Spring Boot Hello World 案例运行</h2><p>Just Run的宗旨，运行很简单，直接右键Run运行Application类。同样你也可以Debug Run。可以在控制台中看到：</p>
-<pre><code>Tomcat started on port(s): 8080 (http)
-Started Application in 5.986 seconds (JVM running for 7.398)
-</code></pre>
-<p>然后访问  <a target="_blank" rel="noopener" href="http://localhost:8080/">http://localhost:8080/</a> ,即可在页面中看到Spring Boot对你 say hello：<br>Hello,World！</p>
-<h2 id="四、小结"><a href="#四、小结" class="headerlink" title="四、小结"></a>四、小结</h2><ol>
-<li>Spring Boot pom配置</li>
-<li>Spring Boot 启动及原理</li>
-</ol>
-<p>如以上文章或链接对你有帮助的话，别忘了在文章结尾处评论哈~ 你也可以点击页面右边“分享”悬浮按钮哦，让更多的人阅读这篇文章。</p>
+<p>@Mapper 标志接口为 MyBatis Mapper 接口<br>@Select 是 Select 操作语句<br>@Results 标志结果集，以及与库表字段的映射关系</p>
+<p>其他的注解可以看 org.apache.ibatis.annotations 包提供的。</p>
+<p>可以 git clone 下载工程 springboot-learning-example ，springboot-mybatis-annotation 工程代码注解很详细。 <a target="_blank" rel="noopener" href="https://github.com/JeffLi1993/springboot-learning-example">https://github.com/JeffLi1993/springboot-learning-example</a></p>
+<h2 id="四、小结"><a href="#四、小结" class="headerlink" title="四、小结"></a>四、小结</h2><p>注解不涉及到配置，更近贴近 0 配置。</p>
 
         </div>
 
@@ -372,19 +372,10 @@ Started Application in 5.986 seconds (JVM running for 7.398)
     
 <nav class="article-nav">
   
-    <a href="/spring-boot-mybatis/" id="article-nav-newer" class="article-nav-link-wrap">
-      <div class="article-nav-caption">下一篇</div>
-      <div class="article-nav-title">
-        
-          Spring Boot 整合 MyBatis 配置等案例教程
-        
-      </div>
-    </a>
   
-  
-    <a href="/who_is_chengxuyuan_niwajiang/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/spring_boot_hello_world/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-caption">上一篇</div>
-      <div class="article-nav-title">程序员泥瓦匠是谁？</div>
+      <div class="article-nav-title">Spring Boot Hello World 基于 IDEA 案例详解</div>
     </a>
   
 </nav>
@@ -393,15 +384,15 @@ Started Application in 5.986 seconds (JVM running for 7.398)
     <section class="share">
         <div class="share-title">分享</div>
         <a class="share-item" target="_blank"
-            href="https://twitter.com/share?text=Spring Boot Hello World 基于 IDEA 案例详解 - 程序员泥瓦匠&url=https%3A%2F%2Fbysocket.com%2Fspring_boot_hello_world%2F">
+            href="https://twitter.com/share?text=Spring Boot 整合 MyBatis 配置等案例教程 - 程序员泥瓦匠&url=https%3A%2F%2Fbysocket.com%2Fspring-boot-mybatis%2F">
             <ion-icon name="logo-twitter"></ion-icon>
         </a>
         <a class="share-item" target="_blank"
-            href="https://www.facebook.com/sharer.php?title=Spring Boot Hello World 基于 IDEA 案例详解 - 程序员泥瓦匠&u=https%3A%2F%2Fbysocket.com%2Fspring_boot_hello_world%2F">
+            href="https://www.facebook.com/sharer.php?title=Spring Boot 整合 MyBatis 配置等案例教程 - 程序员泥瓦匠&u=https%3A%2F%2Fbysocket.com%2Fspring-boot-mybatis%2F">
             <ion-icon name="logo-facebook"></ion-icon>
         </a>
         <!-- <a class="share-item" target="_blank"
-            href="https://service.weibo.com/share/share.php?title=Spring Boot Hello World 基于 IDEA 案例详解 - 程序员泥瓦匠&url=https://bysocket.com/spring_boot_hello_world/&pic=">
+            href="https://service.weibo.com/share/share.php?title=Spring Boot 整合 MyBatis 配置等案例教程 - 程序员泥瓦匠&url=https://bysocket.com/spring-boot-mybatis/&pic=">
             <div class="n-icon n-icon-weibo"></div>
         </a> -->
     </section>

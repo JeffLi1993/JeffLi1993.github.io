@@ -19,6 +19,15 @@
     <priority>0.6</priority>
   </url>
   
+  <url>
+    <loc>https://bysocket.com/spring-boot-mybatis/</loc>
+    
+    <lastmod>2023-01-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
 
   <url>
     <loc>https://bysocket.com/</loc>
@@ -30,6 +39,20 @@
   
   <url>
     <loc>https://bysocket.com/tags/Java/</loc>
+    <lastmod>2023-01-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bysocket.com/tags/MyBatis/</loc>
+    <lastmod>2023-01-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bysocket.com/tags/IDEA/</loc>
     <lastmod>2023-01-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
