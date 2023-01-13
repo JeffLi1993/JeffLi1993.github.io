@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>Spring Boot Hello World 基于 IDEA 案例详解 | 程序员泥瓦匠</title>
+
+    <meta name="description" content="&lt;h2 id=&#34;一、Spring-Boot-是什么&#34;&gt;&lt;a href=&#34;#一、Spring-Boot-是什么&#34; class=&#34;headerlink&#34; title=&#34;一、Spring Boot 是什么&#34;&gt;&lt;/a&gt;一、Spring Boot 是什么&lt;/h2&gt;&lt;p&gt;世界上最好的文档来源自官方的《Spring Boot Reference Guide》，是这样介绍的：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can “just run”…Most Spring Boot applications need very little Spring configuration.&lt;/p&gt;
+&lt;/blockquote&gt;">
+    <meta name="keywords" content="">
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "Spring Boot Hello World 基于 IDEA 案例详解 | 程序员泥瓦匠"  />
+    <meta property="og:description" content= "&lt;h2 id=&#34;一、Spring-Boot-是什么&#34;&gt;&lt;a href=&#34;#一、Spring-Boot-是什么&#34; class=&#34;headerlink&#34; title=&#34;一、Spring Boot 是什么&#34;&gt;&lt;/a&gt;一、Spring Boot 是什么&lt;/h2&gt;&lt;p&gt;世界上最好的文档来源自官方的《Spring Boot Reference Guide》，是这样介绍的：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can “just run”…Most Spring Boot applications need very little Spring configuration.&lt;/p&gt;
+&lt;/blockquote&gt;" />
+    <meta property="og:url" content="https://bysocket.com/spring_boot_hello_world/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="泥瓦匠" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h2 id=&#34;一、Spring-Boot-是什么&#34;&gt;&lt;a href=&#34;#一、Spring-Boot-是什么&#34; class=&#34;headerlink&#34; title=&#34;一、Spring Boot 是什么&#34;&gt;&lt;/a&gt;一、Spring Boot 是什么&lt;/h2&gt;&lt;p&gt;世界上最好的文档来源自官方的《Spring Boot Reference Guide》，是这样介绍的：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can “just run”…Most Spring Boot applications need very little Spring configuration.&lt;/p&gt;
+&lt;/blockquote&gt;" />
+    <meta name="twitter:title" content="Spring Boot Hello World 基于 IDEA 案例详解 | 程序员泥瓦匠"/>
+    <meta name="twitter:description" content="&lt;h2 id=&#34;一、Spring-Boot-是什么&#34;&gt;&lt;a href=&#34;#一、Spring-Boot-是什么&#34; class=&#34;headerlink&#34; title=&#34;一、Spring Boot 是什么&#34;&gt;&lt;/a&gt;一、Spring Boot 是什么&lt;/h2&gt;&lt;p&gt;世界上最好的文档来源自官方的《Spring Boot Reference Guide》，是这样介绍的：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can “just run”…Most Spring Boot applications need very little Spring configuration.&lt;/p&gt;
+&lt;/blockquote&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h2 id=&#34;一、Spring-Boot-是什么&#34;&gt;&lt;a href=&#34;#一、Spring-Boot-是什么&#34; class=&#34;headerlink&#34; title=&#34;一、Spring Boot 是什么&#34;&gt;&lt;/a&gt;一、Spring Boot 是什么&lt;/h2&gt;&lt;p&gt;世界上最好的文档来源自官方的《Spring Boot Reference Guide》，是这样介绍的：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can “just run”…Most Spring Boot applications need very little Spring configuration.&lt;/p&gt;
+&lt;/blockquote&gt;",
+            "author": { "@type": "Person", "name": "泥瓦匠" },
+            "@type": "BlogPosting",
+            "url": "https://bysocket.com/spring_boot_hello_world/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://bysocket.com/images/avatar.jpeg"
+            },
+            "name": "泥瓦匠"
+            },
+            "headline": "Spring Boot Hello World 基于 IDEA 案例详解 | 程序员泥瓦匠",
+            "datePublished": "2022-01-13T06:50:15.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://bysocket.com/spring_boot_hello_world/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+    <!-- Google 广告 AdSense 代码 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4620650152175631" crossorigin="anonymous">
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-avatar avatar avatar-sm">
+                <img src="/images/avatar.jpeg" alt="泥瓦匠">
+            </div>
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>程序员泥瓦匠</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">首页</a>
+                
+                <a href="/archives">存档</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://bysocket.com/images/end.gif">
+        <ion-icon name="logo-wechat"></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-clcu4el6d0000tb3s5ls2h3rw" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      Spring Boot Hello World 基于 IDEA 案例详解
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-01-13T06:50:15.000Z" itemprop="datePublished">2022-01-13</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/Spring-Boot/">Spring Boot</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h2 id="一、Spring-Boot-是什么"><a href="#一、Spring-Boot-是什么" class="headerlink" title="一、Spring Boot 是什么"></a>一、Spring Boot 是什么</h2><p>世界上最好的文档来源自官方的《Spring Boot Reference Guide》，是这样介绍的：</p>
+<blockquote>
+<p>Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can “just run”…Most Spring Boot applications need very little Spring configuration.</p>
+</blockquote>
+<span id="more"></span>
+
+<p>Spring Boot(英文中是“引导”的意思)，是用来简化Spring应用的搭建到开发的过程。应用开箱即用，只要通过 “just run”（可能是 java -jar 或 tomcat 或 maven插件run 或 shell脚本），就可以启动项目。二者，Spring Boot 只要很少的Spring配置文件（例如那些xml，property）。 因为“习惯优先于配置”的原则，使得Spring Boot在快速开发应用和微服务架构实践中得到广泛应用。   Javaer装好JDK环境和Maven工具就可以开始学习Boot了~</p>
+<h2 id="二、Spring-Boot-Hello-World-实战详解"><a href="#二、Spring-Boot-Hello-World-实战详解" class="headerlink" title="二、Spring Boot Hello World 实战详解"></a>二、Spring Boot Hello World 实战详解</h2><p>首先得有个 maven 基础项目，可以直接使用 Maven 骨架工程生成 Maven 骨架 Web 项目，即 man archetype:generate 命令：</p>
+<pre><code>mvn archetype:generate -DgroupId=springboot -DartifactId=springboot-helloworld -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+</code></pre>
+<h3 id="2-1-pom-xml配置"><a href="#2-1-pom-xml配置" class="headerlink" title="2.1  pom.xml配置"></a>2.1  pom.xml配置</h3><p>代码如下：</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;groupId&gt;springboot&lt;/groupId&gt;
+    &lt;artifactId&gt;springboot-helloworld&lt;/artifactId&gt;
+    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+    &lt;name&gt;springboot-helloworld :: HelloWorld Demo&lt;/name&gt;
+
+    &lt;!-- Spring Boot 启动父依赖 --&gt;
+    &lt;parent&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+        &lt;version&gt;1.3.3.RELEASE&lt;/version&gt;
+    &lt;/parent&gt;
+
+    &lt;dependencies&gt;
+        &lt;!-- Spring Boot web依赖 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- Junit --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;junit&lt;/groupId&gt;
+            &lt;artifactId&gt;junit&lt;/artifactId&gt;
+            &lt;version&gt;4.12&lt;/version&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+&lt;/project&gt;
+</code></pre>
+<p>只要加入一个 Spring Boot 启动父依赖即可。</p>
+<h3 id="2-2-Controller-层"><a href="#2-2-Controller-层" class="headerlink" title="2.2 Controller 层"></a>2.2 Controller 层</h3><p>HelloWorldController的代码如下：</p>
+<pre><code>/**
+ * Spring Boot HelloWorld案例
+ *
+ * Created by bysocket on 16/4/26.
+ */
+@RestController
+public class HelloWorldController &#123;
+ 
+    @RequestMapping(&quot;/&quot;)
+    public String sayHello() &#123;
+        return &quot;Hello,World!&quot;;
+    &#125;
+&#125;
+</code></pre>
+<p>@RestController和@RequestMapping注解是来自SpringMVC的注解，它们不是SpringBoot的特定部分。<br>1.@RestController：提供实现了REST API，可以服务JSON,XML或者其他。这里是以String的形式渲染出结果。<br>2. @RequestMapping：提供路由信息，”&#x2F;“路径的HTTP Request都会被映射到sayHello方法进行处理。具体参考，世界上最好的文档来源自官方的《 Spring Framework Document》</p>
+<h3 id="2-3-Spring-Boot-启动应用类"><a href="#2-3-Spring-Boot-启动应用类" class="headerlink" title="2.3 Spring Boot 启动应用类"></a>2.3 Spring Boot 启动应用类</h3><p>和第一段描述一样，开箱即用。如下面Application类：</p>
+<pre><code>/**
+ * Spring Boot应用启动类
+ *
+ * Created by bysocket on 16/4/26.
+ */
+@SpringBootApplication
+public class Application &#123;
+ 
+    public static void main(String[] args) &#123;
+        SpringApplication.run(Application.class,args);
+    &#125;
+&#125;
+</code></pre>
+<ol>
+<li>@SpringBootApplication：Spring Boot 应用的标识</li>
+<li>Application很简单，一个main函数作为主入口。SpringApplication引导应用，并将Application本身作为参数传递给run方法。具体run方法会启动嵌入式的Tomcat并初始化Spring环境及其各Spring组件。</li>
+</ol>
+<h3 id="2-4-Controller-层测试类"><a href="#2-4-Controller-层测试类" class="headerlink" title="2.4 Controller 层测试类"></a>2.4 Controller 层测试类</h3><p>一个好的程序，不能缺少好的UT。针对HelloWorldController的UT如下：</p>
+<pre><code>/**
+ * Spring Boot HelloWorldController 测试 - &#123;@link HelloWorldController&#125;
+ *
+ * Created by bysocket on 16/4/26.
+ */
+public class HelloWorldControllerTest &#123;
+ 
+    @Test
+    public void testSayHello() &#123;
+        assertEquals(&quot;Hello,World!&quot;,new HelloWorldController().sayHello());
+    &#125;
+&#125;
+</code></pre>
+<h2 id="三、Spring-Boot-Hello-World-案例运行"><a href="#三、Spring-Boot-Hello-World-案例运行" class="headerlink" title="三、Spring Boot Hello World 案例运行"></a>三、Spring Boot Hello World 案例运行</h2><p>Just Run的宗旨，运行很简单，直接右键Run运行Application类。同样你也可以Debug Run。可以在控制台中看到：</p>
+<pre><code>Tomcat started on port(s): 8080 (http)
+Started Application in 5.986 seconds (JVM running for 7.398)
+</code></pre>
+<p>然后访问  <a target="_blank" rel="noopener" href="http://localhost:8080/">http://localhost:8080/</a> ,即可在页面中看到Spring Boot对你 say hello：<br>Hello,World！</p>
+<h2 id="四、小结"><a href="#四、小结" class="headerlink" title="四、小结"></a>四、小结</h2><ol>
+<li>Spring Boot pom配置</li>
+<li>Spring Boot 启动及原理</li>
+</ol>
+<p>如以上文章或链接对你有帮助的话，别忘了在文章结尾处评论哈~ 你也可以点击页面右边“分享”悬浮按钮哦，让更多的人阅读这篇文章。</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/who_is_chengxuyuan_niwajiang/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          程序员泥瓦匠是谁？
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=Spring Boot Hello World 基于 IDEA 案例详解 - 程序员泥瓦匠&url=https%3A%2F%2Fbysocket.com%2Fspring_boot_hello_world%2F">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=Spring Boot Hello World 基于 IDEA 案例详解 - 程序员泥瓦匠&u=https%3A%2F%2Fbysocket.com%2Fspring_boot_hello_world%2F">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=Spring Boot Hello World 基于 IDEA 案例详解 - 程序员泥瓦匠&url=https://bysocket.com/spring_boot_hello_world/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>分类</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/">Spring Boot</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%9D%E8%80%83/">思考</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>标签</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>最新文章</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/who_is_chengxuyuan_niwajiang/">程序员泥瓦匠是谁？</a>
+          </li>
+        
+          <li>
+            <a href="/spring_boot_hello_world/">Spring Boot Hello World 基于 IDEA 案例详解</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            程序员泥瓦匠 &copy; 2023<br>
+            <a href="https://beian.miit.gov.cn" target="_blank">浙ICP备15028451号-7</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+<!-- 百度链接提交 -->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- Baidu Analytics-->
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e43a8b7f6b87c80c7d5d89ee04348971";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</body>
+
+</html>
