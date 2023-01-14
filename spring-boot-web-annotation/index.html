@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>Spring Boot Web 开发注解篇 | 程序员泥瓦匠</title>
+
+    <meta name="description" content="&lt;p&gt;运行环境：JDK 7 或 8、Maven 3.0+&lt;br&gt;技术栈：SpringBoot 1.5+、SpringBoot Mybatis Starter 1.2+ 、MyBatis 3.4+&lt;/p&gt;
+&lt;h2 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;spring-boot-starter-web&lt;/p&gt;
+&lt;p&gt;在 Spring Boot 快速入门中，只要在 pom.xml 加入了 spring-boot-starter-web 依赖，即可快速开发 web 应用。可见，Spring Boot 极大地简化了 Spring 应用从搭建到开发的过程，做到了「开箱即用」的方式。Spring Boot 已经提供很多「开箱即用」的依赖，如上面开发 web 应用使用的 spring-boot-starter-web ，都是以 spring-boot-starter-xx 进行命名的。&lt;/p&gt;">
+    <meta name="keywords" content="">
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "Spring Boot Web 开发注解篇 | 程序员泥瓦匠"  />
+    <meta property="og:description" content= "&lt;p&gt;运行环境：JDK 7 或 8、Maven 3.0+&lt;br&gt;技术栈：SpringBoot 1.5+、SpringBoot Mybatis Starter 1.2+ 、MyBatis 3.4+&lt;/p&gt;
+&lt;h2 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;spring-boot-starter-web&lt;/p&gt;
+&lt;p&gt;在 Spring Boot 快速入门中，只要在 pom.xml 加入了 spring-boot-starter-web 依赖，即可快速开发 web 应用。可见，Spring Boot 极大地简化了 Spring 应用从搭建到开发的过程，做到了「开箱即用」的方式。Spring Boot 已经提供很多「开箱即用」的依赖，如上面开发 web 应用使用的 spring-boot-starter-web ，都是以 spring-boot-starter-xx 进行命名的。&lt;/p&gt;" />
+    <meta property="og:url" content="https://bysocket.com/spring-boot-web-annotation/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="泥瓦匠" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;p&gt;运行环境：JDK 7 或 8、Maven 3.0+&lt;br&gt;技术栈：SpringBoot 1.5+、SpringBoot Mybatis Starter 1.2+ 、MyBatis 3.4+&lt;/p&gt;
+&lt;h2 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;spring-boot-starter-web&lt;/p&gt;
+&lt;p&gt;在 Spring Boot 快速入门中，只要在 pom.xml 加入了 spring-boot-starter-web 依赖，即可快速开发 web 应用。可见，Spring Boot 极大地简化了 Spring 应用从搭建到开发的过程，做到了「开箱即用」的方式。Spring Boot 已经提供很多「开箱即用」的依赖，如上面开发 web 应用使用的 spring-boot-starter-web ，都是以 spring-boot-starter-xx 进行命名的。&lt;/p&gt;" />
+    <meta name="twitter:title" content="Spring Boot Web 开发注解篇 | 程序员泥瓦匠"/>
+    <meta name="twitter:description" content="&lt;p&gt;运行环境：JDK 7 或 8、Maven 3.0+&lt;br&gt;技术栈：SpringBoot 1.5+、SpringBoot Mybatis Starter 1.2+ 、MyBatis 3.4+&lt;/p&gt;
+&lt;h2 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;spring-boot-starter-web&lt;/p&gt;
+&lt;p&gt;在 Spring Boot 快速入门中，只要在 pom.xml 加入了 spring-boot-starter-web 依赖，即可快速开发 web 应用。可见，Spring Boot 极大地简化了 Spring 应用从搭建到开发的过程，做到了「开箱即用」的方式。Spring Boot 已经提供很多「开箱即用」的依赖，如上面开发 web 应用使用的 spring-boot-starter-web ，都是以 spring-boot-starter-xx 进行命名的。&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;p&gt;运行环境：JDK 7 或 8、Maven 3.0+&lt;br&gt;技术栈：SpringBoot 1.5+、SpringBoot Mybatis Starter 1.2+ 、MyBatis 3.4+&lt;/p&gt;
+&lt;h2 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;spring-boot-starter-web&lt;/p&gt;
+&lt;p&gt;在 Spring Boot 快速入门中，只要在 pom.xml 加入了 spring-boot-starter-web 依赖，即可快速开发 web 应用。可见，Spring Boot 极大地简化了 Spring 应用从搭建到开发的过程，做到了「开箱即用」的方式。Spring Boot 已经提供很多「开箱即用」的依赖，如上面开发 web 应用使用的 spring-boot-starter-web ，都是以 spring-boot-starter-xx 进行命名的。&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "泥瓦匠" },
+            "@type": "BlogPosting",
+            "url": "https://bysocket.com/spring-boot-web-annotation/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://bysocket.com/images/avatar.jpeg"
+            },
+            "name": "泥瓦匠"
+            },
+            "headline": "Spring Boot Web 开发注解篇 | 程序员泥瓦匠",
+            "datePublished": "2023-01-14T15:50:15.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://bysocket.com/spring-boot-web-annotation/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+    <!-- Google 广告 AdSense 代码 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4620650152175631" crossorigin="anonymous">
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-avatar avatar avatar-sm">
+                <img src="/images/avatar.jpeg" alt="泥瓦匠">
+            </div>
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>程序员泥瓦匠</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">首页</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/about">关于我</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/JeffLi1993">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+    <a class="social" target="_blank" href="https://twitter.com/CoderJeffLee">
+        <ion-icon name="logo-twitter"></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/about">关于我</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-clcv9jdqq0000oj3s1fzabl0f" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      Spring Boot Web 开发注解篇
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2023-01-14T15:50:15.000Z" itemprop="datePublished">2023-01-14</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/Spring-Boot/">Spring Boot</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <p>运行环境：JDK 7 或 8、Maven 3.0+<br>技术栈：SpringBoot 1.5+、SpringBoot Mybatis Starter 1.2+ 、MyBatis 3.4+</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>spring-boot-starter-web</p>
+<p>在 Spring Boot 快速入门中，只要在 pom.xml 加入了 spring-boot-starter-web 依赖，即可快速开发 web 应用。可见，Spring Boot 极大地简化了 Spring 应用从搭建到开发的过程，做到了「开箱即用」的方式。Spring Boot 已经提供很多「开箱即用」的依赖，如上面开发 web 应用使用的 spring-boot-starter-web ，都是以 spring-boot-starter-xx 进行命名的。</p>
+<span id="more"></span>
+
+
+<p>Spring Boot 「开箱即用」 的设计，对开发者非常便利。简单来说，只要往 Spring Boot 项目加入相应的 spring-boot-starter-xx 依赖，就可以使用对应依赖的功能，比如加入 spring-boot-starter-data-jpa 依赖，就可以使用数据持久层框架 Spring Data JPA 操作数据源。相比 Spring 以前需要大量的XML配置以及复杂的依赖管理，极大的减少了开发工作量和学习成本。</p>
+<p>当开发一个特定类型的应用程序时，特定的 Starter 提供所需的依赖关系，并且将对应的 Bean 注册到 Spring 容器中。spring-boot-starter-web 依赖就是提供开发 Web 应用的。</p>
+<h3 id="1-1-spring-boot-starter-web-职责"><a href="#1-1-spring-boot-starter-web-职责" class="headerlink" title="1.1 spring-boot-starter-web 职责"></a>1.1 spring-boot-starter-web 职责</h3><p>spring-boot-starter-web 是一个用于构建 Web 的 Starter ，包括构建 RESTful 服务应用、Spring MVC 应用等。并且不需要额外配置容器，默认使用 Tomcat 作为嵌入式容器。</p>
+<h3 id="1-2-spring-boot-starter-web-依赖关系"><a href="#1-2-spring-boot-starter-web-依赖关系" class="headerlink" title="1.2 spring-boot-starter-web 依赖关系"></a>1.2 spring-boot-starter-web 依赖关系</h3><p>spring-boot-starter-web 这么强大，它的组成如下表：</p>
+<ul>
+<li><p>spring-boot-starter  核心包，包括了自动化配置支持、日志、YAML 文件解析的支持等。</p>
+</li>
+<li><p>spring-boot-starter-json 读写 JSON 包</p>
+</li>
+<li><p>spring-boot-starter-tomcat Tomcat 嵌入式 Servlet 容器包</p>
+</li>
+<li><p>hibernate-validator Hibernate 框架提供的验证包</p>
+</li>
+<li><p>spring-web Spring 框架的 Web 包</p>
+</li>
+<li><p>spring-webmvc Spring 框架的 Web MVC 包</p>
+</li>
+</ul>
+<p><img src="/images/web-annotation/spring-boot-web-package.webp"></p>
+<p>spring-boot-starter-web 包含了 Tomcat 和 Spring MVC ，那启动流程是这样的。 标识 @SpringBootApplication 的应用，初始化经过 spring-boot-starter  核心包中的自动化配置，构建了 Spring 容器，并通过 Tomcat 启动 Web 应用。很多 Starters 只支持 Spring MVC，一般会将 spring-boot-starter-web 依赖加入到应用的 Classpath。</p>
+<p>另外，spring-boot-starter-web 默认使用 Tomcat 作为嵌入式 Servlet 容器，在 pom.xml 配置 spring-boot-starter-jetty 和 spring-boot-starter-undertow 就可以替换默认容器。</p>
+<h2 id="Spring-MVC-on-Spring-Boot"><a href="#Spring-MVC-on-Spring-Boot" class="headerlink" title="Spring MVC on Spring Boot"></a>Spring MVC on Spring Boot</h2><p>Spring MVC 是 Spring Web 重要的模块。内容包括 MVC 模式的实现和 RESTful 服务的支持。</p>
+<h3 id="2-1-Spring-MVC-体系温故知新"><a href="#2-1-Spring-MVC-体系温故知新" class="headerlink" title="2.1 Spring MVC 体系温故知新"></a>2.1 Spring MVC 体系温故知新</h3><p>spring-webmvc 模块里面包：</p>
+<ul>
+<li><p>org.springframework.web.servlet 提供与应用程序上下文基础结构集成的 Servlet，以及 Spring web MVC 框架的核心接口和类。</p>
+</li>
+<li><p>org.springframework.web.servlet.mvc Spring 附带的 Servlet MVC 框架的标准控制器实现。</p>
+</li>
+<li><p>org.springframework.web.servlet.mvc.annotation 用于基于注解的 Servlet MVC 控制器的支持包。</p>
+</li>
+<li><p>org.springframework.web.servlet.mvc.condition 用于根据条件匹配传入请求的公共 MVC 逻辑。</p>
+</li>
+<li><p>org.springframework.web.servlet.mvc.method 用于处理程序方法处理的基于 Servlet 的基础结构，基于在 org.springframework.web.method 包上。</p>
+</li>
+<li><p>org.springframework.web.servlet.view 提供标准的 View 和 ViewResolver 实现，包括自定义实现的抽象基类。</p>
+</li>
+<li><p>org.springframework.web.servlet.view.freemarker 支持将 FreeMarker 集成为 Spring Web 视图技术的类。</p>
+</li>
+<li><p>org.springframework.web.servlet.view.json 支持提供基于 JSON 序列化的 View 实现的类。</p>
+</li>
+</ul>
+<p>上面列出来核心的包。org.springframework.web.servlet.view 包中， View 视图实现有常见的：JSON 、FreeMarker 等。org.springframework.web.servlet.mvc 包中，Controller 控制层实现包括了注解、程序方法处理等封装。自然，看源码先从 org.springframework.web.servlet 包看其核心的接口和类。</p>
+<h3 id="2-2-重要的类"><a href="#2-2-重要的类" class="headerlink" title="2.2 重要的类"></a>2.2 重要的类</h3><p>DispatcherServlet 类：调度 HTTP 请求控制器（或者处理器 Handler）。</p>
+<p>View 视图层 ModelAndView 类：模型和视图的持有者。</p>
+<p>View 接口：MVC WEB 交互。该接口的实现负责呈现视图或者暴露模型。</p>
+<p>Controller 控制层 HandlerMapping 接口： 请求从 DispacherServlet 过来，该接口定义请求和处理程序对象之间的映射。</p>
+<p>HandlerInterceptor 接口：处理程序的执行链接口。</p>
+<p>Spring MVC 框架模型<br><img src="/images/web-annotation/spring-mvc.webp"></p>
+<h3 id="2-3-Spring-Boot-MVC"><a href="#2-3-Spring-Boot-MVC" class="headerlink" title="2.3 Spring Boot MVC"></a>2.3 Spring Boot MVC</h3><p>以前 Spring MVC 开发模式是这样的:</p>
+<ol>
+<li><p>在 web.xml 配置 DispatcherServlet，用于截获并处理所有请求</p>
+</li>
+<li><p>在 Spring MVC 配置文件中，声明预定义的控制器和视图解析器等</p>
+</li>
+<li><p>编写预定义的处理请求控制器</p>
+</li>
+<li><p>编写预定义的视图对象，比如 JSP、Freemarker 等</p>
+</li>
+</ol>
+<p>在 Spring Boot MVC 中，Web 自动化配置会帮你减少上面的两个步骤。默认使用的视图是 ThymeLeaf，在下面小节会具体讲</p>
+<ol>
+<li><p>编写预定义的处理请求控制器</p>
+</li>
+<li><p>编写默认 ThymeLeaf 视图对象</p>
+</li>
+</ol>
+<p>例如下面会展示用户列表案例：</p>
+<p>第一步：处理用户请求控制器</p>
+<p>UserController.java</p>
+<pre><code class="java">
+/**
+
+ * 用户控制层
+
+ *
+
+ * Created by bysocket on 24/07/2017.
+
+ */
+
+@Controller
+
+@RequestMapping(value = &quot;/users&quot;)     // 通过这里配置使下面的映射都在 /users
+
+public class UserController &#123;
+
+    @Autowired
+
+    UserService userService;          // 用户服务层
+
+    /**
+
+     *  获取用户列表
+
+     *    处理 &quot;/users&quot; 的GET请求，用来获取用户列表
+
+     *    通过 @RequestParam 传递参数，进一步实现条件查询或者分页查询
+
+     */
+
+    @RequestMapping(method = RequestMethod.GET)
+
+    public String getUserList(ModelMap map) &#123;
+
+        map.addAttribute(&quot;userList&quot;, userService.findAll());
+
+        return &quot;userList&quot;;
+
+    &#125;
+
+&#125;
+</code></pre>
+<p>@Controller 注解在 UserController 类上，标识其为一个可接收 HTTP 请求的控制器</p>
+<p>@RequestMapping(value &#x3D; “&#x2F;users”) 注解 ，标识 UserController 类下所有接收的请求路由都是 &#x2F;users 开头的。注意：类上的 @RequestMapping 注解是不必需的</p>
+<p>@RequestMapping(method &#x3D; RequestMethod.GET) 注解，标识该 getUserList(ModelMap map) 方法会接收并处理 &#x2F;users 请求，且请求方法是 GET</p>
+<p>getUserList(ModelMap map) 方法返回的字符串 userList ，代表着是视图，会有视图解析器解析成为一个具体的视图对象，然后经过视图渲染展示到浏览器</p>
+<p>第二步：用户列表 ThymeLeaf 视图对象</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+
+&lt;html lang=&quot;zh-CN&quot;&gt;
+
+    &lt;head&gt;
+
+        &lt;script type=&quot;text/javascript&quot; th:src=&quot;@&#123;https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js&#125;&quot;&gt;&lt;/script&gt;
+
+        &lt;link th:href=&quot;@&#123;https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css&#125;&quot; rel=&quot;stylesheet&quot;/&gt;
+
+        &lt;link th:href=&quot;@&#123;/css/default.css&#125;&quot; rel=&quot;stylesheet&quot;/&gt;
+
+        &lt;link rel=&quot;icon&quot; th:href=&quot;@&#123;/images/favicon.ico&#125;&quot; type=&quot;image/x-icon&quot;/&gt;
+
+        &lt;meta charset=&quot;UTF-8&quot;/&gt;
+
+        &lt;title&gt;用户列表&lt;/title&gt;
+
+    &lt;/head&gt;
+
+    &lt;body&gt;
+
+        &lt;div class=&quot;contentDiv&quot;&gt;
+
+            &lt;h5&gt; 《 Spring Boot 2.x 核心技术实战》第二章快速入门案例&lt;/h5&gt;
+
+            &lt;table class=&quot;table table-hover table-condensed&quot;&gt;
+
+                &lt;legend&gt;
+
+                    &lt;strong&gt;用户列表&lt;/strong&gt;
+
+                &lt;/legend&gt;
+
+                &lt;thead&gt;
+
+                    &lt;tr&gt;
+
+                        &lt;th&gt;用户编号&lt;/th&gt;
+
+                        &lt;th&gt;名称&lt;/th&gt;
+
+                        &lt;th&gt;年龄&lt;/th&gt;
+
+                        &lt;th&gt;出生时间&lt;/th&gt;
+
+                        &lt;th&gt;管理&lt;/th&gt;
+
+                    &lt;/tr&gt;
+
+                &lt;/thead&gt;
+
+                &lt;tbody&gt;
+
+                    &lt;tr th:each=&quot;user : $&#123;userList&#125;&quot;&gt;
+
+                        &lt;th scope=&quot;row&quot; th:text=&quot;$&#123;user.id&#125;&quot;&gt;&lt;/th&gt;
+
+                        &lt;td&gt;&lt;a th:href=&quot;@&#123;/users/update/&#123;userId&#125;(userId=$&#123;user.id&#125;)&#125;&quot; th:text=&quot;$&#123;user.name&#125;&quot;&gt;&lt;/a&gt;&lt;/td&gt;
+
+                        &lt;td th:text=&quot;$&#123;user.age&#125;&quot;&gt;&lt;/td&gt;
+
+                        &lt;td th:text=&quot;$&#123;user.birthday&#125;&quot;&gt;&lt;/td&gt;
+
+                        &lt;td&gt;&lt;a class=&quot;btn btn-danger&quot; th:href=&quot;@&#123;/users/delete/&#123;userId&#125;(userId=$&#123;user.id&#125;)&#125;&quot;&gt;删除&lt;/a&gt;&lt;/td&gt;
+
+                    &lt;/tr&gt;
+
+                &lt;/tbody&gt;
+
+            &lt;/table&gt;
+
+            &lt;div&gt;&lt;a class=&quot;btn btn-primary&quot; href=&quot;/users/create&quot; role=&quot;button&quot;&gt;创建用户&lt;/a&gt;&lt;/div&gt;
+
+        &lt;/div&gt;
+
+    &lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<p>一个 table 展示用户列表，引入了 jquery.min.js 和 bootstrap.min.css ，更好的展示页面效果。具体 ThymeLeaf 语法下面会讲到。</p>
+<h4 id="2-3-1-控制器"><a href="#2-3-1-控制器" class="headerlink" title="2.3.1 控制器"></a>2.3.1 控制器</h4><p>什么是控制器？控制器就是控制请求接收和负责响应到视图的角色。</p>
+<p>@Controller 注解标识一个类作为控制器。DispatcherServlet 会扫描所有控制器类，并检测</p>
+<p>@RequestMapping 注解配置的方法。Web 自动化配置已经处理完这一步骤。</p>
+<p>@RequestMapping 注解标识请求 URL 信息，可以映射到整个类或某个特定的方法上。该注解可以表明请求需要的。</p>
+<p>使用 value 指定特定的 URL ，比如 @RequestMapping(value &#x3D; “&#x2F;users”) 和 @RequestMapping(value &#x3D; “&#x2F;users&#x2F;create”) 等</p>
+<p>使用 method 指定 HTTP 请求方法，比如 RequestMethod.GET 等</p>
+<p>还有使用其他特定的参数条件，可以设置 consumes 指定请求时的请求头需要包含的 Content-Type 值、设置 produces 可确保响应的内容类型</p>
+<p>MVC on REST ful 场景</p>
+<p>在 HTTP over JSON （自然 JSON、XML或其他自定义的媒体类型内容等均可）场景，配合上前后端分离的开发模式，我们经常会用 @ResponseBody 或 @RestController 两种方式实现 RESTful HTTP API 。</p>
+<p>老方式：</p>
+<p>@ResponseBody 注解标识该方法的返回值。这样被标注的方法返回值，会直接写入 HTTP 响应体（而不会被视图解析器认为是一个视图对象）。</p>
+<p>新方式：</p>
+<p>@RestController 注解，和 @Controller 用法一致，整合了 @Controller 和 @ResponseBody 功能。这样不需要每个 @RequestMapping 方法上都加上 @ResponseBody 注解，这样代码更简明。</p>
+<p>使代码更简明，还有常用便捷注解 @GetMapping、@PostMapping 和 @PutMapping 等</p>
+<p>HTTP 协议相关知识回顾，可以看看我以前的博文《图解 HTTP 协议》</p>
+<h4 id="2-3-2-数据绑定"><a href="#2-3-2-数据绑定" class="headerlink" title="2.3.2 数据绑定"></a>2.3.2 数据绑定</h4><p>数据绑定，简单的说就是 Spring MVC 从请求中获取请求入参，赋予给处理方法相应的入参。主要流程如下：</p>
+<ol>
+<li><p>DataBinder 接受带有请求入参的 ServletRequest 对象</p>
+</li>
+<li><p>调用 ConversionService 组件，进行数据类型转换、数据格式化等工作</p>
+</li>
+<li><p>然后调用 Validator 组件，进行数据校验等工作</p>
+</li>
+<li><p>绑定结果到 BindingResult 对象</p>
+</li>
+<li><p>最后赋予给处理方法相应的入参</p>
+</li>
+</ol>
+<p>@ModelAttribute 注解添加一个或多个属性（类对象）到 model 上。例如</p>
+<pre><code class="java">    @RequestMapping(value = &quot;/create&quot;, method = RequestMethod.POST)
+
+    public String postUser(@ModelAttribute User user)
+</code></pre>
+<p>@PathVariable 注解通过变量名匹配到 URI 模板中相对应的变量。例如</p>
+<pre><code class="java">   @RequestMapping(value = &quot;/update/&#123;id&#125;&quot;, method = RequestMethod.GET)
+
+    public String getUser(@PathVariable(&quot;id&quot;) Long id, ModelMap map)
+</code></pre>
+<p>@RequestParam 注解将请求参数绑定到方法参数。</p>
+<p>@RequestHeader 注解将请求头属性绑定到方法参数。</p>
+<h4 id="2-3-3-视图和视图解析"><a href="#2-3-3-视图和视图解析" class="headerlink" title="2.3.3 视图和视图解析"></a>2.3.3 视图和视图解析</h4><p>视图的职责就是渲染模型数据，将模型里面的数据展示给用户。</p>
+<p>请求到经过处理方法处理后，最终返回的是 ModeAndView 。可以从 Spring MVC 框架模型 看出，最终经过 ViewResolver 视频解析器得到视图对象 View。可能是我们常见的 JSP ，也可能是基于 ThymLeaf 、FreeMarker 或 Velocity 模板引擎视图，当然还有可能是 JSON 、XML 或者 PDF 等各种形式。</p>
+<p>业界流行的模板引擎有如下的 Starters 支持：</p>
+<ul>
+<li><p>spring-boot-starter-thymeleaf Thymeleaf 模板视图依赖，官方推荐</p>
+</li>
+<li><p>spring-boot-starter-freemarker Freemarker 模板视图依赖</p>
+</li>
+<li><p>spring-boot-starter-groovy-templates Groovy 模板视图依赖</p>
+</li>
+<li><p>spring-boot-starter-mustache Mustache 模板视图依赖</p>
+</li>
+</ul>
+<p>具体，spring-boot-starter-thymeleaf 使用案例在 GitHub ：<a target="_blank" rel="noopener" href="https://github.com/JeffLi1993/springboot-learning-example">https://github.com/JeffLi1993/springboot-learning-example</a> 的 chapter-2-spring-boot-quick-start 工程。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文主要介绍了 Spring Boot 在 Web 开发中涉及到的 HTTP 协议，还有一些 Spring MVC 相关的知识。</p>
+<p>推荐：</p>
+<ul>
+<li>开源项目 springboot-learning-example <a target="_blank" rel="noopener" href="https://github.com/JeffLi1993/springboot-learning-example">https://github.com/JeffLi1993/springboot-learning-example</a></li>
+</ul>
+<p>资料：</p>
+<ul>
+<li>官方文档 <a target="_blank" rel="noopener" href="http://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle">http://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle</a></li>
+</ul>
+
+        </div>
+
+    </div>
+
+    <div class="article-copyright">
+
+        <div style="float: left;width: 20%;align:center;text-align: center;">
+             <img style="width: 100px;" src="https://www.bysocket.com/images/qrcode.jpeg">
+        </div>
+        <div style="float: left;width: 80%;">
+                <br/>
+                本文由 <a target="_blank" rel="noopener" href="https://www.bysocket.com/">泥瓦匠</a> 创作<br/><br/>
+                原创不易，欢迎关注公众号！转载请注明出处，感谢支持！如果本文对您有用，欢迎转发分享！
+        </div>
+
+      </div><br/><br/><br/><br/><br/>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+  
+    <a href="/spring-boot-mybatis/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">Spring Boot 整合 MyBatis 配置等案例教程</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=Spring Boot Web 开发注解篇 - 程序员泥瓦匠&url=https%3A%2F%2Fbysocket.com%2Fspring-boot-web-annotation%2F">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=Spring Boot Web 开发注解篇 - 程序员泥瓦匠&u=https%3A%2F%2Fbysocket.com%2Fspring-boot-web-annotation%2F">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=Spring Boot Web 开发注解篇 - 程序员泥瓦匠&url=https://bysocket.com/spring-boot-web-annotation/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>分类</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/">Spring Boot</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%9D%E8%80%83/">思考</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>标签</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>最新文章</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/spring-boot-web-annotation/">Spring Boot Web 开发注解篇</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-mybatis/">Spring Boot 整合 MyBatis 配置等案例教程</a>
+          </li>
+        
+          <li>
+            <a href="/spring_boot_hello_world/">Spring Boot Hello World 基于 IDEA 案例详解</a>
+          </li>
+        
+          <li>
+            <a href="/about/">程序员泥瓦匠是谁？</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            程序员泥瓦匠 &copy; 2023<br>
+            <a href="https://beian.miit.gov.cn" target="_blank">浙ICP备15028451号-7</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+<!-- 百度链接提交 -->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- Baidu Analytics-->
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e43a8b7f6b87c80c7d5d89ee04348971";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</body>
+
+</html>
