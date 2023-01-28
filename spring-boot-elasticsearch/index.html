@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>Spring Boot 整合 ElasticSearch 案例教程 | 程序员泥瓦匠</title>
+
+    <meta name="description" content="&lt;h2 id=&#34;一、ES-的使用场景&#34;&gt;&lt;a href=&#34;#一、ES-的使用场景&#34; class=&#34;headerlink&#34; title=&#34;一、ES 的使用场景&#34;&gt;&lt;/a&gt;一、ES 的使用场景&lt;/h2&gt;&lt;p&gt;简单说，ElasticSearch（简称 ES）是搜索引擎，是结构化数据的分布式搜索引擎。&lt;br&gt;我详细的介绍了如何安装，初步使用了 IK 分词器。这里，我主要讲下 SpringBoot 工程中如何使用 ElasticSearch。&lt;/p&gt;
+&lt;p&gt;运行环境：JDK 7 或 8，Maven 3.0+&lt;/p&gt;
+&lt;p&gt;技术栈：SpringBoot 1.5+，ElasticSearch 2.3.2&lt;/p&gt;">
+    <meta name="keywords" content="">
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "Spring Boot 整合 ElasticSearch 案例教程 | 程序员泥瓦匠"  />
+    <meta property="og:description" content= "&lt;h2 id=&#34;一、ES-的使用场景&#34;&gt;&lt;a href=&#34;#一、ES-的使用场景&#34; class=&#34;headerlink&#34; title=&#34;一、ES 的使用场景&#34;&gt;&lt;/a&gt;一、ES 的使用场景&lt;/h2&gt;&lt;p&gt;简单说，ElasticSearch（简称 ES）是搜索引擎，是结构化数据的分布式搜索引擎。&lt;br&gt;我详细的介绍了如何安装，初步使用了 IK 分词器。这里，我主要讲下 SpringBoot 工程中如何使用 ElasticSearch。&lt;/p&gt;
+&lt;p&gt;运行环境：JDK 7 或 8，Maven 3.0+&lt;/p&gt;
+&lt;p&gt;技术栈：SpringBoot 1.5+，ElasticSearch 2.3.2&lt;/p&gt;" />
+    <meta property="og:url" content="https://bysocket.com/spring-boot-elasticsearch/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="泥瓦匠" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h2 id=&#34;一、ES-的使用场景&#34;&gt;&lt;a href=&#34;#一、ES-的使用场景&#34; class=&#34;headerlink&#34; title=&#34;一、ES 的使用场景&#34;&gt;&lt;/a&gt;一、ES 的使用场景&lt;/h2&gt;&lt;p&gt;简单说，ElasticSearch（简称 ES）是搜索引擎，是结构化数据的分布式搜索引擎。&lt;br&gt;我详细的介绍了如何安装，初步使用了 IK 分词器。这里，我主要讲下 SpringBoot 工程中如何使用 ElasticSearch。&lt;/p&gt;
+&lt;p&gt;运行环境：JDK 7 或 8，Maven 3.0+&lt;/p&gt;
+&lt;p&gt;技术栈：SpringBoot 1.5+，ElasticSearch 2.3.2&lt;/p&gt;" />
+    <meta name="twitter:title" content="Spring Boot 整合 ElasticSearch 案例教程 | 程序员泥瓦匠"/>
+    <meta name="twitter:description" content="&lt;h2 id=&#34;一、ES-的使用场景&#34;&gt;&lt;a href=&#34;#一、ES-的使用场景&#34; class=&#34;headerlink&#34; title=&#34;一、ES 的使用场景&#34;&gt;&lt;/a&gt;一、ES 的使用场景&lt;/h2&gt;&lt;p&gt;简单说，ElasticSearch（简称 ES）是搜索引擎，是结构化数据的分布式搜索引擎。&lt;br&gt;我详细的介绍了如何安装，初步使用了 IK 分词器。这里，我主要讲下 SpringBoot 工程中如何使用 ElasticSearch。&lt;/p&gt;
+&lt;p&gt;运行环境：JDK 7 或 8，Maven 3.0+&lt;/p&gt;
+&lt;p&gt;技术栈：SpringBoot 1.5+，ElasticSearch 2.3.2&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h2 id=&#34;一、ES-的使用场景&#34;&gt;&lt;a href=&#34;#一、ES-的使用场景&#34; class=&#34;headerlink&#34; title=&#34;一、ES 的使用场景&#34;&gt;&lt;/a&gt;一、ES 的使用场景&lt;/h2&gt;&lt;p&gt;简单说，ElasticSearch（简称 ES）是搜索引擎，是结构化数据的分布式搜索引擎。&lt;br&gt;我详细的介绍了如何安装，初步使用了 IK 分词器。这里，我主要讲下 SpringBoot 工程中如何使用 ElasticSearch。&lt;/p&gt;
+&lt;p&gt;运行环境：JDK 7 或 8，Maven 3.0+&lt;/p&gt;
+&lt;p&gt;技术栈：SpringBoot 1.5+，ElasticSearch 2.3.2&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "泥瓦匠" },
+            "@type": "BlogPosting",
+            "url": "https://bysocket.com/spring-boot-elasticsearch/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://bysocket.com/images/avatar.jpeg"
+            },
+            "name": "泥瓦匠"
+            },
+            "headline": "Spring Boot 整合 ElasticSearch 案例教程 | 程序员泥瓦匠",
+            "datePublished": "2023-01-29T15:50:15.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://bysocket.com/spring-boot-elasticsearch/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+    <!-- Google 广告 AdSense 代码 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4620650152175631" crossorigin="anonymous">
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-avatar avatar avatar-sm">
+                <img src="/images/avatar.jpeg" alt="泥瓦匠">
+            </div>
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>程序员泥瓦匠</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">首页</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/about">关于我</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/JeffLi1993">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+    <a class="social" target="_blank" href="https://twitter.com/CoderJeffLee">
+        <ion-icon name="logo-twitter"></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/about">关于我</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cldfjky7e000asn3s5d4g7m8t" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      Spring Boot 整合 ElasticSearch 案例教程
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2023-01-29T15:50:15.000Z" itemprop="datePublished">2023-01-29</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/Spring-Boot/">Spring Boot</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h2 id="一、ES-的使用场景"><a href="#一、ES-的使用场景" class="headerlink" title="一、ES 的使用场景"></a>一、ES 的使用场景</h2><p>简单说，ElasticSearch（简称 ES）是搜索引擎，是结构化数据的分布式搜索引擎。<br>我详细的介绍了如何安装，初步使用了 IK 分词器。这里，我主要讲下 SpringBoot 工程中如何使用 ElasticSearch。</p>
+<p>运行环境：JDK 7 或 8，Maven 3.0+</p>
+<p>技术栈：SpringBoot 1.5+，ElasticSearch 2.3.2</p>
+<span id="more"></span>
+
+<p>ES 的使用场景大致分为两块：</p>
+<ol>
+<li><p>全文检索。加上分词（IK 是其中一个）、拼音插件等可以成为强大的全文搜索引擎。</p>
+</li>
+<li><p>日志统计分析。可以实时动态分析海量日志数据。</p>
+</li>
+</ol>
+<h2 id="二、运行-springboot-elasticsearch-工程"><a href="#二、运行-springboot-elasticsearch-工程" class="headerlink" title="二、运行 springboot-elasticsearch 工程"></a>二、运行 springboot-elasticsearch 工程</h2><p>注意的是这里使用的是 ElasticSearch 2.3.2。是因为版本对应关系 ：</p>
+<pre><code>Spring Boot Version (x)    Spring Data Elasticsearch Version (y)    Elasticsearch Version (z)
+x &lt;= 1.3.5    y &lt;= 1.3.4    z &lt;= 1.7.2*
+x &gt;= 1.4.x    2.0.0 &lt;=y &lt; 5.0.0**    2.0.0 &lt;= z &lt; 5.0.0**
+</code></pre>
+<ul>
+<li>只需要你修改下对应的 pom 文件版本号</li>
+<li>下一个 ES 的版本会有重大的更新</li>
+</ul>
+<p>git clone 下载工程 springboot-elasticsearch ，项目地址见 GitHub - <a target="_blank" rel="noopener" href="https://github.com/JeffLi1993/springboot-learning-example">https://github.com/JeffLi1993/springboot-learning-example</a> 。</p>
+<h3 id="1-后台起守护线程启动-Elasticsearch"><a href="#1-后台起守护线程启动-Elasticsearch" class="headerlink" title="1. 后台起守护线程启动 Elasticsearch"></a>1. 后台起守护线程启动 Elasticsearch</h3><pre><code>cd elasticsearch-2.3.2/
+./bin/elasticsearch -d
+</code></pre>
+<p>下面开始运行工程步骤（Quick Start）：</p>
+<h3 id="2-项目结构介绍"><a href="#2-项目结构介绍" class="headerlink" title="2. 项目结构介绍"></a>2. 项目结构介绍</h3><pre><code>org.spring.springboot.controller - Controller 层
+org.spring.springboot.repository - ES 数据操作层
+org.spring.springboot.domain - 实体类
+org.spring.springboot.service - ES 业务逻辑层
+Application - 应用启动类
+application.properties - 应用配置文件，应用启动会自动读取配置
+</code></pre>
+<p>本地启动的 ES ，就不需要改配置文件了。如果连测试 ES 服务地址，需要修改相应配置</p>
+<h3 id="3-编译工程"><a href="#3-编译工程" class="headerlink" title="3.编译工程"></a>3.编译工程</h3><p>在项目根目录 springboot-elasticsearch，运行 maven 指令：</p>
+<pre><code>mvn clean install
+</code></pre>
+<p>4.运行工程</p>
+<p>右键运行 Application 应用启动类（位置：&#x2F;springboot-learning-example&#x2F;springboot-elasticsearch&#x2F;src&#x2F;main&#x2F;java&#x2F;org&#x2F;spring&#x2F;springboot&#x2F;Application.java）的 main 函数，这样就成功启动了 springboot-elasticsearch 案例。</p>
+<p>用 Postman 工具新增两个城市</p>
+<p>新增城市信息</p>
+<pre><code>POST http://127.0.0.1:8080/api/city
+&#123;
+&quot;id&quot;:&quot;1&quot;,
+&quot;provinceid&quot;:&quot;1&quot;,
+&quot;cityname&quot;:&quot;温岭&quot;,
+&quot;description&quot;:&quot;温岭是个好城市&quot;
+&#125;
+</code></pre>
+<pre><code>POST http://127.0.0.1:8080/api/city
+&#123;
+&quot;id&quot;:&quot;2&quot;,
+&quot;provinceid&quot;:&quot;2&quot;,
+&quot;cityname&quot;:&quot;温州&quot;,
+&quot;description&quot;:&quot;温州是个热城市&quot;
+&#125;
+</code></pre>
+<p>可以打开 ES 可视化工具 head 插件：<a target="_blank" rel="noopener" href="http://localhost:9200/_plugin/head/%EF%BC%9A">http://localhost:9200/_plugin/head/：</a></p>
+<p>在「数据浏览」tab，可以查阅到 ES 中数据是否被插入，插入后的数据格式如下：</p>
+<pre><code>&#123;
+    &quot;_index&quot;: &quot;cityindex&quot;,
+    &quot;_type&quot;: &quot;city&quot;,
+    &quot;_id&quot;: &quot;1&quot;,
+    &quot;_version&quot;: 1,
+    &quot;_score&quot;: 1,
+    &quot;_source&quot;: &#123;
+        &quot;id&quot;: 1,
+        &quot;provinceid&quot;: 1,
+        &quot;cityname&quot;: &quot;温岭&quot;,
+        &quot;description&quot;: &quot;温岭是个好城市&quot;
+    &#125;
+&#125;
+</code></pre>
+<p>下面验证下权重分查询搜索接口的实现：</p>
+<pre><code>GET http://localhost:8080/api/city/search?pageNumber=0&amp;pageSize=10&amp;searchContent=温岭
+</code></pre>
+<p>数据是会出现：</p>
+<pre><code>[
+    &#123;
+    &quot;id&quot;: 1,
+    &quot;provinceid&quot;: 1,
+    &quot;cityname&quot;: &quot;温岭&quot;,
+    &quot;description&quot;: &quot;温岭是个好城市&quot;
+    &#125;,
+    &#123;
+    &quot;id&quot;: 2,
+    &quot;provinceid&quot;: 2,
+    &quot;cityname&quot;: &quot;温州&quot;,
+    &quot;description&quot;: &quot;温州是个热城市&quot;
+    &#125;
+]
+</code></pre>
+<p>从启动后台 Console 可以看出，打印出来对应的 DSL 语句：</p>
+<pre><code> &#123;
+  &quot;function_score&quot; : &#123;
+    &quot;functions&quot; : [ &#123;
+      &quot;filter&quot; : &#123;
+        &quot;bool&quot; : &#123;
+          &quot;should&quot; : &#123;
+            &quot;match&quot; : &#123;
+              &quot;cityname&quot; : &#123;
+                &quot;query&quot; : &quot;温岭&quot;,
+                &quot;type&quot; : &quot;boolean&quot;
+              &#125;
+            &#125;
+          &#125;
+        &#125;
+      &#125;,
+      &quot;weight&quot; : 1000.0
+    &#125;, &#123;
+      &quot;filter&quot; : &#123;
+        &quot;bool&quot; : &#123;
+          &quot;should&quot; : &#123;
+            &quot;match&quot; : &#123;
+              &quot;description&quot; : &#123;
+                &quot;query&quot; : &quot;温岭&quot;,
+                &quot;type&quot; : &quot;boolean&quot;
+              &#125;
+            &#125;
+          &#125;
+        &#125;
+      &#125;,
+      &quot;weight&quot; : 100.0
+    &#125; ]
+  &#125;
+&#125;
+</code></pre>
+<p>为什么会出现 温州 城市呢？因为 function score query 权重分查询，无相关的数据默认分值为 1。如果想除去，设置一个 setMinScore 分值即可。</p>
+<h3 id="三、springboot-elasticsearch-工程代码详解"><a href="#三、springboot-elasticsearch-工程代码详解" class="headerlink" title="三、springboot-elasticsearch 工程代码详解"></a>三、springboot-elasticsearch 工程代码详解</h3><p>具体代码见 GitHub - <a target="_blank" rel="noopener" href="https://github.com/JeffLi1993/springboot-learning-example">https://github.com/JeffLi1993/springboot-learning-example</a></p>
+<p>1.pom.xml 依赖</p>
+<pre><code>&lt;dependencies&gt;
+
+    &lt;!-- Spring Boot Elasticsearch 依赖 --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-data-elasticsearch&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+
+    &lt;!-- Spring Boot Web 依赖 --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+
+    &lt;!-- Junit --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;junit&lt;/groupId&gt;
+        &lt;artifactId&gt;junit&lt;/artifactId&gt;
+        &lt;version&gt;4.12&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</code></pre>
+<ol start="2">
+<li>application.properties 配置 ES 地址</li>
+</ol>
+<pre><code># ES
+spring.data.elasticsearch.repositories.enabled = true
+spring.data.elasticsearch.cluster-nodes = 127.0.0.1:9300
+</code></pre>
+<p>默认 9300 是 Java 客户端的端口。9200 是支持 Restful HTTP 的接口。</p>
+<ol start="3">
+<li>ES 数据操作层</li>
+</ol>
+<pre><code>@Repository
+public interface CityRepository extends ElasticsearchRepository&lt;City,Long&gt; &#123;
+
+&#125;
+</code></pre>
+<p>接口只要继承 ElasticsearchRepository 类即可。默认会提供很多实现，比如 CRUD 和搜索相关的实现。</p>
+<ol start="4">
+<li>实体类</li>
+</ol>
+<pre><code>@Document(indexName = &quot;cityindex&quot;, type = &quot;city&quot;)
+public class City implements Serializable&#123;
+
+    private static final long serialVersionUID = -1L;
+
+    /**
+     * 城市编号
+     */
+    private Long id;
+
+    /**
+     * 省份编号
+     */
+    private Long provinceid;
+
+    /**
+     * 城市名称
+     */
+    private String cityname;
+
+    /**
+     * 描述
+     */
+    private String description;
+&#125;
+</code></pre>
+<p>注意</p>
+<p>index 配置必须是全部小写，不然会引出异常：</p>
+<p>org.elasticsearch.indices.InvalidIndexNameException: Invalid index name [cityIndex], must be lowercase</p>
+<ol start="5">
+<li>ES 业务逻辑层</li>
+</ol>
+<p>Service 实现类：</p>
+<pre><code>/**
+* 城市 ES 业务逻辑实现类
+*
+* Created by bysocket on 07/02/2017.
+  */
+  @Service
+  public class CityESServiceImpl implements CityService &#123;
+
+  private static final Logger LOGGER = LoggerFactory.getLogger(CityESServiceImpl.class);
+
+  @Autowired
+  CityRepository cityRepository;
+
+  @Override
+  public Long saveCity(City city) &#123;
+
+       City cityResult = cityRepository.save(city);
+       return cityResult.getId();
+  &#125;
+
+  @Override
+  public List&lt;City&gt; searchCity(Integer pageNumber,
+  Integer pageSize,
+  String searchContent) &#123;
+  // 分页参数
+  Pageable pageable = new PageRequest(pageNumber, pageSize);
+
+       // Function Score Query
+       FunctionScoreQueryBuilder functionScoreQueryBuilder = QueryBuilders.functionScoreQuery()
+               .add(QueryBuilders.boolQuery().should(QueryBuilders.matchQuery(&quot;cityname&quot;, searchContent)),
+                   ScoreFunctionBuilders.weightFactorFunction(1000))
+               .add(QueryBuilders.boolQuery().should(QueryBuilders.matchQuery(&quot;description&quot;, searchContent)),
+                       ScoreFunctionBuilders.weightFactorFunction(100));
+
+       // 创建搜索 DSL 查询
+       SearchQuery searchQuery = new NativeSearchQueryBuilder()
+               .withPageable(pageable)
+               .withQuery(functionScoreQueryBuilder).build();
+
+       LOGGER.info(&quot;\n searchCity(): searchContent [&quot; + searchContent + &quot;] \n DSL  = \n &quot; + searchQuery.getQuery().toString());
+
+       Page&lt;City&gt; searchPageResults = cityRepository.search(searchQuery);
+       return searchPageResults.getContent();
+  &#125;
+
+&#125;
+</code></pre>
+<p>保存逻辑很简单，这里不解释了。</p>
+<p>分页 function score query 搜索逻辑：</p>
+<p>先创建分页参数，然后用 FunctionScoreQueryBuilder 定义 Function Score Query，并设置对应字段的权重分值。城市名称 1000 分，description 100 分。</p>
+<p>然后创建该搜索的 DSL 查询，并打印出来。</p>
+<h2 id="四、小结"><a href="#四、小结" class="headerlink" title="四、小结"></a>四、小结</h2><p>实际场景还会很复杂。这里只是点睛之笔，后续大家优化或者更改下 DSL 语句就可以完成自己想要的搜索规则。</p>
+
+        </div>
+
+    </div>
+
+    <div class="article-copyright">
+
+        <div style="float: left;width: 20%;align:center;text-align: center;">
+             <img style="width: 100px;" src="https://www.bysocket.com/images/qrcode.jpeg">
+        </div>
+        <div style="float: left;width: 80%;">
+                <br/>
+                本文由 <a target="_blank" rel="noopener" href="https://www.bysocket.com/">泥瓦匠</a> 创作<br/><br/>
+                原创不易，欢迎关注公众号！转载请注明出处，感谢支持！如果本文对您有用，欢迎转发分享！
+        </div>
+
+      </div><br/><br/><br/><br/><br/>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+  
+    <a href="/spring-boot-redis/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">Spring Boot 整合 Redis 案例教程</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=Spring Boot 整合 ElasticSearch 案例教程 - 程序员泥瓦匠&url=https%3A%2F%2Fbysocket.com%2Fspring-boot-elasticsearch%2F">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=Spring Boot 整合 ElasticSearch 案例教程 - 程序员泥瓦匠&u=https%3A%2F%2Fbysocket.com%2Fspring-boot-elasticsearch%2F">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=Spring Boot 整合 ElasticSearch 案例教程 - 程序员泥瓦匠&url=https://bysocket.com/spring-boot-elasticsearch/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>分类</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/">Spring Boot</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%9D%E8%80%83/">思考</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>标签</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/" rel="tag">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>最新文章</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/spring-boot-elasticsearch/">Spring Boot 整合 ElasticSearch 案例教程</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-redis/">Spring Boot 整合 Redis 案例教程</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-properties/">Spring Boot 配置文件详解</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-restful/">Spring Boot REST API 案例</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-web-annotation/">Spring Boot Web 开发注解篇</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            程序员泥瓦匠 &copy; 2023<br>
+            <a href="https://beian.miit.gov.cn" target="_blank">浙ICP备15028451号-7</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+<!-- 百度链接提交 -->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- Baidu Analytics-->
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e43a8b7f6b87c80c7d5d89ee04348971";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

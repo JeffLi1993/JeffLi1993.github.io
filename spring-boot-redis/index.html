@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>Spring Boot 整合 Redis 案例教程 | 程序员泥瓦匠</title>
+
+    <meta name="description" content="&lt;h2 id=&#34;一、缓存的应用场景&#34;&gt;&lt;a href=&#34;#一、缓存的应用场景&#34; class=&#34;headerlink&#34; title=&#34;一、缓存的应用场景&#34;&gt;&lt;/a&gt;一、缓存的应用场景&lt;/h2&gt;&lt;p&gt;什么是缓存？&lt;br&gt;在互联网场景下，尤其 2C 端大流量场景下，需要将一些经常展现和不会频繁变更的数据，存放在存取速率更快的地方。缓存就是一个存储器，在技术选型中，常用 Redis 作为缓存数据库。缓存主要是在获取资源方便性能优化的关键方面。&lt;/p&gt;">
+    <meta name="keywords" content="">
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "Spring Boot 整合 Redis 案例教程 | 程序员泥瓦匠"  />
+    <meta property="og:description" content= "&lt;h2 id=&#34;一、缓存的应用场景&#34;&gt;&lt;a href=&#34;#一、缓存的应用场景&#34; class=&#34;headerlink&#34; title=&#34;一、缓存的应用场景&#34;&gt;&lt;/a&gt;一、缓存的应用场景&lt;/h2&gt;&lt;p&gt;什么是缓存？&lt;br&gt;在互联网场景下，尤其 2C 端大流量场景下，需要将一些经常展现和不会频繁变更的数据，存放在存取速率更快的地方。缓存就是一个存储器，在技术选型中，常用 Redis 作为缓存数据库。缓存主要是在获取资源方便性能优化的关键方面。&lt;/p&gt;" />
+    <meta property="og:url" content="https://bysocket.com/spring-boot-redis/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="泥瓦匠" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h2 id=&#34;一、缓存的应用场景&#34;&gt;&lt;a href=&#34;#一、缓存的应用场景&#34; class=&#34;headerlink&#34; title=&#34;一、缓存的应用场景&#34;&gt;&lt;/a&gt;一、缓存的应用场景&lt;/h2&gt;&lt;p&gt;什么是缓存？&lt;br&gt;在互联网场景下，尤其 2C 端大流量场景下，需要将一些经常展现和不会频繁变更的数据，存放在存取速率更快的地方。缓存就是一个存储器，在技术选型中，常用 Redis 作为缓存数据库。缓存主要是在获取资源方便性能优化的关键方面。&lt;/p&gt;" />
+    <meta name="twitter:title" content="Spring Boot 整合 Redis 案例教程 | 程序员泥瓦匠"/>
+    <meta name="twitter:description" content="&lt;h2 id=&#34;一、缓存的应用场景&#34;&gt;&lt;a href=&#34;#一、缓存的应用场景&#34; class=&#34;headerlink&#34; title=&#34;一、缓存的应用场景&#34;&gt;&lt;/a&gt;一、缓存的应用场景&lt;/h2&gt;&lt;p&gt;什么是缓存？&lt;br&gt;在互联网场景下，尤其 2C 端大流量场景下，需要将一些经常展现和不会频繁变更的数据，存放在存取速率更快的地方。缓存就是一个存储器，在技术选型中，常用 Redis 作为缓存数据库。缓存主要是在获取资源方便性能优化的关键方面。&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h2 id=&#34;一、缓存的应用场景&#34;&gt;&lt;a href=&#34;#一、缓存的应用场景&#34; class=&#34;headerlink&#34; title=&#34;一、缓存的应用场景&#34;&gt;&lt;/a&gt;一、缓存的应用场景&lt;/h2&gt;&lt;p&gt;什么是缓存？&lt;br&gt;在互联网场景下，尤其 2C 端大流量场景下，需要将一些经常展现和不会频繁变更的数据，存放在存取速率更快的地方。缓存就是一个存储器，在技术选型中，常用 Redis 作为缓存数据库。缓存主要是在获取资源方便性能优化的关键方面。&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "泥瓦匠" },
+            "@type": "BlogPosting",
+            "url": "https://bysocket.com/spring-boot-redis/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://bysocket.com/images/avatar.jpeg"
+            },
+            "name": "泥瓦匠"
+            },
+            "headline": "Spring Boot 整合 Redis 案例教程 | 程序员泥瓦匠",
+            "datePublished": "2023-01-28T15:50:15.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://bysocket.com/spring-boot-redis/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+    <!-- Google 广告 AdSense 代码 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4620650152175631" crossorigin="anonymous">
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-avatar avatar avatar-sm">
+                <img src="/images/avatar.jpeg" alt="泥瓦匠">
+            </div>
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>程序员泥瓦匠</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">首页</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/about">关于我</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/JeffLi1993">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+    <a class="social" target="_blank" href="https://twitter.com/CoderJeffLee">
+        <ion-icon name="logo-twitter"></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/about">关于我</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cldfj4vmr0005sn3setkx1jme" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      Spring Boot 整合 Redis 案例教程
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2023-01-28T15:50:15.000Z" itemprop="datePublished">2023-01-28</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/Spring-Boot/">Spring Boot</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h2 id="一、缓存的应用场景"><a href="#一、缓存的应用场景" class="headerlink" title="一、缓存的应用场景"></a>一、缓存的应用场景</h2><p>什么是缓存？<br>在互联网场景下，尤其 2C 端大流量场景下，需要将一些经常展现和不会频繁变更的数据，存放在存取速率更快的地方。缓存就是一个存储器，在技术选型中，常用 Redis 作为缓存数据库。缓存主要是在获取资源方便性能优化的关键方面。</p>
+<span id="more"></span>
+
+<p>Redis 是一个高性能的 key-value 数据库。GitHub 地址： <a target="_blank" rel="noopener" href="https://github.com/antirez/redis">https://github.com/antirez/redis</a> 。Github 是这么描述的：</p>
+<pre><code>Redis is an in-memory database that persists on disk. The data model is key-value, but many different kind of values are supported: Strings, Lists, Sets, Sorted Sets, Hashes, HyperLogLogs, Bitmaps.
+</code></pre>
+<p>缓存的应用场景有哪些呢？</p>
+<p>比如常见的电商场景，根据商品 ID 获取商品信息时，店铺信息和商品详情信息就可以缓存在 Redis，直接从 Redis 获取。减少了去数据库查询的次数。但会出现新的问题，就是如何对缓存进行更新？这就是下面要讲的。</p>
+<h2 id="二、更新缓存的策略"><a href="#二、更新缓存的策略" class="headerlink" title="二、更新缓存的策略"></a>二、更新缓存的策略</h2><p>参考《缓存更新的套路》 <a target="_blank" rel="noopener" href="http://coolshell.cn/articles/17416.html">http://coolshell.cn/articles/17416.html</a> ，缓存更新的模式有四种：Cache aside, Read through, Write through, Write behind caching。</p>
+<p>这里我们使用的是 Cache Aside 策略，从三个维度：（摘自 耗子叔叔博客）</p>
+<ul>
+<li>失效：应用程序先从cache取数据，没有得到，则从数据库中取数据，成功后，放到缓存中。</li>
+<li>命中：应用程序从cache中取数据，取到后返回。</li>
+<li>更新：先把数据存到数据库中，成功后，再让缓存失效。</li>
+</ul>
+<p>大致流程如下：</p>
+<p>获取商品详情举例<br>a. 从商品 Cache 中获取商品详情，如果存在，则返回获取 Cache 数据返回。<br>b. 如果不存在，则从商品 DB 中获取。获取成功后，将数据存到 Cache 中。则下次获取商品详情，就可以从 Cache 就可以得到商品详情数据。<br>c. 从商品 DB 中更新或者删除商品详情成功后，则从缓存中删除对应商品的详情缓存</p>
+<h2 id="三、运行-springboot-mybatis-redis-工程案例"><a href="#三、运行-springboot-mybatis-redis-工程案例" class="headerlink" title="三、运行 springboot-mybatis-redis 工程案例"></a>三、运行 springboot-mybatis-redis 工程案例</h2><p>git clone 下载工程 springboot-learning-example ，项目地址见 GitHub <a target="_blank" rel="noopener" href="https://github.com/JeffLi1993/springboot-learning-example">https://github.com/JeffLi1993/springboot-learning-example</a></p>
+<p>下面开始运行工程步骤（Quick Start）：</p>
+<h3 id="1-数据库和-Redis-准备"><a href="#1-数据库和-Redis-准备" class="headerlink" title="1.数据库和 Redis 准备"></a>1.数据库和 Redis 准备</h3><p>a.创建数据库 springbootdb：</p>
+<pre><code>CREATE DATABASE springbootdb;
+</code></pre>
+<p>b.创建表 city ：</p>
+<pre><code>DROP TABLE IF EXISTS `city`;
+
+CREATE TABLE `city`
+(
+    `id`          int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT &#39;城市编号&#39;,
+    `province_id` int(10) unsigned NOT NULL COMMENT &#39;省份编号&#39;,
+    `city_name`   varchar(25) DEFAULT NULL COMMENT &#39;城市名称&#39;,
+    `description` varchar(25) DEFAULT NULL COMMENT &#39;描述&#39;,
+    PRIMARY KEY (`id`)
+
+) ENGINE = InnoDB
+  AUTO_INCREMENT = 1
+  DEFAULT CHARSET = utf8;
+</code></pre>
+<p>c.插入数据</p>
+<pre><code>          INSERT city VALUES (1 ,1,
+          &#39;温岭市&#39;
+          ,
+          &#39;BYSocket 的家在温岭。&#39;
+          );
+</code></pre>
+<p>d.本地安装 Redis</p>
+<h3 id="2-springboot-mybatis-redis-工程项目结构介绍"><a href="#2-springboot-mybatis-redis-工程项目结构介绍" class="headerlink" title="2. springboot-mybatis-redis 工程项目结构介绍"></a>2. springboot-mybatis-redis 工程项目结构介绍</h3><p>springboot-mybatis-redis 工程项目结构如下图所示：</p>
+<pre><code>          org.spring.springboot.controller - Controller 层
+          org.spring.springboot.dao - 数据操作层 DAO
+          org.spring.springboot.domain - 实体类
+          org.spring.springboot.service - 业务逻辑层
+          Application - 应用启动类
+          application.properties - 应用配置文件，应用启动会自动读取配置
+</code></pre>
+<p>3.改数据库配置</p>
+<p>打开 application.properties 文件， 修改相应的数据源配置，比如数据源地址、账号、密码等。<br>（如果不是用 MySQL，自行添加连接驱动 pom，然后修改驱动名配置。）</p>
+<p>4.编译工程</p>
+<p>在项目根目录 springboot-learning-example，运行 maven 指令：</p>
+<pre><code>           mvn clean install
+</code></pre>
+<p>5.运行工程</p>
+<p>右键运行 springboot-mybatis-redis 工程 Application 应用启动类的 main 函数。</p>
+<p>项目运行成功后，这是个 HTTP OVER JSON 服务项目。所以用 postman 工具可以如下操作</p>
+<p>根据 ID，获取城市信息<br>GET <a target="_blank" rel="noopener" href="http://127.0.0.1:8080/api/city/1">http://127.0.0.1:8080/api/city/1</a></p>
+<p>再请求一次，获取城市信息会发现数据获取的耗时快了很多。服务端 Console 输出的日志：</p>
+<pre><code>         2017-04-13 18:29:00.273  INFO 13038 --- [nio-8080-
+         exec
+         -1] o.s.s.service.impl.CityServiceImpl       : CityServiceImpl.findCityById() : 城市插入缓存 &gt;&gt; City&#123;
+         id
+         =12, provinceId=3, cityName=
+         &#39;三亚&#39;
+         , description=
+         &#39;水好,天蓝&#39;
+         &#125;
+        
+ 
+         2017-04-13 18:29:03.145  INFO 13038 --- [nio-8080-
+         exec
+         -2] o.s.s.service.impl.CityServiceImpl       : CityServiceImpl.findCityById() : 从缓存中获取了城市 &gt;&gt; City&#123;
+         id
+         =12, provinceId=3, cityName=
+         &#39;三亚&#39;
+         , description=
+         &#39;水好,天蓝&#39;
+         &#125;
+</code></pre>
+<p>可见，第一次是从数据库 DB 获取数据，并插入缓存，第二次直接从缓存中取。</p>
+<p>更新城市信息<br>PUT <a target="_blank" rel="noopener" href="http://127.0.0.1:8080/api/city">http://127.0.0.1:8080/api/city</a></p>
+<p>删除城市信息<br>DELETE <a target="_blank" rel="noopener" href="http://127.0.0.1:8080/api/city/2">http://127.0.0.1:8080/api/city/2</a></p>
+<p>这两种操作中，如果缓存有对应的数据，则删除缓存。服务端 Console 输出的日志：</p>
+<pre><code>         2017-04-13 18:29:52.248  INFO 13038 --- [nio-8080-
+         exec
+         -9] o.s.s.service.impl.CityServiceImpl       : CityServiceImpl.deleteCity() : 从缓存中删除城市 ID &gt;&gt; 12
+</code></pre>
+<h2 id="四、springboot-mybatis-redis-工程代码配置详解"><a href="#四、springboot-mybatis-redis-工程代码配置详解" class="headerlink" title="四、springboot-mybatis-redis 工程代码配置详解"></a>四、springboot-mybatis-redis 工程代码配置详解</h2><p>这里，我强烈推荐 注解 的方式实现对象的缓存。但是这里为了更好说明缓存更新策略。下面讲讲工程代码的实现。<br>pom.xml 依赖配置:</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;groupId&gt;springboot&lt;/groupId&gt;
+    &lt;artifactId&gt;springboot-mybatis-redis-annotation&lt;/artifactId&gt;
+    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+    &lt;name&gt;springboot-mybatis-redis-annotation&lt;/name&gt;
+
+    &lt;!-- Spring Boot 启动父依赖 --&gt;
+    &lt;parent&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+        &lt;version&gt;2.1.3.RELEASE&lt;/version&gt;
+    &lt;/parent&gt;
+
+    &lt;properties&gt;
+        &lt;mybatis-spring-boot&gt;1.2.0&lt;/mybatis-spring-boot&gt;
+        &lt;mysql-connector&gt;5.1.39&lt;/mysql-connector&gt;
+        &lt;fastjson-version&gt;1.2.32&lt;/fastjson-version&gt;
+    &lt;/properties&gt;
+
+    &lt;dependencies&gt;
+
+        &lt;!-- Spring Boot Data Cache 依赖 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-cache&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- Spring Boot Data Redis 依赖 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- Spring Boot Web 依赖 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- Spring Boot Test 依赖 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- Junit --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;junit&lt;/groupId&gt;
+            &lt;artifactId&gt;junit&lt;/artifactId&gt;
+            &lt;version&gt;4.12&lt;/version&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+&lt;/project&gt;
+</code></pre>
+<p>包括了 Spring Boot Reids 依赖、 MySQL 依赖和 Mybatis 依赖。<br>在 application.properties 应用配置文件，增加 Redis 相关配置</p>
+<pre><code>## Redis 配置
+## Redis数据库索引（默认为0）
+spring.redis.database=0
+## Redis服务器地址
+spring.redis.host=127.0.0.1
+## Redis服务器连接端口
+spring.redis.port=6379
+## Redis服务器连接密码（默认为空）
+spring.redis.password=
+## 连接池最大连接数（使用负值表示没有限制）
+spring.redis.pool.max-active=8
+## 连接池最大阻塞等待时间（使用负值表示没有限制）
+spring.redis.pool.max-wait=-1
+## 连接池中的最大空闲连接
+spring.redis.pool.max-idle=8
+## 连接池中的最小空闲连接
+spring.redis.pool.min-idle=0
+## 连接超时时间（毫秒）
+spring.redis.timeout=0
+</code></pre>
+<p>详细解释可以参考注释。对应的配置类：org.springframework.boot.autoconfigure.data.redis.RedisProperties</p>
+<p>CityRestController 控制层依旧是 Restful 风格的，详情可以参考《Springboot 实现 Restful 服务，基于 HTTP &#x2F; JSON 传输》。  <a target="_blank" rel="noopener" href="http://www.bysocket.com/?p=1627">http://www.bysocket.com/?p=1627</a> domain 对象 City 必须实现序列化，因为需要将对象序列化后存储到 Redis。如果没实现 Serializable ，控制台会爆出以下异常：</p>
+<pre><code>          Serializable
+     
+          java.lang.IllegalArgumentException: DefaultSerializer requires a Serializable payload but received an object of  
+          type
+</code></pre>
+<p>City.java 城市对象：</p>
+<pre><code class="java">
+package org.spring.springboot.domain;
+
+import java.io.Serializable;
+
+/**
+ * 城市实体类
+ *
+ * Created by bysocket on 07/02/2017.
+ */
+public class City implements Serializable &#123;
+
+    private static final long serialVersionUID = -1L;
+
+    /**
+     * 城市编号
+     */
+    private Long id;
+
+    /**
+     * 省份编号
+     */
+    private Long provinceId;
+
+    /**
+     * 城市名称
+     */
+    private String cityName;
+
+    /**
+     * 描述
+     */
+    private String description;
+
+    public City(Long id, Long provinceId, String cityName, String description) &#123;
+        this.id = id;
+        this.provinceId = provinceId;
+        this.cityName = cityName;
+        this.description = description;
+    &#125;
+
+    public Long getId() &#123;
+        return id;
+    &#125;
+
+    public void setId(Long id) &#123;
+        this.id = id;
+    &#125;
+
+    public Long getProvinceId() &#123;
+        return provinceId;
+    &#125;
+
+    public void setProvinceId(Long provinceId) &#123;
+        this.provinceId = provinceId;
+    &#125;
+
+    public String getCityName() &#123;
+        return cityName;
+    &#125;
+
+    public void setCityName(String cityName) &#123;
+        this.cityName = cityName;
+    &#125;
+
+    public String getDescription() &#123;
+        return description;
+    &#125;
+
+    public void setDescription(String description) &#123;
+        this.description = description;
+    &#125;
+
+    @Override
+    public String toString() &#123;
+        return &quot;City&#123;&quot; +
+                &quot;id=&quot; + id +
+                &quot;, provinceId=&quot; + provinceId +
+                &quot;, cityName=&#39;&quot; + cityName + &#39;\&#39;&#39; +
+                &quot;, description=&#39;&quot; + description + &#39;\&#39;&#39; +
+                &#39;&#125;&#39;;
+    &#125;
+&#125;
+</code></pre>
+<p>如果需要自定义序列化实现，只要实现 RedisSerializer 接口去实现即可，然后在使用 RedisTemplate.setValueSerializer 方法去设置你实现的序列化实现。<br>主要还是城市业务逻辑实现类 CityServiceImpl.java：</p>
+<pre><code class="java">package org.spring.springboot.service.impl;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.spring.springboot.domain.City;
+import org.spring.springboot.service.CityService;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * 城市业务逻辑实现类
+ * &lt;p&gt;
+ * Created by bysocket on 07/02/2017.
+ */
+@Service
+public class CityServiceImpl implements CityService &#123;
+
+
+    // 模拟数据库存储
+    private Map&lt;String, City&gt; cityMap = new HashMap&lt;String, City&gt;();
+
+    public void saveCity(City city)&#123;
+        // 模拟数据库插入操作
+        cityMap.put(city.getCityName(), city);
+    &#125;
+
+    @Cacheable(value = &quot;baseCityInfo&quot;)
+    public City getCityByName(String cityName)&#123;
+        // 模拟数据库查询并返回
+        return cityMap.get(cityName);
+    &#125;
+
+    @CachePut(value = &quot;baseCityInfo&quot;)
+    public void updateCityDescription(String cityName, String description)&#123;
+        City city = cityMap.get(cityName);
+        city.setDescription(description);
+        // 模拟更新数据库
+        cityMap.put(cityName, city);
+    &#125;
+
+&#125;
+</code></pre>
+<p>首先这里注入了 RedisTemplate 对象。联想到 Spring 的 JdbcTemplate ，RedisTemplate 封装了 RedisConnection，具有连接管理，序列化和 Redis 操作等功能。还有针对 String 的支持对象 StringRedisTemplate。<br>Redis 操作视图接口类用的是 ValueOperations，对应的是 Redis String&#x2F;Value 操作。还有其他的操作视图，ListOperations、SetOperations、ZSetOperations 和 HashOperations 。ValueOperations 插入缓存是可以设置失效时间，这里设置的失效时间是 10 s。<br>回到更新缓存的逻辑</p>
+<p>a. findCityById 获取城市逻辑：<br>如果缓存存在，从缓存中获取城市信息<br>如果缓存不存在，从 DB 中获取城市信息，然后插入缓存</p>
+<p>b. deleteCity 删除 &#x2F; updateCity 更新城市逻辑：<br>如果缓存存在，删除<br>如果缓存不存在，不操作</p>
+<p>其他不明白的，可以 git clone 下载工程 springboot-learning-example ，工程代码注解很详细。 <a target="_blank" rel="noopener" href="https://github.com/JeffLi1993/springboot-learning-example">https://github.com/JeffLi1993/springboot-learning-example</a> 。</p>
+<h2 id="五、小结"><a href="#五、小结" class="headerlink" title="五、小结"></a>五、小结</h2><p>本文涉及到 Spring Boot 在使用 Redis 缓存时，一个是缓存对象需要序列化，二个是缓存更新策略是如何的。</p>
+
+        </div>
+
+    </div>
+
+    <div class="article-copyright">
+
+        <div style="float: left;width: 20%;align:center;text-align: center;">
+             <img style="width: 100px;" src="https://www.bysocket.com/images/qrcode.jpeg">
+        </div>
+        <div style="float: left;width: 80%;">
+                <br/>
+                本文由 <a target="_blank" rel="noopener" href="https://www.bysocket.com/">泥瓦匠</a> 创作<br/><br/>
+                原创不易，欢迎关注公众号！转载请注明出处，感谢支持！如果本文对您有用，欢迎转发分享！
+        </div>
+
+      </div><br/><br/><br/><br/><br/>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/spring-boot-elasticsearch/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          Spring Boot 整合 ElasticSearch 案例教程
+        
+      </div>
+    </a>
+  
+  
+    <a href="/spring-boot-properties/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">Spring Boot 配置文件详解</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=Spring Boot 整合 Redis 案例教程 - 程序员泥瓦匠&url=https%3A%2F%2Fbysocket.com%2Fspring-boot-redis%2F">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=Spring Boot 整合 Redis 案例教程 - 程序员泥瓦匠&u=https%3A%2F%2Fbysocket.com%2Fspring-boot-redis%2F">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=Spring Boot 整合 Redis 案例教程 - 程序员泥瓦匠&url=https://bysocket.com/spring-boot-redis/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>分类</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/">Spring Boot</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%9D%E8%80%83/">思考</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>标签</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/" rel="tag">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>最新文章</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/spring-boot-elasticsearch/">Spring Boot 整合 ElasticSearch 案例教程</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-redis/">Spring Boot 整合 Redis 案例教程</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-properties/">Spring Boot 配置文件详解</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-restful/">Spring Boot REST API 案例</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-web-annotation/">Spring Boot Web 开发注解篇</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            程序员泥瓦匠 &copy; 2023<br>
+            <a href="https://beian.miit.gov.cn" target="_blank">浙ICP备15028451号-7</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+<!-- 百度链接提交 -->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- Baidu Analytics-->
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e43a8b7f6b87c80c7d5d89ee04348971";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

@@ -1,3 +1,7 @@
+https://bysocket.com/spring-boot-elasticsearch/
+https://bysocket.com/spring-boot-redis/
+https://bysocket.com/spring-boot-properties/
+https://bysocket.com/spring-boot-restful/
 https://bysocket.com/spring-boot-web-annotation/
 https://bysocket.com/about/
 https://bysocket.com/spring_boot_hello_world/
@@ -7,5 +11,9 @@ https://bysocket.com/tags/Java/
 https://bysocket.com/tags/MyBatis/
 https://bysocket.com/tags/IDEA/
 https://bysocket.com/tags/%E5%8E%9F%E7%90%86/
+https://bysocket.com/tags/REST/
+https://bysocket.com/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/
+https://bysocket.com/tags/Redis/
+https://bysocket.com/tags/ElasticSearch/
 https://bysocket.com/categories/%E6%80%9D%E8%80%83/
 https://bysocket.com/categories/Spring-Boot/
