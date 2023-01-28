@@ -1,9 +1,9 @@
+https://bysocket.com/about/
 https://bysocket.com/spring-boot-elasticsearch/
 https://bysocket.com/spring-boot-redis/
 https://bysocket.com/spring-boot-properties/
 https://bysocket.com/spring-boot-restful/
 https://bysocket.com/spring-boot-web-annotation/
-https://bysocket.com/about/
 https://bysocket.com/spring_boot_hello_world/
 https://bysocket.com/spring-boot-mybatis/
 https://bysocket.com/
