@@ -1,3 +1,5 @@
+https://bysocket.com/how-elasticsearch-works/
+https://bysocket.com/spring-boot-restful-verify/
 https://bysocket.com/about/
 https://bysocket.com/spring-boot-elasticsearch/
 https://bysocket.com/spring-boot-redis/
@@ -15,5 +17,7 @@ https://bysocket.com/tags/REST/
 https://bysocket.com/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/
 https://bysocket.com/tags/Redis/
 https://bysocket.com/tags/ElasticSearch/
+https://bysocket.com/tags/ES/
 https://bysocket.com/categories/%E6%80%9D%E8%80%83/
 https://bysocket.com/categories/Spring-Boot/
+https://bysocket.com/categories/ElasticSearch/

@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>Spring Boot REST API 如何进行权限控制？ | 程序员泥瓦匠</title>
+
+    <meta name="description" content="&lt;h2 id=&#34;一、为何用RESTful-API&#34;&gt;&lt;a href=&#34;#一、为何用RESTful-API&#34; class=&#34;headerlink&#34; title=&#34;一、为何用RESTful API&#34;&gt;&lt;/a&gt;一、为何用RESTful API&lt;/h2&gt;&lt;h3 id=&#34;1-1-RESTful是什么？&#34;&gt;&lt;a href=&#34;#1-1-RESTful是什么？&#34; class=&#34;headerlink&#34; title=&#34;1.1 RESTful是什么？&#34;&gt;&lt;/a&gt;1.1 RESTful是什么？&lt;/h3&gt;&lt;p&gt;RESTful（Representational State Transfer）架构风格，是一个Web自身的架构风格，底层主要基于HTTP协议（ps:提出者就是HTTP协议的作者），是分布式应用架构的伟大实践理论。RESTful架构是无状态的，表现为请求-响应的形式，有别于基于Bower的SessionId不同。&lt;/p&gt;">
+    <meta name="keywords" content="">
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "Spring Boot REST API 如何进行权限控制？ | 程序员泥瓦匠"  />
+    <meta property="og:description" content= "&lt;h2 id=&#34;一、为何用RESTful-API&#34;&gt;&lt;a href=&#34;#一、为何用RESTful-API&#34; class=&#34;headerlink&#34; title=&#34;一、为何用RESTful API&#34;&gt;&lt;/a&gt;一、为何用RESTful API&lt;/h2&gt;&lt;h3 id=&#34;1-1-RESTful是什么？&#34;&gt;&lt;a href=&#34;#1-1-RESTful是什么？&#34; class=&#34;headerlink&#34; title=&#34;1.1 RESTful是什么？&#34;&gt;&lt;/a&gt;1.1 RESTful是什么？&lt;/h3&gt;&lt;p&gt;RESTful（Representational State Transfer）架构风格，是一个Web自身的架构风格，底层主要基于HTTP协议（ps:提出者就是HTTP协议的作者），是分布式应用架构的伟大实践理论。RESTful架构是无状态的，表现为请求-响应的形式，有别于基于Bower的SessionId不同。&lt;/p&gt;" />
+    <meta property="og:url" content="https://bysocket.com/spring-boot-restful-verify/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="泥瓦匠" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h2 id=&#34;一、为何用RESTful-API&#34;&gt;&lt;a href=&#34;#一、为何用RESTful-API&#34; class=&#34;headerlink&#34; title=&#34;一、为何用RESTful API&#34;&gt;&lt;/a&gt;一、为何用RESTful API&lt;/h2&gt;&lt;h3 id=&#34;1-1-RESTful是什么？&#34;&gt;&lt;a href=&#34;#1-1-RESTful是什么？&#34; class=&#34;headerlink&#34; title=&#34;1.1 RESTful是什么？&#34;&gt;&lt;/a&gt;1.1 RESTful是什么？&lt;/h3&gt;&lt;p&gt;RESTful（Representational State Transfer）架构风格，是一个Web自身的架构风格，底层主要基于HTTP协议（ps:提出者就是HTTP协议的作者），是分布式应用架构的伟大实践理论。RESTful架构是无状态的，表现为请求-响应的形式，有别于基于Bower的SessionId不同。&lt;/p&gt;" />
+    <meta name="twitter:title" content="Spring Boot REST API 如何进行权限控制？ | 程序员泥瓦匠"/>
+    <meta name="twitter:description" content="&lt;h2 id=&#34;一、为何用RESTful-API&#34;&gt;&lt;a href=&#34;#一、为何用RESTful-API&#34; class=&#34;headerlink&#34; title=&#34;一、为何用RESTful API&#34;&gt;&lt;/a&gt;一、为何用RESTful API&lt;/h2&gt;&lt;h3 id=&#34;1-1-RESTful是什么？&#34;&gt;&lt;a href=&#34;#1-1-RESTful是什么？&#34; class=&#34;headerlink&#34; title=&#34;1.1 RESTful是什么？&#34;&gt;&lt;/a&gt;1.1 RESTful是什么？&lt;/h3&gt;&lt;p&gt;RESTful（Representational State Transfer）架构风格，是一个Web自身的架构风格，底层主要基于HTTP协议（ps:提出者就是HTTP协议的作者），是分布式应用架构的伟大实践理论。RESTful架构是无状态的，表现为请求-响应的形式，有别于基于Bower的SessionId不同。&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h2 id=&#34;一、为何用RESTful-API&#34;&gt;&lt;a href=&#34;#一、为何用RESTful-API&#34; class=&#34;headerlink&#34; title=&#34;一、为何用RESTful API&#34;&gt;&lt;/a&gt;一、为何用RESTful API&lt;/h2&gt;&lt;h3 id=&#34;1-1-RESTful是什么？&#34;&gt;&lt;a href=&#34;#1-1-RESTful是什么？&#34; class=&#34;headerlink&#34; title=&#34;1.1 RESTful是什么？&#34;&gt;&lt;/a&gt;1.1 RESTful是什么？&lt;/h3&gt;&lt;p&gt;RESTful（Representational State Transfer）架构风格，是一个Web自身的架构风格，底层主要基于HTTP协议（ps:提出者就是HTTP协议的作者），是分布式应用架构的伟大实践理论。RESTful架构是无状态的，表现为请求-响应的形式，有别于基于Bower的SessionId不同。&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "泥瓦匠" },
+            "@type": "BlogPosting",
+            "url": "https://bysocket.com/spring-boot-restful-verify/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://bysocket.com/images/avatar.webp"
+            },
+            "name": "泥瓦匠"
+            },
+            "headline": "Spring Boot REST API 如何进行权限控制？ | 程序员泥瓦匠",
+            "datePublished": "2023-01-30T15:50:15.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://bysocket.com/spring-boot-restful-verify/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+    <!-- Google 广告 AdSense 代码 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4620650152175631" crossorigin="anonymous">
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-avatar avatar avatar-sm">
+                <img src="/images/avatar.webp" alt="泥瓦匠">
+            </div>
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>程序员泥瓦匠</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">首页</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/about">关于我</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/JeffLi1993">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+    <a class="social" target="_blank" href="https://twitter.com/CoderJeffLee">
+        <ion-icon name="logo-twitter"></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/about">关于我</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cldifzkiy00002e3s6wh233xx" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      Spring Boot REST API 如何进行权限控制？
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2023-01-30T15:50:15.000Z" itemprop="datePublished">2023-01-30</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/Spring-Boot/">Spring Boot</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/REST/" rel="tag">REST</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h2 id="一、为何用RESTful-API"><a href="#一、为何用RESTful-API" class="headerlink" title="一、为何用RESTful API"></a>一、为何用RESTful API</h2><h3 id="1-1-RESTful是什么？"><a href="#1-1-RESTful是什么？" class="headerlink" title="1.1 RESTful是什么？"></a>1.1 RESTful是什么？</h3><p>RESTful（Representational State Transfer）架构风格，是一个Web自身的架构风格，底层主要基于HTTP协议（ps:提出者就是HTTP协议的作者），是分布式应用架构的伟大实践理论。RESTful架构是无状态的，表现为请求-响应的形式，有别于基于Bower的SessionId不同。</p>
+<span id="more"></span>
+
+<h3 id="1-2-理解REST有五点："><a href="#1-2-理解REST有五点：" class="headerlink" title="1.2 理解REST有五点："></a>1.2 理解REST有五点：</h3><p>1.资源<br>2.资源的表述<br>3.状态的转移<br>4.统一接口<br>5.超文本驱动</p>
+<h3 id="1-3-什么是REST-API？"><a href="#1-3-什么是REST-API？" class="headerlink" title="1.3 什么是REST API？"></a>1.3 什么是REST API？</h3><p>基于RESTful架构的一套互联网分布式的API设计理论。和上面资源，状态和统一接口有着密切的关系。</p>
+<p>为啥分布式互联网架构很常见呢？请看下面两个模式</p>
+<p>MVC模式:</p>
+<p><img src="/images/restful/mvc.webp"></p>
+<p>REST API模式:</p>
+<p><img src="/images/restful/rest.webp"></p>
+<h3 id="1-4-权限怎么控制？"><a href="#1-4-权限怎么控制？" class="headerlink" title="1.4 权限怎么控制？"></a>1.4 权限怎么控制？</h3><p>RESTful针对资源的方法定义分简单和关联复杂两种。</p>
+<p>基本方法定义：</p>
+<pre><code>GET /user # 获取user列表
+GET /user/3 # 查看序号为3的user
+POST /user # 新建一个user
+PUT /user/3  # 更新序号为3的user
+DELETE /user/3 #删除user 3
+</code></pre>
+<p>资源之间的关联方法如下定义:</p>
+<pre><code>GET /admin/1/user/10 # 管理员1号，查看序号为3的user信息
+...
+</code></pre>
+<p>那么权限如何控制？</p>
+<p>##二、权限控制</p>
+<p>前面说到，RESTful是无状态的，所以每次请求就需要对起进行认证和授权。</p>
+<h3 id="2-1-认证"><a href="#2-1-认证" class="headerlink" title="2.1 认证"></a>2.1 认证</h3><p>身份认证，即登录验证用户是否拥有相应的身份。简单的说就是一个Web页面点击登录后，服务端进行用户密码的校验。</p>
+<h3 id="2-2-权限验证（授权）"><a href="#2-2-权限验证（授权）" class="headerlink" title="2.2 权限验证（授权）"></a>2.2 权限验证（授权）</h3><p>也可以说成授权，就是在身份认证后，验证该身份具体拥有某种权限。即针对于某种资源的CRUD,不同用户的操作权限是不同的。</p>
+<p>一般简单项目：做个sign（加密加盐参数）+ 针对用户的access_token</p>
+<p>复杂的话，加入 SLL ，并使用OAuth2进行对token的安全传输。</p>
+<p>自然，技术服务于应用场景。既简单又可以处理应用场景即可。简单，实用即可~</p>
+<h2 id="三、Access-Token权限解决"><a href="#三、Access-Token权限解决" class="headerlink" title="三、Access Token权限解决"></a>三、Access Token权限解决</h2><h3 id="3-1-AccessToken-拦截器"><a href="#3-1-AccessToken-拦截器" class="headerlink" title="3.1 AccessToken 拦截器"></a>3.1 AccessToken 拦截器</h3><pre><code class="java">/**
+ * Access Token拦截器
+ * &lt;p/&gt;
+ * Created by bysocket on 16/4/18.
+ */
+@Component
+public class AccessTokenVerifyInterceptor extends HandlerInterceptorAdapter &#123;
+
+    @Autowired
+    ValidationService validationService;
+
+    private final static Logger LOG = LoggerFactory.getLogger(AccessTokenVerifyInterceptor.class);
+
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+            throws Exception &#123;
+        LOG.info(&quot;AccessToken executing ...&quot;);
+        boolean flag = false;
+        // token
+        String accessToken = request.getParameter(&quot;token&quot;);
+        if (StringUtils.isNotBlank(accessToken)) &#123;
+            // 验证
+            ValidationModel v = validationService.verifyAccessToken(accessToken);
+            // 时间过期
+
+            // 用户验证
+            if (v != null) &#123;
+                User user = userService.findById(v.getUid());
+                if(user != null) &#123;
+                    request.setAttribute(CommonConst.PARAM_USER, user);
+                    LOG.info(&quot;AccessToken SUCCESS ...  user:&quot; + user.getUserName() + &quot; - &quot; + accessToken);
+                    flag = true;
+                &#125;
+            &#125;
+        &#125;
+
+        if (!flag) &#123;
+            response.setStatus(HttpStatus.FORBIDDEN.value());
+            response.getWriter().print(&quot;AccessToken ERROR&quot;);
+        &#125;
+
+        return flag;
+    &#125;
+&#125;
+</code></pre>
+<p>第一步：从request获取token</p>
+<p>第二步：根据token获取校验对象信息（也可以加入过期时间校验，简单）</p>
+<p>第三步：通过校验信息获取用户信息</p>
+<h3 id="3-2-配置拦截"><a href="#3-2-配置拦截" class="headerlink" title="3.2 配置拦截"></a>3.2 配置拦截</h3><pre><code class="java">/**
+ * MVC 设置
+ *
+ */
+@Configuration
+public class WebMvcConfig extends WebMvcConfigurerAdapter &#123;
+
+    @Bean
+    public AccessTokenVerifyInterceptor tokenVerifyInterceptor() &#123;
+        return new AccessTokenVerifyInterceptor();
+    &#125;
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) &#123;
+        registry.addInterceptor(tokenVerifyInterceptor()).addPathPatterns(&quot;/test&quot;);
+        super.addInterceptors(registry);
+    &#125;
+
+&#125;
+</code></pre>
+<p>第一步：将拦截器配置成Bean</p>
+<p>第二步：拦截器注册注入该拦截器，并配置拦截的URL</p>
+<p>那 token 存哪里？</p>
+<p>ehcache，redis，db都可以。自然简单的当然是db。</p>
+<h2 id="四、小结"><a href="#四、小结" class="headerlink" title="四、小结"></a>四、小结</h2><ol>
+<li><p>REST API</p>
+</li>
+<li><p>Spring Boot 拦截器</p>
+</li>
+</ol>
+
+        </div>
+
+    </div>
+
+    <div class="article-copyright">
+
+        <div style="float: left;width: 20%;align:center;text-align: center;">
+             <img style="width: 100px;" src="https://www.bysocket.com/images/qrcode.jpeg">
+        </div>
+        <div style="float: left;width: 80%;">
+                <br/>
+                本文由 <a target="_blank" rel="noopener" href="https://www.bysocket.com/">泥瓦匠</a> 创作<br/><br/>
+                原创不易，欢迎关注公众号！转载请注明出处，感谢支持！如果本文对您有用，欢迎转发分享！
+        </div>
+
+      </div><br/><br/><br/><br/><br/>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+  
+    <a href="/how-elasticsearch-works/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">ElasticSearch 架构初探 - ES 如何工作的？</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=Spring Boot REST API 如何进行权限控制？ - 程序员泥瓦匠&url=https%3A%2F%2Fbysocket.com%2Fspring-boot-restful-verify%2F">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=Spring Boot REST API 如何进行权限控制？ - 程序员泥瓦匠&u=https%3A%2F%2Fbysocket.com%2Fspring-boot-restful-verify%2F">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=Spring Boot REST API 如何进行权限控制？ - 程序员泥瓦匠&url=https://bysocket.com/spring-boot-restful-verify/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>分类</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/">ElasticSearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/">Spring Boot</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%9D%E8%80%83/">思考</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>标签</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES/" rel="tag">ES</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/" rel="tag">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>最新文章</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/spring-boot-restful-verify/">Spring Boot REST API 如何进行权限控制？</a>
+          </li>
+        
+          <li>
+            <a href="/how-elasticsearch-works/">ElasticSearch 架构初探 - ES 如何工作的？</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-elasticsearch/">Spring Boot 整合 ElasticSearch 案例教程</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-redis/">Spring Boot 整合 Redis 案例教程</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-properties/">Spring Boot 配置文件详解</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            程序员泥瓦匠 &copy; 2023<br>
+            <a href="https://beian.miit.gov.cn" target="_blank">浙ICP备15028451号-7</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+<!-- 百度链接提交 -->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- Baidu Analytics-->
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e43a8b7f6b87c80c7d5d89ee04348971";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</body>
+
+</html>
