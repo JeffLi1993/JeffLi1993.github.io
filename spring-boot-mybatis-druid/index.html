@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>Spring Boot 整合 Mybatis + Druid 实现多数据源案例教程 | 程序员泥瓦匠</title>
+
+    <meta name="description" content="&lt;h2 id=&#34;一、多数据源的应用场景&#34;&gt;&lt;a href=&#34;#一、多数据源的应用场景&#34; class=&#34;headerlink&#34; title=&#34;一、多数据源的应用场景&#34;&gt;&lt;/a&gt;一、多数据源的应用场景&lt;/h2&gt;&lt;p&gt;目前，业界流行的数据操作框架是 Mybatis，那 Druid 是什么呢？ Druid 是 Java 的数据库连接池组件。Druid 能够提供强大的监控和扩展功能。比如可以监控 SQL ，在监控业务可以查询慢查询 SQL 列表等。Druid 核心主要包括三部分：&lt;/p&gt;">
+    <meta name="keywords" content="">
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "Spring Boot 整合 Mybatis + Druid 实现多数据源案例教程 | 程序员泥瓦匠"  />
+    <meta property="og:description" content= "&lt;h2 id=&#34;一、多数据源的应用场景&#34;&gt;&lt;a href=&#34;#一、多数据源的应用场景&#34; class=&#34;headerlink&#34; title=&#34;一、多数据源的应用场景&#34;&gt;&lt;/a&gt;一、多数据源的应用场景&lt;/h2&gt;&lt;p&gt;目前，业界流行的数据操作框架是 Mybatis，那 Druid 是什么呢？ Druid 是 Java 的数据库连接池组件。Druid 能够提供强大的监控和扩展功能。比如可以监控 SQL ，在监控业务可以查询慢查询 SQL 列表等。Druid 核心主要包括三部分：&lt;/p&gt;" />
+    <meta property="og:url" content="https://bysocket.com/spring-boot-mybatis-druid/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="泥瓦匠" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h2 id=&#34;一、多数据源的应用场景&#34;&gt;&lt;a href=&#34;#一、多数据源的应用场景&#34; class=&#34;headerlink&#34; title=&#34;一、多数据源的应用场景&#34;&gt;&lt;/a&gt;一、多数据源的应用场景&lt;/h2&gt;&lt;p&gt;目前，业界流行的数据操作框架是 Mybatis，那 Druid 是什么呢？ Druid 是 Java 的数据库连接池组件。Druid 能够提供强大的监控和扩展功能。比如可以监控 SQL ，在监控业务可以查询慢查询 SQL 列表等。Druid 核心主要包括三部分：&lt;/p&gt;" />
+    <meta name="twitter:title" content="Spring Boot 整合 Mybatis + Druid 实现多数据源案例教程 | 程序员泥瓦匠"/>
+    <meta name="twitter:description" content="&lt;h2 id=&#34;一、多数据源的应用场景&#34;&gt;&lt;a href=&#34;#一、多数据源的应用场景&#34; class=&#34;headerlink&#34; title=&#34;一、多数据源的应用场景&#34;&gt;&lt;/a&gt;一、多数据源的应用场景&lt;/h2&gt;&lt;p&gt;目前，业界流行的数据操作框架是 Mybatis，那 Druid 是什么呢？ Druid 是 Java 的数据库连接池组件。Druid 能够提供强大的监控和扩展功能。比如可以监控 SQL ，在监控业务可以查询慢查询 SQL 列表等。Druid 核心主要包括三部分：&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h2 id=&#34;一、多数据源的应用场景&#34;&gt;&lt;a href=&#34;#一、多数据源的应用场景&#34; class=&#34;headerlink&#34; title=&#34;一、多数据源的应用场景&#34;&gt;&lt;/a&gt;一、多数据源的应用场景&lt;/h2&gt;&lt;p&gt;目前，业界流行的数据操作框架是 Mybatis，那 Druid 是什么呢？ Druid 是 Java 的数据库连接池组件。Druid 能够提供强大的监控和扩展功能。比如可以监控 SQL ，在监控业务可以查询慢查询 SQL 列表等。Druid 核心主要包括三部分：&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "泥瓦匠" },
+            "@type": "BlogPosting",
+            "url": "https://bysocket.com/spring-boot-mybatis-druid/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://bysocket.com/images/avatar.webp"
+            },
+            "name": "泥瓦匠"
+            },
+            "headline": "Spring Boot 整合 Mybatis + Druid 实现多数据源案例教程 | 程序员泥瓦匠",
+            "datePublished": "2023-01-31T09:50:15.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://bysocket.com/spring-boot-mybatis-druid/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+    <!-- Google 广告 AdSense 代码 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4620650152175631" crossorigin="anonymous">
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-avatar avatar avatar-sm">
+                <img src="/images/avatar.webp" alt="泥瓦匠">
+            </div>
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>程序员泥瓦匠</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">首页</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/about">关于我</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/JeffLi1993">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+    <a class="social" target="_blank" href="https://twitter.com/CoderJeffLee">
+        <ion-icon name="logo-twitter"></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/about">关于我</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cldk2h8a40000p93s5itfgp97" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      Spring Boot 整合 Mybatis + Druid 实现多数据源案例教程
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2023-01-31T09:50:15.000Z" itemprop="datePublished">2023-01-31</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/Spring-Boot/">Spring Boot</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Druid/" rel="tag">Druid</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h2 id="一、多数据源的应用场景"><a href="#一、多数据源的应用场景" class="headerlink" title="一、多数据源的应用场景"></a>一、多数据源的应用场景</h2><p>目前，业界流行的数据操作框架是 Mybatis，那 Druid 是什么呢？ Druid 是 Java 的数据库连接池组件。Druid 能够提供强大的监控和扩展功能。比如可以监控 SQL ，在监控业务可以查询慢查询 SQL 列表等。Druid 核心主要包括三部分：</p>
+<span id="more"></span>
+
+<ol>
+<li>DruidDriver 代理 Driver，能够提供基于 Filter－Chain 模式的插件体系。</li>
+<li>DruidDataSource 高效可管理的数据库连接池</li>
+<li>SQLParser</li>
+</ol>
+<p>当业务数据量达到了一定程度，DBA 需要合理配置数据库资源。即配置主库的机器高配置，把核心高频的数据放在主库上；把次要的数据放在从库，低配置。开源节流嘛，就这个意思。把数据放在不同的数据库里，就需要通过不同的数据源进行操作数据。</p>
+<p>这里我们举个 springboot-mybatis-mutil-datasource 工程案例： user 用户表在主库 master 上，地址表 city 在从库 cluster 上。</p>
+<p>下面实现获取 根据用户名获取用户信息，包括从库的地址信息 REST API，那么需要从主库和从库中分别获取数据，并在业务逻辑层组装返回。逻辑如图：</p>
+<p><img src="/images/mybatis/cluster-master.webp"></p>
+<p>下面就运行这个案例。</p>
+<h2 id="二、运行-springboot-mybatis-mutil-datasource-工程案例"><a href="#二、运行-springboot-mybatis-mutil-datasource-工程案例" class="headerlink" title="二、运行 springboot-mybatis-mutil-datasource 工程案例"></a>二、运行 springboot-mybatis-mutil-datasource 工程案例</h2><p>git clone 下载工程 springboot-learning-example ，项目地址见 GitHub <a target="_blank" rel="noopener" href="https://github.com/JeffLi1993/springboot-learning-example">https://github.com/JeffLi1993/springboot-learning-example</a></p>
+<p>下面开始运行工程步骤：</p>
+<h3 id="1-数据库准备"><a href="#1-数据库准备" class="headerlink" title="1.数据库准备"></a>1.数据库准备</h3><p>a.创建 cluster 数据库 springbootdb：</p>
+<pre><code>CREATE DATABASE springbootdb;
+</code></pre>
+<p>b.创建表 city ：</p>
+<pre><code>DROP TABLE IF EXISTS `city`;
+CREATE TABLE `city` (
+    `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT &#39;城市编号&#39;,
+    `province_id` int(10) unsigned NOT NULL COMMENT &#39;省份编号&#39;,
+    `city_name` varchar(25) DEFAULT NULL COMMENT &#39;城市名称&#39;,
+    `description` varchar(25) DEFAULT NULL COMMENT &#39;描述&#39;,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+</code></pre>
+<p>c.插入数据</p>
+<pre><code>INSERT city VALUES (1 ,1,&#39;温岭市&#39;,&#39;BYSocket 的家在温岭。&#39;);
+</code></pre>
+<p>然后，再创建一个 master 数据库</p>
+<p>a.创建数据库 springbootdb_cluster：</p>
+<pre><code>CREATE DATABASE springbootdb_cluster;
+</code></pre>
+<p>b.创建表 user ：</p>
+<pre><code>DROP TABLE IF EXISTS `city`;
+CREATE TABLE user
+(
+    id INT(10) unsigned PRIMARY KEY NOT NULL COMMENT &#39;用户编号&#39; AUTO\_INCREMENT,
+    user_name VARCHAR(25) COMMENT &#39;用户名称&#39;,
+    description VARCHAR(25) COMMENT &#39;描述&#39;
+)ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+</code></pre>
+<p>c.插入数据</p>
+<pre><code>INSERT user VALUES (1 ,&#39;泥瓦匠&#39;,&#39;他有一个小网站 bysocket.com&#39;);
+</code></pre>
+<p>（以上数据库创建无先后顺序）</p>
+<h3 id="2-项目结构介绍"><a href="#2-项目结构介绍" class="headerlink" title="2. 项目结构介绍"></a>2. 项目结构介绍</h3><p>项目结构如下图所示：</p>
+<ul>
+<li>org.spring.springboot.config.ds - 配置层，这里是数据源的配置，包括 master 和 cluster 的数据源配置</li>
+<li>org.spring.springboot.controller - Controller 层</li>
+<li>org.spring.springboot.dao - 数据操作层 DAO，细分了 master 和 cluster 包下的 DAO 操作类</li>
+<li>org.spring.springboot.domain - 实体类</li>
+<li>org.spring.springboot.service - 业务逻辑层</li>
+<li>Application - 应用启动类</li>
+<li>application.properties - 应用配置文件，应用启动会自动读取配置</li>
+</ul>
+<h3 id="3-改数据库配置"><a href="#3-改数据库配置" class="headerlink" title="3.改数据库配置"></a>3.改数据库配置</h3><p>打开 application.properties 文件， 修改相应的主从数据源配置，比如数据源地址、账号、密码等。（如果不是用 MySQL，自行添加连接驱动 pom，然后修改驱动名配置。）</p>
+<h3 id="4-编译工程"><a href="#4-编译工程" class="headerlink" title="4.编译工程"></a>4.编译工程</h3><p>在项目根目录 springboot-learning-example，运行 maven 指令：</p>
+<pre><code>mvn clean install
+</code></pre>
+<h3 id="5-运行工程"><a href="#5-运行工程" class="headerlink" title="5.运行工程"></a>5.运行工程</h3><p>右键运行 Application 应用启动类（位置：&#x2F;springboot-learning-example&#x2F;springboot-mybatis-mutil-datasource&#x2F;src&#x2F;main&#x2F;java&#x2F;org&#x2F;spring&#x2F;springboot&#x2F;Application.java）的 main 函数，这样就成功启动了 springboot-mybatis-mutil-datasource 案例</p>
+<p>在浏览器打开：<a target="_blank" rel="noopener" href="http://localhost:8080/api/user?userName=%E6%B3%A5%E7%93%A6%E5%8C%A0">http://localhost:8080/api/user?userName=泥瓦匠</a></p>
+<p>浏览器返回 JSON 结果：</p>
+<pre><code>&#123;
+    &quot;id&quot;: 1,
+    &quot;userName&quot;: &quot;泥瓦匠&quot;,
+    &quot;description&quot;: &quot;他有一个小网站 bysocket.com&quot;,
+    &quot;city&quot;: &#123;
+        &quot;id&quot;: 1,
+        &quot;provinceId&quot;: 1,
+        &quot;cityName&quot;: &quot;温岭市&quot;,
+        &quot;description&quot;: &quot;BYSocket 的家在温岭。&quot;
+    &#125;
+&#125;
+</code></pre>
+<p>这里 city 结果体来自 cluster 库，user 结果体来自 master 库。</p>
+<h2 id="三、springboot-mybatis-mutil-datasource-工程代码配置详解"><a href="#三、springboot-mybatis-mutil-datasource-工程代码配置详解" class="headerlink" title="三、springboot-mybatis-mutil-datasource 工程代码配置详解"></a>三、springboot-mybatis-mutil-datasource 工程代码配置详解</h2><p>代码共享在我的 GitHub <a target="_blank" rel="noopener" href="https://github.com/JeffLi1993/springboot-learning-example/tree/master/springboot-mybatis-mutil-datasource">https://github.com/JeffLi1993/springboot-learning-example/tree/master/springboot-mybatis-mutil-datasource</a></p>
+<p>首先代码工程结构如下： org.spring.springboot.config.ds 包含了多数据源的配置，同样有第三个数据源，按照前几个复制即可 resources&#x2F;mapper 下面有两个模块，分别是 Mybatis 不同数据源需要扫描的 mapper xml 目录</p>
+<pre><code>├── pom.xml
+└── src
+    └── main
+        ├── java
+        │   └── org
+        │       └── spring
+        │           └── springboot
+        │               ├── Application.java
+        │               ├── config
+        │               │   └── ds
+        │               │       ├── ClusterDataSourceConfig.java
+        │               │       └── MasterDataSourceConfig.java
+        │               ├── controller
+        │               │   └── UserRestController.java
+        │               ├── dao
+        │               │   ├── cluster
+        │               │   │   └── CityDao.java
+        │               │   └── master
+        │               │       └── UserDao.java
+        │               ├── domain
+        │               │   ├── City.java
+        │               │   └── User.java
+        │               └── service
+        │                   ├── UserService.java
+        │                   └── impl
+        │                       └── UserServiceImpl.java
+        └── resources
+            ├── application.properties
+            └── mapper
+                ├── cluster
+                │   └── CityMapper.xml
+                └── master
+                    └── UserMapper.xml
+</code></pre>
+<h3 id="1-依赖-pom-xml"><a href="#1-依赖-pom-xml" class="headerlink" title="1. 依赖 pom.xml"></a>1. 依赖 pom.xml</h3><p>Mybatis 通过 Spring Boot Mybatis Starter 依赖 Druid 是数据库连接池依赖</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;groupId&gt;springboot&lt;/groupId&gt;
+    &lt;artifactId&gt;springboot-mybatis-mutil-datasource&lt;/artifactId&gt;
+    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+    &lt;name&gt;springboot-mybatis-mutil-datasource :: Spring Boot 实现 Mybatis 多数据源配置&lt;/name&gt;
+
+    &lt;!-- Spring Boot 启动父依赖 --&gt;
+    &lt;parent&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+        &lt;version&gt;1.5.1.RELEASE&lt;/version&gt;
+    &lt;/parent&gt;
+
+    &lt;properties&gt;
+        &lt;mybatis-spring-boot&gt;1.2.0&lt;/mybatis-spring-boot&gt;
+        &lt;mysql-connector&gt;5.1.39&lt;/mysql-connector&gt;
+        &lt;druid&gt;1.0.18&lt;/druid&gt;
+    &lt;/properties&gt;
+
+    &lt;dependencies&gt;
+
+        &lt;!-- Spring Boot Web 依赖 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- Spring Boot Test 依赖 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- Spring Boot Mybatis 依赖 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;
+            &lt;version&gt;$&#123;mybatis-spring-boot&#125;&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- MySQL 连接驱动依赖 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;mysql&lt;/groupId&gt;
+            &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+            &lt;version&gt;$&#123;mysql-connector&#125;&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- Druid 数据连接池依赖 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
+            &lt;artifactId&gt;druid&lt;/artifactId&gt;
+            &lt;version&gt;$&#123;druid&#125;&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- Junit --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;junit&lt;/groupId&gt;
+            &lt;artifactId&gt;junit&lt;/artifactId&gt;
+            &lt;version&gt;4.12&lt;/version&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+&lt;/project&gt;
+</code></pre>
+<h3 id="2-application-properties-配置两个数据源配置"><a href="#2-application-properties-配置两个数据源配置" class="headerlink" title="2. application.properties 配置两个数据源配置"></a>2. application.properties 配置两个数据源配置</h3><p>数据源配置会被数据源数据源配置如下</p>
+<pre><code>## master 数据源配置
+master.datasource.url=jdbc:mysql://localhost:3306/springbootdb?useUnicode=true&amp;characterEncoding=utf8
+master.datasource.username=root
+master.datasource.password=123456
+master.datasource.driverClassName=com.mysql.jdbc.Driver
+
+## cluster 数据源配置
+cluster.datasource.url=jdbc:mysql://localhost:3306/springbootdb\_cluster?useUnicode=true&amp;characterEncoding=utf8
+cluster.datasource.username=root
+cluster.datasource.password=123456
+cluster.datasource.driverClassName=com.mysql.jdbc.Driver
+</code></pre>
+<h3 id="3-数据源配置"><a href="#3-数据源配置" class="headerlink" title="3. 数据源配置"></a>3. 数据源配置</h3><p>多数据源配置的时候注意，必须要有一个主数据源，即 MasterDataSourceConfig 配置：</p>
+<pre><code>@Configuration
+// 扫描 Mapper 接口并容器管理
+@MapperScan(basePackages = MasterDataSourceConfig.PACKAGE, sqlSessionFactoryRef = &quot;masterSqlSessionFactory&quot;)
+public class MasterDataSourceConfig &#123;
+
+    // 精确到 master 目录，以便跟其他数据源隔离
+    static final String PACKAGE = &quot;org.spring.springboot.dao.master&quot;;
+    static final String MAPPER_LOCATION = &quot;classpath:mapper/master/\*.xml&quot;;
+
+    @Value(&quot;$&#123;master.datasource.url&#125;&quot;)
+    private String url;
+
+    @Value(&quot;$&#123;master.datasource.username&#125;&quot;)
+    private String user;
+
+    @Value(&quot;$&#123;master.datasource.password&#125;&quot;)
+    private String password;
+
+    @Value(&quot;$&#123;master.datasource.driverClassName&#125;&quot;)
+    private String driverClass;
+
+    @Bean(name = &quot;masterDataSource&quot;)
+    @Primary
+    public DataSource masterDataSource() &#123;
+        DruidDataSource dataSource = new DruidDataSource();
+        dataSource.setDriverClassName(driverClass);
+        dataSource.setUrl(url);
+        dataSource.setUsername(user);
+        dataSource.setPassword(password);
+        return dataSource;
+    &#125;
+
+    @Bean(name = &quot;masterTransactionManager&quot;)
+    @Primary
+    public DataSourceTransactionManager masterTransactionManager() &#123;
+        return new DataSourceTransactionManager(masterDataSource());
+    &#125;
+
+    @Bean(name = &quot;masterSqlSessionFactory&quot;)
+    @Primary
+    public SqlSessionFactory masterSqlSessionFactory(@Qualifier(&quot;masterDataSource&quot;) DataSource masterDataSource)
+            throws Exception &#123;
+        final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
+        sessionFactory.setDataSource(masterDataSource);
+        sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver()
+                .getResources(MasterDataSourceConfig.MAPPER_LOCATION));
+        return sessionFactory.getObject();
+    &#125;
+&#125;
+</code></pre>
+<p>@Primary 标志这个 Bean 如果在多个同类 Bean 候选时，该 Bean 优先被考虑。「多数据源配置的时候注意，必须要有一个主数据源，用 @Primary 标志该 Bean」</p>
+<p>@MapperScan 扫描 Mapper 接口并容器管理，包路径精确到 master，为了和下面 cluster 数据源做到精确区分</p>
+<p>@Value 获取全局配置文件 application.properties 的 kv 配置,并自动装配 sqlSessionFactoryRef 表示定义了 key ，表示一个唯一 SqlSessionFactory 实例</p>
+<p>同理可得，从数据源 ClusterDataSourceConfig 配置如下：</p>
+<pre><code>@Configuration
+// 扫描 Mapper 接口并容器管理
+@MapperScan(basePackages = ClusterDataSourceConfig.PACKAGE, sqlSessionFactoryRef = &quot;clusterSqlSessionFactory&quot;)
+public class ClusterDataSourceConfig &#123;
+
+    // 精确到 cluster 目录，以便跟其他数据源隔离
+    static final String PACKAGE = &quot;org.spring.springboot.dao.cluster&quot;;
+    static final String MAPPER_LOCATION = &quot;classpath:mapper/cluster/\*.xml&quot;;
+
+    @Value(&quot;$&#123;cluster.datasource.url&#125;&quot;)
+    private String url;
+
+    @Value(&quot;$&#123;cluster.datasource.username&#125;&quot;)
+    private String user;
+
+    @Value(&quot;$&#123;cluster.datasource.password&#125;&quot;)
+    private String password;
+
+    @Value(&quot;$&#123;cluster.datasource.driverClassName&#125;&quot;)
+    private String driverClass;
+
+    @Bean(name = &quot;clusterDataSource&quot;)
+    public DataSource clusterDataSource() &#123;
+        DruidDataSource dataSource = new DruidDataSource();
+        dataSource.setDriverClassName(driverClass);
+        dataSource.setUrl(url);
+        dataSource.setUsername(user);
+        dataSource.setPassword(password);
+        return dataSource;
+    &#125;
+
+    @Bean(name = &quot;clusterTransactionManager&quot;)
+    public DataSourceTransactionManager clusterTransactionManager() &#123;
+        return new DataSourceTransactionManager(clusterDataSource());
+    &#125;
+
+    @Bean(name = &quot;clusterSqlSessionFactory&quot;)
+    public SqlSessionFactory clusterSqlSessionFactory(@Qualifier(&quot;clusterDataSource&quot;) DataSource clusterDataSource)
+            throws Exception &#123;
+        final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
+        sessionFactory.setDataSource(clusterDataSource);
+        sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver()
+                .getResources(ClusterDataSourceConfig.MAPPER_LOCATION));
+        return sessionFactory.getObject();
+    &#125;
+&#125;
+</code></pre>
+<p>上面数据配置分别扫描 Mapper 接口，org.spring.springboot.dao.master（对应 xml classpath:mapper&#x2F;master ） 和 org.spring.springboot.dao.cluster（对应 xml classpath:mapper&#x2F;cluster ） 包中对应的 UserDAO 和 CityDAO 。</p>
+<p>都有 @Mapper 标志为 Mybatis 的并通过容器管理的 Bean。Mybatis 内部会使用反射机制运行去解析相应 SQL。</p>
+<h3 id="3-业务层-biz"><a href="#3-业务层-biz" class="headerlink" title="3.业务层 biz"></a>3.业务层 biz</h3><p>biz 照常注入了两个 DAO，如同以前一样正常工作。不用关心和指定到具体说明数据源。</p>
+<pre><code>@Service
+public class UserServiceImpl implements UserService &#123;
+
+    @Autowired
+    private UserDao userDao; // 主数据源
+
+    @Autowired
+    private CityDao cityDao; // 从数据源
+
+    @Override
+    public User findByName(String userName) &#123;
+        User user = userDao.findByName(userName);
+        City city = cityDao.findByName(&quot;温岭市&quot;);
+        user.setCity(city);
+        return user;
+    &#125;
+&#125;
+</code></pre>
+<h2 id="四、小结"><a href="#四、小结" class="headerlink" title="四、小结"></a>四、小结</h2><p>多数据源适合的场景很多。不同的 DataSource ，不同的 SqlSessionFactory 和 不同的 DAO 层，在业务逻辑层做 整合。总结的架构图如下：</p>
+<p><img src="/images/mybatis/process-architecture.webp"></p>
+<p>本文示例读者可以通过查看下面仓库的中代码 ：</p>
+<ul>
+<li>GitHub <a target="_blank" rel="noopener" href="https://github.com/JeffLi1993/springboot-learning-example">https://github.com/JeffLi1993/springboot-learning-example</a></li>
+<li>Gitee <a target="_blank" rel="noopener" href="https://gitee.com/jeff1993/springboot-learning-example">https://gitee.com/jeff1993/springboot-learning-example</a></li>
+</ul>
+<p>如果您对这些感兴趣，欢迎 star、follow、收藏、转发给予支持！</p>
+
+        </div>
+
+    </div>
+
+    <div class="article-copyright">
+
+        <div style="float: left;width: 20%;align:center;text-align: center;">
+             <img style="width: 100px;" src="https://www.bysocket.com/images/qrcode.jpeg">
+        </div>
+        <div style="float: left;width: 80%;">
+                <br/>
+                本文由 <a target="_blank" rel="noopener" href="https://www.bysocket.com/">泥瓦匠</a> 创作<br/><br/>
+                原创不易，欢迎关注公众号！转载请注明出处，感谢支持！如果本文对您有用，欢迎转发分享！
+        </div>
+
+      </div><br/><br/><br/><br/><br/>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/spring-boot-restful-error-handling/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          Spring Boot REST API 异常错误码处理案例教程
+        
+      </div>
+    </a>
+  
+  
+    <a href="/spring-boot-restful-verify/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">Spring Boot REST API 如何进行权限控制？</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=Spring Boot 整合 Mybatis + Druid 实现多数据源案例教程 - 程序员泥瓦匠&url=https%3A%2F%2Fbysocket.com%2Fspring-boot-mybatis-druid%2F">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=Spring Boot 整合 Mybatis + Druid 实现多数据源案例教程 - 程序员泥瓦匠&u=https%3A%2F%2Fbysocket.com%2Fspring-boot-mybatis-druid%2F">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=Spring Boot 整合 Mybatis + Druid 实现多数据源案例教程 - 程序员泥瓦匠&url=https://bysocket.com/spring-boot-mybatis-druid/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>分类</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/">ElasticSearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/">Spring Boot</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot-WebFlux/">Spring Boot WebFlux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%9D%E8%80%83/">思考</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">问题记录</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>标签</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Druid/" rel="tag">Druid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES/" rel="tag">ES</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenAI/" rel="tag">OpenAI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/" rel="tag">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>最新文章</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/openai-services-are-not-available-in-your-country/">OpenAI services are not available in your country 如何完美解决？</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-webflux-quickstart/">Spring Boot WebFlux 响应式 REST API 快速入门</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-restful-error-handling/">Spring Boot REST API 异常错误码处理案例教程</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-mybatis-druid/">Spring Boot 整合 Mybatis + Druid 实现多数据源案例教程</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-restful-verify/">Spring Boot REST API 如何进行权限控制？</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            程序员泥瓦匠 &copy; 2023<br>
+            <a href="https://beian.miit.gov.cn" target="_blank">浙ICP备15028451号-7</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+<!-- 百度链接提交 -->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- Baidu Analytics-->
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e43a8b7f6b87c80c7d5d89ee04348971";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

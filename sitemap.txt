@@ -1,3 +1,5 @@
+https://bysocket.com/spring-boot-restful-error-handling/
+https://bysocket.com/spring-boot-mybatis-druid/
 https://bysocket.com/openai-services-are-not-available-in-your-country/
 https://bysocket.com/about/
 https://bysocket.com/spring-boot-webflux-quickstart/
@@ -21,6 +23,8 @@ https://bysocket.com/tags/Redis/
 https://bysocket.com/tags/ElasticSearch/
 https://bysocket.com/tags/ES/
 https://bysocket.com/tags/OpenAI/
+https://bysocket.com/tags/Mybatis/
+https://bysocket.com/tags/Druid/
 https://bysocket.com/categories/%E6%80%9D%E8%80%83/
 https://bysocket.com/categories/Spring-Boot/
 https://bysocket.com/categories/ElasticSearch/
