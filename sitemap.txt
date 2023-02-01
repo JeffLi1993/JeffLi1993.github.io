@@ -1,9 +1,11 @@
+https://bysocket.com/openai-services-are-not-available-in-your-country/
+https://bysocket.com/404.html
+https://bysocket.com/spring-boot-mybatis/
 https://bysocket.com/jsp-servlet-hello-world-example/
 https://bysocket.com/spring-boot-dubbo-zookeeper/
 https://bysocket.com/nginx-unexpected-end-of-file-expecting-in-key-file/
 https://bysocket.com/spring-boot-restful-error-handling/
 https://bysocket.com/spring-boot-mybatis-druid/
-https://bysocket.com/openai-services-are-not-available-in-your-country/
 https://bysocket.com/about/
 https://bysocket.com/spring-boot-webflux-quickstart/
 https://bysocket.com/how-elasticsearch-works/
@@ -14,7 +16,6 @@ https://bysocket.com/spring-boot-properties/
 https://bysocket.com/spring-boot-restful/
 https://bysocket.com/spring-boot-web-annotation/
 https://bysocket.com/spring_boot_hello_world/
-https://bysocket.com/spring-boot-mybatis/
 https://bysocket.com/
 https://bysocket.com/tags/Java/
 https://bysocket.com/tags/MyBatis/
