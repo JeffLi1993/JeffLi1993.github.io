@@ -1,3 +1,6 @@
+https://bysocket.com/jsp-servlet-hello-world-example/
+https://bysocket.com/spring-boot-dubbo-zookeeper/
+https://bysocket.com/nginx-unexpected-end-of-file-expecting-in-key-file/
 https://bysocket.com/spring-boot-restful-error-handling/
 https://bysocket.com/spring-boot-mybatis-druid/
 https://bysocket.com/openai-services-are-not-available-in-your-country/
@@ -25,8 +28,13 @@ https://bysocket.com/tags/ES/
 https://bysocket.com/tags/OpenAI/
 https://bysocket.com/tags/Mybatis/
 https://bysocket.com/tags/Druid/
+https://bysocket.com/tags/Nginx/
+https://bysocket.com/tags/Dubbo/
+https://bysocket.com/tags/ZooKeeper/
+https://bysocket.com/tags/Servlet/
 https://bysocket.com/categories/%E6%80%9D%E8%80%83/
 https://bysocket.com/categories/Spring-Boot/
 https://bysocket.com/categories/ElasticSearch/
 https://bysocket.com/categories/Spring-Boot-WebFlux/
 https://bysocket.com/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/
+https://bysocket.com/categories/JSP/

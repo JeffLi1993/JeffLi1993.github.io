@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>图解 JSP Servlet Hello World 案例和源码 | 程序员泥瓦匠</title>
+
+    <meta name="description" content="&lt;p&gt;一直想写点Web开发相关的。JDK IO源码就隔一段落，温故知新看看&lt;strong&gt;Servlet &amp;amp; JSP&lt;/strong&gt; 相关。把自己基础累积回顾一遍，并和大家分享分享一些心得和代码。&lt;/p&gt;
+&lt;p&gt;这里应该涉及到一部分源码，开发思想和一些手工做出的图。喜欢java，或者有一定Java开发经验的多提宝贵意见。&lt;/p&gt;">
+    <meta name="keywords" content="">
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "图解 JSP Servlet Hello World 案例和源码 | 程序员泥瓦匠"  />
+    <meta property="og:description" content= "&lt;p&gt;一直想写点Web开发相关的。JDK IO源码就隔一段落，温故知新看看&lt;strong&gt;Servlet &amp;amp; JSP&lt;/strong&gt; 相关。把自己基础累积回顾一遍，并和大家分享分享一些心得和代码。&lt;/p&gt;
+&lt;p&gt;这里应该涉及到一部分源码，开发思想和一些手工做出的图。喜欢java，或者有一定Java开发经验的多提宝贵意见。&lt;/p&gt;" />
+    <meta property="og:url" content="https://bysocket.com/jsp-servlet-hello-world-example/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="泥瓦匠" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;p&gt;一直想写点Web开发相关的。JDK IO源码就隔一段落，温故知新看看&lt;strong&gt;Servlet &amp;amp; JSP&lt;/strong&gt; 相关。把自己基础累积回顾一遍，并和大家分享分享一些心得和代码。&lt;/p&gt;
+&lt;p&gt;这里应该涉及到一部分源码，开发思想和一些手工做出的图。喜欢java，或者有一定Java开发经验的多提宝贵意见。&lt;/p&gt;" />
+    <meta name="twitter:title" content="图解 JSP Servlet Hello World 案例和源码 | 程序员泥瓦匠"/>
+    <meta name="twitter:description" content="&lt;p&gt;一直想写点Web开发相关的。JDK IO源码就隔一段落，温故知新看看&lt;strong&gt;Servlet &amp;amp; JSP&lt;/strong&gt; 相关。把自己基础累积回顾一遍，并和大家分享分享一些心得和代码。&lt;/p&gt;
+&lt;p&gt;这里应该涉及到一部分源码，开发思想和一些手工做出的图。喜欢java，或者有一定Java开发经验的多提宝贵意见。&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;p&gt;一直想写点Web开发相关的。JDK IO源码就隔一段落，温故知新看看&lt;strong&gt;Servlet &amp;amp; JSP&lt;/strong&gt; 相关。把自己基础累积回顾一遍，并和大家分享分享一些心得和代码。&lt;/p&gt;
+&lt;p&gt;这里应该涉及到一部分源码，开发思想和一些手工做出的图。喜欢java，或者有一定Java开发经验的多提宝贵意见。&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "泥瓦匠" },
+            "@type": "BlogPosting",
+            "url": "https://bysocket.com/jsp-servlet-hello-world-example/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://bysocket.com/images/avatar.webp"
+            },
+            "name": "泥瓦匠"
+            },
+            "headline": "图解 JSP Servlet Hello World 案例和源码 | 程序员泥瓦匠",
+            "datePublished": "2023-02-01T06:17:15.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://bysocket.com/jsp-servlet-hello-world-example/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+    <!-- Google 广告 AdSense 代码 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4620650152175631" crossorigin="anonymous">
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-avatar avatar avatar-sm">
+                <img src="/images/avatar.webp" alt="泥瓦匠">
+            </div>
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>程序员泥瓦匠</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">首页</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/about">关于我</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/JeffLi1993">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+    <a class="social" target="_blank" href="https://twitter.com/CoderJeffLee">
+        <ion-icon name="logo-twitter"></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/about">关于我</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cldla1kro000c4j3s9m5gfdqu" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      图解 JSP Servlet Hello World 案例和源码
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2023-02-01T06:17:15.000Z" itemprop="datePublished">2023-02-01</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/JSP/">JSP</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <p>一直想写点Web开发相关的。JDK IO源码就隔一段落，温故知新看看<strong>Servlet &amp; JSP</strong> 相关。把自己基础累积回顾一遍，并和大家分享分享一些心得和代码。</p>
+<p>这里应该涉及到一部分源码，开发思想和一些手工做出的图。喜欢java，或者有一定Java开发经验的多提宝贵意见。</p>
+<span id="more"></span>
+
+<h2 id="一、Web服务器"><a href="#一、Web服务器" class="headerlink" title="一、Web服务器"></a>一、Web服务器</h2><p>从事web开发的人，会很清楚一个东西叫 <strong>Web服务器</strong>，比如J2EE开发—<strong>Tomcat</strong>，<strong>Jetty</strong>，.NET开发—<strong>IIS</strong>等。</p>
+<p>HTTP服务器是使用 <strong>HTTP</strong>（超文本传输协议） 与客户机浏览器进行信息交流。下面就是<strong>HTTP服务器</strong>简单交互图：</p>
+<p><img src="/images/servlet/1.webp"></p>
+<p><strong>HTTP服务器</strong>是<strong>Web服务器</strong>的一种，也是开发最常见的，自然还有其他方式进行信息交互，比如<strong>FTP文件服务器</strong>…</p>
+<blockquote>
+<p>Web服务器是可以向发出请求的浏览器提供文档的程序。其核心过程为 <strong>连接</strong>过程 — <strong>请求</strong>过程 — <strong>应答</strong>过程 — <strong>关闭连接</strong></p>
+</blockquote>
+<p>这让我想到了<strong>Tomcat架构</strong>的一张图：</p>
+<p><img src="/images/servlet/2.webp"></p>
+<h2 id="二、Tomcat-简单说几句"><a href="#二、Tomcat-简单说几句" class="headerlink" title="二、Tomcat 简单说几句"></a>二、Tomcat 简单说几句</h2><p>如图，Tomcat 包含了<strong>核心服务</strong>模块：<strong>Connector</strong>连接模块 和 <strong>Container</strong> 容器。Tomcat Server 核心是一个 <strong>Servlet&#x2F;JSP Container</strong>。对每一个<strong>HTTP</strong>请求，过程如下</p>
+<ul>
+<li><strong>获取连接</strong></li>
+<li><strong>Servlet</strong>来分析<strong>请求</strong>（<strong>HttpServletRequest</strong>）</li>
+<li>调用其<strong>service</strong>方法，进行业务处理</li>
+<li>产生相应的<strong>响应</strong>（<strong>HttpServletResponse</strong>）</li>
+<li><strong>关闭连接</strong></li>
+</ul>
+<p>如图：</p>
+<p><img src="/images/servlet/3.webp"></p>
+<p>蓝色线指向过程是<strong>请求</strong>，绿色线指向过程是<strong>响应</strong>过程。也就是上面Web服务器核心过程：“<strong>连接过程 — 请求过程 — 应答过程 — 关闭连接</strong>”</p>
+<h2 id="三、第一个Servlet"><a href="#三、第一个Servlet" class="headerlink" title="三、第一个Servlet"></a>三、第一个Servlet</h2><p>什么是Servlet？（每次都会不停的问自己，这是什么“What”？紧接着应该是什么用“How”吧） 在 <a target="_blank" rel="noopener" href="http://tool.oschina.net/apidocs/apidoc?api=javaEE6">JavaEE 6文档</a> 中，介绍如下</p>
+<blockquote>
+<p>“<strong>Servlet</strong> 是运行在<strong>Web服务器</strong>的Java小程序。Servlet可以获取并针对Web客户端的<strong>请求作出响应</strong>。一般情况下，通过<strong>HTTP</strong>，即超文本传输协议，进行传输通信。”<br>A servlet is a small Java program that runs within a Web server. Servlets receive and respond to requests from Web clients, usually across HTTP, the HyperText Transfer Protocol.</p>
+</blockquote>
+<p>所以，<strong>Servlet 是Web服务器核心工作的抽象</strong>。它不单单只是实现<strong>HttpServlet</strong>，可能实现有<strong>FtpServlet</strong>（这个我猜的）等。相对较多的Web开发，知道的肯定是HttpServlet。 补充，在Servlet规范是这样写道的：</p>
+<blockquote>
+<p>Serlvet是基于Java技术的Web组件，容器托管的，用于生产动态内容。它也是基于平台无关的Java类格式，被编译为平台无关的字节码，可以被基于Java技术的web server动态加载并运行。这里容器，有时候也称为servlet 引擎。</p>
+</blockquote>
+<p>在 <a target="_blank" rel="noopener" href="http://tool.oschina.net/apidocs/apidoc?api=javaEE6">JavaEE 6文档</a>中，是这样介绍<strong>HttpServlet</strong>：</p>
+<blockquote>
+<p>“HttpServlet 提供了一个能被继承后创建一个适应Web网站的<strong>Http Servlet</strong>的抽象类。”</p>
+<p>Provides an abstract class to be subclassed to create an HTTP servlet suitable for a Web site.</p>
+</blockquote>
+<p>光说不练假把式，练一个“Hello,Servlet&#x2F;JSP World!”:</p>
+<pre><code>import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet(urlPatterns = &quot;/helloWorld.html&quot;)
+public class HelloWorldServletT extends HttpServlet&#123;
+    
+    private static final long serialVersionUID = 1L;
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException&#123;
+        // 获取输出打印对象
+        PrintWriter out = resp.getWriter();
+        out.println(&quot;Hello,Servlet/JSP World!&quot;);
+    &#125;
+&#125;
+</code></pre>
+<p>右键该HelloWorldServletT.java文件 — Run As — Run On Server — 选择Tomcat服务器 — Finish即可</p>
+<p><img src="/images/servlet/4.webp"></p>
+<p>等待片刻，你可看到网页上如下输出。这就是客户端从HttpServlet获取到的响应：</p>
+<p><img src="/images/servlet/5.webp"></p>
+<h2 id="三、分析源码"><a href="#三、分析源码" class="headerlink" title="三、分析源码"></a>三、分析源码</h2><pre><code>@WebServlet(urlPatterns = &quot;/helloWorld.html&quot;)
+</code></pre>
+<p><strong>@WebServlet</strong> 注解用于<strong>声明</strong>一个HttpServlet的<strong>配置</strong>。其中，<strong>urlPatters</strong> &#x3D; “&#x2F;helloWorld.html”，urlPatterns复数形式，说明<strong>至少一个</strong>URL必须被申明。它和另一个value必须存在一个，但不能同时存在。如果要匹配<strong>多个URL路径</strong>的话，如下：</p>
+<pre><code>@WebServlet(urlPatterns = &#123; &quot;/helloWorld01.html&quot;, &quot;/helloWorld02.html&quot; &#125;
+</code></pre>
+<p>下面有个@Override，<strong>重写</strong>了父类<strong>HttpServlet</strong>的<strong>doGet</strong>方法。我们先看看父类HttpServlet。<strong>HttpServlet</strong>是一个<strong>抽象类</strong>，它提供了以下方法：</p>
+<ul>
+<li>doGet   ， 服务于 HTPP GET 请求</li>
+<li>doPost ， 服务于 HTTP POST 请求</li>
+<li>doPut   ， 服务于 HTTP PUT 请求</li>
+<li>doDelete,服务于 HTTP DELETE 请求 …</li>
+</ul>
+<p>如图：</p>
+<p><img src="/images/servlet/6.webp"></p>
+<p>对于<strong>不同</strong>的<strong>请求</strong>，HttpServlet的<strong>子类</strong>必须相应的<strong>实现至少一个方法</strong>，通常来说，会是其中一个，这样代码比较清晰。那父类的doGet方法做了什么工作呢？</p>
+<pre><code>protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+        throws ServletException, IOException
+    &#123;
+        String protocol = req.getProtocol();
+        String msg = lStrings.getString(&quot;http.method\_get\_not\_supported&quot;);
+        if (protocol.endsWith(&quot;1.1&quot;)) &#123;
+            resp.sendError(HttpServletResponse.SC\_METHOD\_NOT\_ALLOWED, msg);
+        &#125; else &#123;
+            resp.sendError(HttpServletResponse.SC\_BAD\_REQUEST, msg);
+        &#125;
+    &#125;
+</code></pre>
+<p>这里就简单的获取了下HTTP协议及Http Local信息，然后可以协议是否是1.1，做出分别是405或者400HTTP状态码的响应。 回到HelloWorldServletT.java 这里:</p>
+<pre><code>@Override
+protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+        throws ServletException, IOException &#123;
+    // 获取输出打印对象
+    PrintWriter out = resp.getWriter();
+    out.println(&quot;Hello,Servlet/JSP World!&quot;);
+&#125;
+</code></pre>
+<p>表示该HelloWorldServletT会接受<strong>Http GET请求</strong>，并OOM到<strong>HttpServletRequest</strong>，并执行里面的<strong>逻辑</strong>代码和<strong>返回响应</strong>。 这里从<strong>HttpServletResponse</strong>对象中获取到输出打印对象<strong>PrintWriter</strong>，然后输出了“Hello，Servlet&#x2F;JSP World!”。</p>
+<h2 id="五、深入Servlet-具体过程"><a href="#五、深入Servlet-具体过程" class="headerlink" title="五、深入Servlet 具体过程"></a>五、深入Servlet 具体过程</h2><p>又回到这个简单的 Get Servlet代码：</p>
+<pre><code>public class HelloWorldServletT extends HttpServlet&#123;
+    
+    private static final long serialVersionUID = 1L;
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException&#123;
+        // 获取输出打印对象
+        PrintWriter out = resp.getWriter();
+        out.println(&quot;Hello,Servlet/JSP World!&quot;);
+    &#125;
+&#125;
+</code></pre>
+<p>这过程总结如下：</p>
+<ul>
+<li>从浏览器（Client）<strong>获取连接”&#x2F;helloWorld.html”</strong></li>
+<li><strong>Tomcat Connector模块将请求(Request)传递给 Container模块</strong></li>
+<li><strong>Container</strong> 模块会做以下事情</li>
+<li>分析HTPP请求信息，组装成<strong>HttpServletRequest</strong>对象</li>
+<li>创建新的<strong>HttpServletResponse</strong>对象</li>
+<li>根据路由配置，搜索相应的<strong>Servlet</strong>，并<strong>创建一个线程</strong>用于处理本次请求。此时线程会将上面<strong>Request</strong>和<strong>Response</strong>对象的<strong>索引</strong>，<strong>传递给Servlet</strong></li>
+<li>新线程中的Servlet处理<strong>逻辑</strong></li>
+<li><strong>线程结束</strong>后，通过<strong>HttpServletResponse</strong>对象的<strong>PrintWriter</strong>，返回浏览器一个信息</li>
+</ul>
+<p>过程图如下：</p>
+<p><img src="/images/servlet/7.webp"></p>
+<p>蓝色线指向过程是<strong>请求</strong>，绿色线指向过程是<strong>响应</strong>过程，橙色线指向过程是<strong>内部处理</strong>过程。 有些面试题会这样问：</p>
+<blockquote>
+<p><strong>Servlet是线程安全的吗？</strong> 不是，一个servlet实现类<strong>只会有一个实例对象</strong>，多个线程是可能会访问同一个servlet实例对象的，<strong>线程安全问题</strong>都是由<strong>全局变量</strong>及<strong>静态变量</strong>引起的。</p>
+</blockquote>
+<p>因此，Servlet对象实例化是在以<strong>第一次请求</strong>此Servlet时，如果访问后，实例对象存在<strong>内存</strong>中，只会在服务器停止时，它才会消失。它不会随着各个线程结束而结束。因此下次访问Servlet时，<strong>Servlet Container</strong>会搜索相应的<strong>Servlet</strong>，如果<strong>不存在</strong>，<strong>Container新建</strong>相应的<strong>Servlet</strong>。这也是我们想要的结果。 再来个恶心的面试题：</p>
+<p><strong>Servlet是单例吗？</strong></p>
+<p>不一定是，在一个ServeltName情况下是的。在多个ServletName匹配到一个Servlet类时，该Servlet不是单例。</p>
+<h2 id="六、小结"><a href="#六、小结" class="headerlink" title="六、小结"></a>六、小结</h2><p>言归正传本文要点如下</p>
+<p><strong>1、简单介绍Web服务器 及 Tomcat容器</strong></p>
+<p><strong>2、第一个Sevlet的开发及使用</strong></p>
+<p><strong>3、深入源码及api介绍使用</strong></p>
+<p><strong>4、总结一次请求及响应的真实过程</strong></p>
+
+        </div>
+
+    </div>
+
+    <div class="article-copyright">
+
+        <div style="float: left;width: 20%;align:center;text-align: center;">
+             <img style="width: 100px;" src="https://www.bysocket.com/images/qrcode.jpeg">
+        </div>
+        <div style="float: left;width: 80%;">
+                <br/>
+                本文由 <a target="_blank" rel="noopener" href="https://www.bysocket.com/">泥瓦匠</a> 创作<br/><br/>
+                原创不易，欢迎关注公众号！转载请注明出处，感谢支持！如果本文对您有用，欢迎转发分享！
+        </div>
+
+      </div><br/><br/><br/><br/><br/>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+  
+    <a href="/spring-boot-dubbo-zookeeper/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">Spring Boot 整合 Dubbo + ZooKeeper 实现分布式服务案例教程</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=图解 JSP Servlet Hello World 案例和源码 - 程序员泥瓦匠&url=https%3A%2F%2Fbysocket.com%2Fjsp-servlet-hello-world-example%2F">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=图解 JSP Servlet Hello World 案例和源码 - 程序员泥瓦匠&u=https%3A%2F%2Fbysocket.com%2Fjsp-servlet-hello-world-example%2F">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=图解 JSP Servlet Hello World 案例和源码 - 程序员泥瓦匠&url=https://bysocket.com/jsp-servlet-hello-world-example/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>分类</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/">ElasticSearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JSP/">JSP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/">Spring Boot</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot-WebFlux/">Spring Boot WebFlux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%9D%E8%80%83/">思考</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">问题记录</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>标签</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Druid/" rel="tag">Druid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dubbo/" rel="tag">Dubbo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES/" rel="tag">ES</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenAI/" rel="tag">OpenAI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/" rel="tag">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ZooKeeper/" rel="tag">ZooKeeper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>最新文章</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/jsp-servlet-hello-world-example/">图解 JSP Servlet Hello World 案例和源码</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-dubbo-zookeeper/">Spring Boot 整合 Dubbo + ZooKeeper 实现分布式服务案例教程</a>
+          </li>
+        
+          <li>
+            <a href="/nginx-unexpected-end-of-file-expecting-in-key-file/">Nginx unexpected end of file 配置证书遇到问题，如何解决？</a>
+          </li>
+        
+          <li>
+            <a href="/openai-services-are-not-available-in-your-country/">OpenAI services are not available in your country 如何完美解决？</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-webflux-quickstart/">Spring Boot WebFlux 响应式 REST API 快速入门</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            程序员泥瓦匠 &copy; 2023<br>
+            <a href="https://beian.miit.gov.cn" target="_blank">浙ICP备15028451号-7</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+<!-- 百度链接提交 -->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- Baidu Analytics-->
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e43a8b7f6b87c80c7d5d89ee04348971";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</body>
+
+</html>
