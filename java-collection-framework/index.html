@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>Java Collections 框架概述 | 程序员泥瓦匠</title>
+
+    <meta name="description" content="&lt;p&gt;集合是Java语言学习中重要的一部分。泥瓦匠我的感觉是刚开始挺难学的，但等你熟悉它，接触多了，也就“顺理成章”地知道了。Java的集合类主要由两个接口派生而出：&lt;strong&gt;Collection和Map&lt;/strong&gt;。&lt;/p&gt;">
+    <link rel="canonical" href="https://bysocket.com/java-collection-framework/"/>
+    <meta name="keywords" content="">
+
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "Java Collections 框架概述 | 程序员泥瓦匠"  />
+    <meta property="og:description" content= "&lt;p&gt;集合是Java语言学习中重要的一部分。泥瓦匠我的感觉是刚开始挺难学的，但等你熟悉它，接触多了，也就“顺理成章”地知道了。Java的集合类主要由两个接口派生而出：&lt;strong&gt;Collection和Map&lt;/strong&gt;。&lt;/p&gt;" />
+    <meta property="og:url" content="https://bysocket.com/java-collection-framework/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="泥瓦匠" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;p&gt;集合是Java语言学习中重要的一部分。泥瓦匠我的感觉是刚开始挺难学的，但等你熟悉它，接触多了，也就“顺理成章”地知道了。Java的集合类主要由两个接口派生而出：&lt;strong&gt;Collection和Map&lt;/strong&gt;。&lt;/p&gt;" />
+    <meta name="twitter:title" content="Java Collections 框架概述 | 程序员泥瓦匠"/>
+    <meta name="twitter:description" content="&lt;p&gt;集合是Java语言学习中重要的一部分。泥瓦匠我的感觉是刚开始挺难学的，但等你熟悉它，接触多了，也就“顺理成章”地知道了。Java的集合类主要由两个接口派生而出：&lt;strong&gt;Collection和Map&lt;/strong&gt;。&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;p&gt;集合是Java语言学习中重要的一部分。泥瓦匠我的感觉是刚开始挺难学的，但等你熟悉它，接触多了，也就“顺理成章”地知道了。Java的集合类主要由两个接口派生而出：&lt;strong&gt;Collection和Map&lt;/strong&gt;。&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "泥瓦匠" },
+            "@type": "BlogPosting",
+            "url": "https://bysocket.com/java-collection-framework/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://bysocket.com/images/avatar.webp"
+            },
+            "name": "泥瓦匠"
+            },
+            "headline": "Java Collections 框架概述 | 程序员泥瓦匠",
+            "datePublished": "2023-02-02T06:42:00.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://bysocket.com/java-collection-framework/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+    <!-- Google 广告 AdSense 代码 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4620650152175631" crossorigin="anonymous">
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-avatar avatar avatar-sm">
+                <img src="/images/avatar.webp" alt="泥瓦匠">
+            </div>
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>程序员泥瓦匠</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">首页</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/about">关于我</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/JeffLi1993">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+    <a class="social" target="_blank" href="https://twitter.com/CoderJeffLee">
+        <ion-icon name="logo-twitter"></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/about">关于我</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cldmqcqpa000bj93s2olf6z7a" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      Java Collections 框架概述
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2023-02-02T06:42:00.000Z" itemprop="datePublished">2023-02-02</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/JDK/">JDK</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Collections/" rel="tag">Collections</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <p>集合是Java语言学习中重要的一部分。泥瓦匠我的感觉是刚开始挺难学的，但等你熟悉它，接触多了，也就“顺理成章”地知道了。Java的集合类主要由两个接口派生而出：<strong>Collection和Map</strong>。</p>
+<span id="more"></span>
+
+<h2 id="一、Collection-vs-Collections"><a href="#一、Collection-vs-Collections" class="headerlink" title="一、Collection vs Collections"></a>一、Collection vs Collections</h2><p>首先，Collection 和 Collections 是两个不同的概念。之所以放在一起，是为了更好的比较。<strong>Collection是集合层次结构中根接口。而Collections是一个提供一些处理集合类静态方法的类。</strong></p>
+<p><img src="/images/jdk/CollectionVsCollections_thumb.webp"></p>
+<p><strong>JDK不提供Collection接口的具体实现，而是提供了更加具体的子接口（如Set和List）实现</strong>。</p>
+<p>那Collection接口存在有何作用呢？存在即是道理。</p>
+<p>原因在于：所有集合的实现类（如ArrayList实现了List接口，HashSet实现了Set接口）提供了两个‘标准’的构造函数来实现：</p>
+<ul>
+<li><p>1、一个无参的构造方法（void）</p>
+</li>
+<li><p>2、一个带有<strong>Collection类型</strong>单参数构造方法，用于创建一个具有其参数相同元素新的Collection及其实现类等。</p>
+</li>
+</ul>
+<p><strong>实际上</strong>：因为所有通用的集合类遵从Collection接口，用第二种构造方法是允许集合之间相互的复制。</p>
+<h2 id="二、Collection的类层次结构"><a href="#二、Collection的类层次结构" class="headerlink" title="二、Collection的类层次结构"></a>二、Collection的类层次结构</h2><p>下面的图是关于Collection的类的层次结构。</p>
+<p><img src="/images/jdk/java-collection_thumb.webp"></p>
+<p><strong>Set</strong>： 一个<strong>不包括重复元素（包括可变对象）</strong>的Collection，是一种<strong>无序</strong>的集合。</p>
+<p>Set不包含满足 a.equals(b) 的元素对a和b，并且最多有一个null。实现Set的接口有：EnumSet、HashSet、TreeSet等。下图是Set的JDK源码UML图。</p>
+<p><img src="/images/jdk/Set.webp"></p>
+<p><strong>List</strong>： 一个<strong>有序</strong>的Collection（也称序列），元素<strong>可以重复</strong>。</p>
+<p>确切的讲，列表通常允许满足 e1.equals(e2) 的元素对 e1 和 e2，并且如果列表本身允许 null 元素的话，通常它们允许多个 null 元素。实现List的有：ArrayList、LinkedList、Vector、Stack等。下图是List的JDK源码UML图。</p>
+<p><img src="/images/jdk/list.webp"></p>
+<p><strong>Queue</strong>： 一种队列则是<strong>双端队列</strong>，支持在头、尾两端插入和移除元素，主要包括：ArrayDeque、LinkedBlockingDeque、LinkedList。</p>
+<p>另一种是<strong>阻塞式队列</strong>，队列满了以后再插入元素则会抛出异常，主要包括ArrayBlockQueue、PriorityBlockingQueue、LinkedBlockingQueue。虽然接口并未定义阻塞方法，但是实现类扩展了此接口。下图是Queue的JDK源码UML图。</p>
+<p><img src="/images/jdk/queue.webp"></p>
+<h2 id="三、Map的类的层次结构"><a href="#三、Map的类的层次结构" class="headerlink" title="三、Map的类的层次结构"></a>三、Map的类的层次结构</h2><p>下面的图是Map的层次结构图</p>
+<p><img src="/images/jdk/MapClassHierarchy.webp"></p>
+<p>Map： 是一个键值对的集合。也就是说，一个映射不能包含重复的键，每个键最多映射到一个值。该接口取代了Dictionary抽象类。实现map的有：HashMap、TreeMap、HashTable、Properties、EnumMap。下图是Map的JDK源码UML图。</p>
+<p><img src="/images/jdk/map.webp"></p>
+<h2 id="四、集合接口的小结"><a href="#四、集合接口的小结" class="headerlink" title="四、集合接口的小结"></a>四、集合接口的小结</h2><p><img src="/images/jdk/collection-summary.png"></p>
+<h2 id="五、代码样例"><a href="#五、代码样例" class="headerlink" title="五、代码样例"></a>五、代码样例</h2><p>对HashMap，HashSet，LinkedList，ArrayList，TreeMap，TreeSet的例子如下：</p>
+<pre><code>import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
+@SuppressWarnings(&quot;unchecked&quot;)
+public class CollectionAll
+&#123;
+    
+    public static void main(String[] args)
+    &#123;
+        printLists();
+        
+        printSets();
+        
+        printMaps();
+    &#125;
+
+    private static void printLists()
+    &#123;
+        List&lt;String&gt; a1 = new ArrayList&lt;String&gt;();
+        a1.add(&quot;List&quot;);
+        a1.add(&quot;Set&quot;);
+        a1.add(&quot;Queue&quot;);
+        a1.add(&quot;Map&quot;);
+        System.out.println(&quot;ArrayList Elements:&quot;);
+        System.out.print(&quot;\t&quot; + a1 + &quot;\n&quot;);
+        
+        List&lt;String&gt; l1 = new LinkedList&lt;String&gt;();
+        l1.add(&quot;List&quot;);
+        l1.add(&quot;Set&quot;);
+        l1.add(&quot;Queue&quot;);
+        l1.add(&quot;Map&quot;);
+        System.out.println(&quot;LinkedList Elements:&quot;);
+        System.out.print(&quot;\t&quot; + l1 + &quot;\n&quot;);
+    &#125;
+    @SuppressWarnings(&quot;rawtypes&quot;)
+    private static void printSets()
+    &#123;
+        Set h1 = new HashSet&lt;String&gt;();
+        h1.add(&quot;List&quot;);
+        h1.add(&quot;Set&quot;);
+        h1.add(&quot;Queue&quot;);
+        h1.add(&quot;Map&quot;);
+        System.out.println(&quot;HashSet Elements:&quot;);
+        System.out.print(&quot;\t&quot; + h1 + &quot;\n&quot;);
+        
+        Set t1 = new TreeSet&lt;String&gt;();
+        t1.add(&quot;List&quot;);
+        t1.add(&quot;Set&quot;);
+        t1.add(&quot;Queue&quot;);
+        t1.add(&quot;Map&quot;);
+        System.out.println(&quot;TreeSet Elements:&quot;);
+        System.out.print(&quot;\t&quot; + t1 + &quot;\n&quot;);
+    &#125;
+    
+    private static void printMaps()
+    &#123;
+        Map&lt;String, String&gt; h1 = new HashMap&lt;String, String&gt;();
+        h1.put(&quot;List&quot;, &quot;ArrayList&quot;);
+        h1.put(&quot;Set&quot;, &quot;HashSet&quot;);
+        h1.put(&quot;Queue&quot;, &quot;PriorityQueue&quot;);
+        h1.put(&quot;Map&quot;, &quot;HashMap&quot;);
+        System.out.println(&quot;HashMap Elements:&quot;);
+        System.out.print(&quot;\t&quot; + h1 + &quot;\n&quot;);
+        
+        Map&lt;String, String&gt; t1 = new TreeMap&lt;String,String&gt;();
+        t1.put(&quot;List&quot;, &quot;ArrayList&quot;);
+        t1.put(&quot;Set&quot;, &quot;HashSet&quot;);
+        t1.put(&quot;Queue&quot;, &quot;PriorityQueue&quot;);
+        t1.put(&quot;Map&quot;, &quot;HashMap&quot;);
+        System.out.println(&quot;TreeMap Elements:&quot;);
+        System.out.print(&quot;\t&quot; + t1 + &quot;\n&quot;);
+        
+    &#125;
+&#125;
+</code></pre>
+<p>控制台打印如下：</p>
+<pre><code>ArrayList Elements:
+    \[List, Set, Queue, Map\]
+LinkedList Elements:
+    \[List, Set, Queue, Map\]
+HashSet Elements:
+    \[Map, Queue, Set, List\]
+TreeSet Elements:
+    \[List, Map, Queue, Set\]
+HashMap Elements:
+    &#123;Map=HashMap, Queue=PriorityQueue, Set=HashSet, List=ArrayList&#125;
+TreeMap Elements:
+    &#123;List=ArrayList, Map=HashMap, Queue=PriorityQueue, Set=HashSet&#125;
+</code></pre>
+<h2 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h2><hr>
+<h3 id="Vector和ArrayList"><a href="#Vector和ArrayList" class="headerlink" title="Vector和ArrayList"></a>Vector和ArrayList</h3><ol>
+<li><p>vector是线程同步的，所以它也是线程安全的，而arraylist是线程异步的，是不安全的。如果不考虑到线程的安全因素，一般用arraylist效率比较高。</p>
+</li>
+<li><p>如果集合中的元素的数目大于目前集合数组的长度时，vector增长率为目前数组长度的100%,而arraylist增长率为目前数组长度的50%.如过在集合中使用数据量比较大的数据，用vector有一定的优势。</p>
+</li>
+<li><p>如果查找一个指定位置的数据，vector和arraylist使用的时间是相同的，都是0(1),这个时候使用vector和arraylist都可以。而如果移动一个指定位置的数据花费的时间为0(n-i)n为总长度，这个时候就应该考虑到使用linklist,因为它移动一个指定位置的数据所花费的时间为0(1),而查询一个指定位置的数据时花费的时间为0(i)。<br>ArrayList 和Vector是采用数组方式存储数据，此数组元素数大于实际存储的数据以便增加和插入元素，都允许直接序号索引元素，但是插入数据要设计到数组元素移动等内存操作，所以索引数据快插入数据慢，Vector由于使用了synchronized方法（线程安全）所以性能上比ArrayList要差，LinkedList使用双向链表实现存储，按序号索引数据需要进行向前或向后遍历，但是插入数据时只需要记录本项的前后项即可，所以插入数度较快！</p>
+</li>
+</ol>
+<h3 id="Aarraylist和Linkedlist"><a href="#Aarraylist和Linkedlist" class="headerlink" title="Aarraylist和Linkedlist"></a>A<strong>arraylist和Linkedlist</strong></h3><ol>
+<li><p>ArrayList是实现了基于动态数组的数据结构，LinkedList基于链表的数据结构。</p>
+</li>
+<li><p>对于随机访问get和set，ArrayList觉得优于LinkedList，因为LinkedList要移动指针。</p>
+</li>
+<li><p>对于新增和删除操作add和remove，LinedList比较占优势，因为ArrayList要移动数据。 这一点要看实际情况的。若只对单条数据插入或删除，ArrayList的速度反而优于LinkedList。但若是批量随机的插入删除数据，LinkedList的速度大大优于ArrayList. 因为ArrayList每插入一条数据，要移动插入点及之后的所有数据。</p>
+</li>
+</ol>
+<h3 id="HashMap与TreeMap"><a href="#HashMap与TreeMap" class="headerlink" title="HashMap与TreeMap"></a>HashMap与TreeMap</h3><ol>
+<li><p>HashMap通过hashcode对其内容进行快速查找，而TreeMap中所有的元素都保持着某种固定的顺序，如果你需要得到一个有序的结果你就应该使用TreeMap（HashMap中元素的排列顺序是不固定的）。HashMap中元素的排列顺序是不固定的）。</p>
+</li>
+<li><p>HashMap通过hashcode对其内容进行快速查找，而TreeMap中所有的元素都保持着某种固定的顺序，如果你需要得到一个有序的结果你就应该使用TreeMap（HashMap中元素的排列顺序是不固定的）。集合框架”提供两种常规的Map实现：HashMap和TreeMap (TreeMap实现SortedMap接口)。</p>
+</li>
+<li><p>在Map 中插入、删除和定位元素，HashMap 是最好的选择。但如果您要按自然顺序或自定义顺序遍历键，那么TreeMap会更好。使用HashMap要求添加的键类明确定义了hashCode()和 equals()的实现。 这个TreeMap没有调优选项，因为该树总处于平衡状态。</p>
+</li>
+</ol>
+<h3 id="hashtable与hashmap"><a href="#hashtable与hashmap" class="headerlink" title="hashtable与hashmap"></a>hashtable与hashmap</h3><ol>
+<li>历史原因:Hashtable是基于陈旧的Dictionary类的，HashMap是Java 1.2引进的Map接口的一个实现 。</li>
+<li>同步性:Hashtable是线程安全的，也就是说是同步的，而HashMap是线程序不安全的，不是同步的 。</li>
+<li>值：只有HashMap可以让你将空值作为一个表的条目的key或value 。</li>
+</ol>
+<p><img src="/images/jdk/collection_thumb.webp"></p>
+
+        </div>
+
+    </div>
+
+    <div class="article-copyright">
+
+        <div style="float: left;width: 20%;align:center;text-align: center;">
+             <img style="width: 100px;" src="https://www.bysocket.com/images/qrcode.jpeg">
+        </div>
+        <div style="float: left;width: 80%;">
+                <br/>
+                本文由 <a target="_blank" rel="noopener" href="https://www.bysocket.com/">泥瓦匠</a> 创作<br/><br/>
+                原创不易，欢迎关注公众号！转载请注明出处，感谢支持！如果本文对您有用，欢迎转发分享！
+        </div>
+
+      </div><br/><br/><br/><br/><br/>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+  
+    <a href="/spring-boot-mybatis-annotation-web/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">Spring Boot 整合 MyBatis Annotation 注解配置案例实践</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=Java Collections 框架概述 - 程序员泥瓦匠&url=https%3A%2F%2Fbysocket.com%2Fjava-collection-framework%2F">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=Java Collections 框架概述 - 程序员泥瓦匠&u=https%3A%2F%2Fbysocket.com%2Fjava-collection-framework%2F">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=Java Collections 框架概述 - 程序员泥瓦匠&url=https://bysocket.com/java-collection-framework/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>分类</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/">ElasticSearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JDK/">JDK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JSP/">JSP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/">Spring Boot</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot-WebFlux/">Spring Boot WebFlux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%9D%E8%80%83/">思考</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">问题记录</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>标签</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collections/" rel="tag">Collections</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Druid/" rel="tag">Druid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dubbo/" rel="tag">Dubbo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES/" rel="tag">ES</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenAI/" rel="tag">OpenAI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/" rel="tag">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ZooKeeper/" rel="tag">ZooKeeper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>最新文章</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/java-collection-framework/">Java Collections 框架概述</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-mybatis-annotation-web/">Spring Boot 整合 MyBatis Annotation 注解配置案例实践</a>
+          </li>
+        
+          <li>
+            <a href="/java-filenamefilter-source-example/">Java Filenamefilter 用法案例和源码解析</a>
+          </li>
+        
+          <li>
+            <a href="/jsp-servlet-hello-world-example/">图解 JSP Servlet Hello World 案例和源码</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-dubbo-zookeeper/">Spring Boot 整合 Dubbo + ZooKeeper 实现分布式服务案例教程</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            程序员泥瓦匠 &copy; 2023<br>
+            <a href="https://beian.miit.gov.cn" target="_blank">浙ICP备15028451号-7</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+<!-- 百度链接提交 -->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- Baidu Analytics-->
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e43a8b7f6b87c80c7d5d89ee04348971";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

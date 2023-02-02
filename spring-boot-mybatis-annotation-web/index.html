@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>Spring Boot 整合 MyBatis Annotation 注解配置案例实践 | 程序员泥瓦匠</title>
+
+    <meta name="description" content="&lt;p&gt;距离第一篇 Spring Boot 系列的博文 3 个月了。《Springboot 整合 Mybatis 的完整 Web 案例》第一篇出来是 XML 配置 SQL 的形式。虽然 XML 形式是我比较推荐的，但是注解形式也是方便的。尤其一些小系统，快速的 CRUD 轻量级的系统。&lt;/p&gt;">
+    <link rel="canonical" href="https://bysocket.com/spring-boot-mybatis-annotation-web/"/>
+    <meta name="keywords" content="">
+
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "Spring Boot 整合 MyBatis Annotation 注解配置案例实践 | 程序员泥瓦匠"  />
+    <meta property="og:description" content= "&lt;p&gt;距离第一篇 Spring Boot 系列的博文 3 个月了。《Springboot 整合 Mybatis 的完整 Web 案例》第一篇出来是 XML 配置 SQL 的形式。虽然 XML 形式是我比较推荐的，但是注解形式也是方便的。尤其一些小系统，快速的 CRUD 轻量级的系统。&lt;/p&gt;" />
+    <meta property="og:url" content="https://bysocket.com/spring-boot-mybatis-annotation-web/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="泥瓦匠" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;p&gt;距离第一篇 Spring Boot 系列的博文 3 个月了。《Springboot 整合 Mybatis 的完整 Web 案例》第一篇出来是 XML 配置 SQL 的形式。虽然 XML 形式是我比较推荐的，但是注解形式也是方便的。尤其一些小系统，快速的 CRUD 轻量级的系统。&lt;/p&gt;" />
+    <meta name="twitter:title" content="Spring Boot 整合 MyBatis Annotation 注解配置案例实践 | 程序员泥瓦匠"/>
+    <meta name="twitter:description" content="&lt;p&gt;距离第一篇 Spring Boot 系列的博文 3 个月了。《Springboot 整合 Mybatis 的完整 Web 案例》第一篇出来是 XML 配置 SQL 的形式。虽然 XML 形式是我比较推荐的，但是注解形式也是方便的。尤其一些小系统，快速的 CRUD 轻量级的系统。&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;p&gt;距离第一篇 Spring Boot 系列的博文 3 个月了。《Springboot 整合 Mybatis 的完整 Web 案例》第一篇出来是 XML 配置 SQL 的形式。虽然 XML 形式是我比较推荐的，但是注解形式也是方便的。尤其一些小系统，快速的 CRUD 轻量级的系统。&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "泥瓦匠" },
+            "@type": "BlogPosting",
+            "url": "https://bysocket.com/spring-boot-mybatis-annotation-web/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://bysocket.com/images/avatar.webp"
+            },
+            "name": "泥瓦匠"
+            },
+            "headline": "Spring Boot 整合 MyBatis Annotation 注解配置案例实践 | 程序员泥瓦匠",
+            "datePublished": "2023-02-02T06:30:00.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://bysocket.com/spring-boot-mybatis-annotation-web/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+    <!-- Google 广告 AdSense 代码 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4620650152175631" crossorigin="anonymous">
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-avatar avatar avatar-sm">
+                <img src="/images/avatar.webp" alt="泥瓦匠">
+            </div>
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>程序员泥瓦匠</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">首页</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/about">关于我</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/JeffLi1993">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+    <a class="social" target="_blank" href="https://twitter.com/CoderJeffLee">
+        <ion-icon name="logo-twitter"></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/about">关于我</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cldmpvjzn0005j93s75q4fbwk" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      Spring Boot 整合 MyBatis Annotation 注解配置案例实践
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2023-02-02T06:30:00.000Z" itemprop="datePublished">2023-02-02</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/Spring-Boot/">Spring Boot</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <p>距离第一篇 Spring Boot 系列的博文 3 个月了。《Springboot 整合 Mybatis 的完整 Web 案例》第一篇出来是 XML 配置 SQL 的形式。虽然 XML 形式是我比较推荐的，但是注解形式也是方便的。尤其一些小系统，快速的 CRUD 轻量级的系统。</p>
+<span id="more"></span>
+
+<h2 id="一、运行-springboot-mybatis-annotation-工程"><a href="#一、运行-springboot-mybatis-annotation-工程" class="headerlink" title="一、运行 springboot-mybatis-annotation 工程"></a>一、运行 springboot-mybatis-annotation 工程</h2><p>由于这篇文章和 《Springboot 整合 Mybatis 的完整 Web 案例》 类似，所以运行这块环境配置大家参考另外一篇文章。</p>
+<p>然后Application 应用启动类的 main 函数，然后在浏览器访问：</p>
+<pre><code>http://localhost:8080/api/city?cityName=温岭市
+</code></pre>
+<p>可以看到返回的 JSON 结果：</p>
+<pre><code>&#123;
+    &quot;id&quot;: 1,
+    &quot;provinceId&quot;: 1,
+    &quot;cityName&quot;: &quot;温岭市&quot;,
+    &quot;description&quot;: &quot;我的家在温岭。&quot;
+&#125;
+</code></pre>
+<h2 id="三、springboot-mybatis-annotation-工程配置详解"><a href="#三、springboot-mybatis-annotation-工程配置详解" class="headerlink" title="三、springboot-mybatis-annotation 工程配置详解"></a>三、springboot-mybatis-annotation 工程配置详解</h2><h3 id="1-pom-添加-Mybatis-依赖"><a href="#1-pom-添加-Mybatis-依赖" class="headerlink" title="1.pom 添加 Mybatis 依赖"></a>1.pom 添加 Mybatis 依赖</h3><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;groupId&gt;springboot&lt;/groupId&gt;
+    &lt;artifactId&gt;springboot-mybatis-annotation&lt;/artifactId&gt;
+    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+    &lt;packaging&gt;jar&lt;/packaging&gt;
+
+    &lt;name&gt;springboot-mybatis-annotation&lt;/name&gt;
+    &lt;description&gt;Springboot-mybatis :: 整合Mybatis Annotation Demo&lt;/description&gt;
+
+    &lt;!-- Spring Boot 启动父依赖 --&gt;
+    &lt;parent&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+        &lt;version&gt;1.5.1.RELEASE&lt;/version&gt;
+    &lt;/parent&gt;
+
+    &lt;properties&gt;
+        &lt;mybatis-spring-boot&gt;1.2.0&lt;/mybatis-spring-boot&gt;
+        &lt;mysql-connector&gt;5.1.39&lt;/mysql-connector&gt;
+    &lt;/properties&gt;
+
+    &lt;dependencies&gt;
+
+        &lt;!-- Spring Boot Web 依赖 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- Spring Boot Test 依赖 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- Spring Boot Mybatis 依赖 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;
+            &lt;version&gt;$&#123;mybatis-spring-boot&#125;&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- MySQL 连接驱动依赖 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;mysql&lt;/groupId&gt;
+            &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+            &lt;version&gt;$&#123;mysql-connector&#125;&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- Junit --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;junit&lt;/groupId&gt;
+            &lt;artifactId&gt;junit&lt;/artifactId&gt;
+            &lt;version&gt;4.12&lt;/version&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+
+&lt;/project&gt;
+</code></pre>
+<h3 id="2-在-CityDao-城市数据操作层接口类添加注解-Mapper、-Select-和-Results"><a href="#2-在-CityDao-城市数据操作层接口类添加注解-Mapper、-Select-和-Results" class="headerlink" title="2.在 CityDao 城市数据操作层接口类添加注解 @Mapper、@Select 和 @Results"></a>2.在 CityDao 城市数据操作层接口类添加注解 @Mapper、@Select 和 @Results</h3><pre><code>@Mapper // 标志为 Mybatis 的 Mapper
+public interface CityDao &#123;
+
+    @Select(&quot;SELECT \* FROM city&quot;)
+    @Results(&#123;
+        @Result(property = &quot;id&quot;, column = &quot;id&quot;),
+        @Result(property = &quot;provinceId&quot;, column = &quot;province\_id&quot;),
+        @Result(property = &quot;cityName&quot;, column = &quot;city\_name&quot;),
+        @Result(property = &quot;description&quot;, column = &quot;description&quot;),
+    &#125;)
+    City findByName(@Param(&quot;cityName&quot;) String cityName);
+&#125;
+</code></pre>
+<ul>
+<li>@Mapper 标志接口为 MyBatis Mapper 接口</li>
+<li>@Select 是 Select 操作语句</li>
+<li>@Results 标志结果集，以及与库表字段的映射关系</li>
+</ul>
+<p>其他的注解可以看 org.apache.ibatis.annotations 包提供的，如图：</p>
+<p><img src="/images/mybatis/annotations-source-code.webp"></p>
+<p>可以 git clone 下载工程 springboot-learning-example ，springboot-mybatis-annotation 工程代码注解很详细。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/JeffLi1993/springboot-learning-example">https://github.com/JeffLi1993/springboot-learning-example</a></p>
+<h2 id="四、小结"><a href="#四、小结" class="headerlink" title="四、小结"></a>四、小结</h2><p>注解不涉及到文件配置，更近贴近零配置</p>
+
+        </div>
+
+    </div>
+
+    <div class="article-copyright">
+
+        <div style="float: left;width: 20%;align:center;text-align: center;">
+             <img style="width: 100px;" src="https://www.bysocket.com/images/qrcode.jpeg">
+        </div>
+        <div style="float: left;width: 80%;">
+                <br/>
+                本文由 <a target="_blank" rel="noopener" href="https://www.bysocket.com/">泥瓦匠</a> 创作<br/><br/>
+                原创不易，欢迎关注公众号！转载请注明出处，感谢支持！如果本文对您有用，欢迎转发分享！
+        </div>
+
+      </div><br/><br/><br/><br/><br/>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/java-collection-framework/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          Java Collections 框架概述
+        
+      </div>
+    </a>
+  
+  
+    <a href="/java-filenamefilter-source-example/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">Java Filenamefilter 用法案例和源码解析</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=Spring Boot 整合 MyBatis Annotation 注解配置案例实践 - 程序员泥瓦匠&url=https%3A%2F%2Fbysocket.com%2Fspring-boot-mybatis-annotation-web%2F">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=Spring Boot 整合 MyBatis Annotation 注解配置案例实践 - 程序员泥瓦匠&u=https%3A%2F%2Fbysocket.com%2Fspring-boot-mybatis-annotation-web%2F">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=Spring Boot 整合 MyBatis Annotation 注解配置案例实践 - 程序员泥瓦匠&url=https://bysocket.com/spring-boot-mybatis-annotation-web/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>分类</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/">ElasticSearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JDK/">JDK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JSP/">JSP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/">Spring Boot</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot-WebFlux/">Spring Boot WebFlux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%9D%E8%80%83/">思考</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">问题记录</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>标签</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collections/" rel="tag">Collections</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Druid/" rel="tag">Druid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dubbo/" rel="tag">Dubbo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES/" rel="tag">ES</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenAI/" rel="tag">OpenAI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/" rel="tag">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ZooKeeper/" rel="tag">ZooKeeper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>最新文章</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/java-collection-framework/">Java Collections 框架概述</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-mybatis-annotation-web/">Spring Boot 整合 MyBatis Annotation 注解配置案例实践</a>
+          </li>
+        
+          <li>
+            <a href="/java-filenamefilter-source-example/">Java Filenamefilter 用法案例和源码解析</a>
+          </li>
+        
+          <li>
+            <a href="/jsp-servlet-hello-world-example/">图解 JSP Servlet Hello World 案例和源码</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-dubbo-zookeeper/">Spring Boot 整合 Dubbo + ZooKeeper 实现分布式服务案例教程</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            程序员泥瓦匠 &copy; 2023<br>
+            <a href="https://beian.miit.gov.cn" target="_blank">浙ICP备15028451号-7</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+<!-- 百度链接提交 -->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- Baidu Analytics-->
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e43a8b7f6b87c80c7d5d89ee04348971";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

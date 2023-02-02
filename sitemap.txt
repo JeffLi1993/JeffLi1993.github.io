@@ -1,3 +1,6 @@
+https://bysocket.com/java-collection-framework/
+https://bysocket.com/spring-boot-mybatis-annotation-web/
+https://bysocket.com/java-filenamefilter-source-example/
 https://bysocket.com/openai-services-are-not-available-in-your-country/
 https://bysocket.com/404.html
 https://bysocket.com/spring-boot-mybatis/
@@ -33,9 +36,11 @@ https://bysocket.com/tags/Nginx/
 https://bysocket.com/tags/Dubbo/
 https://bysocket.com/tags/ZooKeeper/
 https://bysocket.com/tags/Servlet/
+https://bysocket.com/tags/Collections/
 https://bysocket.com/categories/%E6%80%9D%E8%80%83/
 https://bysocket.com/categories/Spring-Boot/
 https://bysocket.com/categories/ElasticSearch/
 https://bysocket.com/categories/Spring-Boot-WebFlux/
 https://bysocket.com/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/
 https://bysocket.com/categories/JSP/
+https://bysocket.com/categories/JDK/
