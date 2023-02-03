@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://bysocket.com/about/</loc>
+    
+    <lastmod>2023-02-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://bysocket.com/http-intro/</loc>
     
     <lastmod>2023-02-03</lastmod>
@@ -122,15 +131,6 @@
     <loc>https://bysocket.com/spring-boot-mybatis-druid/</loc>
     
     <lastmod>2023-01-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://bysocket.com/about/</loc>
-    
-    <lastmod>2023-01-30</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
