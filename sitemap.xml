@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://bysocket.com/google-adsense-pin/</loc>
+    
+    <lastmod>2023-02-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://bysocket.com/about/</loc>
     
     <lastmod>2023-02-03</lastmod>
@@ -359,6 +368,13 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://bysocket.com/tags/AdSense/</loc>
+    <lastmod>2023-02-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -412,6 +428,13 @@
   
   <url>
     <loc>https://bysocket.com/categories/HTTP/</loc>
+    <lastmod>2023-02-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bysocket.com/categories/SEO/</loc>
     <lastmod>2023-02-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

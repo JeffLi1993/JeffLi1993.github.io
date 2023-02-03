@@ -1,3 +1,4 @@
+https://bysocket.com/google-adsense-pin/
 https://bysocket.com/about/
 https://bysocket.com/http-intro/
 https://bysocket.com/spring-boot-starter-validation-example/
@@ -42,6 +43,7 @@ https://bysocket.com/tags/Servlet/
 https://bysocket.com/tags/Collections/
 https://bysocket.com/tags/Spring-Data/
 https://bysocket.com/tags/Validation/
+https://bysocket.com/tags/AdSense/
 https://bysocket.com/categories/%E6%80%9D%E8%80%83/
 https://bysocket.com/categories/Spring-Boot/
 https://bysocket.com/categories/ElasticSearch/
@@ -50,3 +52,4 @@ https://bysocket.com/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/
 https://bysocket.com/categories/JSP/
 https://bysocket.com/categories/JDK/
 https://bysocket.com/categories/HTTP/
+https://bysocket.com/categories/SEO/
