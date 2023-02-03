@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>spring-boot-starter-validation 表单验证使用案例 | 程序员泥瓦匠</title>
+
+    <meta name="description" content="&lt;h2 id=&#34;一、-spring-boot-starter-validation-依赖概述&#34;&gt;&lt;a href=&#34;#一、-spring-boot-starter-validation-依赖概述&#34; class=&#34;headerlink&#34; title=&#34;一、 spring-boot-starter-validation 依赖概述&#34;&gt;&lt;/a&gt;一、 spring-boot-starter-validation 依赖概述&lt;/h2&gt;&lt;p&gt;上一篇 《Spring Boot Web 开发注解篇》，就可以快速地进行 Web 开发。那么在表单提交的时候，我们需要进行验证。前端验证可以挡住 99% 的小白用户，这里要实现服务端验证。&lt;/p&gt;
+&lt;p&gt;Starters 告诉我们，只要加入 spring-boot-starter-validation 这个 Starter ，就可以使用其实现验证。&lt;/p&gt;">
+    <link rel="canonical" href="https://bysocket.com/spring-boot-starter-validation-example/"/>
+    <meta name="keywords" content="">
+
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "spring-boot-starter-validation 表单验证使用案例 | 程序员泥瓦匠"  />
+    <meta property="og:description" content= "&lt;h2 id=&#34;一、-spring-boot-starter-validation-依赖概述&#34;&gt;&lt;a href=&#34;#一、-spring-boot-starter-validation-依赖概述&#34; class=&#34;headerlink&#34; title=&#34;一、 spring-boot-starter-validation 依赖概述&#34;&gt;&lt;/a&gt;一、 spring-boot-starter-validation 依赖概述&lt;/h2&gt;&lt;p&gt;上一篇 《Spring Boot Web 开发注解篇》，就可以快速地进行 Web 开发。那么在表单提交的时候，我们需要进行验证。前端验证可以挡住 99% 的小白用户，这里要实现服务端验证。&lt;/p&gt;
+&lt;p&gt;Starters 告诉我们，只要加入 spring-boot-starter-validation 这个 Starter ，就可以使用其实现验证。&lt;/p&gt;" />
+    <meta property="og:url" content="https://bysocket.com/spring-boot-starter-validation-example/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="泥瓦匠" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h2 id=&#34;一、-spring-boot-starter-validation-依赖概述&#34;&gt;&lt;a href=&#34;#一、-spring-boot-starter-validation-依赖概述&#34; class=&#34;headerlink&#34; title=&#34;一、 spring-boot-starter-validation 依赖概述&#34;&gt;&lt;/a&gt;一、 spring-boot-starter-validation 依赖概述&lt;/h2&gt;&lt;p&gt;上一篇 《Spring Boot Web 开发注解篇》，就可以快速地进行 Web 开发。那么在表单提交的时候，我们需要进行验证。前端验证可以挡住 99% 的小白用户，这里要实现服务端验证。&lt;/p&gt;
+&lt;p&gt;Starters 告诉我们，只要加入 spring-boot-starter-validation 这个 Starter ，就可以使用其实现验证。&lt;/p&gt;" />
+    <meta name="twitter:title" content="spring-boot-starter-validation 表单验证使用案例 | 程序员泥瓦匠"/>
+    <meta name="twitter:description" content="&lt;h2 id=&#34;一、-spring-boot-starter-validation-依赖概述&#34;&gt;&lt;a href=&#34;#一、-spring-boot-starter-validation-依赖概述&#34; class=&#34;headerlink&#34; title=&#34;一、 spring-boot-starter-validation 依赖概述&#34;&gt;&lt;/a&gt;一、 spring-boot-starter-validation 依赖概述&lt;/h2&gt;&lt;p&gt;上一篇 《Spring Boot Web 开发注解篇》，就可以快速地进行 Web 开发。那么在表单提交的时候，我们需要进行验证。前端验证可以挡住 99% 的小白用户，这里要实现服务端验证。&lt;/p&gt;
+&lt;p&gt;Starters 告诉我们，只要加入 spring-boot-starter-validation 这个 Starter ，就可以使用其实现验证。&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h2 id=&#34;一、-spring-boot-starter-validation-依赖概述&#34;&gt;&lt;a href=&#34;#一、-spring-boot-starter-validation-依赖概述&#34; class=&#34;headerlink&#34; title=&#34;一、 spring-boot-starter-validation 依赖概述&#34;&gt;&lt;/a&gt;一、 spring-boot-starter-validation 依赖概述&lt;/h2&gt;&lt;p&gt;上一篇 《Spring Boot Web 开发注解篇》，就可以快速地进行 Web 开发。那么在表单提交的时候，我们需要进行验证。前端验证可以挡住 99% 的小白用户，这里要实现服务端验证。&lt;/p&gt;
+&lt;p&gt;Starters 告诉我们，只要加入 spring-boot-starter-validation 这个 Starter ，就可以使用其实现验证。&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "泥瓦匠" },
+            "@type": "BlogPosting",
+            "url": "https://bysocket.com/spring-boot-starter-validation-example/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://bysocket.com/images/avatar.webp"
+            },
+            "name": "泥瓦匠"
+            },
+            "headline": "spring-boot-starter-validation 表单验证使用案例 | 程序员泥瓦匠",
+            "datePublished": "2023-02-03T06:28:00.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://bysocket.com/spring-boot-starter-validation-example/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+    <!-- Google 广告 AdSense 代码 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4620650152175631" crossorigin="anonymous">
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-avatar avatar avatar-sm">
+                <img src="/images/avatar.webp" alt="泥瓦匠">
+            </div>
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>程序员泥瓦匠</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">首页</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/about">关于我</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/JeffLi1993">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+    <a class="social" target="_blank" href="https://twitter.com/CoderJeffLee">
+        <ion-icon name="logo-twitter"></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/about">关于我</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cldo5apjr0004tr3sg1lu4xwh" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      spring-boot-starter-validation 表单验证使用案例
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2023-02-03T06:28:00.000Z" itemprop="datePublished">2023-02-03</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/Spring-Boot/">Spring Boot</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Validation/" rel="tag">Validation</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h2 id="一、-spring-boot-starter-validation-依赖概述"><a href="#一、-spring-boot-starter-validation-依赖概述" class="headerlink" title="一、 spring-boot-starter-validation 依赖概述"></a>一、 spring-boot-starter-validation 依赖概述</h2><p>上一篇 《Spring Boot Web 开发注解篇》，就可以快速地进行 Web 开发。那么在表单提交的时候，我们需要进行验证。前端验证可以挡住 99% 的小白用户，这里要实现服务端验证。</p>
+<p>Starters 告诉我们，只要加入 spring-boot-starter-validation 这个 Starter ，就可以使用其实现验证。</p>
+<span id="more"></span>
+
+<p>那什么是 spring-boot-starter-validation？ spring-boot-starter-validation 就是使用 Hibernate Validator 框架来提供 Java Bean 验证功能。</p>
+<p><strong>1.1 spring-boot-starter-validation 职责</strong></p>
+<p>spring-boot-starter-validation 是一个用于验证的 Starter，主要完成的是 Java Bean 的验证功能。</p>
+<p><strong>1.2 spring-boot-starter-validation 依赖关系</strong></p>
+<p>spring-boot-starter-validation 依赖的组成如下表：</p>
+<ul>
+<li>spring-boot-starter 核心包，包括了自动化配置支持、日志、YAML 文件解析的支持等。</li>
+<li>tomcat-embed-el Tomcat 容器嵌入包</li>
+<li>hibernate-validator Hibernate 验证框架包</li>
+</ul>
+<p>可见，tomcat 容器是 8.x 版本。这里有个小问题了，为啥 spring-boot-starter-web 也有这些上面这些依赖呢？这样如果开发 web 就不需要重复添加 spring-boot-starter-validation 依赖了。但如果没用 web 依赖时候想要实现 Bean 验证，则只要单单加入 spring-boot-starter-validation 依赖即可。</p>
+<h2 id="二、-运行-chapter-4-spring-boot-validating-form-input-表单验证工程"><a href="#二、-运行-chapter-4-spring-boot-validating-form-input-表单验证工程" class="headerlink" title="二、 运行 chapter-4-spring-boot-validating-form-input 表单验证工程"></a>二、 运行 chapter-4-spring-boot-validating-form-input 表单验证工程</h2><p>1.git clone 下载工程 spring-boot-core-book-demo</p>
+<p>项目地址见 GitHub - <a target="_blank" rel="noopener" href="https://github.com/JeffLi1993/springboot-core-action-book-demo">https://github.com/JeffLi1993/springboot-core-action-book-demo</a></p>
+<pre><code>    git clone https://github.com/JeffLi1993/springboot-core-action-book-demo.git
+</code></pre>
+<p>2.Maven 编译安装这个工程：</p>
+<pre><code>    cd spring-boot-core-book-demo
+    mvn clean install
+</code></pre>
+<p>3.运行 chapter-4-spring-boot-validating-form-input 工程</p>
+<p>右键项目 ValidatingFormInputApplication 类运行即可：</p>
+<pre><code>2017-08-09 16:24:58.387 INFO 12193 --- \[ main\] o.s.b.w.embedded.tomcat.TomcatWebServer : Tomcat started on port(s): 8080 (http) 2017-08-09 16:24:58.395 INFO 12193 --- \[ main\] s.b.core.ValidatingFormInputApplication : Started ValidatingFormInputApplication in 9.846 seconds (JVM running for 11.23)
+</code></pre>
+<p>访问 <a target="_blank" rel="noopener" href="http://localhost:8080/users">http://localhost:8080/users</a> 用户列表页面。</p>
+<p>三、 详解 spring-boot-validating-form-input</p>
+<p>1.pom.xml 如下：</p>
+<p>validator 验证依赖主要在 web 依赖中，web 依赖包含了 hibernate-validator 依赖 还有以下依赖：</p>
+<ul>
+<li>单元测试依赖</li>
+<li>Spring Data JPA 依赖 :: 数据持久层框架</li>
+<li>h2 数据源连接驱动</li>
+<li>模板引擎 Thymeleaf 依赖</li>
+</ul>
+<p>2.实体类 具体业务层逻辑这边不解释，主要还是在控制层和 View 如何展示表单验证 实体类 User 如下：</p>
+<pre><code>@Entity
+public class User implements Serializable &#123;
+/**
+* 编号
+*/
+@Id
+@GeneratedValue
+private Long id;
+/**
+* 名称
+*/
+@NotEmpty(message = “姓名不能为空”)
+@Size(min = 2, max = 8, message = “姓名长度必须大于 2 且小于 20 字”)
+private String name;
+/**
+* 年龄
+*/
+@NotNull(message = “年龄不能为空”)
+@Min(value = 0, message = “年龄大于 0”)
+@Max(value = 300, message = “年龄不大于 300”)
+private Integer age;
+/**
+* 出生时间
+*/
+@NotEmpty(message = “出生时间不能为空”)
+private String birthday;
+public Long getId() &#123;
+return id;
+&#125;
+public void setId(Long id) &#123;
+this.id = id;
+&#125;
+public String getName() &#123;
+return name;
+&#125;
+public void setName(String name) &#123;
+this.name = name;
+&#125;
+public Integer getAge() &#123;
+return age;
+&#125;
+public void setAge(Integer age) &#123;
+this.age = age;
+&#125;
+public String getBirthday() &#123;
+return birthday;
+&#125;
+public void setBirthday(String birthday) &#123;
+this.birthday = birthday;
+&#125;
+@Override
+public String toString() &#123;
+return “User&#123;” +
+“id=” + id +
+“, name=&#39;” + name + ‘\” +
+“, age=” + age +
+“, birthday=” + birthday +
+‘&#125;’;
+&#125;
+&#125;
+@Entity
+@Id
+@GeneratedValue
+</code></pre>
+<p>@Entity @Id @GeneratedValue 以上注解是 JPA 框架提供的，实体类和表建立映射关系的。</p>
+<p>Bean Validation 规范，运行时的数据验证框架。它是 JSR 303 规范，Hibernate Validator 实现了这套规范，并扩展了一些注解，如下：</p>
+<ul>
+<li><p>@Null 被注释的元素必须为 null</p>
+</li>
+<li><p>@NotNull 被注释的元素必须不为 null</p>
+</li>
+<li><p>@Min(value) 被注释的元素必须是一个数字，其值必须大于等于指定的最小值</p>
+</li>
+<li><p>@Max(value) 被注释的元素必须是一个数字，其值必须小于等于指定的最大值</p>
+</li>
+<li><p>@Size(max, min) 被注释的元素的大小必须在指定的范围内</p>
+</li>
+<li><p>@Email 被注释的元素必须是电子邮箱地址</p>
+</li>
+<li><p>@Length 被注释的字符串的大小必须在指定的范围内</p>
+</li>
+<li><p>@NotEmpty 被注释的字符串的必须非空</p>
+</li>
+<li><p>@Range 被注释的元素必须在合适的范围内</p>
+</li>
+</ul>
+<p>3.控制层 UserController UserController 控制层代码如下：</p>
+<pre><code>/**
+* 创建用户
+* 处理 “/users” 的 POST 请求，用来获取用户列表
+* 通过 @ModelAttribute 绑定参数，也通过 @RequestParam 从页面中传递参数
+*/
+@RequestMapping(value = “/create”, method = RequestMethod.POST)
+public String postUser(ModelMap map,
+@ModelAttribute @Valid User user,
+BindingResult bindingResult) &#123;
+if (bindingResult.hasErrors()) &#123;
+map.addAttribute(“action”, “create”);
+return “userForm”;
+&#125;
+userService.insertByUser(user);
+return “redirect:/users/”;
+&#125;
+/**
+* 处理 “/users/&#123;id&#125;” 的 PUT 请求，用来更新 User 信息
+*
+*/
+@RequestMapping(value = “/update”, method = RequestMethod.POST)
+public String putUser(ModelMap map,
+@ModelAttribute @Valid User user,
+BindingResult bindingResult) &#123;
+if (bindingResult.hasErrors()) &#123;
+map.addAttribute(“action”, “update”);
+return “userForm”;
+&#125;
+userService.update(user);
+return “redirect:/users/”;
+&#125;
+</code></pre>
+<p>在新增和更新用户时，我们会对表单进行验证，那么首先用 @Valid 注解到实体类，使实体类 User 中验证注解生效，然后我们介绍下 BindingResult ，是数据绑定的结果对象，从源码中可以看出，其继承了 Errors 接口，所以所有的错误信息都会被绑定到这个对象。通过 hasErrors() 方法判断是否有错误信息，如果有返回原页面，并展示错误信息。</p>
+<p>那页面是如何展示的呢？可以看看在 Thymeleaf 页面是这样的：</p>
+<p>生日有误!</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>1 spring-boot-starter-validation 依赖概述</p>
+<p>1.1 spring-boot-starter-validation 职责</p>
+<p>1.2 spring-boot-starter-validation 依赖关系</p>
+<p>2 运行 spring-boot-validating-form-input 表单验证工程</p>
+<p>3 详解 spring-boot-validating-form-input</p>
+
+        </div>
+
+    </div>
+
+    <div class="article-copyright">
+
+        <div style="float: left;width: 20%;align:center;text-align: center;">
+             <img style="width: 100px;" src="https://www.bysocket.com/images/qrcode.jpeg">
+        </div>
+        <div style="float: left;width: 80%;">
+                <br/>
+                本文由 <a target="_blank" rel="noopener" href="https://www.bysocket.com/">泥瓦匠</a> 创作<br/><br/>
+                原创不易，欢迎关注公众号！转载请注明出处，感谢支持！如果本文对您有用，欢迎转发分享！
+        </div>
+
+      </div><br/><br/><br/><br/><br/>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/http-intro/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          HTTP 协议详解：图解 HTTP 工作报文过程
+        
+      </div>
+    </a>
+  
+  
+    <a href="/spring-boot-data-pageable-query/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">Spring Data 分页查询案例：Spring Boot 2.0 支持 Spring Data Web configuration</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=spring-boot-starter-validation 表单验证使用案例 - 程序员泥瓦匠&url=https%3A%2F%2Fbysocket.com%2Fspring-boot-starter-validation-example%2F">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=spring-boot-starter-validation 表单验证使用案例 - 程序员泥瓦匠&u=https%3A%2F%2Fbysocket.com%2Fspring-boot-starter-validation-example%2F">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=spring-boot-starter-validation 表单验证使用案例 - 程序员泥瓦匠&url=https://bysocket.com/spring-boot-starter-validation-example/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>分类</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/">ElasticSearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JDK/">JDK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JSP/">JSP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/">Spring Boot</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot-WebFlux/">Spring Boot WebFlux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%9D%E8%80%83/">思考</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">问题记录</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>标签</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collections/" rel="tag">Collections</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Druid/" rel="tag">Druid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dubbo/" rel="tag">Dubbo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES/" rel="tag">ES</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenAI/" rel="tag">OpenAI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/" rel="tag">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Data/" rel="tag">Spring Data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Validation/" rel="tag">Validation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ZooKeeper/" rel="tag">ZooKeeper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>最新文章</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/http-intro/">HTTP 协议详解：图解 HTTP 工作报文过程</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-starter-validation-example/">spring-boot-starter-validation 表单验证使用案例</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-data-pageable-query/">Spring Data 分页查询案例：Spring Boot 2.0 支持 Spring Data Web configuration</a>
+          </li>
+        
+          <li>
+            <a href="/java-collection-framework/">Java Collections 框架概述</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-mybatis-annotation-web/">Spring Boot 整合 MyBatis Annotation 注解配置案例实践</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            程序员泥瓦匠 &copy; 2023<br>
+            <a href="https://beian.miit.gov.cn" target="_blank">浙ICP备15028451号-7</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+<!-- 百度链接提交 -->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- Baidu Analytics-->
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e43a8b7f6b87c80c7d5d89ee04348971";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</body>
+
+</html>
