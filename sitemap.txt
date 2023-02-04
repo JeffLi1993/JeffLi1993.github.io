@@ -1,3 +1,5 @@
+https://bysocket.com/openai-chatgpt-error-1020/
+https://bysocket.com/openai-services-are-not-available-in-your-country/
 https://bysocket.com/google-adsense-pin/
 https://bysocket.com/about/
 https://bysocket.com/http-intro/
@@ -6,7 +8,6 @@ https://bysocket.com/spring-boot-data-pageable-query/
 https://bysocket.com/java-collection-framework/
 https://bysocket.com/spring-boot-mybatis-annotation-web/
 https://bysocket.com/java-filenamefilter-source-example/
-https://bysocket.com/openai-services-are-not-available-in-your-country/
 https://bysocket.com/404.html
 https://bysocket.com/spring-boot-mybatis/
 https://bysocket.com/jsp-servlet-hello-world-example/
@@ -44,6 +45,7 @@ https://bysocket.com/tags/Collections/
 https://bysocket.com/tags/Spring-Data/
 https://bysocket.com/tags/Validation/
 https://bysocket.com/tags/AdSense/
+https://bysocket.com/tags/ChatGPT/
 https://bysocket.com/categories/%E6%80%9D%E8%80%83/
 https://bysocket.com/categories/Spring-Boot/
 https://bysocket.com/categories/ElasticSearch/
