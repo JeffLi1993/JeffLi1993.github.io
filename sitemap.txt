@@ -1,7 +1,10 @@
+https://bysocket.com/spring-boot-mybatis-collection-example/
+https://bysocket.com/spring-boot-mybatis-druid/
+https://bysocket.com/spring-boot-mybatis/
+https://bysocket.com/spring-boot-mybatis-annotation-web/
 https://bysocket.com/openai-chatgpt-too-many-requests-in-1-hour-try-again-later-chatgpt-fix/
 https://bysocket.com/java-io-outputstream-example/
 https://bysocket.com/spring-boot-thymeleaf-web-example/
-https://bysocket.com/spring-boot-mybatis-collection-example/
 https://bysocket.com/java-filenamefilter-source-example/
 https://bysocket.com/java-io-file-example/
 https://bysocket.com/openai-chatgpt-error-1020/
@@ -12,14 +15,11 @@ https://bysocket.com/http-intro/
 https://bysocket.com/spring-boot-starter-validation-example/
 https://bysocket.com/spring-boot-data-pageable-query/
 https://bysocket.com/java-collection-framework/
-https://bysocket.com/spring-boot-mybatis-annotation-web/
 https://bysocket.com/404.html
-https://bysocket.com/spring-boot-mybatis/
 https://bysocket.com/jsp-servlet-hello-world-example/
 https://bysocket.com/spring-boot-dubbo-zookeeper/
 https://bysocket.com/nginx-unexpected-end-of-file-expecting-in-key-file/
 https://bysocket.com/spring-boot-restful-error-handling/
-https://bysocket.com/spring-boot-mybatis-druid/
 https://bysocket.com/spring-boot-webflux-quickstart/
 https://bysocket.com/how-elasticsearch-works/
 https://bysocket.com/spring-boot-restful-verify/
