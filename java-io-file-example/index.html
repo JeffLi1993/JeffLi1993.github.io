@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>Java IO File 用法案例和源码解析 | 程序员泥瓦匠</title>
+
+    <meta name="description" content="&lt;p&gt;记得Java源码是&lt;strong&gt;集合&lt;/strong&gt;开始看的，写了一 &lt;a href=&#34;https://bysocket.com/tags/Collections/&#34;&gt;集合&lt;/a&gt; 相关的文章，受到不错的评价。我依旧会&lt;strong&gt;读到老写到老&lt;/strong&gt;，并生动形象的写出来心得体会。&lt;/p&gt;
+&lt;p&gt;这次依旧是&lt;strong&gt;图解&lt;/strong&gt;，我研究IO这块。 Java IO - File的&lt;strong&gt;要点&lt;/strong&gt;，应该是 &lt;strong&gt;1、跨平台问题的解决&lt;/strong&gt; &lt;strong&gt;2、文件的安全&lt;/strong&gt; &lt;strong&gt;3、文件的检索方法&lt;/strong&gt;&lt;/p&gt;">
+    <link rel="canonical" href="https://bysocket.com/java-io-file-example/"/>
+    <meta name="keywords" content="">
+
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "Java IO File 用法案例和源码解析 | 程序员泥瓦匠"  />
+    <meta property="og:description" content= "&lt;p&gt;记得Java源码是&lt;strong&gt;集合&lt;/strong&gt;开始看的，写了一 &lt;a href=&#34;https://bysocket.com/tags/Collections/&#34;&gt;集合&lt;/a&gt; 相关的文章，受到不错的评价。我依旧会&lt;strong&gt;读到老写到老&lt;/strong&gt;，并生动形象的写出来心得体会。&lt;/p&gt;
+&lt;p&gt;这次依旧是&lt;strong&gt;图解&lt;/strong&gt;，我研究IO这块。 Java IO - File的&lt;strong&gt;要点&lt;/strong&gt;，应该是 &lt;strong&gt;1、跨平台问题的解决&lt;/strong&gt; &lt;strong&gt;2、文件的安全&lt;/strong&gt; &lt;strong&gt;3、文件的检索方法&lt;/strong&gt;&lt;/p&gt;" />
+    <meta property="og:url" content="https://bysocket.com/java-io-file-example/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="泥瓦匠" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;p&gt;记得Java源码是&lt;strong&gt;集合&lt;/strong&gt;开始看的，写了一 &lt;a href=&#34;https://bysocket.com/tags/Collections/&#34;&gt;集合&lt;/a&gt; 相关的文章，受到不错的评价。我依旧会&lt;strong&gt;读到老写到老&lt;/strong&gt;，并生动形象的写出来心得体会。&lt;/p&gt;
+&lt;p&gt;这次依旧是&lt;strong&gt;图解&lt;/strong&gt;，我研究IO这块。 Java IO - File的&lt;strong&gt;要点&lt;/strong&gt;，应该是 &lt;strong&gt;1、跨平台问题的解决&lt;/strong&gt; &lt;strong&gt;2、文件的安全&lt;/strong&gt; &lt;strong&gt;3、文件的检索方法&lt;/strong&gt;&lt;/p&gt;" />
+    <meta name="twitter:title" content="Java IO File 用法案例和源码解析 | 程序员泥瓦匠"/>
+    <meta name="twitter:description" content="&lt;p&gt;记得Java源码是&lt;strong&gt;集合&lt;/strong&gt;开始看的，写了一 &lt;a href=&#34;https://bysocket.com/tags/Collections/&#34;&gt;集合&lt;/a&gt; 相关的文章，受到不错的评价。我依旧会&lt;strong&gt;读到老写到老&lt;/strong&gt;，并生动形象的写出来心得体会。&lt;/p&gt;
+&lt;p&gt;这次依旧是&lt;strong&gt;图解&lt;/strong&gt;，我研究IO这块。 Java IO - File的&lt;strong&gt;要点&lt;/strong&gt;，应该是 &lt;strong&gt;1、跨平台问题的解决&lt;/strong&gt; &lt;strong&gt;2、文件的安全&lt;/strong&gt; &lt;strong&gt;3、文件的检索方法&lt;/strong&gt;&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;p&gt;记得Java源码是&lt;strong&gt;集合&lt;/strong&gt;开始看的，写了一 &lt;a href=&#34;https://bysocket.com/tags/Collections/&#34;&gt;集合&lt;/a&gt; 相关的文章，受到不错的评价。我依旧会&lt;strong&gt;读到老写到老&lt;/strong&gt;，并生动形象的写出来心得体会。&lt;/p&gt;
+&lt;p&gt;这次依旧是&lt;strong&gt;图解&lt;/strong&gt;，我研究IO这块。 Java IO - File的&lt;strong&gt;要点&lt;/strong&gt;，应该是 &lt;strong&gt;1、跨平台问题的解决&lt;/strong&gt; &lt;strong&gt;2、文件的安全&lt;/strong&gt; &lt;strong&gt;3、文件的检索方法&lt;/strong&gt;&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "泥瓦匠" },
+            "@type": "BlogPosting",
+            "url": "https://bysocket.com/java-io-file-example/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://bysocket.com/images/avatar.webp"
+            },
+            "name": "泥瓦匠"
+            },
+            "headline": "Java IO File 用法案例和源码解析 | 程序员泥瓦匠",
+            "datePublished": "2023-02-05T03:16:00.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://bysocket.com/java-io-file-example/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+    <!-- Google 广告 AdSense 代码 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3672455877501055" crossorigin="anonymous">
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-avatar avatar avatar-sm">
+                <img src="/images/avatar.webp" alt="泥瓦匠">
+            </div>
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>程序员泥瓦匠</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">首页</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/about">关于</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/JeffLi1993">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+    <a class="social" target="_blank" href="https://twitter.com/CoderJeffLee">
+        <ion-icon name="logo-twitter"></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/about">关于</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cldqtomfa0000og3s8uqffolm" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      Java IO File 用法案例和源码解析
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2023-02-05T03:16:00.000Z" itemprop="datePublished">2023-02-05</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/JDK/">JDK</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-IO/" rel="tag">Java IO</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <p>记得Java源码是<strong>集合</strong>开始看的，写了一 <a href="https://bysocket.com/tags/Collections/">集合</a> 相关的文章，受到不错的评价。我依旧会<strong>读到老写到老</strong>，并生动形象的写出来心得体会。</p>
+<p>这次依旧是<strong>图解</strong>，我研究IO这块。 Java IO - File的<strong>要点</strong>，应该是 <strong>1、跨平台问题的解决</strong> <strong>2、文件的安全</strong> <strong>3、文件的检索方法</strong></p>
+<span id="more"></span>
+
+<h2 id="一、File-代码-Demo"><a href="#一、File-代码-Demo" class="headerlink" title="一、File 代码 Demo"></a>一、File 代码 Demo</h2><p>代请看一个简单的小demo：<br>ps：开源项目<strong>java-core-learning</strong>地址 <a target="_blank" rel="noopener" href="https://github.com/JeffLi1993">https://github.com/JeffLi1993</a></p>
+<pre><code>import java.io.File;
+import java.util.Arrays;
+
+/*
+ * 列出目录并排序
+ */
+public class DirListT &#123;
+    public static void main(String[] args) &#123;
+        // 获取当前目录
+        File path = new File(&quot;.&quot;);// .表示当前目录
+        // 文件路径名数组
+        String list[] = path.list();
+        
+        // 对String文件名进行排序
+        Arrays.sort(list,String.CASE_INSENSITIVE_ORDER);
+        
+        // 打印
+        for(String dirItem : list)
+            System.out.println(dirItem);
+    &#125;
+&#125;
+</code></pre>
+<p>右键<strong>run</strong>一下，可以得到如下的结果：</p>
+<p><img src="/images/jdk/file/image_thumb4.webp"></p>
+<p>如图，很容易注意到了，其目录下的名字<strong>排序</strong>按字母并打印了。</p>
+<p>先回顾下API知识吧， 首先<strong>构造函数</strong> ：File(String pathname)</p>
+<ul>
+<li><p>值为： file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;Jeff%20Lee&#x2F;AppData&#x2F;Local&#x2F;Youdao&#x2F;YNote&#x2F;java&#x2F;lang&#x2F;String.html</p>
+</li>
+<li><p>通过将给定路径名字符串转换为抽象路径名来<strong>创建一个新 <code>File</code> 实例</strong>。如果给定字符串是空字符串，那么结果是空抽象路径名。</p>
+</li>
+<li><p><strong>参数：</strong>： <code>pathname</code> - 路径名字符串</p>
+</li>
+</ul>
+<p>如果 <code>pathname</code> 参数为 <code>null</code>，<strong>抛出：</strong> <code>NullPointerException</code>。</p>
+<p>二者，File实现了<strong>Comparator接口</strong>，以便对FileName进行<strong>排序</strong>。</p>
+<p>String.CASE_INSENSITIVE_ORDER ：是一个对 <code>String</code> 对象进行排序的 Comparator，作用与 <code>compareToIgnoreCase</code> 相同。</p>
+<p>三者， <strong>path.list()<strong>为什么会返回String[]？filenams的</strong>数组</strong>呢？怎么不是<strong>List</strong>呢？</p>
+<p>自问自答：这时候，我们应该去看看ArrayList的实现，ArrayList其实是动态的数组实现。动态，动态的弊端就是<strong>效率低</strong>。此时，返回一个<strong>固定的数组</strong>，而不是一个<strong>灵活的类容器</strong>，因为其目录<strong>元素是固定的</strong>。下面是ArrayList和数组Array的<strong>比较</strong>：</p>
+<p><img src="/images/jdk/file/1_thumb.webp"></p>
+<h2 id="二、深入-Java-IO-File-理解源码"><a href="#二、深入-Java-IO-File-理解源码" class="headerlink" title="二、深入 Java IO File 理解源码"></a>二、深入 Java IO File 理解源码</h2><p>File，File究竟是怎么构成的。顺着<strong>源码</strong>，知道了File有几个<strong>重要</strong>的<strong>属性</strong>：</p>
+<p><img src="/images/jdk/file/clipboard_thumb.webp"></p>
+<ul>
+<li><strong>1、static private FileSystem fs</strong>      <strong>FileSystem ： 对本地文件系统的抽象</strong></li>
+<li><strong>2、String path 文件路径名</strong></li>
+<li><strong>3、内联枚举类</strong>      **PathStatus 地址是否合法 ENUM类 private static enum PathStatus { INVALID, CHECKED };</li>
+<li>** <strong>4、prefixLength 前缀长度</strong></li>
+</ul>
+<p>如下，给出File相关核心的<strong>UML图</strong>：</p>
+<p><img src="/images/jdk/file/file_thumb.webp"></p>
+<p>其实操作的是 <strong>FileSystem</strong> ： 对本地文件系统的抽象，真正操作的是 <strong>FileSytem</strong>的<strong>派生类</strong>。通过源码<strong>Ctrl+T</strong>发现如下：<strong>Win</strong>下操作的是 <strong>Win32FileSystem</strong> 和 <strong>WinNTFileSystem</strong>类。看来真正通过jvm，native调用系统的File是他们。</p>
+<p><img src="/images/jdk/file/clipboard1_thumb.webp"></p>
+<p>那<strong>Linux</strong>呢？因此，下了个Linux版本的JDK，解压，找到rt.jar。然后java&#x2F;io目录中，找到了<strong>UnixFileSystem类</strong>。真相大白了！</p>
+<p><img src="/images/jdk/file/clipboard2_thumb.webp"></p>
+<p>所以可以小结File操作源码这样调用的：<strong>中间不同JDK</strong>，其实是<strong>不同的类</strong>调用<strong>本机native方法</strong>。</p>
+<p><img src="/images/jdk/file/1_thumb1.webp"></p>
+<h2 id="三、File-方法详细使用案例"><a href="#三、File-方法详细使用案例" class="headerlink" title="三、File 方法详细使用案例"></a>三、File 方法详细使用案例</h2><p>File 其实和我们在系统中看的的文件一样。就像我们右键，属性。可以看到很多File的信息。Java File也有。下面是一个文件的相关方法详情：</p>
+<pre><code>import java.io.File;
+
+/*
+ * File方法详细使用
+ */
+public class FileMethodsT &#123;
+    
+    private static void fileData(File f) &#123;
+        System.out.println(
+            &quot; 绝对路径：&quot; + f.getAbsolutePath() +
+            &quot;\\n 可读：&quot; + f.canRead() +
+            &quot;\\n 可写：&quot; + f.canWrite() +
+            &quot;\\n 文件名：&quot; + f.getName() +
+            &quot;\\n 上级目录：&quot; + f.getParent() +
+            &quot;\\n 相对地址：&quot; + f.getPath() +
+            &quot;\\n 长度：&quot; + f.length() +
+            &quot;\\n 最近修改时间：&quot; + f.lastModified()
+            );
+        if(f.isFile())
+            System.out.println(&quot; 是一个文件&quot;);
+        else if(f.isDirectory())
+            System.out.println(&quot; 是一个目录&quot;);
+    &#125;
+    
+    public static void main(String[] args) &#123;
+        // 获取src目录
+        File file = new File(&quot;src&quot;);
+        // file详细操作
+        fileData(file);
+    &#125;
+&#125;
+</code></pre>
+<p>在eclipse中，右键run一下，可以得到如下的结果：大家应该都明白了吧。</p>
+<p><img src="/images/jdk/file/image_thumb5.webp"></p>
+<p>文件如何过滤呢？ 以后独立讲吧，过滤涉及Filter类。</p>
+<h2 id="四、小结"><a href="#四、小结" class="headerlink" title="四、小结"></a>四、小结</h2><p>1、看源码很简单，看数据结构。看如何调用。或者是有些设计模式</p>
+<p>2、学东西，学一点一点深一点。太深不好，一点就够了</p>
+<p>3、学习的<strong>代码</strong>都在<strong>github</strong>上 <a target="_blank" rel="noopener" href="https://github.com/JeffLi1993/java-core-learning-example">https://github.com/JeffLi1993/java-core-learning-example</a></p>
+
+        </div>
+
+    </div>
+
+    <div class="article-copyright">
+
+        <div style="float: left;width: 20%;align:center;text-align: center;">
+             <img style="width: 100px;" src="https://www.bysocket.com/images/qrcode.jpeg">
+        </div>
+        <div style="float: left;width: 80%;">
+                <br/>
+                本文由 <a target="_blank" rel="noopener" href="https://www.bysocket.com/">泥瓦匠</a> 创作<br/><br/>
+                原创不易，欢迎关注公众号！转载请注明出处，感谢支持！如果本文对您有用，欢迎转发分享！
+        </div>
+
+      </div><br/><br/><br/><br/><br/>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/spring-boot-thymeleaf-web-example/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          Spring Boot 整合 Thymeleaf 配置 Web 案例
+        
+      </div>
+    </a>
+  
+  
+    <a href="/openai-chatgpt-error-1020/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">OpenAI ChatGPT 错误码 1020 怎么解决？3 种方法</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=Java IO File 用法案例和源码解析 - 程序员泥瓦匠&url=https%3A%2F%2Fbysocket.com%2Fjava-io-file-example%2F">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=Java IO File 用法案例和源码解析 - 程序员泥瓦匠&u=https%3A%2F%2Fbysocket.com%2Fjava-io-file-example%2F">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=Java IO File 用法案例和源码解析 - 程序员泥瓦匠&url=https://bysocket.com/java-io-file-example/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>分类</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/">ElasticSearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JDK/">JDK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JSP/">JSP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SEO/">SEO</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/">Spring Boot</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot-WebFlux/">Spring Boot WebFlux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%9D%E8%80%83/">思考</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">问题记录</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>标签</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AdSense/" rel="tag">AdSense</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ChatGPT/" rel="tag">ChatGPT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collections/" rel="tag">Collections</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Druid/" rel="tag">Druid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dubbo/" rel="tag">Dubbo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES/" rel="tag">ES</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-IO/" rel="tag">Java IO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenAI/" rel="tag">OpenAI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/" rel="tag">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Data/" rel="tag">Spring Data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thymeleaf/" rel="tag">Thymeleaf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Validation/" rel="tag">Validation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ZooKeeper/" rel="tag">ZooKeeper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>最新文章</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/java-io-outputstream-example/">Java IO OutputStream 用法案例和源码解析</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-mybatis-collection-example/">Spring Boot MyBatis collection 标签用法案例</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-thymeleaf-web-example/">Spring Boot 整合 Thymeleaf 配置 Web 案例</a>
+          </li>
+        
+          <li>
+            <a href="/java-io-file-example/">Java IO File 用法案例和源码解析</a>
+          </li>
+        
+          <li>
+            <a href="/openai-chatgpt-error-1020/">OpenAI ChatGPT 错误码 1020 怎么解决？3 种方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            程序员泥瓦匠 &copy; 2023<br>
+            <a href="https://beian.miit.gov.cn" target="_blank">浙ICP备15028451号-7</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+<!-- 百度链接提交 -->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- Baidu Analytics-->
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e43a8b7f6b87c80c7d5d89ee04348971";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

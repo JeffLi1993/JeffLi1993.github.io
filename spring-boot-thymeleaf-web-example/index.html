@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>Spring Boot 整合 Thymeleaf 配置 Web 案例 | 程序员泥瓦匠</title>
+
+    <meta name="description" content="&lt;p&gt;Thymeleaf 是一种模板语言。那模板语言或模板引擎是什么？常见的模板语言都包含以下几个概念：数据（Data）、模板（Template）、模板引擎（Template Engine）和结果文档（Result Documents）。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数据 数据是信息的表现形式和载体，可以是符号、文字、数字、语音、图像、视频等。数据和信息是不可分离的，数据是信息的表达，信息是数据的内涵。数据本身没有意义，数据只有对实体行为产生影响时才成为信息。&lt;/li&gt;
+&lt;li&gt;模板 模板，是一个蓝图，即一个与类型无关的类。编译器在使用模板时，会根据模板实参对模板进行实例化，得到一个与类型相关的类。&lt;/li&gt;
+&lt;li&gt;模板引擎 模板引擎（这里特指用于Web开发的模板引擎）是为了使用户界面与业务数据（内容）分离而产生的，它可以生成特定格式的文档，用于网站的模板引擎就会生成一个标准的HTML文档。&lt;/li&gt;
+&lt;li&gt;结果文档 一种特定格式的文档，比如用于网站的模板引擎就会生成一个标准的HTML文档。&lt;/li&gt;
+&lt;/ul&gt;">
+    <link rel="canonical" href="https://bysocket.com/spring-boot-thymeleaf-web-example/"/>
+    <meta name="keywords" content="">
+
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "Spring Boot 整合 Thymeleaf 配置 Web 案例 | 程序员泥瓦匠"  />
+    <meta property="og:description" content= "&lt;p&gt;Thymeleaf 是一种模板语言。那模板语言或模板引擎是什么？常见的模板语言都包含以下几个概念：数据（Data）、模板（Template）、模板引擎（Template Engine）和结果文档（Result Documents）。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数据 数据是信息的表现形式和载体，可以是符号、文字、数字、语音、图像、视频等。数据和信息是不可分离的，数据是信息的表达，信息是数据的内涵。数据本身没有意义，数据只有对实体行为产生影响时才成为信息。&lt;/li&gt;
+&lt;li&gt;模板 模板，是一个蓝图，即一个与类型无关的类。编译器在使用模板时，会根据模板实参对模板进行实例化，得到一个与类型相关的类。&lt;/li&gt;
+&lt;li&gt;模板引擎 模板引擎（这里特指用于Web开发的模板引擎）是为了使用户界面与业务数据（内容）分离而产生的，它可以生成特定格式的文档，用于网站的模板引擎就会生成一个标准的HTML文档。&lt;/li&gt;
+&lt;li&gt;结果文档 一种特定格式的文档，比如用于网站的模板引擎就会生成一个标准的HTML文档。&lt;/li&gt;
+&lt;/ul&gt;" />
+    <meta property="og:url" content="https://bysocket.com/spring-boot-thymeleaf-web-example/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="泥瓦匠" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;p&gt;Thymeleaf 是一种模板语言。那模板语言或模板引擎是什么？常见的模板语言都包含以下几个概念：数据（Data）、模板（Template）、模板引擎（Template Engine）和结果文档（Result Documents）。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数据 数据是信息的表现形式和载体，可以是符号、文字、数字、语音、图像、视频等。数据和信息是不可分离的，数据是信息的表达，信息是数据的内涵。数据本身没有意义，数据只有对实体行为产生影响时才成为信息。&lt;/li&gt;
+&lt;li&gt;模板 模板，是一个蓝图，即一个与类型无关的类。编译器在使用模板时，会根据模板实参对模板进行实例化，得到一个与类型相关的类。&lt;/li&gt;
+&lt;li&gt;模板引擎 模板引擎（这里特指用于Web开发的模板引擎）是为了使用户界面与业务数据（内容）分离而产生的，它可以生成特定格式的文档，用于网站的模板引擎就会生成一个标准的HTML文档。&lt;/li&gt;
+&lt;li&gt;结果文档 一种特定格式的文档，比如用于网站的模板引擎就会生成一个标准的HTML文档。&lt;/li&gt;
+&lt;/ul&gt;" />
+    <meta name="twitter:title" content="Spring Boot 整合 Thymeleaf 配置 Web 案例 | 程序员泥瓦匠"/>
+    <meta name="twitter:description" content="&lt;p&gt;Thymeleaf 是一种模板语言。那模板语言或模板引擎是什么？常见的模板语言都包含以下几个概念：数据（Data）、模板（Template）、模板引擎（Template Engine）和结果文档（Result Documents）。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数据 数据是信息的表现形式和载体，可以是符号、文字、数字、语音、图像、视频等。数据和信息是不可分离的，数据是信息的表达，信息是数据的内涵。数据本身没有意义，数据只有对实体行为产生影响时才成为信息。&lt;/li&gt;
+&lt;li&gt;模板 模板，是一个蓝图，即一个与类型无关的类。编译器在使用模板时，会根据模板实参对模板进行实例化，得到一个与类型相关的类。&lt;/li&gt;
+&lt;li&gt;模板引擎 模板引擎（这里特指用于Web开发的模板引擎）是为了使用户界面与业务数据（内容）分离而产生的，它可以生成特定格式的文档，用于网站的模板引擎就会生成一个标准的HTML文档。&lt;/li&gt;
+&lt;li&gt;结果文档 一种特定格式的文档，比如用于网站的模板引擎就会生成一个标准的HTML文档。&lt;/li&gt;
+&lt;/ul&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;p&gt;Thymeleaf 是一种模板语言。那模板语言或模板引擎是什么？常见的模板语言都包含以下几个概念：数据（Data）、模板（Template）、模板引擎（Template Engine）和结果文档（Result Documents）。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数据 数据是信息的表现形式和载体，可以是符号、文字、数字、语音、图像、视频等。数据和信息是不可分离的，数据是信息的表达，信息是数据的内涵。数据本身没有意义，数据只有对实体行为产生影响时才成为信息。&lt;/li&gt;
+&lt;li&gt;模板 模板，是一个蓝图，即一个与类型无关的类。编译器在使用模板时，会根据模板实参对模板进行实例化，得到一个与类型相关的类。&lt;/li&gt;
+&lt;li&gt;模板引擎 模板引擎（这里特指用于Web开发的模板引擎）是为了使用户界面与业务数据（内容）分离而产生的，它可以生成特定格式的文档，用于网站的模板引擎就会生成一个标准的HTML文档。&lt;/li&gt;
+&lt;li&gt;结果文档 一种特定格式的文档，比如用于网站的模板引擎就会生成一个标准的HTML文档。&lt;/li&gt;
+&lt;/ul&gt;",
+            "author": { "@type": "Person", "name": "泥瓦匠" },
+            "@type": "BlogPosting",
+            "url": "https://bysocket.com/spring-boot-thymeleaf-web-example/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://bysocket.com/images/avatar.webp"
+            },
+            "name": "泥瓦匠"
+            },
+            "headline": "Spring Boot 整合 Thymeleaf 配置 Web 案例 | 程序员泥瓦匠",
+            "datePublished": "2023-02-05T03:50:00.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://bysocket.com/spring-boot-thymeleaf-web-example/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+    <!-- Google 广告 AdSense 代码 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3672455877501055" crossorigin="anonymous">
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-avatar avatar avatar-sm">
+                <img src="/images/avatar.webp" alt="泥瓦匠">
+            </div>
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>程序员泥瓦匠</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">首页</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/about">关于</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/JeffLi1993">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+    <a class="social" target="_blank" href="https://twitter.com/CoderJeffLee">
+        <ion-icon name="logo-twitter"></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/about">关于</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cldqtt5er0008og3s7p3selnv" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      Spring Boot 整合 Thymeleaf 配置 Web 案例
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2023-02-05T03:50:00.000Z" itemprop="datePublished">2023-02-05</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/Spring-Boot/">Spring Boot</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Thymeleaf/" rel="tag">Thymeleaf</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <p>Thymeleaf 是一种模板语言。那模板语言或模板引擎是什么？常见的模板语言都包含以下几个概念：数据（Data）、模板（Template）、模板引擎（Template Engine）和结果文档（Result Documents）。</p>
+<ul>
+<li>数据 数据是信息的表现形式和载体，可以是符号、文字、数字、语音、图像、视频等。数据和信息是不可分离的，数据是信息的表达，信息是数据的内涵。数据本身没有意义，数据只有对实体行为产生影响时才成为信息。</li>
+<li>模板 模板，是一个蓝图，即一个与类型无关的类。编译器在使用模板时，会根据模板实参对模板进行实例化，得到一个与类型相关的类。</li>
+<li>模板引擎 模板引擎（这里特指用于Web开发的模板引擎）是为了使用户界面与业务数据（内容）分离而产生的，它可以生成特定格式的文档，用于网站的模板引擎就会生成一个标准的HTML文档。</li>
+<li>结果文档 一种特定格式的文档，比如用于网站的模板引擎就会生成一个标准的HTML文档。</li>
+</ul>
+<span id="more"></span>
+
+
+<p>Thymeleaf 是一种模板语言。那模板语言或模板引擎是什么？常见的模板语言都包含以下几个概念：数据（Data）、模板（Template）、模板引擎（Template Engine）和结果文档（Result Documents）。</p>
+<ul>
+<li>数据 数据是信息的表现形式和载体，可以是符号、文字、数字、语音、图像、视频等。数据和信息是不可分离的，数据是信息的表达，信息是数据的内涵。数据本身没有意义，数据只有对实体行为产生影响时才成为信息。</li>
+<li>模板 模板，是一个蓝图，即一个与类型无关的类。编译器在使用模板时，会根据模板实参对模板进行实例化，得到一个与类型相关的类。</li>
+<li>模板引擎 模板引擎（这里特指用于Web开发的模板引擎）是为了使用户界面与业务数据（内容）分离而产生的，它可以生成特定格式的文档，用于网站的模板引擎就会生成一个标准的HTML文档。</li>
+<li>结果文档 一种特定格式的文档，比如用于网站的模板引擎就会生成一个标准的HTML文档。</li>
+</ul>
+<p>模板语言用途广泛，常见的用途如下：</p>
+<ul>
+<li>页面渲染</li>
+<li>文档生成</li>
+<li>代码生成</li>
+<li>所有 “数据+模板&#x3D;文本” 的应用场景</li>
+</ul>
+<p>这里案例用途自然是 页面渲染，下面在 Spring Boot 中整合 Thymeleaf 实现完整 Web 案例。</p>
+<h2 id="一、运行-chapter-2-spring-boot-quick-start"><a href="#一、运行-chapter-2-spring-boot-quick-start" class="headerlink" title="一、运行 chapter-2-spring-boot-quick-start"></a>一、运行 chapter-2-spring-boot-quick-start</h2><p>chapter-2-spring-boot-quick-start 工程用的是内存式数据库，不需要配置数据源。下载运行即可。</p>
+<h3 id="1-下载工程"><a href="#1-下载工程" class="headerlink" title="1.下载工程"></a>1.下载工程</h3><p>git clone 下载工程 springboot-learning-example ，项目地址见 GitHub：<a target="_blank" rel="noopener" href="https://github.com/JeffLi1993/springboot-learning-example">https://github.com/JeffLi1993/springboot-learning-example</a> ，即：</p>
+<pre><code>    git clone https://github.com/JeffLi1993/springboot-learning-example.git 
+</code></pre>
+<h3 id="2-工程结构"><a href="#2-工程结构" class="headerlink" title="2.工程结构"></a>2.工程结构</h3><p>用 IDEA 打开工程，可以看到子工程 chapter-2-spring-boot-quick-start ，其目录如下：</p>
+<pre><code>    ├── pom.xml
+    └── src
+        ├── main
+        │   ├── java
+        │   │   └── spring
+        │   │       └── boot
+        │   │           └── core
+        │   │               ├── QuickStartApplication.java
+        │   │               ├── domain
+        │   │               │   ├── User.java
+        │   │               │   └── UserRepository.java
+        │   │               ├── service
+        │   │               │   ├── UserService.java
+        │   │               │   └── impl
+        │   │               │       └── UserServiceImpl.java
+        │   │               └── web
+        │   │                   └── UserController.java
+        │   └── resources
+        │       ├── application.properties
+        │       ├── static
+        │       │   ├── css
+        │       │   │   └── default.css
+        │       │   └── images
+        │       │       └── favicon.ico
+        │       └── templates
+        │           ├── userForm.html
+        │           └── userList.html
+        └── test
+            └── java
+                └── spring
+                    └── boot
+                        └── core
+                            ├── QuickStartApplicationTests.java
+                            └── domain
+                                └── UserRepositoryTests.java
+</code></pre>
+<p>对应目录：</p>
+<ul>
+<li>org.spring.springboot.controller - Controller 层</li>
+<li>org.spring.springboot.dao - 数据操作层 DAO</li>
+<li>org.spring.springboot.domain - 实体类</li>
+<li>org.spring.springboot.service - 业务逻辑层</li>
+<li>Application - 应用启动类</li>
+<li>application.properties - 应用配置文件</li>
+</ul>
+<p>模板是会用到下面两个目录</p>
+<ul>
+<li>static 目录是存放 CSS、JS 等资源文件</li>
+<li>templates 目录是存放视图</li>
+</ul>
+<h3 id="3-编译运行工程"><a href="#3-编译运行工程" class="headerlink" title="3.编译运行工程"></a>3.编译运行工程</h3><p>在该工程根目录，运行 maven 指令进行编译：</p>
+<pre><code>    cd chapter-2-spring-boot-quick-start
+    mvn clean install
+</code></pre>
+<p>编译工程成功后，右键运行名为 QuickStartApplication.java 应用启动类的 main 函数，然后浏览器访问 <code>localhost:8080/users</code> 即可：</p>
+<p>用户列表页面：</p>
+<p><img src="/images/springboot/thymeleaf/1.webp"></p>
+<p>用户编辑页面：</p>
+<p><img src="/images/springboot/thymeleaf/2.webp"></p>
+<h2 id="二、详解整合-Thymeleaf-工程-chapter-2-spring-boot-quick-start"><a href="#二、详解整合-Thymeleaf-工程-chapter-2-spring-boot-quick-start" class="headerlink" title="二、详解整合 Thymeleaf 工程 chapter-2-spring-boot-quick-start"></a>二、详解整合 Thymeleaf 工程 chapter-2-spring-boot-quick-start</h2><p>工程代码：</p>
+<h3 id="1-pom-xml-Thymeleaf-依赖"><a href="#1-pom-xml-Thymeleaf-依赖" class="headerlink" title="1. pom.xml Thymeleaf 依赖"></a>1. pom.xml Thymeleaf 依赖</h3><p>使用模板引擎，就在 pom.xml 加入 Thymeleaf 组件依赖：</p>
+<pre><code>    &lt;!-- 模板引擎 Thymeleaf 依赖 --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+</code></pre>
+<p>Thymeleaf 是什么？</p>
+<p>Thymeleaf is a modern server-side Java template engine for both web and standalone environments. Thymeleaf’s main goal is to bring elegant natural templates to your development workflow — HTML that can be correctly displayed in browsers and also work as static prototypes, allowing for stronger collaboration in development teams.</p>
+<p>Thymeleaf 是新一代 Java 模板引擎，在 Spring 4 后推荐使用。 整体个 pom.xml 配置如下：</p>
+<pre><code>    &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+    &lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+             xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+        &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    
+        &lt;groupId&gt;spring.boot.core&lt;/groupId&gt;
+        &lt;artifactId&gt;chapter-2-spring-boot-quick-start&lt;/artifactId&gt;
+        &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+        &lt;packaging&gt;jar&lt;/packaging&gt;
+    
+        &lt;name&gt;chapter-2-spring-boot-quick-start&lt;/name&gt;
+        &lt;description&gt;第二章快速入门案例&lt;/description&gt;
+    
+        &lt;parent&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+            &lt;version&gt;1.5.7.RELEASE&lt;/version&gt;
+        &lt;/parent&gt;
+    
+        &lt;properties&gt;
+            &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+            &lt;project.reporting.outputEncoding&gt;UTF-8&lt;/project.reporting.outputEncoding&gt;
+            &lt;java.version&gt;1.8&lt;/java.version&gt;
+        &lt;/properties&gt;
+    
+        &lt;dependencies&gt;
+    
+            &lt;!-- Web 依赖 --&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+            &lt;/dependency&gt;
+    
+            &lt;!-- 单元测试依赖 --&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+                &lt;scope&gt;test&lt;/scope&gt;
+            &lt;/dependency&gt;
+    
+            &lt;!-- Spring Data JPA 依赖 :: 数据持久层框架 --&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;
+            &lt;/dependency&gt;
+    
+            &lt;!-- h2 数据源连接驱动 --&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;com.h2database&lt;/groupId&gt;
+                &lt;artifactId&gt;h2&lt;/artifactId&gt;
+                &lt;scope&gt;runtime&lt;/scope&gt;
+            &lt;/dependency&gt;
+    
+            &lt;!-- 模板引擎 Thymeleaf 依赖 --&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;
+            &lt;/dependency&gt;
+        &lt;/dependencies&gt;
+    
+        &lt;build&gt;
+            &lt;plugins&gt;
+                &lt;!-- Spring Boot Maven 插件 --&gt;
+                &lt;plugin&gt;
+                    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                    &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+                &lt;/plugin&gt;
+            &lt;/plugins&gt;
+        &lt;/build&gt;
+    
+    &lt;/project&gt;
+</code></pre>
+<h3 id="2-Thymeleaf-依赖配置"><a href="#2-Thymeleaf-依赖配置" class="headerlink" title="2. Thymeleaf 依赖配置"></a>2. Thymeleaf 依赖配置</h3><p>在 Spring Boot 项目中加入 Thymeleaf 依赖，即可启动其默认配置。如果想要自定义配置，可以在 application.properties 配置如下：</p>
+<pre><code>    spring.thymeleaf.cache=true # Enable template caching.
+    spring.thymeleaf.check-template=true # Check that the template exists before rendering it.
+    spring.thymeleaf.check-template-location=true # Check that the templates location exists.
+    spring.thymeleaf.enabled=true # Enable Thymeleaf view resolution for Web frameworks.
+    spring.thymeleaf.encoding=UTF-8 # Template files encoding.
+    spring.thymeleaf.excluded-view-names= # Comma-separated list of view names that should be excluded from resolution.
+    spring.thymeleaf.mode=HTML5 # Template mode to be applied to templates. See also StandardTemplateModeHandlers.
+    spring.thymeleaf.prefix=classpath:/templates/ # Prefix that gets prepended to view names when building a URL.
+    spring.thymeleaf.reactive.max-chunk-size= # Maximum size of data buffers used for writing to the response, in bytes.
+    spring.thymeleaf.reactive.media-types= # Media types supported by the view technology.
+    spring.thymeleaf.servlet.content-type=text/html # Content-Type value written to HTTP responses.
+    spring.thymeleaf.suffix=.html # Suffix that gets appended to view names when building a URL.
+    spring.thymeleaf.template-resolver-order= # Order of the template resolver in the chain.
+    spring.thymeleaf.view-names= # Comma-separated list of view names that can be resolved.
+</code></pre>
+<h3 id="3-Thymeleaf-使用"><a href="#3-Thymeleaf-使用" class="headerlink" title="3.Thymeleaf 使用"></a>3.Thymeleaf 使用</h3><h4 id="Controller-如何将-View-指向-Thymeleaf"><a href="#Controller-如何将-View-指向-Thymeleaf" class="headerlink" title="Controller 如何将 View 指向 Thymeleaf"></a>Controller 如何将 View 指向 Thymeleaf</h4><p>用户控制层代码如下：</p>
+<pre><code>    @Controller
+    @RequestMapping(value = &quot;/users&quot;)     // 通过这里配置使下面的映射都在 /users
+    public class UserController &#123;
+    
+        @Autowired
+        UserService userService;          // 用户服务层
+    
+        /**
+         *  获取用户列表
+         *    处理 &quot;/users&quot; 的 GET 请求，用来获取用户列表
+         *    通过 @RequestParam 传递参数，进一步实现条件查询或者分页查询
+         */
+        @RequestMapping(method = RequestMethod.GET)
+        public String getUserList(ModelMap map) &#123;
+            map.addAttribute(&quot;userList&quot;, userService.findAll());
+            return &quot;userList&quot;;
+        &#125;
+    
+        /**
+         * 显示创建用户表单
+         *
+         */
+        @RequestMapping(value = &quot;/create&quot;, method = RequestMethod.GET)
+        public String createUserForm(ModelMap map) &#123;
+            map.addAttribute(&quot;user&quot;, new User());
+            map.addAttribute(&quot;action&quot;, &quot;create&quot;);
+            return &quot;userForm&quot;;
+        &#125;
+    
+        /**
+         *  创建用户
+         *    处理 &quot;/users&quot; 的 POST 请求，用来获取用户列表
+         *    通过 @ModelAttribute 绑定参数，也通过 @RequestParam 从页面中传递参数
+         */
+        @RequestMapping(value = &quot;/create&quot;, method = RequestMethod.POST)
+        public String postUser(@ModelAttribute User user) &#123;
+            userService.insertByUser(user);
+            return &quot;redirect:/users/&quot;;
+        &#125;
+    
+        /**
+         * 显示需要更新用户表单
+         *    处理 &quot;/users/&#123;id&#125;&quot; 的 GET 请求，通过 URL 中的 id 值获取 User 信息
+         *    URL 中的 id ，通过 @PathVariable 绑定参数
+         */
+        @RequestMapping(value = &quot;/update/&#123;id&#125;&quot;, method = RequestMethod.GET)
+        public String getUser(@PathVariable Long id, ModelMap map) &#123;
+            map.addAttribute(&quot;user&quot;, userService.findById(id));
+            map.addAttribute(&quot;action&quot;, &quot;update&quot;);
+            return &quot;userForm&quot;;
+        &#125;
+    
+        /**
+         * 处理 &quot;/users/&#123;id&#125;&quot; 的 PUT 请求，用来更新 User 信息
+         *
+         */
+        @RequestMapping(value = &quot;/update&quot;, method = RequestMethod.POST)
+        public String putUser(@ModelAttribute User user) &#123;
+            userService.update(user);
+            return &quot;redirect:/users/&quot;;
+        &#125;
+    
+        /**
+         * 处理 &quot;/users/&#123;id&#125;&quot; 的 GET 请求，用来删除 User 信息
+         */
+        @RequestMapping(value = &quot;/delete/&#123;id&#125;&quot;, method = RequestMethod.GET)
+        public String deleteUser(@PathVariable Long id) &#123;
+    
+            userService.delete(id);
+            return &quot;redirect:/users/&quot;;
+        &#125;
+    
+    &#125;
+</code></pre>
+<p>ModelMap 对象来进行数据绑定到视图。return 字符串，该字符串对应的目录在 resources&#x2F;templates 下的模板名字。 @ModelAttribute 注解是用来获取页面 Form 表单提交的数据，并绑定到 User 数据对象。</p>
+<h4 id="Form-表单页面"><a href="#Form-表单页面" class="headerlink" title="Form 表单页面"></a>Form 表单页面</h4><p>核心代码：</p>
+<pre><code>    &lt;form th:action=&quot;@&#123;/users/&#123;action&#125;(action=$&#123;action&#125;)&#125;&quot; method=&quot;post&quot; class=&quot;form-horizontal&quot;&gt;
+    
+                    &lt;input type=&quot;hidden&quot; name=&quot;id&quot; th:value=&quot;$&#123;user.id&#125;&quot;/&gt;
+    
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;label for=&quot;user_name&quot; class=&quot;col-sm-2 control-label&quot;&gt;名称&lt;/label&gt;
+                        &lt;div class=&quot;col-xs-4&quot;&gt;
+                            &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;user_name&quot; name=&quot;name&quot; th:value=&quot;$&#123;user.name&#125;&quot; /&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+    
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;label for=&quot;user_age&quot; class=&quot;col-sm-2 control-label&quot;&gt;年龄:&lt;/label&gt;
+                        &lt;div class=&quot;col-xs-4&quot;&gt;
+                            &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;user_age&quot; name=&quot;age&quot; th:value=&quot;$&#123;user.age&#125;&quot;/&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+    
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;label for=&quot;user_birthday&quot; class=&quot;col-sm-2 control-label&quot;&gt;出生日期:&lt;/label&gt;
+                        &lt;div class=&quot;col-xs-4&quot;&gt;
+                            &lt;input type=&quot;date&quot; class=&quot;form-control&quot; id=&quot;user_birthday&quot; name=&quot;birthday&quot; th:value=&quot;$&#123;user.birthday&#125;&quot;/&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+    
+                    &lt;div class=&quot;form-group&quot;&gt;
+                        &lt;div class=&quot;col-sm-offset-2 col-sm-10&quot;&gt;
+                            &lt;input class=&quot;btn btn-primary&quot; type=&quot;submit&quot; value=&quot;提交&quot;/&gt;  
+                            &lt;input class=&quot;btn&quot; type=&quot;button&quot; value=&quot;返回&quot; onclick=&quot;history.back()&quot;/&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/form&gt;
+</code></pre>
+<p>这里定义了一个 Form 表单用于新增或者更新用户。</p>
+<h4 id="列表页面"><a href="#列表页面" class="headerlink" title="列表页面"></a>列表页面</h4><p>代码如下：</p>
+<pre><code>    &lt;table class=&quot;table table-hover table-condensed&quot;&gt;
+                    &lt;legend&gt;
+                        &lt;strong&gt;用户列表&lt;/strong&gt;
+                    &lt;/legend&gt;
+                    &lt;thead&gt;
+                        &lt;tr&gt;
+                            &lt;th&gt;用户编号&lt;/th&gt;
+                            &lt;th&gt;名称&lt;/th&gt;
+                            &lt;th&gt;年龄&lt;/th&gt;
+                            &lt;th&gt;出生时间&lt;/th&gt;
+                            &lt;th&gt;管理&lt;/th&gt;
+                        &lt;/tr&gt;
+                    &lt;/thead&gt;
+                    &lt;tbody&gt;
+                        &lt;tr th:each=&quot;user : $&#123;userList&#125;&quot;&gt;
+                            &lt;th scope=&quot;row&quot; th:text=&quot;$&#123;user.id&#125;&quot;&gt;&lt;/th&gt;
+                            &lt;td&gt;&lt;a th:href=&quot;@&#123;/users/update/&#123;userId&#125;(userId=$&#123;user.id&#125;)&#125;&quot; th:text=&quot;$&#123;user.name&#125;&quot;&gt;&lt;/a&gt;&lt;/td&gt;
+                            &lt;td th:text=&quot;$&#123;user.age&#125;&quot;&gt;&lt;/td&gt;
+                            &lt;td th:text=&quot;$&#123;user.birthday&#125;&quot;&gt;&lt;/td&gt;
+                            &lt;td&gt;&lt;a class=&quot;btn btn-danger&quot; th:href=&quot;@&#123;/users/delete/&#123;userId&#125;(userId=$&#123;user.id&#125;)&#125;&quot;&gt;删除&lt;/a&gt;&lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/tbody&gt;
+                &lt;/table&gt;    
+</code></pre>
+<p>这里循环了用户列表。</p>
+<h4 id="Tymeleaf-的语法糖"><a href="#Tymeleaf-的语法糖" class="headerlink" title="Tymeleaf 的语法糖"></a>Tymeleaf 的语法糖</h4><p>我这边也就不详细展开了，看看官方文档 <a target="_blank" rel="noopener" href="http://www.thymeleaf.org/documentation.html">http://www.thymeleaf.org/documentation.html</a></p>
+<h2 id="三、本文小结"><a href="#三、本文小结" class="headerlink" title="三、本文小结"></a>三、本文小结</h2><p>该文，利用 Thymeleaf 做了个 Web 的 CRUD 案例。大家多指教~</p>
+<p>如以上文章或链接对你有帮助的话，别忘了在文章结尾处评论哈~ 你也可以点击页面右边“分享”悬浮按钮哦，让更多的人阅读这篇文章。</p>
+<p>代码示例。本文示例读者可以通过查看下面仓库的中代码 ：</p>
+<ul>
+<li>GitHub springboot-learning-example <a target="_blank" rel="noopener" href="https://github.com/JeffLi1993/springboot-learning-example">https://github.com/JeffLi1993/springboot-learning-example</a></li>
+<li>Gitee springboot-learning-example <a target="_blank" rel="noopener" href="https://gitee.com/jeff1993/springboot-learning-example">https://gitee.com/jeff1993/springboot-learning-example</a></li>
+</ul>
+<p>如果您对这些感兴趣，欢迎 star、follow、收藏、转发给予支持！</p>
+
+        </div>
+
+    </div>
+
+    <div class="article-copyright">
+
+        <div style="float: left;width: 20%;align:center;text-align: center;">
+             <img style="width: 100px;" src="https://www.bysocket.com/images/qrcode.jpeg">
+        </div>
+        <div style="float: left;width: 80%;">
+                <br/>
+                本文由 <a target="_blank" rel="noopener" href="https://www.bysocket.com/">泥瓦匠</a> 创作<br/><br/>
+                原创不易，欢迎关注公众号！转载请注明出处，感谢支持！如果本文对您有用，欢迎转发分享！
+        </div>
+
+      </div><br/><br/><br/><br/><br/>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/spring-boot-mybatis-collection-example/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          Spring Boot MyBatis collection 标签用法案例
+        
+      </div>
+    </a>
+  
+  
+    <a href="/java-io-file-example/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">Java IO File 用法案例和源码解析</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=Spring Boot 整合 Thymeleaf 配置 Web 案例 - 程序员泥瓦匠&url=https%3A%2F%2Fbysocket.com%2Fspring-boot-thymeleaf-web-example%2F">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=Spring Boot 整合 Thymeleaf 配置 Web 案例 - 程序员泥瓦匠&u=https%3A%2F%2Fbysocket.com%2Fspring-boot-thymeleaf-web-example%2F">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=Spring Boot 整合 Thymeleaf 配置 Web 案例 - 程序员泥瓦匠&url=https://bysocket.com/spring-boot-thymeleaf-web-example/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>分类</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/">ElasticSearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JDK/">JDK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JSP/">JSP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SEO/">SEO</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/">Spring Boot</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot-WebFlux/">Spring Boot WebFlux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%9D%E8%80%83/">思考</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">问题记录</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>标签</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AdSense/" rel="tag">AdSense</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ChatGPT/" rel="tag">ChatGPT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collections/" rel="tag">Collections</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Druid/" rel="tag">Druid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dubbo/" rel="tag">Dubbo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES/" rel="tag">ES</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-IO/" rel="tag">Java IO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenAI/" rel="tag">OpenAI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/" rel="tag">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Data/" rel="tag">Spring Data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thymeleaf/" rel="tag">Thymeleaf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Validation/" rel="tag">Validation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ZooKeeper/" rel="tag">ZooKeeper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>最新文章</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/java-io-outputstream-example/">Java IO OutputStream 用法案例和源码解析</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-mybatis-collection-example/">Spring Boot MyBatis collection 标签用法案例</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-thymeleaf-web-example/">Spring Boot 整合 Thymeleaf 配置 Web 案例</a>
+          </li>
+        
+          <li>
+            <a href="/java-io-file-example/">Java IO File 用法案例和源码解析</a>
+          </li>
+        
+          <li>
+            <a href="/openai-chatgpt-error-1020/">OpenAI ChatGPT 错误码 1020 怎么解决？3 种方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            程序员泥瓦匠 &copy; 2023<br>
+            <a href="https://beian.miit.gov.cn" target="_blank">浙ICP备15028451号-7</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+<!-- 百度链接提交 -->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- Baidu Analytics-->
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e43a8b7f6b87c80c7d5d89ee04348971";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

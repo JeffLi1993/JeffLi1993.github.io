@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>Java IO OutputStream 用法案例和源码解析 | 程序员泥瓦匠</title>
+
+    <meta name="description" content="&lt;h2 id=&#34;一、前言&#34;&gt;&lt;a href=&#34;#一、前言&#34; class=&#34;headerlink&#34; title=&#34;一、前言&#34;&gt;&lt;/a&gt;一、前言&lt;/h2&gt;&lt;p&gt;上一篇《Java IO 之 InputStream源码》，说了InputStream。JDK1.0中就有了这传统的IO字节流，也就是 InputStream 和 OutputStream。梳理下两者的核心：&lt;/p&gt;
+&lt;p&gt;InputStream中有几个 read() 方法和 OutputStream中有几个 write() 方法。它们是一一对应的，而核心的是read()和write()方法。&lt;/p&gt;">
+    <link rel="canonical" href="https://bysocket.com/java-io-outputstream-example/"/>
+    <meta name="keywords" content="">
+
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "Java IO OutputStream 用法案例和源码解析 | 程序员泥瓦匠"  />
+    <meta property="og:description" content= "&lt;h2 id=&#34;一、前言&#34;&gt;&lt;a href=&#34;#一、前言&#34; class=&#34;headerlink&#34; title=&#34;一、前言&#34;&gt;&lt;/a&gt;一、前言&lt;/h2&gt;&lt;p&gt;上一篇《Java IO 之 InputStream源码》，说了InputStream。JDK1.0中就有了这传统的IO字节流，也就是 InputStream 和 OutputStream。梳理下两者的核心：&lt;/p&gt;
+&lt;p&gt;InputStream中有几个 read() 方法和 OutputStream中有几个 write() 方法。它们是一一对应的，而核心的是read()和write()方法。&lt;/p&gt;" />
+    <meta property="og:url" content="https://bysocket.com/java-io-outputstream-example/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="泥瓦匠" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h2 id=&#34;一、前言&#34;&gt;&lt;a href=&#34;#一、前言&#34; class=&#34;headerlink&#34; title=&#34;一、前言&#34;&gt;&lt;/a&gt;一、前言&lt;/h2&gt;&lt;p&gt;上一篇《Java IO 之 InputStream源码》，说了InputStream。JDK1.0中就有了这传统的IO字节流，也就是 InputStream 和 OutputStream。梳理下两者的核心：&lt;/p&gt;
+&lt;p&gt;InputStream中有几个 read() 方法和 OutputStream中有几个 write() 方法。它们是一一对应的，而核心的是read()和write()方法。&lt;/p&gt;" />
+    <meta name="twitter:title" content="Java IO OutputStream 用法案例和源码解析 | 程序员泥瓦匠"/>
+    <meta name="twitter:description" content="&lt;h2 id=&#34;一、前言&#34;&gt;&lt;a href=&#34;#一、前言&#34; class=&#34;headerlink&#34; title=&#34;一、前言&#34;&gt;&lt;/a&gt;一、前言&lt;/h2&gt;&lt;p&gt;上一篇《Java IO 之 InputStream源码》，说了InputStream。JDK1.0中就有了这传统的IO字节流，也就是 InputStream 和 OutputStream。梳理下两者的核心：&lt;/p&gt;
+&lt;p&gt;InputStream中有几个 read() 方法和 OutputStream中有几个 write() 方法。它们是一一对应的，而核心的是read()和write()方法。&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h2 id=&#34;一、前言&#34;&gt;&lt;a href=&#34;#一、前言&#34; class=&#34;headerlink&#34; title=&#34;一、前言&#34;&gt;&lt;/a&gt;一、前言&lt;/h2&gt;&lt;p&gt;上一篇《Java IO 之 InputStream源码》，说了InputStream。JDK1.0中就有了这传统的IO字节流，也就是 InputStream 和 OutputStream。梳理下两者的核心：&lt;/p&gt;
+&lt;p&gt;InputStream中有几个 read() 方法和 OutputStream中有几个 write() 方法。它们是一一对应的，而核心的是read()和write()方法。&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "泥瓦匠" },
+            "@type": "BlogPosting",
+            "url": "https://bysocket.com/java-io-outputstream-example/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://bysocket.com/images/avatar.webp"
+            },
+            "name": "泥瓦匠"
+            },
+            "headline": "Java IO OutputStream 用法案例和源码解析 | 程序员泥瓦匠",
+            "datePublished": "2023-02-05T04:01:00.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://bysocket.com/java-io-outputstream-example/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+    <!-- Google 广告 AdSense 代码 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3672455877501055" crossorigin="anonymous">
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-avatar avatar avatar-sm">
+                <img src="/images/avatar.webp" alt="泥瓦匠">
+            </div>
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>程序员泥瓦匠</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">首页</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/about">关于</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/JeffLi1993">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+    <a class="social" target="_blank" href="https://twitter.com/CoderJeffLee">
+        <ion-icon name="logo-twitter"></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/about">关于</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cldquq9lt0000183s0kp29d7l" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      Java IO OutputStream 用法案例和源码解析
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2023-02-05T04:01:00.000Z" itemprop="datePublished">2023-02-05</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/JDK/">JDK</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-IO/" rel="tag">Java IO</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>上一篇《Java IO 之 InputStream源码》，说了InputStream。JDK1.0中就有了这传统的IO字节流，也就是 InputStream 和 OutputStream。梳理下两者的核心：</p>
+<p>InputStream中有几个 read() 方法和 OutputStream中有几个 write() 方法。它们是一一对应的，而核心的是read()和write()方法。</p>
+<span id="more"></span>
+
+<h2 id="一、FilenameFilter源码"><a href="#一、FilenameFilter源码" class="headerlink" title="一、FilenameFilter源码"></a>一、FilenameFilter源码</h2><p>它们都没实现，所有本质调用是各自实现类实现的该两个方法。 read() 和 write() ,对应着系统的Input和Output，即系统的输出输入。</p>
+<h2 id="二、OutputStream"><a href="#二、OutputStream" class="headerlink" title="二、OutputStream"></a>二、OutputStream</h2><p>也是一个抽象类，即表示所有字节输入流实现类的基类。它的作用就是抽象地表示所有要输出到的目标，例如常见的FileOutStream、FilterOutputStream等。它实现了java.io.Closeable和java.io.Flushable两个接口。其中空实现了flush方法，即拥有刷新缓存区字节数组作用。 那些输出目标呢？比如：</p>
+<ul>
+<li>1） 字节数组（不代表String类，但可以转换）</li>
+<li>2） 文件</li>
+<li>3） 管道（多线程环境中的数据源） 等等</li>
+</ul>
+<p>FilterOutputStream是为各种OutputStream实现类提供 “ 装饰器模式” 的基类。将属性或者有用的接口与输出流连接起来。</p>
+<p>代码如下：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/JeffLi1993/java-designpattern-learning/tree/master/src/org/javadp/decorator/servletReq">https://github.com/JeffLi1993/java-designpattern-learning/tree/master/src/org/javadp/decorator/servletReq</a></p>
+<h2 id="三、细解OutputStream源码的核心"><a href="#三、细解OutputStream源码的核心" class="headerlink" title="三、细解OutputStream源码的核心"></a>三、细解OutputStream源码的核心</h2><p>一样的，先看源码：</p>
+<pre><code> /*
+  * 所有字节输出流实现类的基类
+  */
+public abstract class SOutputStream implements Closeable, Flushable &#123;
+
+    // 将指定的字节写入输出流
+    public abstract void write(int b) throws IOException;
+
+    // 将指定的byte数组的字节全部写入输出流
+    public void write(byte b[]) throws IOException &#123;
+        write(b, 0, b.length);
+    &#125;
+
+    // 将指定的byte数组中从偏移量off开始的len个字节写入输出流
+    public void write(byte b[], int off, int len) throws IOException &#123;
+        if (b == null) &#123;
+            throw new NullPointerException();
+        &#125; else if ((off &lt; 0) || (off &gt; b.length) || (len &lt; 0) ||
+                   ((off + len) &gt; b.length) || ((off + len) &lt; 0)) &#123;
+            throw new IndexOutOfBoundsException();
+        &#125; else if (len == 0) &#123;
+            return;
+        &#125;
+        for (int i = 0 ; i &lt; len ; i++) &#123;
+            write(b\[off + i\]);
+        &#125;
+    &#125;
+
+    // 刷新输出流，并强制写出所有缓冲的输出字节
+    public void flush() throws IOException &#123;
+    &#125;
+
+    // 关闭输出流，并释放与该流有关的所有资源
+    public void close() throws IOException &#123;
+    &#125;
+
+&#125;
+</code></pre>
+<p>其中三个核心的write()方法，对应着三个InputStream的read()方法：</p>
+<h3 id="1-abstract-void-write-int-b-抽象方法"><a href="#1-abstract-void-write-int-b-抽象方法" class="headerlink" title="1. abstract void write(int b) 抽象方法"></a>1. abstract void write(int b) 抽象方法</h3><pre><code>public abstract void write(int b) throws IOException;
+</code></pre>
+<p>对应着，InputStream的read()方法，此方法依旧是抽象方法。因为子类必须实现此方法的一个实现。这就是输入流的关键方法。 二者，下面两个write方法中调用了此核心方法。</p>
+<p>可见，核心的是read()和write()方法在传统的IO是多么重要。</p>
+<h3 id="2-void-write-byte-b-方法"><a href="#2-void-write-byte-b-方法" class="headerlink" title="2.  void write(byte b[]) 方法"></a>2.  void write(byte b[]) 方法</h3><pre><code>public void write(byte b[]) throws IOException
+</code></pre>
+<p>将指定的byte数组的字节全部写入输出流。该效果实际上是由下一个write方法实现的，只是调用的额时候指定了长度：</p>
+<h3 id="3-void-write-byte-b-int-off-int-len-方法"><a href="#3-void-write-byte-b-int-off-int-len-方法" class="headerlink" title="3.  void write(byte b[], int off, int len) 方法"></a>3.  void write(byte b[], int off, int len) 方法</h3><pre><code>public void write(byte b[], int off, int len) throws IOException
+</code></pre>
+<p>将指定的byte数组中从偏移量off开始的len个字节写入输出流。代码详细流程解读如下：</p>
+<ul>
+<li>a.  如果 <code>b</code> 为 <code>null</code>，则抛出 <code>NullPointerException</code>。</li>
+<li>b.  如果 <code>off</code> 为负，或 <code>len</code> 为负，或者 <code>off+len</code> 大于数组 <code>b</code> 的长度，则抛出 IndexOutOfBoundsException。</li>
+<li>c.  将数组 <code>b</code> 中的某些字节按顺序写入输出流；元素 <code>b[off]</code> 是此操作写入的第一个字节，<code>b[off+len-1]</code> 是此操作写入的最后一个字节。</li>
+</ul>
+<h2 id="四、小结"><a href="#四、小结" class="headerlink" title="四、小结"></a>四、小结</h2><p>重要的事情说三遍：</p>
+<p>O注意 utputStream 解读对照着 InputStream来看！<br>注意 一个write对应一个read OutputStream 解读对照着 InputStream来看！</p>
+
+        </div>
+
+    </div>
+
+    <div class="article-copyright">
+
+        <div style="float: left;width: 20%;align:center;text-align: center;">
+             <img style="width: 100px;" src="https://www.bysocket.com/images/qrcode.jpeg">
+        </div>
+        <div style="float: left;width: 80%;">
+                <br/>
+                本文由 <a target="_blank" rel="noopener" href="https://www.bysocket.com/">泥瓦匠</a> 创作<br/><br/>
+                原创不易，欢迎关注公众号！转载请注明出处，感谢支持！如果本文对您有用，欢迎转发分享！
+        </div>
+
+      </div><br/><br/><br/><br/><br/>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+  
+    <a href="/spring-boot-mybatis-collection-example/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">Spring Boot MyBatis collection 标签用法案例</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=Java IO OutputStream 用法案例和源码解析 - 程序员泥瓦匠&url=https%3A%2F%2Fbysocket.com%2Fjava-io-outputstream-example%2F">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=Java IO OutputStream 用法案例和源码解析 - 程序员泥瓦匠&u=https%3A%2F%2Fbysocket.com%2Fjava-io-outputstream-example%2F">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=Java IO OutputStream 用法案例和源码解析 - 程序员泥瓦匠&url=https://bysocket.com/java-io-outputstream-example/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>分类</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/">ElasticSearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JDK/">JDK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JSP/">JSP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SEO/">SEO</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/">Spring Boot</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot-WebFlux/">Spring Boot WebFlux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%9D%E8%80%83/">思考</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">问题记录</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>标签</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AdSense/" rel="tag">AdSense</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ChatGPT/" rel="tag">ChatGPT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collections/" rel="tag">Collections</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Druid/" rel="tag">Druid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dubbo/" rel="tag">Dubbo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES/" rel="tag">ES</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-IO/" rel="tag">Java IO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenAI/" rel="tag">OpenAI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/" rel="tag">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Data/" rel="tag">Spring Data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thymeleaf/" rel="tag">Thymeleaf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Validation/" rel="tag">Validation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ZooKeeper/" rel="tag">ZooKeeper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>最新文章</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/java-io-outputstream-example/">Java IO OutputStream 用法案例和源码解析</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-mybatis-collection-example/">Spring Boot MyBatis collection 标签用法案例</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-thymeleaf-web-example/">Spring Boot 整合 Thymeleaf 配置 Web 案例</a>
+          </li>
+        
+          <li>
+            <a href="/java-io-file-example/">Java IO File 用法案例和源码解析</a>
+          </li>
+        
+          <li>
+            <a href="/openai-chatgpt-error-1020/">OpenAI ChatGPT 错误码 1020 怎么解决？3 种方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            程序员泥瓦匠 &copy; 2023<br>
+            <a href="https://beian.miit.gov.cn" target="_blank">浙ICP备15028451号-7</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+<!-- 百度链接提交 -->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- Baidu Analytics-->
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e43a8b7f6b87c80c7d5d89ee04348971";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</body>
+
+</html>
