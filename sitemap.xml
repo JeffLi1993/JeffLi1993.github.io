@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://bysocket.com/openai-chatgpt-too-many-requests-in-1-hour-try-again-later-chatgpt-fix/</loc>
+    
+    <lastmod>2023-02-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bysocket.com/openai-chatgpt-error-1020/</loc>
+    
+    <lastmod>2023-02-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bysocket.com/openai-services-are-not-available-in-your-country/</loc>
+    
+    <lastmod>2023-02-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://bysocket.com/spring-boot-mybatis-collection-example/</loc>
     
     <lastmod>2023-02-05</lastmod>
@@ -30,15 +57,6 @@
   
   <url>
     <loc>https://bysocket.com/spring-boot-mybatis-annotation-web/</loc>
-    
-    <lastmod>2023-02-05</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://bysocket.com/openai-chatgpt-too-many-requests-in-1-hour-try-again-later-chatgpt-fix/</loc>
     
     <lastmod>2023-02-05</lastmod>
     
@@ -77,24 +95,6 @@
     <loc>https://bysocket.com/java-io-file-example/</loc>
     
     <lastmod>2023-02-05</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://bysocket.com/openai-chatgpt-error-1020/</loc>
-    
-    <lastmod>2023-02-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://bysocket.com/openai-services-are-not-available-in-your-country/</loc>
-    
-    <lastmod>2023-02-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
