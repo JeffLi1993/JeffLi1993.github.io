@@ -1,3 +1,6 @@
+https://bysocket.com/elasticsearch-head-install/
+https://bysocket.com/java-8-characters-uuid-generator-example/
+https://bysocket.com/sql-ddl-dml-dcl-tcl-commands-with-examples/
 https://bysocket.com/openai-services-are-not-available-in-your-country/
 https://bysocket.com/openai-chatgpt-too-many-requests-in-1-hour-try-again-later-chatgpt-fix/
 https://bysocket.com/openai-chatgpt-error-1020/
@@ -53,6 +56,9 @@ https://bysocket.com/tags/AdSense/
 https://bysocket.com/tags/ChatGPT/
 https://bysocket.com/tags/Java-IO/
 https://bysocket.com/tags/Thymeleaf/
+https://bysocket.com/tags/SQL/
+https://bysocket.com/tags/UUID/
+https://bysocket.com/tags/Elasticsearch/
 https://bysocket.com/categories/%E6%80%9D%E8%80%83/
 https://bysocket.com/categories/Spring-Boot/
 https://bysocket.com/categories/ElasticSearch/
@@ -62,3 +68,5 @@ https://bysocket.com/categories/JSP/
 https://bysocket.com/categories/JDK/
 https://bysocket.com/categories/HTTP/
 https://bysocket.com/categories/SEO/
+https://bysocket.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/
+https://bysocket.com/categories/Elasticsearch/
