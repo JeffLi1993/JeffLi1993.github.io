@@ -1,9 +1,11 @@
+https://bysocket.com/spring-boot-configuration-properties-example/
+https://bysocket.com/spring-boot-quickstart-example/
+https://bysocket.com/openai-chatgpt-too-many-requests-in-1-hour-try-again-later-chatgpt-fix/
 https://bysocket.com/openai-chatgpt-error-1020/
 https://bysocket.com/openai-services-are-not-available-in-your-country/
 https://bysocket.com/elasticsearch-head-install/
 https://bysocket.com/java-8-characters-uuid-generator-example/
 https://bysocket.com/sql-ddl-dml-dcl-tcl-commands-with-examples/
-https://bysocket.com/openai-chatgpt-too-many-requests-in-1-hour-try-again-later-chatgpt-fix/
 https://bysocket.com/spring-boot-mybatis-collection-example/
 https://bysocket.com/spring-boot-mybatis-druid/
 https://bysocket.com/spring-boot-mybatis/
@@ -59,6 +61,9 @@ https://bysocket.com/tags/Thymeleaf/
 https://bysocket.com/tags/SQL/
 https://bysocket.com/tags/UUID/
 https://bysocket.com/tags/Elasticsearch/
+https://bysocket.com/tags/Web/
+https://bysocket.com/tags/Properties/
+https://bysocket.com/tags/Config/
 https://bysocket.com/categories/%E6%80%9D%E8%80%83/
 https://bysocket.com/categories/Spring-Boot/
 https://bysocket.com/categories/ElasticSearch/
