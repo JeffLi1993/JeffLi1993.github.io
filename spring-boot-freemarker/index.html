@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>Spring Boot 整合 FreeMarker Web 案例教程 | 程序员泥瓦匠</title>
+
+    <meta name="description" content="&lt;p&gt;SpringBoot 很方便的集成 FreeMarker ，DAO 数据库操作层依旧用的是 Mybatis，本文将会一步一步到来如何集成 FreeMarker 以及配置的详解：&lt;/p&gt;">
+    <link rel="canonical" href="https://bysocket.com/spring-boot-freemarker/"/>
+    <meta name="keywords" content="">
+
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "Spring Boot 整合 FreeMarker Web 案例教程 | 程序员泥瓦匠"  />
+    <meta property="og:description" content= "&lt;p&gt;SpringBoot 很方便的集成 FreeMarker ，DAO 数据库操作层依旧用的是 Mybatis，本文将会一步一步到来如何集成 FreeMarker 以及配置的详解：&lt;/p&gt;" />
+    <meta property="og:url" content="https://bysocket.com/spring-boot-freemarker/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="泥瓦匠" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;p&gt;SpringBoot 很方便的集成 FreeMarker ，DAO 数据库操作层依旧用的是 Mybatis，本文将会一步一步到来如何集成 FreeMarker 以及配置的详解：&lt;/p&gt;" />
+    <meta name="twitter:title" content="Spring Boot 整合 FreeMarker Web 案例教程 | 程序员泥瓦匠"/>
+    <meta name="twitter:description" content="&lt;p&gt;SpringBoot 很方便的集成 FreeMarker ，DAO 数据库操作层依旧用的是 Mybatis，本文将会一步一步到来如何集成 FreeMarker 以及配置的详解：&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;p&gt;SpringBoot 很方便的集成 FreeMarker ，DAO 数据库操作层依旧用的是 Mybatis，本文将会一步一步到来如何集成 FreeMarker 以及配置的详解：&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "泥瓦匠" },
+            "@type": "BlogPosting",
+            "url": "https://bysocket.com/spring-boot-freemarker/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://bysocket.comhttps://image.bysocket.com/avatar.webp?dpr=0.1"
+            },
+            "name": "泥瓦匠"
+            },
+            "headline": "Spring Boot 整合 FreeMarker Web 案例教程 | 程序员泥瓦匠",
+            "datePublished": "2023-02-08T05:50:15.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://bysocket.com/spring-boot-freemarker/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+    <!-- Google 广告 AdSense 代码 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3672455877501055" crossorigin="anonymous">
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-avatar avatar avatar-sm">
+                <img src="https://image.bysocket.com/avatar.webp?dpr=0.1" alt="泥瓦匠">
+            </div>
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>程序员泥瓦匠</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">首页</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/about">关于</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/JeffLi1993">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+    <a class="social" target="_blank" href="https://twitter.com/CoderJeffLee">
+        <ion-icon name="logo-twitter"></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/about">关于</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cldv98x9s0000xd3s2b0yd7tw" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      Spring Boot 整合 FreeMarker Web 案例教程
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2023-02-08T05:50:15.000Z" itemprop="datePublished">2023-02-08</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/Spring-Boot/">Spring Boot</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FreeMarker/" rel="tag">FreeMarker</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <p>SpringBoot 很方便的集成 FreeMarker ，DAO 数据库操作层依旧用的是 Mybatis，本文将会一步一步到来如何集成 FreeMarker 以及配置的详解：</p>
+<span id="more"></span>
+
+<h2 id="二、运行-springboot-freemarker-工程"><a href="#二、运行-springboot-freemarker-工程" class="headerlink" title="二、运行    springboot-freemarker 工程"></a>二、运行    springboot-freemarker 工程</h2><p>git clone 下载工程  springboot-learning-example ，项目地址见 GitHub <a target="_blank" rel="noopener" href="https://github.com/JeffLi1993/springboot-learning-example">https://github.com/JeffLi1993/springboot-learning-example</a></p>
+<p>下面开始运行工程步骤（Quick Start）：</p>
+<h3 id="1-数据库准备"><a href="#1-数据库准备" class="headerlink" title="1.数据库准备"></a><strong>1.数据库准备</strong></h3><p>a.创建数据库 springbootdb：</p>
+<pre><code>CREATE DATABASE springbootdb;
+</code></pre>
+<p>b.创建表 city ：(因为我喜欢徒步)</p>
+<pre><code>DROP TABLE IF EXISTS     `city`;
+CREATE TABLE `city` (
+     `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT &#39;城市编号&#39;,
+     `province_id` int(10) unsigned     NOT NULL COMMENT &#39;省份编号&#39;,
+     `city_name` varchar(25) DEFAULT NULL COMMENT &#39;城市名称&#39;,
+     `description` varchar(25) DEFAULT NULL COMMENT &#39;描述&#39;,
+     PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO\_INCREMENT=1 DEFAULT CHARSET=utf8;
+</code></pre>
+<p>c.插入数据</p>
+<pre><code>INSERT city VALUES (1 ,1,&#39;温岭市&#39;,&#39;BYSocket 的家在温岭。&#39;);
+</code></pre>
+<h3 id="2-项目结构介绍"><a href="#2-项目结构介绍" class="headerlink" title="2. 项目结构介绍"></a><strong>2. 项目结构介绍</strong></h3><p>项目结构如下图所示：</p>
+<blockquote>
+<p>org.spring.springboot.controller - Controller 层</p>
+<p>org.spring.springboot.dao - 数据操作层 DAO</p>
+<p>org.spring.springboot.domain - 实体类</p>
+<p>org.spring.springboot.service - 业务逻辑层</p>
+<p>Application - 应用启动类</p>
+<p>resources&#x2F;application.properties - 应用配置文件，应用启动会自动读取配置</p>
+<p>resources&#x2F;web - *.ftl文件，是 FreeMarker 文件配置路径。在    application.properties 配置</p>
+<p>resources&#x2F;mapper - DAO Maper XML 文件</p>
+</blockquote>
+<h3 id="3-改数据库配置"><a href="#3-改数据库配置" class="headerlink" title="3.改数据库配置"></a><strong>3.改数据库配置</strong></h3><p>打开 application.properties 文件， 修改相应的数据源配置，比如数据源地址、账号、密码等。（如果不是用 MySQL，pom 自行添加连接驱动依赖，然后修改驱动名配置。）</p>
+<h3 id="4-编译工程"><a href="#4-编译工程" class="headerlink" title="4.编译工程"></a><strong>4.编译工程</strong></h3><p>在项目根目录 springboot-learning-example，运行 maven 指令：</p>
+<pre><code>mvn clean install
+</code></pre>
+<h3 id="5-运行工程"><a href="#5-运行工程" class="headerlink" title="5.运行工程"></a><strong>5.运行工程</strong></h3><p>右键运行    springboot-freemarker 工程 Application 应用启动类的 main 函数，然后在浏览器访问：</p>
+<p>获取 ID 编号为 1 的城市信息页面：</p>
+<p>localhost:8080&#x2F;api&#x2F;city&#x2F;1</p>
+<p>获取城市列表页面：</p>
+<p>localhost:8080&#x2F;api&#x2F;city</p>
+<h3 id="6-补充"><a href="#6-补充" class="headerlink" title="6.补充"></a><strong>6.补充</strong></h3><p>运行环境：JDK 7 或 8，Maven 3.0+</p>
+<p>技术栈：SpringBoot、Mybatis、FreeMarker</p>
+<h2 id="三、-springboot-freemarker-工程配置详解"><a href="#三、-springboot-freemarker-工程配置详解" class="headerlink" title="三、    springboot-freemarker 工程配置详解"></a>三、    springboot-freemarker 工程配置详解</h2><p>具体代码见 GitHub <a target="_blank" rel="noopener" href="https://github.com/JeffLi1993/springboot-learning-example">https://github.com/JeffLi1993/springboot-learning-example</a></p>
+<h3 id="1-pom-xml-依赖"><a href="#1-pom-xml-依赖" class="headerlink" title="1.pom.xml 依赖"></a><strong>1.pom.xml 依赖</strong></h3><p>pom.xml 代码如下：</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+                        xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+          &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+          &lt;groupId&gt;springboot&lt;/groupId&gt;
+          &lt;artifactId&gt;springboot-freemarker&lt;/artifactId&gt;
+          &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+          &lt;name&gt;springboot-freemarker :: Spring Boot 集成 FreeMarker 案例&lt;/name&gt;
+
+          &lt;!-- Spring Boot 启动父依赖 --&gt;
+          &lt;parent&gt;
+                    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+                    &lt;version&gt;1.5.1.RELEASE&lt;/version&gt;
+          &lt;/parent&gt;
+
+          &lt;properties&gt;
+                    &lt;mybatis-spring-boot&gt;1.2.0&lt;/mybatis-spring-boot&gt;
+                    &lt;mysql-connector&gt;5.1.39&lt;/mysql-connector&gt;
+          &lt;/properties&gt;
+
+          &lt;dependencies&gt;
+                    &lt;!-- Spring Boot Freemarker 依赖 --&gt;
+                    &lt;dependency&gt;
+                              &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                              &lt;artifactId&gt;spring-boot-starter-freemarker&lt;/artifactId&gt;
+                    &lt;/dependency&gt;
+
+                    &lt;!-- Spring Boot Web 依赖 --&gt;
+                    &lt;dependency&gt;
+                              &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                              &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+                    &lt;/dependency&gt;
+
+                    &lt;!-- Spring Boot Test 依赖 --&gt;
+                    &lt;dependency&gt;
+                              &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                              &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+                              &lt;scope&gt;test&lt;/scope&gt;
+                    &lt;/dependency&gt;
+
+                    &lt;!-- Spring Boot Mybatis 依赖 --&gt;
+                    &lt;dependency&gt;
+                              &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;
+                              &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;
+                              &lt;version&gt;$&#123;mybatis-spring-boot&#125;&lt;/version&gt;
+                    &lt;/dependency&gt;
+
+                    &lt;!-- MySQL 连接驱动依赖 --&gt;
+                    &lt;dependency&gt;
+                              &lt;groupId&gt;mysql&lt;/groupId&gt;
+                              &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+                              &lt;version&gt;$&#123;mysql-connector&#125;&lt;/version&gt;
+                    &lt;/dependency&gt;
+
+                    &lt;!-- Junit --&gt;
+                    &lt;dependency&gt;
+                              &lt;groupId&gt;junit&lt;/groupId&gt;
+                              &lt;artifactId&gt;junit&lt;/artifactId&gt;
+                              &lt;version&gt;4.12&lt;/version&gt;
+                    &lt;/dependency&gt;
+          &lt;/dependencies&gt;
+&lt;/project&gt;
+</code></pre>
+<p>在 pom.xml 依赖中增加    Spring Boot    FreeMarker 依赖。</p>
+<p>###<strong>2.配置    FreeMarker</strong></p>
+<p>然后在 application.properties 中加入 FreeMarker 相关的配置：</p>
+<pre><code>## Freemarker 配置
+## 文件配置路径
+spring.freemarker.template-loader-path=classpath:/web/
+spring.freemarker.cache=false
+spring.freemarker.charset=UTF-8
+spring.freemarker.check-template-location=true
+spring.freemarker.content-type=text/html
+spring.freemarker.expose-request-attributes=true
+spring.freemarker.expose-session-attributes=true
+spring.freemarker.request-context-attribute=request
+spring.freemarker.suffix=.ftl
+</code></pre>
+<p>这是我这块的配置，如果需要更多的 FreeMarker 配置，可以查看下面的详解：</p>
+<pre><code>spring.freemarker.allow-request-override=false # Set whether HttpServletRequest attributes are allowed to override (hide) controller generated model attributes of the same name.
+spring.freemarker.allow-session-override=false # Set whether HttpSession attributes are allowed to override (hide) controller generated model attributes of the same name.
+spring.freemarker.cache=false # Enable template caching.
+spring.freemarker.charset=UTF-8 # Template encoding.
+spring.freemarker.check-template-location=true # Check that the templates location exists.
+spring.freemarker.content-type=text/html # Content-Type value.
+spring.freemarker.enabled=true # Enable MVC view resolution for this technology.
+spring.freemarker.expose-request-attributes=false # Set whether all request attributes should be added to the model prior to merging with the template.
+spring.freemarker.expose-session-attributes=false # Set whether all HttpSession attributes should be added to the model prior to merging with the template.
+spring.freemarker.expose-spring-macro-helpers=true # Set whether to expose a RequestContext for use by Spring&#39;s macro library, under the name &quot;springMacroRequestContext&quot;.
+spring.freemarker.prefer-file-system-access=true # Prefer file system access for template loading. File system access enables hot detection of template changes.
+spring.freemarker.prefix= # Prefix that gets prepended to view names when building a URL.
+spring.freemarker.request-context-attribute= # Name of the RequestContext attribute for all views.
+spring.freemarker.settings.\*= # Well-known FreeMarker keys which will be passed to FreeMarker&#39;s Configuration.
+spring.freemarker.suffix= # Suffix that gets appended to view names when building a URL.
+spring.freemarker.template-loader-path=classpath:/templates/ # Comma-separated list of template paths.
+spring.freemarker.view-names= # White list of view names that can be resolved.
+</code></pre>
+<h3 id="3-展示层-Controller-详解"><a href="#3-展示层-Controller-详解" class="headerlink" title="3.展示层 Controller 详解"></a><strong>3.展示层 Controller 详解</strong></h3><pre><code>/\*\*
+    \* 城市 Controller 实现 Restful HTTP 服务
+    \* &lt;p&gt;
+    \* Created by bysocket on 07/02/2017.
+    \*/
+@Controller
+public class CityController &#123;
+
+          @Autowired
+          private CityService cityService;
+
+          @RequestMapping(value = &quot;/api/city/&#123;id&#125;&quot;, method = RequestMethod.GET)
+          public String findOneCity(Model model, @PathVariable(&quot;id&quot;) Long id) &#123;
+                    model.addAttribute(&quot;city&quot;, cityService.findCityById(id));
+                    return &quot;city&quot;;
+          &#125;
+
+          @RequestMapping(value = &quot;/api/city&quot;, method = RequestMethod.GET)
+          public String findAllCity(Model model) &#123;
+                    List&lt;City&gt; cityList = cityService.findAllCity();
+                    model.addAttribute(&quot;cityList&quot;,cityList);
+                    return &quot;cityList&quot;;
+          &#125;
+&#125;
+</code></pre>
+<p>a.这里不是走 HTTP + JSON 模式，使用了    @Controller 而不是先前的 @RestController</p>
+<p>b.方法返回值是 String 类型，和 application.properties 配置的    Freemarker 文件配置路径下的各个 *.ftl 文件名一致。这样才会准确地把数据渲染到 ftl 文件里面进行展示。</p>
+<p>c.用 Model 类，向 Model 加入数据，并指定在该数据在    Freemarker 取值指定的名称。</p>
+<h2 id="四、小结"><a href="#四、小结" class="headerlink" title="四、小结"></a>四、小结</h2><p>FreeMarker 是常用的模板引擎，很多开发 Web 的必选。</p>
+
+        </div>
+
+    </div>
+
+    <div class="article-copyright">
+
+        <div style="float: left;width: 20%;align:center;text-align: center;">
+             <img style="width: 100px; height: 100px;" src="https://image.bysocket.com/2023/02/qrcode.webp" alt="QRCode" >
+        </div>
+        <div style="float: left;width: 80%;">
+                <br/>
+                本文由 <a target="_blank" rel="noopener" href="https://www.bysocket.com/">泥瓦匠</a> 创作<br/><br/>
+                原创不易，欢迎关注公众号！转载请注明出处，感谢支持！如果本文对您有用，欢迎转发分享！
+        </div>
+
+      </div><br/><br/><br/><br/><br/>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/java-collections-hashset-vs-treeset-vs-linkedhashset/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          比较 Java HashSet，TreeSet 和 LinkedHashSet - Collections
+        
+      </div>
+    </a>
+  
+  
+    <a href="/spring-boot-configuration-properties-example/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">Spring Boot 配置 properties 文件案例教程</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=Spring Boot 整合 FreeMarker Web 案例教程 - 程序员泥瓦匠&url=https%3A%2F%2Fbysocket.com%2Fspring-boot-freemarker%2F">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=Spring Boot 整合 FreeMarker Web 案例教程 - 程序员泥瓦匠&u=https%3A%2F%2Fbysocket.com%2Fspring-boot-freemarker%2F">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=Spring Boot 整合 FreeMarker Web 案例教程 - 程序员泥瓦匠&url=https://bysocket.com/spring-boot-freemarker/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>分类</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/">ElasticSearch</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/Elasticsearch/">Elasticsearch</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Elasticsearch/">Elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JDK/">JDK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JSP/">JSP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SEO/">SEO</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/">Spring Boot</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/ElasticSearch/">ElasticSearch</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/ElasticSearch/Elasticsearch/">Elasticsearch</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot-WebFlux/">Spring Boot WebFlux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%9D%E8%80%83/">思考</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">问题记录</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>标签</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AdSense/" rel="tag">AdSense</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ChatGPT/" rel="tag">ChatGPT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collections/" rel="tag">Collections</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Config/" rel="tag">Config</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Druid/" rel="tag">Druid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dubbo/" rel="tag">Dubbo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Elasticsearch/" rel="tag">Elasticsearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FreeMarker/" rel="tag">FreeMarker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashSet/" rel="tag">HashSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-IO/" rel="tag">Java IO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LinkedHashSet/" rel="tag">LinkedHashSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenAI/" rel="tag">OpenAI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Properties/" rel="tag">Properties</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/" rel="tag">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Data/" rel="tag">Spring Data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thymeleaf/" rel="tag">Thymeleaf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TreeSet/" rel="tag">TreeSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UUID/" rel="tag">UUID</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Validation/" rel="tag">Validation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ZooKeeper/" rel="tag">ZooKeeper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>最新文章</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/java-collections-hashset-vs-treeset-vs-linkedhashset/">比较 Java HashSet，TreeSet 和 LinkedHashSet - Collections</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-freemarker/">Spring Boot 整合 FreeMarker Web 案例教程</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-configuration-properties-example/">Spring Boot 配置 properties 文件案例教程</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-quickstart-example/">Spring Boot 快速入门案例教程</a>
+          </li>
+        
+          <li>
+            <a href="/elasticsearch-head-install/">Elasticsearch 插件 elasticsearch-head 安装使用教程</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            程序员泥瓦匠 &copy; 2023<br>
+            <a href="https://beian.miit.gov.cn" rel="nofollow" target="_blank">浙ICP备15028451号-7</a> | <a href="https://www.decompilertool.com/" target="_blank">Java Decompiler</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+<!-- 百度链接提交 -->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- Baidu Analytics-->
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e43a8b7f6b87c80c7d5d89ee04348971";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</body>
+
+</html>
