@@ -1,8 +1,10 @@
+https://bysocket.com/openai-services-are-not-available-in-your-country/
+https://bysocket.com/openai-chatgpt-error-1020/
+https://bysocket.com/openai-chatgpt-too-many-requests-in-1-hour-try-again-later-chatgpt-fix/
+https://bysocket.com/spring-boot-elasticsearch/
+https://bysocket.com/how-elasticsearch-works/
 https://bysocket.com/spring-boot-configuration-properties-example/
 https://bysocket.com/spring-boot-quickstart-example/
-https://bysocket.com/openai-chatgpt-too-many-requests-in-1-hour-try-again-later-chatgpt-fix/
-https://bysocket.com/openai-chatgpt-error-1020/
-https://bysocket.com/openai-services-are-not-available-in-your-country/
 https://bysocket.com/elasticsearch-head-install/
 https://bysocket.com/java-8-characters-uuid-generator-example/
 https://bysocket.com/sql-ddl-dml-dcl-tcl-commands-with-examples/
@@ -26,9 +28,7 @@ https://bysocket.com/spring-boot-dubbo-zookeeper/
 https://bysocket.com/nginx-unexpected-end-of-file-expecting-in-key-file/
 https://bysocket.com/spring-boot-restful-error-handling/
 https://bysocket.com/spring-boot-webflux-quickstart/
-https://bysocket.com/how-elasticsearch-works/
 https://bysocket.com/spring-boot-restful-verify/
-https://bysocket.com/spring-boot-elasticsearch/
 https://bysocket.com/spring-boot-redis/
 https://bysocket.com/spring-boot-properties/
 https://bysocket.com/spring-boot-restful/
@@ -42,8 +42,6 @@ https://bysocket.com/tags/%E5%8E%9F%E7%90%86/
 https://bysocket.com/tags/REST/
 https://bysocket.com/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/
 https://bysocket.com/tags/Redis/
-https://bysocket.com/tags/ElasticSearch/
-https://bysocket.com/tags/ES/
 https://bysocket.com/tags/OpenAI/
 https://bysocket.com/tags/Mybatis/
 https://bysocket.com/tags/Druid/
@@ -75,3 +73,6 @@ https://bysocket.com/categories/HTTP/
 https://bysocket.com/categories/SEO/
 https://bysocket.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/
 https://bysocket.com/categories/Elasticsearch/
+https://bysocket.com/categories/ElasticSearch/Elasticsearch/
+https://bysocket.com/categories/Spring-Boot/ElasticSearch/
+https://bysocket.com/categories/Spring-Boot/ElasticSearch/Elasticsearch/
