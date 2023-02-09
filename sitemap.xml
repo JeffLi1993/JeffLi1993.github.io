@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://bysocket.com/spring-boot-configuration-properties-example/</loc>
+    
+    <lastmod>2023-02-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://bysocket.com/openai-services-are-not-available-in-your-country/</loc>
     
     <lastmod>2023-02-09</lastmod>
@@ -59,15 +68,6 @@
     <loc>https://bysocket.com/how-elasticsearch-works/</loc>
     
     <lastmod>2023-02-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://bysocket.com/spring-boot-configuration-properties-example/</loc>
-    
-    <lastmod>2023-02-07</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
