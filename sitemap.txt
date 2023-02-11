@@ -1,3 +1,5 @@
+https://bysocket.com/spring-boot-dubbo-activate-example/
+https://bysocket.com/spring-boot-configuration-habse-example/
 https://bysocket.com/chatgpt-is-at-capacity-right-now/
 https://bysocket.com/spring-boot-configuration-properties-example/
 https://bysocket.com/openai-services-are-not-available-in-your-country/
@@ -69,6 +71,7 @@ https://bysocket.com/tags/FreeMarker/
 https://bysocket.com/tags/HashSet/
 https://bysocket.com/tags/TreeSet/
 https://bysocket.com/tags/LinkedHashSet/
+https://bysocket.com/tags/HBase/
 https://bysocket.com/categories/%E6%80%9D%E8%80%83/
 https://bysocket.com/categories/Spring-Boot/
 https://bysocket.com/categories/ElasticSearch/
