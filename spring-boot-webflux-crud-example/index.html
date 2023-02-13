@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>Spring Boot WebFlux 响应式 REST API CRUD 案例教程 | 程序员泥瓦匠</title>
+
+    <meta name="description" content="&lt;h2 id=&#34;一、前言&#34;&gt;&lt;a href=&#34;#一、前言&#34; class=&#34;headerlink&#34; title=&#34;一、前言&#34;&gt;&lt;/a&gt;一、前言&lt;/h2&gt;&lt;p&gt;上一篇基于功能性端点去创建一个简单服务，实现了 Hello 。这一篇用 Spring Boot WebFlux 的注解控制层技术创建一个 CRUD WebFlux 应用，让开发更方便。这里我们不对数据库储存进行访问，因为后续会讲到，而且这里主要是讲一个完整的 WebFlux CRUD。&lt;/p&gt;">
+    <link rel="canonical" href="https://bysocket.com/spring-boot-webflux-crud-example/"/>
+    <meta name="keywords" content="">
+
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "Spring Boot WebFlux 响应式 REST API CRUD 案例教程 | 程序员泥瓦匠"  />
+    <meta property="og:description" content= "&lt;h2 id=&#34;一、前言&#34;&gt;&lt;a href=&#34;#一、前言&#34; class=&#34;headerlink&#34; title=&#34;一、前言&#34;&gt;&lt;/a&gt;一、前言&lt;/h2&gt;&lt;p&gt;上一篇基于功能性端点去创建一个简单服务，实现了 Hello 。这一篇用 Spring Boot WebFlux 的注解控制层技术创建一个 CRUD WebFlux 应用，让开发更方便。这里我们不对数据库储存进行访问，因为后续会讲到，而且这里主要是讲一个完整的 WebFlux CRUD。&lt;/p&gt;" />
+    <meta property="og:url" content="https://bysocket.com/spring-boot-webflux-crud-example/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="泥瓦匠" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h2 id=&#34;一、前言&#34;&gt;&lt;a href=&#34;#一、前言&#34; class=&#34;headerlink&#34; title=&#34;一、前言&#34;&gt;&lt;/a&gt;一、前言&lt;/h2&gt;&lt;p&gt;上一篇基于功能性端点去创建一个简单服务，实现了 Hello 。这一篇用 Spring Boot WebFlux 的注解控制层技术创建一个 CRUD WebFlux 应用，让开发更方便。这里我们不对数据库储存进行访问，因为后续会讲到，而且这里主要是讲一个完整的 WebFlux CRUD。&lt;/p&gt;" />
+    <meta name="twitter:title" content="Spring Boot WebFlux 响应式 REST API CRUD 案例教程 | 程序员泥瓦匠"/>
+    <meta name="twitter:description" content="&lt;h2 id=&#34;一、前言&#34;&gt;&lt;a href=&#34;#一、前言&#34; class=&#34;headerlink&#34; title=&#34;一、前言&#34;&gt;&lt;/a&gt;一、前言&lt;/h2&gt;&lt;p&gt;上一篇基于功能性端点去创建一个简单服务，实现了 Hello 。这一篇用 Spring Boot WebFlux 的注解控制层技术创建一个 CRUD WebFlux 应用，让开发更方便。这里我们不对数据库储存进行访问，因为后续会讲到，而且这里主要是讲一个完整的 WebFlux CRUD。&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h2 id=&#34;一、前言&#34;&gt;&lt;a href=&#34;#一、前言&#34; class=&#34;headerlink&#34; title=&#34;一、前言&#34;&gt;&lt;/a&gt;一、前言&lt;/h2&gt;&lt;p&gt;上一篇基于功能性端点去创建一个简单服务，实现了 Hello 。这一篇用 Spring Boot WebFlux 的注解控制层技术创建一个 CRUD WebFlux 应用，让开发更方便。这里我们不对数据库储存进行访问，因为后续会讲到，而且这里主要是讲一个完整的 WebFlux CRUD。&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "泥瓦匠" },
+            "@type": "BlogPosting",
+            "url": "https://bysocket.com/spring-boot-webflux-crud-example/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://bysocket.comhttps://image.bysocket.com/avatar.webp?dpr=0.1"
+            },
+            "name": "泥瓦匠"
+            },
+            "headline": "Spring Boot WebFlux 响应式 REST API CRUD 案例教程 | 程序员泥瓦匠",
+            "datePublished": "2023-02-13T06:59:15.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://bysocket.com/spring-boot-webflux-crud-example/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+    <!-- Google 广告 AdSense 代码 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3672455877501055" crossorigin="anonymous">
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-avatar avatar avatar-sm">
+                <img src="https://image.bysocket.com/avatar.webp?dpr=0.1" alt="泥瓦匠">
+            </div>
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>程序员泥瓦匠</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">首页</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/about">关于</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/JeffLi1993">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+    <a class="social" target="_blank" href="https://twitter.com/CoderJeffLee">
+        <ion-icon name="logo-twitter"></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/about">关于</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cle2f7qk500000q3s5k38hieu" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      Spring Boot WebFlux 响应式 REST API CRUD 案例教程
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2023-02-13T06:59:15.000Z" itemprop="datePublished">2023-02-13</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/Spring-Boot-WebFlux/">Spring Boot WebFlux</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/REST/" rel="tag">REST</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>上一篇基于功能性端点去创建一个简单服务，实现了 Hello 。这一篇用 Spring Boot WebFlux 的注解控制层技术创建一个 CRUD WebFlux 应用，让开发更方便。这里我们不对数据库储存进行访问，因为后续会讲到，而且这里主要是讲一个完整的 WebFlux CRUD。</p>
+<span id="more"></span>
+
+<h2 id="二、结构"><a href="#二、结构" class="headerlink" title="二、结构"></a>二、结构</h2><p>这个工程会对城市（City）进行管理实现 CRUD 操作。该工程创建编写后，得到下面的结构，其目录结构如下：</p>
+<pre><code>├── pom.xml
+├── src
+│   └── main
+│       ├── java
+│       │   └── org
+│       │       └── spring
+│       │           └── springboot
+│       │               ├── Application.java
+│       │               ├── dao
+│       │               │   └── CityRepository.java
+│       │               ├── domain
+│       │               │   └── City.java
+│       │               ├── handler
+│       │               │   └── CityHandler.java
+│       │               └── webflux
+│       │                   └── controller
+│       │                       └── CityWebFluxController.java
+│       └── resources
+│           └── application.properties
+└── target
+</code></pre>
+<p>如目录结构，我们需要编写的内容按顺序有：</p>
+<ul>
+<li>对象</li>
+<li>数据访问层类 Repository</li>
+<li>处理器类 Handler</li>
+<li>控制器类 Controller</li>
+</ul>
+<h2 id="三、对象"><a href="#三、对象" class="headerlink" title="三、对象"></a>三、对象</h2><p>新建包 org.spring.springboot.domain ，作为编写城市实体对象类。新建城市（City）对象 City，代码如下：</p>
+<pre><code>/**
+ * 城市实体类
+ *
+ */
+public class City &#123;
+
+    /**
+     * 城市编号
+     */
+    private Long id;
+
+    /**
+     * 省份编号
+     */
+    private Long provinceId;
+
+    /**
+     * 城市名称
+     */
+    private String cityName;
+
+    /**
+     * 描述
+     */
+    private String description;
+
+    public Long getId() &#123;
+        return id;
+    &#125;
+
+    public void setId(Long id) &#123;
+        this.id = id;
+    &#125;
+
+    public Long getProvinceId() &#123;
+        return provinceId;
+    &#125;
+
+    public void setProvinceId(Long provinceId) &#123;
+        this.provinceId = provinceId;
+    &#125;
+
+    public String getCityName() &#123;
+        return cityName;
+    &#125;
+
+    public void setCityName(String cityName) &#123;
+        this.cityName = cityName;
+    &#125;
+
+    public String getDescription() &#123;
+        return description;
+    &#125;
+
+    public void setDescription(String description) &#123;
+        this.description = description;
+    &#125;
+&#125;
+</code></pre>
+<p>城市包含了城市编号、省份编号、城市名称和描述。具体开发中，会使用 Lombok 工具来消除冗长的 Java 代码，尤其是 POJO 的 getter &#x2F; setter 方法。具体查看 Lombok 官网地址：projectlombok.org。</p>
+<h2 id="四、数据访问层-CityRepository"><a href="#四、数据访问层-CityRepository" class="headerlink" title="四、数据访问层 CityRepository"></a>四、数据访问层 CityRepository</h2><p>新建包 org.spring.springboot.dao ，作为编写城市数据访问层类 Repository。新建 CityRepository，代码如下：</p>
+<pre><code>import org.spring.springboot.domain.City;
+import org.springframework.stereotype.Repository;
+
+import java.util.Collection;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.atomic.AtomicLong;
+
+@Repository
+public class CityRepository &#123;
+
+    private ConcurrentMap&lt;Long, City&gt; repository = new ConcurrentHashMap&lt;&gt;();
+
+    private static final AtomicLong idGenerator = new AtomicLong(0);
+
+    public Long save(City city) &#123;
+        Long id = idGenerator.incrementAndGet();
+        city.setId(id);
+        repository.put(id, city);
+        return id;
+    &#125;
+
+    public Collection&lt;City&gt; findAll() &#123;
+        return repository.values();
+    &#125;
+
+    public City findCityById(Long id) &#123;
+        return repository.get(id);
+    &#125;
+
+    public Long updateCity(City city) &#123;
+        repository.put(city.getId(), city);
+        return city.getId();
+    &#125;
+
+    public Long deleteCity(Long id) &#123;
+        repository.remove(id);
+        return id;
+    &#125;
+&#125;
+</code></pre>
+<p><code>@Repository</code> 用于标注数据访问组件，即 DAO 组件。实现代码中使用名为 <code>repository</code> 的 Map 对象作为内存数据存储，并对对象具体实现了具体业务逻辑。<code>CityRepository</code> 负责将 Book 持久层（数据操作）相关的封装组织，完成新增、查询、删除等操作。</p>
+<p>这里不会涉及到数据存储这块，具体数据存储会在后续介绍。</p>
+<h2 id="五、处理器类-Handler"><a href="#五、处理器类-Handler" class="headerlink" title="五、处理器类 Handler"></a>五、处理器类 Handler</h2><p>新建包 org.spring.springboot.handler ，作为编写城市处理器类 CityHandler。新建 CityHandler，代码如下：</p>
+<pre><code>import org.spring.springboot.dao.CityRepository;
+import org.spring.springboot.domain.City;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
+@Component
+public class CityHandler &#123;
+
+    private final CityRepository cityRepository;
+
+    @Autowired
+    public CityHandler(CityRepository cityRepository) &#123;
+        this.cityRepository = cityRepository;
+    &#125;
+
+    public Mono&lt;Long&gt; save(City city) &#123;
+        return Mono.create(cityMonoSink -&gt; cityMonoSink.success(cityRepository.save(city)));
+    &#125;
+
+    public Mono&lt;City&gt; findCityById(Long id) &#123;
+        return Mono.justOrEmpty(cityRepository.findCityById(id));
+    &#125;
+
+    public Flux&lt;City&gt; findAllCity() &#123;
+        return Flux.fromIterable(cityRepository.findAll());
+    &#125;
+
+    public Mono&lt;Long&gt; modifyCity(City city) &#123;
+        return Mono.create(cityMonoSink -&gt; cityMonoSink.success(cityRepository.updateCity(city)));
+    &#125;
+
+    public Mono&lt;Long&gt; deleteCity(Long id) &#123;
+        return Mono.create(cityMonoSink -&gt; cityMonoSink.success(cityRepository.deleteCity(id)));
+    &#125;
+&#125;
+</code></pre>
+<p><code>@Component</code> 泛指组件，当组件不好归类的时候，使用该注解进行标注。然后用 <code>final</code> 和 <code>@Autowired</code> 标注在构造器注入 CityRepository Bean，代码如下：</p>
+<pre><code>    private final CityRepository cityRepository;
+
+    @Autowired
+    public CityHandler(CityRepository cityRepository) &#123;
+        this.cityRepository = cityRepository;
+    &#125;
+</code></pre>
+<p>从返回值可以看出，Mono 和 Flux 适用于两个场景，即：</p>
+<ul>
+<li>Mono：实现发布者，并返回 0 或 1 个元素，即单对象</li>
+<li>Flux：实现发布者，并返回 N 个元素，即 List 列表对象</li>
+</ul>
+<p>有人会问，这为啥不直接返回对象，比如返回 City&#x2F;Long&#x2F;List。原因是，直接使用 Flux 和 Mono 是非阻塞写法，相当于回调方式。利用函数式可以减少了回调，因此会看不到相关接口。反应了是 WebFlux 的好处：集合了非阻塞 + 异步。</p>
+<h3 id="5-1-Mono"><a href="#5-1-Mono" class="headerlink" title="5.1 Mono"></a>5.1 Mono</h3><p>Mono 是什么？ 官方描述如下：A Reactive Streams Publisher with basic rx operators that completes successfully by emitting an element, or with an error.</p>
+<p>Mono 是响应流 Publisher ，即要么成功发布元素，要么错误。</p>
+<p>Mono 常用的方法有：</p>
+<ul>
+<li>Mono.create()：使用 MonoSink 来创建 Mono</li>
+<li>Mono.justOrEmpty()：从一个 Optional 对象或 null 对象中创建 Mono。</li>
+<li>Mono.error()：创建一个只包含错误消息的 Mono</li>
+<li>Mono.never()：创建一个不包含任何消息通知的 Mono</li>
+<li>Mono.delay()：在指定的延迟时间之后，创建一个 Mono，产生数字 0 作为唯一值</li>
+</ul>
+<h3 id="5-2-Flux"><a href="#5-2-Flux" class="headerlink" title="5.2 Flux"></a>5.2 Flux</h3><p>Flux 是什么？ 官方描述如下：A Reactive Streams Publisher with rx operators that emits 0 to N elements, and then completes (successfully or with an error).</p>
+<p>Flux 是响应流 Publisher ，即要么成功发布 0 到 N 个元素，要么错误。Flux 其实是 Mono 的一个补充。</p>
+<p>所以要注意：如果知道 Publisher 是 0 或 1 个，则用 Mono。</p>
+<p>Flux 最值得一提的是 fromIterable 方法。fromIterable(Iterable&lt;? extends T&gt; it) 可以发布 Iterable 类型的元素。当然，Flux 也包含了基础的操作：map、merge、concat、flatMap、take，这里就不展开介绍了。</p>
+<h2 id="六、控制器类-Controller"><a href="#六、控制器类-Controller" class="headerlink" title="六、控制器类 Controller"></a>六、控制器类 Controller</h2><p>Spring Boot WebFlux 也可以使用自动配置加注解驱动的模式来进行开发。</p>
+<p>新建包目录 <code>org.spring.springboot.webflux.controller</code> ，并在目录中创建名为 CityWebFluxController 来处理不同的 HTTP Restful 业务请求。代码如下：</p>
+<pre><code>import org.spring.springboot.domain.City;
+import org.spring.springboot.handler.CityHandler;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
+@RestController
+@RequestMapping(value = &quot;/city&quot;)
+public class CityWebFluxController &#123;
+
+    @Autowired
+    private CityHandler cityHandler;
+
+    @GetMapping(value = &quot;/&#123;id&#125;&quot;)
+    public Mono&lt;City&gt; findCityById(@PathVariable(&quot;id&quot;) Long id) &#123;
+        return cityHandler.findCityById(id);
+    &#125;
+
+    @GetMapping()
+    public Flux&lt;City&gt; findAllCity() &#123;
+        return cityHandler.findAllCity();
+    &#125;
+
+    @PostMapping()
+    public Mono&lt;Long&gt; saveCity(@RequestBody City city) &#123;
+        return cityHandler.save(city);
+    &#125;
+
+    @PutMapping()
+    public Mono&lt;Long&gt; modifyCity(@RequestBody City city) &#123;
+        return cityHandler.modifyCity(city);
+    &#125;
+
+    @DeleteMapping(value = &quot;/&#123;id&#125;&quot;)
+    public Mono&lt;Long&gt; deleteCity(@PathVariable(&quot;id&quot;) Long id) &#123;
+        return cityHandler.deleteCity(id);
+    &#125;
+&#125;
+</code></pre>
+<p>这里按照 REST 风格实现接口。那具体什么是 REST?</p>
+<p>REST 是属于 WEB 自身的一种架构风格，是在 HTTP 1.1 规范下实现的。Representational State Transfer 全称翻译为表现层状态转化。Resource：资源。比如 newsfeed；Representational：表现形式，比如用JSON，富文本等；State Transfer：状态变化。通过HTTP 动作实现。</p>
+<p>理解 REST ,要明白五个关键要素：</p>
+<ul>
+<li>资源（Resource）</li>
+<li>资源的表述（Representation）</li>
+<li>状态转移（State Transfer）</li>
+<li>统一接口（Uniform Interface）</li>
+<li>超文本驱动（Hypertext Driven）</li>
+</ul>
+<p>6 个主要特性：</p>
+<ul>
+<li>面向资源（Resource Oriented）</li>
+<li>可寻址（Addressability）</li>
+<li>连通性（Connectedness）</li>
+<li>无状态（Statelessness）</li>
+<li>统一接口（Uniform Interface）</li>
+<li>超文本驱动（Hypertext Driven）</li>
+</ul>
+<p>请求入参、Filters、重定向、Conversion、formatting 等知识会和以前 MVC 的知识一样，详情见文档： <a target="_blank" rel="noopener" href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html">https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html</a></p>
+<h2 id="七、运行工程"><a href="#七、运行工程" class="headerlink" title="七、运行工程"></a>七、运行工程</h2><p>一个 CRUD 的 Spring Boot Webflux 工程就开发完毕了，下面运行工程验证下。使用 IDEA 右侧工具栏，点击 Maven Project Tab ，点击使用下 Maven 插件的 <code>install</code> 命令。或者使用命令行的形式，在工程根目录下，执行 Maven 清理和安装工程的指令：</p>
+<pre><code>cd springboot-webflux-2-restful
+mvn clean install
+</code></pre>
+<p>在控制台中看到成功的输出：</p>
+<pre><code>... 省略
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 01:30 min
+[INFO] Finished at: 2017-10-15T10:00:54+08:00
+[INFO] Final Memory: 31M/174M
+[INFO] ------------------------------------------------------------------------
+</code></pre>
+<p>在 IDEA 中执行 <code>Application</code> 类启动，任意正常模式或者 Debug 模式。可以在控制台看到成功运行的输出：</p>
+<pre><code>... 省略
+2018-04-10 08:43:39.932  INFO 2052 --- [ctor-http-nio-1] r.ipc.netty.tcp.BlockingNettyContext     : Started HttpServer on /0:0:0:0:0:0:0:0:8080
+2018-04-10 08:43:39.935  INFO 2052 --- [           main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port(s): 8080
+2018-04-10 08:43:39.960  INFO 2052 --- [           main] org.spring.springboot.Application        : Started Application in 6.547 seconds (JVM running for 9.851)
+</code></pre>
+<p>打开 POST MAN 工具，开发必备。进行下面操作：</p>
+<p>新增城市信息 POST <a target="_blank" rel="noopener" href="http://127.0.0.1:8080/city">http://127.0.0.1:8080/city</a></p>
+<p><img src="/images/restful/4.png"></p>
+<p>获取城市信息列表 GET <a target="_blank" rel="noopener" href="http://127.0.0.1:8080/city">http://127.0.0.1:8080/city</a></p>
+<p><img src="/images/restful/4.png"></p>
+<p>其他接口就不演示了。</p>
+<h2 id="八、总结"><a href="#八、总结" class="headerlink" title="八、总结"></a>八、总结</h2><p>这里，探讨了 Spring WebFlux 的一些功能，构建没有底层数据库的基本 CRUD 工程。为了更好的展示了如何创建 Flux 流，以及如何对其进行操作。下面会讲到如何操作数据存储。</p>
+<p>文章工程：</p>
+<ul>
+<li>JDK 1.8</li>
+<li>Maven 3.5.2</li>
+<li>Spring Boot 2.1.3.RELEASE</li>
+<li>工程名：springboot-webflux-2-restful</li>
+<li>工程地址：见文末</li>
+</ul>
+<h3 id="系列教程目录"><a href="#系列教程目录" class="headerlink" title="系列教程目录"></a>系列教程目录</h3><ul>
+<li>《01：WebFlux 系列教程大纲》</li>
+<li>《02：WebFlux 快速入门实践》</li>
+<li>《03：WebFlux Web CRUD 实践》</li>
+<li>《04：WebFlux 整合 Mongodb》</li>
+<li>《05：WebFlux 整合 Thymeleaf》</li>
+<li>《06：WebFlux 中 Thymeleaf 和 Mongodb 实践》</li>
+<li>《07：WebFlux 整合 Redis》</li>
+<li>《08：WebFlux 中 Redis 实现缓存》</li>
+<li>《09：WebFlux 中 WebSocket 实现通信》</li>
+<li>《10：WebFlux 集成测试及部署》</li>
+<li>《11：WebFlux 实战图书管理系统》</li>
+</ul>
+<h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><p>本文示例读者可以通过查看下面仓库的中的模块工程名: 2-x-spring-boot-webflux-handling-errors：</p>
+<ul>
+<li>Github：<a target="_blank" rel="noopener" href="https://github.com/JeffLi1993/springboot-learning-example">https://github.com/JeffLi1993/springboot-learning-example</a></li>
+</ul>
+<p>如果您对这些感兴趣，欢迎 star、follow、收藏、转发给予支持！</p>
+
+        </div>
+
+    </div>
+
+    <div class="article-copyright">
+
+        <div style="float: left;width: 20%;align:center;text-align: center;">
+             <img style="width: 100px; height: 100px;" src="https://image.bysocket.com/2023/02/qrcode.webp" alt="QRCode" >
+        </div>
+        <div style="float: left;width: 80%;">
+                <br/>
+                本文由 <a target="_blank" rel="noopener" href="https://www.bysocket.com/">泥瓦匠</a> 创作<br/><br/>
+                原创不易，欢迎关注公众号！转载请注明出处，感谢支持！如果本文对您有用，欢迎转发分享！
+        </div>
+
+      </div><br/><br/><br/><br/><br/>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+  
+    <a href="/spring-boot-webflux-resutapi-example/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">Spring Boot WebFlux 响应式 REST API 错误码案例教程</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=Spring Boot WebFlux 响应式 REST API CRUD 案例教程 - 程序员泥瓦匠&url=https%3A%2F%2Fbysocket.com%2Fspring-boot-webflux-crud-example%2F">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=Spring Boot WebFlux 响应式 REST API CRUD 案例教程 - 程序员泥瓦匠&u=https%3A%2F%2Fbysocket.com%2Fspring-boot-webflux-crud-example%2F">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=Spring Boot WebFlux 响应式 REST API CRUD 案例教程 - 程序员泥瓦匠&url=https://bysocket.com/spring-boot-webflux-crud-example/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>分类</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/">ElasticSearch</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/Elasticsearch/">Elasticsearch</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Elasticsearch/">Elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JDK/">JDK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JSP/">JSP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SEO/">SEO</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/">Spring Boot</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/ElasticSearch/">ElasticSearch</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/ElasticSearch/Elasticsearch/">Elasticsearch</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot-WebFlux/">Spring Boot WebFlux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%9D%E8%80%83/">思考</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">问题记录</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>标签</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AdSense/" rel="tag">AdSense</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ChatGPT/" rel="tag">ChatGPT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collections/" rel="tag">Collections</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Config/" rel="tag">Config</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Druid/" rel="tag">Druid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dubbo/" rel="tag">Dubbo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Elasticsearch/" rel="tag">Elasticsearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FreeMarker/" rel="tag">FreeMarker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HBase/" rel="tag">HBase</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashSet/" rel="tag">HashSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-IO/" rel="tag">Java IO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LinkedHashSet/" rel="tag">LinkedHashSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenAI/" rel="tag">OpenAI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Properties/" rel="tag">Properties</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/" rel="tag">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Data/" rel="tag">Spring Data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thymeleaf/" rel="tag">Thymeleaf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TreeSet/" rel="tag">TreeSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UUID/" rel="tag">UUID</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Validation/" rel="tag">Validation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ZooKeeper/" rel="tag">ZooKeeper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>最新文章</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/spring-boot-webflux-crud-example/">Spring Boot WebFlux 响应式 REST API CRUD 案例教程</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-webflux-resutapi-example/">Spring Boot WebFlux 响应式 REST API 错误码案例教程</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-dubbo-activate-example/">Dubbo Activate 扩展点注解在 Spring Boot 使用案例</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-configuration-habse-example/">Spring Boot 配置 HBase 集成案例教程</a>
+          </li>
+        
+          <li>
+            <a href="/chatgpt-is-at-capacity-right-now/">解决：chatgpt is at capacity right now 怎么办?</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            程序员泥瓦匠 &copy; 2023<br>
+            <a href="https://beian.miit.gov.cn" rel="nofollow" target="_blank">浙ICP备15028451号-7</a> | <a href="https://www.decompilertool.com/" target="_blank">Java Decompiler</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+<!-- 百度链接提交 -->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- Baidu Analytics-->
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e43a8b7f6b87c80c7d5d89ee04348971";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

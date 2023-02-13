@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>Spring Boot WebFlux 响应式 REST API 错误码案例教程 | 程序员泥瓦匠</title>
+
+    <meta name="description" content="&lt;h2 id=&#34;一、为什么要全局异常处理？&#34;&gt;&lt;a href=&#34;#一、为什么要全局异常处理？&#34; class=&#34;headerlink&#34; title=&#34;一、为什么要全局异常处理？&#34;&gt;&lt;/a&gt;一、为什么要全局异常处理？&lt;/h2&gt;&lt;p&gt;前后端分离开发，一般提供 REST API，正常返回会有响应体，异常情况下会有对应的错误码响应。&lt;/p&gt;
+&lt;p&gt;挺多人咨询的，Spring Boot MVC 异常处理用切面 &lt;code&gt;@RestControllerAdvice&lt;/code&gt; 注解去实现去全局异常处理。那 WebFlux 如何处理异常？如何实现统一错误码异常处理？&lt;/p&gt;">
+    <link rel="canonical" href="https://bysocket.com/spring-boot-webflux-resutapi-example/"/>
+    <meta name="keywords" content="">
+
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "Spring Boot WebFlux 响应式 REST API 错误码案例教程 | 程序员泥瓦匠"  />
+    <meta property="og:description" content= "&lt;h2 id=&#34;一、为什么要全局异常处理？&#34;&gt;&lt;a href=&#34;#一、为什么要全局异常处理？&#34; class=&#34;headerlink&#34; title=&#34;一、为什么要全局异常处理？&#34;&gt;&lt;/a&gt;一、为什么要全局异常处理？&lt;/h2&gt;&lt;p&gt;前后端分离开发，一般提供 REST API，正常返回会有响应体，异常情况下会有对应的错误码响应。&lt;/p&gt;
+&lt;p&gt;挺多人咨询的，Spring Boot MVC 异常处理用切面 &lt;code&gt;@RestControllerAdvice&lt;/code&gt; 注解去实现去全局异常处理。那 WebFlux 如何处理异常？如何实现统一错误码异常处理？&lt;/p&gt;" />
+    <meta property="og:url" content="https://bysocket.com/spring-boot-webflux-resutapi-example/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="泥瓦匠" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h2 id=&#34;一、为什么要全局异常处理？&#34;&gt;&lt;a href=&#34;#一、为什么要全局异常处理？&#34; class=&#34;headerlink&#34; title=&#34;一、为什么要全局异常处理？&#34;&gt;&lt;/a&gt;一、为什么要全局异常处理？&lt;/h2&gt;&lt;p&gt;前后端分离开发，一般提供 REST API，正常返回会有响应体，异常情况下会有对应的错误码响应。&lt;/p&gt;
+&lt;p&gt;挺多人咨询的，Spring Boot MVC 异常处理用切面 &lt;code&gt;@RestControllerAdvice&lt;/code&gt; 注解去实现去全局异常处理。那 WebFlux 如何处理异常？如何实现统一错误码异常处理？&lt;/p&gt;" />
+    <meta name="twitter:title" content="Spring Boot WebFlux 响应式 REST API 错误码案例教程 | 程序员泥瓦匠"/>
+    <meta name="twitter:description" content="&lt;h2 id=&#34;一、为什么要全局异常处理？&#34;&gt;&lt;a href=&#34;#一、为什么要全局异常处理？&#34; class=&#34;headerlink&#34; title=&#34;一、为什么要全局异常处理？&#34;&gt;&lt;/a&gt;一、为什么要全局异常处理？&lt;/h2&gt;&lt;p&gt;前后端分离开发，一般提供 REST API，正常返回会有响应体，异常情况下会有对应的错误码响应。&lt;/p&gt;
+&lt;p&gt;挺多人咨询的，Spring Boot MVC 异常处理用切面 &lt;code&gt;@RestControllerAdvice&lt;/code&gt; 注解去实现去全局异常处理。那 WebFlux 如何处理异常？如何实现统一错误码异常处理？&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h2 id=&#34;一、为什么要全局异常处理？&#34;&gt;&lt;a href=&#34;#一、为什么要全局异常处理？&#34; class=&#34;headerlink&#34; title=&#34;一、为什么要全局异常处理？&#34;&gt;&lt;/a&gt;一、为什么要全局异常处理？&lt;/h2&gt;&lt;p&gt;前后端分离开发，一般提供 REST API，正常返回会有响应体，异常情况下会有对应的错误码响应。&lt;/p&gt;
+&lt;p&gt;挺多人咨询的，Spring Boot MVC 异常处理用切面 &lt;code&gt;@RestControllerAdvice&lt;/code&gt; 注解去实现去全局异常处理。那 WebFlux 如何处理异常？如何实现统一错误码异常处理？&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "泥瓦匠" },
+            "@type": "BlogPosting",
+            "url": "https://bysocket.com/spring-boot-webflux-resutapi-example/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://bysocket.comhttps://image.bysocket.com/avatar.webp?dpr=0.1"
+            },
+            "name": "泥瓦匠"
+            },
+            "headline": "Spring Boot WebFlux 响应式 REST API 错误码案例教程 | 程序员泥瓦匠",
+            "datePublished": "2023-02-13T06:50:15.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://bysocket.com/spring-boot-webflux-resutapi-example/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+    <!-- Google 广告 AdSense 代码 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3672455877501055" crossorigin="anonymous">
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-avatar avatar avatar-sm">
+                <img src="https://image.bysocket.com/avatar.webp?dpr=0.1" alt="泥瓦匠">
+            </div>
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>程序员泥瓦匠</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">首页</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/about">关于</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/JeffLi1993">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+    <a class="social" target="_blank" href="https://twitter.com/CoderJeffLee">
+        <ion-icon name="logo-twitter"></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/about">关于</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-cle2f469b0000y73s2ld78q3d" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      Spring Boot WebFlux 响应式 REST API 错误码案例教程
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2023-02-13T06:50:15.000Z" itemprop="datePublished">2023-02-13</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/Spring-Boot-WebFlux/">Spring Boot WebFlux</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/REST/" rel="tag">REST</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h2 id="一、为什么要全局异常处理？"><a href="#一、为什么要全局异常处理？" class="headerlink" title="一、为什么要全局异常处理？"></a>一、为什么要全局异常处理？</h2><p>前后端分离开发，一般提供 REST API，正常返回会有响应体，异常情况下会有对应的错误码响应。</p>
+<p>挺多人咨询的，Spring Boot MVC 异常处理用切面 <code>@RestControllerAdvice</code> 注解去实现去全局异常处理。那 WebFlux 如何处理异常？如何实现统一错误码异常处理？</p>
+<span id="more"></span>
+
+<p>全局异常处理的好处：</p>
+<ul>
+<li>异常错误码等统一维护</li>
+<li>避免一些重复代码</li>
+</ul>
+<h2 id="二、WebFlux-REST-全局异常处理实战"><a href="#二、WebFlux-REST-全局异常处理实战" class="headerlink" title="二、WebFlux REST 全局异常处理实战"></a>二、WebFlux REST 全局异常处理实战</h2><p>下面介绍如何统一拦截异常，进行响应处理。</p>
+<h3 id="2-1-工程信息"><a href="#2-1-工程信息" class="headerlink" title="2.1 工程信息"></a>2.1 工程信息</h3><ul>
+<li>运行环境：JDK 7 或 8，Maven 3.0+</li>
+<li>技术栈：SpringBoot 2.1.3</li>
+<li>代码地址：<a target="_blank" rel="noopener" href="https://github.com/JeffLi1993/springboot-learning-example">https://github.com/JeffLi1993/springboot-learning-example</a></li>
+<li>模块工程名: 2-x-spring-boot-webflux-handling-errors</li>
+</ul>
+<p>工程结构：</p>
+<pre><code>├── pom.xml
+└── src
+    └── main
+        ├── java
+        │   └── org
+        │       └── spring
+        │           └── springboot
+        │               ├── Application.java
+        │               ├── error
+        │               │   ├── GlobalErrorAttributes.java
+        │               │   ├── GlobalErrorWebExceptionHandler.java
+        │               │   └── GlobalException.java
+        │               ├── handler
+        │               │   └── CityHandler.java
+        │               └── router
+        │                   └── CityRouter.java
+        └── resources
+            └── application.properties
+</code></pre>
+<p>application.properties 无须配置，默认即可 Application Spring Boot 应用启动类，是可以用来启动 Spring Boot 应用。其包含了 @SpringBootApplication 注解和 SpringApplication 类，并调用 SpringApplication 类的 run() 方法，就可以启动该应用。</p>
+<h3 id="2-2-CityRouter-路由器类"><a href="#2-2-CityRouter-路由器类" class="headerlink" title="2.2 CityRouter 路由器类"></a>2.2 CityRouter 路由器类</h3><p>城市路由器代码如下：</p>
+<pre><code>@Configuration
+public class CityRouter &#123;
+
+    @Bean
+    public RouterFunction&lt;ServerResponse&gt; routeCity(CityHandler cityHandler) &#123;
+        return RouterFunctions.route(RequestPredicates.GET(&quot;/hello&quot;).and(RequestPredicates.accept(MediaType.TEXT_PLAIN)), cityHandler::helloCity);
+    &#125;
+
+&#125;
+</code></pre>
+<p>RouterFunctions 对请求路由处理类，即将请求路由到处理器，这将一个 GET 请求 &#x2F;hello 路由到处理器 cityHandler 的 helloCity 方法上。跟 Spring MVC 模式下的 HandleMapping 类似。</p>
+<p>RouterFunctions.route(RequestPredicate, HandlerFunction) 方法，对应的 参是请求参数和处理函数，如果请求匹配，就调 对应的处理器函数。</p>
+<h3 id="2-3-CityHandler-服务处理类"><a href="#2-3-CityHandler-服务处理类" class="headerlink" title="2.3 CityHandler 服务处理类"></a>2.3 CityHandler 服务处理类</h3><p>城市服务器处理类，代码如下：</p>
+<pre><code>@Component
+public class CityHandler &#123;
+
+    public Mono&lt;ServerResponse&gt; helloCity(ServerRequest request) &#123;
+        return ServerResponse.ok().body(sayHelloCity(request), String.class);
+    &#125;
+
+    private Mono&lt;String&gt; sayHelloCity(ServerRequest request) &#123;
+        Optional&lt;String&gt; cityParamOptional = request.queryParam(&quot;city&quot;);
+        if (!cityParamOptional.isPresent()) &#123;
+            throw new GlobalException(HttpStatus.INTERNAL_SERVER_ERROR, &quot;request param city is ERROR&quot;);
+        &#125;
+
+        return Mono.just(&quot;Hello,&quot; + cityParamOptional.get());
+    &#125;
+&#125;
+</code></pre>
+<p>Mono：实现发布者，并返回 0 或 1 个元素，即单对象。Mono 是响应流 Publisher 具有基础 rx 操作符。可以成功发布元素或者错误。用 Mono 作为返回对象，是因为返回包含了一个 ServerResponse 对象，而不是多个元素。</p>
+<p>ServerResponse 是对响应的封装，可以设置响应状态，响应头，响应正文。比如 ok 代表的是 200 响应码、MediaType 枚举是代表这文本内容类型、返回的是 String 的对象。</p>
+<p>ServerRequest 是对请求的封装。从请求中拿出 city 的值，如果没有的话则抛出对应的异常。GlobalException 是封装的全局异常。</p>
+<p>Mono.justOrEmpty()：从一个 Optional 对象或 null 对象中创建 Mono。</p>
+<h3 id="2-4-GlobalError-处理类"><a href="#2-4-GlobalError-处理类" class="headerlink" title="2.4 GlobalError 处理类"></a>2.4 GlobalError 处理类</h3><p>GlobalException 全局异常类，代码如下：</p>
+<pre><code>public class GlobalException extends ResponseStatusException &#123;
+
+    public GlobalException(HttpStatus status, String message) &#123;
+        super(status, message);
+    &#125;
+
+    public GlobalException(HttpStatus status, String message, Throwable e) &#123;
+        super(status, message, e);
+    &#125;
+&#125;
+</code></pre>
+<p>GlobalErrorAttributes 全局异常属性值类，代码如下：</p>
+<pre><code>@Component
+public class GlobalErrorAttributes extends DefaultErrorAttributes &#123;
+
+    @Override
+    public Map&lt;String, Object&gt; getErrorAttributes(ServerRequest request, boolean includeStackTrace) &#123;
+        Map&lt;String, Object&gt; map = super.getErrorAttributes(request, includeStackTrace);
+
+        if (getError(request) instanceof GlobalException) &#123;
+            GlobalException ex = (GlobalException) getError(request);
+            map.put(&quot;exception&quot;, ex.getClass().getSimpleName());
+            map.put(&quot;message&quot;, ex.getMessage());
+            map.put(&quot;status&quot;, ex.getStatus().value());
+            map.put(&quot;error&quot;, ex.getStatus().getReasonPhrase());
+
+            return map;
+        &#125;
+
+        map.put(&quot;exception&quot;, &quot;SystemException&quot;);
+        map.put(&quot;message&quot;, &quot;System Error , Check logs!&quot;);
+        map.put(&quot;status&quot;, &quot;500&quot;);
+        map.put(&quot;error&quot;, &quot; System Error &quot;);
+        return map;
+    &#125;
+&#125;
+</code></pre>
+<p>重写了父类 DefaultErrorAttributes 默认错误属性类的 getErrorAttributes 获取错误属性方法，从服务请求封装 ServerRequest 中获取对应的异常。</p>
+<p>然后判断是否是 GlobalException，如果是 CityHandler 服务处理类抛出的 GlobalException，则返回对应的异常的信息。</p>
+<p>GlobalErrorWebExceptionHandler 全局异常处理类，代码如下：</p>
+<pre><code>@Component
+@Order(-2)
+public class GlobalErrorWebExceptionHandler extends AbstractErrorWebExceptionHandler &#123;
+
+    public GlobalErrorWebExceptionHandler(GlobalErrorAttributes g, ApplicationContext applicationContext,
+            ServerCodecConfigurer serverCodecConfigurer) &#123;
+        super(g, new ResourceProperties(), applicationContext);
+        super.setMessageWriters(serverCodecConfigurer.getWriters());
+        super.setMessageReaders(serverCodecConfigurer.getReaders());
+    &#125;
+
+    @Override
+    protected RouterFunction&lt;ServerResponse&gt; getRoutingFunction(final ErrorAttributes errorAttributes) &#123;
+        return RouterFunctions.route(RequestPredicates.all(), this::renderErrorResponse);
+    &#125;
+
+    private Mono&lt;ServerResponse&gt; renderErrorResponse(final ServerRequest request) &#123;
+
+        final Map&lt;String, Object&gt; errorPropertiesMap = getErrorAttributes(request, false);
+
+        return ServerResponse.status(HttpStatus.BAD_REQUEST)
+            .contentType(MediaType.APPLICATION_JSON_UTF8)
+            .body(BodyInserters.fromObject(errorPropertiesMap));
+    &#125;
+
+&#125;
+</code></pre>
+<p>代码解析如下：</p>
+<ul>
+<li>AbstractErrorWebExceptionHandler 抽象类是用来处理全局错误时进行扩展和实现</li>
+<li>@Order 注解标记 AspectJ 的切面排序，值越小拥有越高的优先级，这里设置优先级偏高。</li>
+<li>构造函数将 GlobalErrorAttributes 全局异常属性值类设置到 AbstractErrorWebExceptionHandler 抽象类的局部变量中。</li>
+<li>重写 getRoutingFunction 方法，设置对应的 RequestPredicates 和 Mono 服务响应对象</li>
+<li>将 GlobalErrorAttributes 的全局异常属性值 map，设置到新的 ServerResponse 即可。</li>
+</ul>
+<p>到此基本结束。Spring Boot MVC 错误码如何实战。</p>
+<h3 id="2-5-运行验证"><a href="#2-5-运行验证" class="headerlink" title="2.5 运行验证"></a>2.5 运行验证</h3><p>在 IDEA 中执行 <code>Application</code> 类启动，任意正常模式或者 Debug 模式。然后打开浏览器访问：</p>
+<pre><code>http://localhost:8080/hello
+</code></pre>
+<p>可见，这是在 CityHandler 城市服务处理类逻辑中抛出的全局异常信息。那么正常情况会是如何？</p>
+<p>改下 URL ，访问如下：</p>
+<pre><code>http://localhost:8080/hello?city=WenLing
+</code></pre>
+<p>正常界面如下：</p>
+<p><img src="/images/restful/4.png"></p>
+<h2 id="三、小结"><a href="#三、小结" class="headerlink" title="三、小结"></a>三、小结</h2><p>本文内容</p>
+<ul>
+<li>为什么要全局异常处理？</li>
+<li>WebFlux REST 全局异常处理实战</li>
+<li>小结</li>
+</ul>
+<p>在 Spring 框架中没有代表错误响应的类，只是返回响应对象，一个 Map。如果需要定义业务的错误码返回体，参考错误码如何实战。</p>
+<p>本文重点还是有别于 Spring Boot 传统 MVC 模式统一异常处理，实战了 WebFlux 全局异常处理机制。实战中这块扩展需要考虑：</p>
+<ul>
+<li>异常分层，从基类中扩展出来</li>
+<li>错误码设计分层，易扩展，比如在错误码中新增调用量字段…</li>
+</ul>
+<h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><p>本文示例读者可以通过查看下面仓库的中的模块工程名: 2-x-spring-boot-webflux-handling-errors：</p>
+<ul>
+<li>Github： <a target="_blank" rel="noopener" href="https://github.com/JeffLi1993/springboot-learning-example">https://github.com/JeffLi1993/springboot-learning-example</a></li>
+</ul>
+
+        </div>
+
+    </div>
+
+    <div class="article-copyright">
+
+        <div style="float: left;width: 20%;align:center;text-align: center;">
+             <img style="width: 100px; height: 100px;" src="https://image.bysocket.com/2023/02/qrcode.webp" alt="QRCode" >
+        </div>
+        <div style="float: left;width: 80%;">
+                <br/>
+                本文由 <a target="_blank" rel="noopener" href="https://www.bysocket.com/">泥瓦匠</a> 创作<br/><br/>
+                原创不易，欢迎关注公众号！转载请注明出处，感谢支持！如果本文对您有用，欢迎转发分享！
+        </div>
+
+      </div><br/><br/><br/><br/><br/>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/spring-boot-webflux-crud-example/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          Spring Boot WebFlux 响应式 REST API CRUD 案例教程
+        
+      </div>
+    </a>
+  
+  
+    <a href="/spring-boot-dubbo-activate-example/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">Dubbo Activate 扩展点注解在 Spring Boot 使用案例</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=Spring Boot WebFlux 响应式 REST API 错误码案例教程 - 程序员泥瓦匠&url=https%3A%2F%2Fbysocket.com%2Fspring-boot-webflux-resutapi-example%2F">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=Spring Boot WebFlux 响应式 REST API 错误码案例教程 - 程序员泥瓦匠&u=https%3A%2F%2Fbysocket.com%2Fspring-boot-webflux-resutapi-example%2F">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=Spring Boot WebFlux 响应式 REST API 错误码案例教程 - 程序员泥瓦匠&url=https://bysocket.com/spring-boot-webflux-resutapi-example/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>分类</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/">ElasticSearch</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/Elasticsearch/">Elasticsearch</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Elasticsearch/">Elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JDK/">JDK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JSP/">JSP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SEO/">SEO</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/">Spring Boot</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/ElasticSearch/">ElasticSearch</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/ElasticSearch/Elasticsearch/">Elasticsearch</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot-WebFlux/">Spring Boot WebFlux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%9D%E8%80%83/">思考</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">问题记录</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>标签</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AdSense/" rel="tag">AdSense</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ChatGPT/" rel="tag">ChatGPT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collections/" rel="tag">Collections</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Config/" rel="tag">Config</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Druid/" rel="tag">Druid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dubbo/" rel="tag">Dubbo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Elasticsearch/" rel="tag">Elasticsearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FreeMarker/" rel="tag">FreeMarker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HBase/" rel="tag">HBase</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashSet/" rel="tag">HashSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-IO/" rel="tag">Java IO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LinkedHashSet/" rel="tag">LinkedHashSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenAI/" rel="tag">OpenAI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Properties/" rel="tag">Properties</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/" rel="tag">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Data/" rel="tag">Spring Data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thymeleaf/" rel="tag">Thymeleaf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TreeSet/" rel="tag">TreeSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UUID/" rel="tag">UUID</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Validation/" rel="tag">Validation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ZooKeeper/" rel="tag">ZooKeeper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>最新文章</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/spring-boot-webflux-crud-example/">Spring Boot WebFlux 响应式 REST API CRUD 案例教程</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-webflux-resutapi-example/">Spring Boot WebFlux 响应式 REST API 错误码案例教程</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-dubbo-activate-example/">Dubbo Activate 扩展点注解在 Spring Boot 使用案例</a>
+          </li>
+        
+          <li>
+            <a href="/spring-boot-configuration-habse-example/">Spring Boot 配置 HBase 集成案例教程</a>
+          </li>
+        
+          <li>
+            <a href="/chatgpt-is-at-capacity-right-now/">解决：chatgpt is at capacity right now 怎么办?</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            程序员泥瓦匠 &copy; 2023<br>
+            <a href="https://beian.miit.gov.cn" rel="nofollow" target="_blank">浙ICP备15028451号-7</a> | <a href="https://www.decompilertool.com/" target="_blank">Java Decompiler</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+<!-- 百度链接提交 -->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- Baidu Analytics-->
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e43a8b7f6b87c80c7d5d89ee04348971";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</body>
+
+</html>
