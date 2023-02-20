@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     
-    <title>Spring Boot WebFlux 响应式 REST API CRUD 案例教程 | 程序员泥瓦匠</title>
+    <title>Spring Boot WebFlux 集成 Mongodb 案例教程 | 程序员泥瓦匠</title>
 
-    <meta name="description" content="&lt;h2 id=&#34;一、前言&#34;&gt;&lt;a href=&#34;#一、前言&#34; class=&#34;headerlink&#34; title=&#34;一、前言&#34;&gt;&lt;/a&gt;一、前言&lt;/h2&gt;&lt;p&gt;上一篇基于功能性端点去创建一个简单服务，实现了 Hello 。这一篇用 Spring Boot WebFlux 的注解控制层技术创建一个 CRUD WebFlux 应用，让开发更方便。这里我们不对数据库储存进行访问，因为后续会讲到，而且这里主要是讲一个完整的 WebFlux CRUD。&lt;/p&gt;">
-    <link rel="canonical" href="https://bysocket.com/spring-boot-webflux-crud-example/"/>
+    <meta name="description" content="&lt;h2 id=&#34;一、前言&#34;&gt;&lt;a href=&#34;#一、前言&#34; class=&#34;headerlink&#34; title=&#34;一、前言&#34;&gt;&lt;/a&gt;一、前言&lt;/h2&gt;&lt;p&gt;上一讲用 Map 数据结构内存式存储了数据。这样数据就不会持久化，本文我们用 MongoDB 来实现 WebFlux 对数据源的操作。&lt;/p&gt;
+&lt;p&gt;什么是 MongoDB ?&lt;/p&gt;">
+    <link rel="canonical" href="https://bysocket.com/spring-boot-webflux-mongodb-example/"/>
     <meta name="keywords" content="">
 
 
@@ -17,21 +18,25 @@
 
     <meta property="og:locale" content="cn" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content= "Spring Boot WebFlux 响应式 REST API CRUD 案例教程 | 程序员泥瓦匠"  />
-    <meta property="og:description" content= "&lt;h2 id=&#34;一、前言&#34;&gt;&lt;a href=&#34;#一、前言&#34; class=&#34;headerlink&#34; title=&#34;一、前言&#34;&gt;&lt;/a&gt;一、前言&lt;/h2&gt;&lt;p&gt;上一篇基于功能性端点去创建一个简单服务，实现了 Hello 。这一篇用 Spring Boot WebFlux 的注解控制层技术创建一个 CRUD WebFlux 应用，让开发更方便。这里我们不对数据库储存进行访问，因为后续会讲到，而且这里主要是讲一个完整的 WebFlux CRUD。&lt;/p&gt;" />
-    <meta property="og:url" content="https://bysocket.com/spring-boot-webflux-crud-example/index.html" />
+    <meta property="og:title" content= "Spring Boot WebFlux 集成 Mongodb 案例教程 | 程序员泥瓦匠"  />
+    <meta property="og:description" content= "&lt;h2 id=&#34;一、前言&#34;&gt;&lt;a href=&#34;#一、前言&#34; class=&#34;headerlink&#34; title=&#34;一、前言&#34;&gt;&lt;/a&gt;一、前言&lt;/h2&gt;&lt;p&gt;上一讲用 Map 数据结构内存式存储了数据。这样数据就不会持久化，本文我们用 MongoDB 来实现 WebFlux 对数据源的操作。&lt;/p&gt;
+&lt;p&gt;什么是 MongoDB ?&lt;/p&gt;" />
+    <meta property="og:url" content="https://bysocket.com/spring-boot-webflux-mongodb-example/index.html" />
     <meta property="og:site_name" content="" />
     <meta property="article:author" content="泥瓦匠" />
     <meta property="article:publisher" content="" />
-    <meta property="og:description" content="&lt;h2 id=&#34;一、前言&#34;&gt;&lt;a href=&#34;#一、前言&#34; class=&#34;headerlink&#34; title=&#34;一、前言&#34;&gt;&lt;/a&gt;一、前言&lt;/h2&gt;&lt;p&gt;上一篇基于功能性端点去创建一个简单服务，实现了 Hello 。这一篇用 Spring Boot WebFlux 的注解控制层技术创建一个 CRUD WebFlux 应用，让开发更方便。这里我们不对数据库储存进行访问，因为后续会讲到，而且这里主要是讲一个完整的 WebFlux CRUD。&lt;/p&gt;" />
-    <meta name="twitter:title" content="Spring Boot WebFlux 响应式 REST API CRUD 案例教程 | 程序员泥瓦匠"/>
-    <meta name="twitter:description" content="&lt;h2 id=&#34;一、前言&#34;&gt;&lt;a href=&#34;#一、前言&#34; class=&#34;headerlink&#34; title=&#34;一、前言&#34;&gt;&lt;/a&gt;一、前言&lt;/h2&gt;&lt;p&gt;上一篇基于功能性端点去创建一个简单服务，实现了 Hello 。这一篇用 Spring Boot WebFlux 的注解控制层技术创建一个 CRUD WebFlux 应用，让开发更方便。这里我们不对数据库储存进行访问，因为后续会讲到，而且这里主要是讲一个完整的 WebFlux CRUD。&lt;/p&gt;"/>
+    <meta property="og:description" content="&lt;h2 id=&#34;一、前言&#34;&gt;&lt;a href=&#34;#一、前言&#34; class=&#34;headerlink&#34; title=&#34;一、前言&#34;&gt;&lt;/a&gt;一、前言&lt;/h2&gt;&lt;p&gt;上一讲用 Map 数据结构内存式存储了数据。这样数据就不会持久化，本文我们用 MongoDB 来实现 WebFlux 对数据源的操作。&lt;/p&gt;
+&lt;p&gt;什么是 MongoDB ?&lt;/p&gt;" />
+    <meta name="twitter:title" content="Spring Boot WebFlux 集成 Mongodb 案例教程 | 程序员泥瓦匠"/>
+    <meta name="twitter:description" content="&lt;h2 id=&#34;一、前言&#34;&gt;&lt;a href=&#34;#一、前言&#34; class=&#34;headerlink&#34; title=&#34;一、前言&#34;&gt;&lt;/a&gt;一、前言&lt;/h2&gt;&lt;p&gt;上一讲用 Map 数据结构内存式存储了数据。这样数据就不会持久化，本文我们用 MongoDB 来实现 WebFlux 对数据源的操作。&lt;/p&gt;
+&lt;p&gt;什么是 MongoDB ?&lt;/p&gt;"/>
     <script type="application/ld+json">
         {
-            "description": "&lt;h2 id=&#34;一、前言&#34;&gt;&lt;a href=&#34;#一、前言&#34; class=&#34;headerlink&#34; title=&#34;一、前言&#34;&gt;&lt;/a&gt;一、前言&lt;/h2&gt;&lt;p&gt;上一篇基于功能性端点去创建一个简单服务，实现了 Hello 。这一篇用 Spring Boot WebFlux 的注解控制层技术创建一个 CRUD WebFlux 应用，让开发更方便。这里我们不对数据库储存进行访问，因为后续会讲到，而且这里主要是讲一个完整的 WebFlux CRUD。&lt;/p&gt;",
+            "description": "&lt;h2 id=&#34;一、前言&#34;&gt;&lt;a href=&#34;#一、前言&#34; class=&#34;headerlink&#34; title=&#34;一、前言&#34;&gt;&lt;/a&gt;一、前言&lt;/h2&gt;&lt;p&gt;上一讲用 Map 数据结构内存式存储了数据。这样数据就不会持久化，本文我们用 MongoDB 来实现 WebFlux 对数据源的操作。&lt;/p&gt;
+&lt;p&gt;什么是 MongoDB ?&lt;/p&gt;",
             "author": { "@type": "Person", "name": "泥瓦匠" },
             "@type": "BlogPosting",
-            "url": "https://bysocket.com/spring-boot-webflux-crud-example/index.html",
+            "url": "https://bysocket.com/spring-boot-webflux-mongodb-example/index.html",
             "publisher": {
             "@type": "Organization",
             "logo": {
@@ -40,11 +45,11 @@
             },
             "name": "泥瓦匠"
             },
-            "headline": "Spring Boot WebFlux 响应式 REST API CRUD 案例教程 | 程序员泥瓦匠",
-            "datePublished": "2023-02-13T06:59:15.000Z",
+            "headline": "Spring Boot WebFlux 集成 Mongodb 案例教程 | 程序员泥瓦匠",
+            "datePublished": "2023-02-20T06:59:15.000Z",
             "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": "https://bysocket.com/spring-boot-webflux-crud-example/index.html"
+                "@id": "https://bysocket.com/spring-boot-webflux-mongodb-example/index.html"
             },
             "@context": "http://schema.org"
         }
@@ -172,7 +177,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-cle2f7qk500000q3s5k38hieu" class="article article-type-post" itemscope
+    <article id="post-clecvoytu0000zj3sdbax0r33" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -188,7 +193,7 @@
             
   
     <h1 class="article-title" itemprop="name">
-      Spring Boot WebFlux 响应式 REST API CRUD 案例教程
+      Spring Boot WebFlux 集成 Mongodb 案例教程
     </h1>
   
 
@@ -198,7 +203,7 @@
         <div class="article-more-info article-more-info-post hairline">
 
             <div class="article-date">
-  <time datetime="2023-02-13T06:59:15.000Z" itemprop="datePublished">2023-02-13</time>
+  <time datetime="2023-02-20T06:59:15.000Z" itemprop="datePublished">2023-02-20</time>
 </div>
 
             
@@ -209,7 +214,7 @@
 
             
             <div class="article-tag">
-                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/REST/" rel="tag">REST</a></li></ul>
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MongoDB/" rel="tag">MongoDB</a></li></ul>
             </div>
             
 
@@ -218,40 +223,90 @@
         </div>
 
         <div class="article-entry post-inner-html hairline" itemprop="articleBody">
-            <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>上一篇基于功能性端点去创建一个简单服务，实现了 Hello 。这一篇用 Spring Boot WebFlux 的注解控制层技术创建一个 CRUD WebFlux 应用，让开发更方便。这里我们不对数据库储存进行访问，因为后续会讲到，而且这里主要是讲一个完整的 WebFlux CRUD。</p>
+            <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>上一讲用 Map 数据结构内存式存储了数据。这样数据就不会持久化，本文我们用 MongoDB 来实现 WebFlux 对数据源的操作。</p>
+<p>什么是 MongoDB ?</p>
 <span id="more"></span>
 
-<h2 id="二、结构"><a href="#二、结构" class="headerlink" title="二、结构"></a>二、结构</h2><p>这个工程会对城市（City）进行管理实现 CRUD 操作。该工程创建编写后，得到下面的结构，其目录结构如下：</p>
-<pre><code>├── pom.xml
-├── src
-│   └── main
-│       ├── java
-│       │   └── org
-│       │       └── spring
-│       │           └── springboot
-│       │               ├── Application.java
-│       │               ├── dao
-│       │               │   └── CityRepository.java
-│       │               ├── domain
-│       │               │   └── City.java
-│       │               ├── handler
-│       │               │   └── CityHandler.java
-│       │               └── webflux
-│       │                   └── controller
-│       │                       └── CityWebFluxController.java
-│       └── resources
-│           └── application.properties
-└── target
+<p>官网：<a target="_blank" rel="noopener" href="https://www.mongodb.com/">https://www.mongodb.com/</a></p>
+<p>MongoDB 是一个基于分布式文件存储的数据库，由 C++ 语言编写，旨在为 WEB 应用提供可扩展的高性能数据存储解决方案。</p>
+<p>MongoDB 是一个介于关系数据库和非关系数据库之间的产品，是非关系数据库当中功能最丰富，最像关系数据库的。</p>
+<p>由于操作方便，本文用 Docker 启动一个 MognoDB 服务。</p>
+<p>Docker 安装 MognoDB 并启动如下：</p>
+<p>1、创建挂载目录</p>
+<pre><code>docker volume create mongo_data_db
+docker volume create mongo_data_configdb
 </code></pre>
-<p>如目录结构，我们需要编写的内容按顺序有：</p>
+<p>2、启动 MognoDB</p>
+<pre><code>docker run -d \
+    --name mongo \
+    -v mongo_data_configdb:/data/configdb \
+    -v mongo_data_db:/data/db \
+    -p 27017:27017 \
+    mongo \
+    --auth
+</code></pre>
+<p>3、初始化管理员账号</p>
+<pre><code>docker exec -it mongo     mongo              admin
+                        // 容器名   // mongo命令 数据库名
+
+# 创建最高权限用户
+db.createUser(&#123; user: &#39;admin&#39;, pwd: &#39;admin&#39;, roles: [ &#123; role: &quot;root&quot;, db: &quot;admin&quot; &#125; ] &#125;);
+</code></pre>
+<p>4、测试连通性</p>
+<pre><code>docker run -it --rm --link mongo:mongo mongo mongo -u admin -p admin --authenticationDatabase admin mongo/admin
+</code></pre>
+<p>MognoDB 基本操作：</p>
+<p>类似 MySQL 命令，显示库列表：</p>
+<pre><code>show dbs
+</code></pre>
+<p>使用某数据库</p>
+<pre><code>use admin
+</code></pre>
+<p>显示表列表</p>
+<pre><code>show collections
+</code></pre>
+<p>如果存在 city 表，格式化显示 city 表内容</p>
+<pre><code>db.city.find().pretty()
+</code></pre>
+<h2 id="二、结构"><a href="#二、结构" class="headerlink" title="二、结构"></a>二、结构</h2><p>类似上面讲的工程搭建，新建一个工程编写此案例。</p>
+<p>目录核心如下</p>
 <ul>
-<li>对象</li>
-<li>数据访问层类 Repository</li>
-<li>处理器类 Handler</li>
-<li>控制器类 Controller</li>
+<li>pom.xml maven 配置</li>
+<li>application.properties 配置文件</li>
+<li>dao 数据访问层，本文要点</li>
 </ul>
-<h2 id="三、对象"><a href="#三、对象" class="headerlink" title="三、对象"></a>三、对象</h2><p>新建包 org.spring.springboot.domain ，作为编写城市实体对象类。新建城市（City）对象 City，代码如下：</p>
-<pre><code>/**
+<h2 id="三、新增-POM-依赖与配置"><a href="#三、新增-POM-依赖与配置" class="headerlink" title="三、新增 POM 依赖与配置"></a>三、新增 POM 依赖与配置</h2><p>在 pom.xml 配置新的依赖：</p>
+<pre><code>    &lt;!-- Spring Boot 响应式 MongoDB 依赖 --&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-boot-starter-data-mongodb-reactive&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+</code></pre>
+<p>类似配了 MySQL 和 JDBC 驱动，肯定得去配置数据库。在 application.properties 配置下上面启动的 MongoDB 配置：</p>
+<p>数据库名为 admin、账号密码也为 admin。</p>
+<pre><code>spring.data.mongodb.host=localhost
+spring.data.mongodb.database=admin
+spring.data.mongodb.port=27017
+spring.data.mongodb.username=admin
+spring.data.mongodb.password=admin
+</code></pre>
+<p>这就一个巨大的问题了，为啥不用我们常用的 MySQL 数据库呢？</p>
+<p>答案是 Spring Data Reactive Repositories 目前支持 Mongo、Cassandra、Redis、Couchbase。不支持 MySQL ，那究竟为啥呢？那就说明下 JDBC 和 Spring Data 的关系。</p>
+<p>Spring Data Reactive Repositories 突出点是 Reactive，即非阻塞的。区别如下：</p>
+<ul>
+<li>基于 JDBC 实现的 Spring Data ，比如 Spring Data JPA 是阻塞的。原理是基于阻塞 IO 模型 消耗每个调用数据库的线程（Connection）</li>
+<li>事务只能在一个 java.sql.Connection 使用，即一个事务一个操作。</li>
+</ul>
+<p>那如何异步非阻塞封装下 JDBC 的思想也不新鲜，Scala 库 Slick 3 就实现了。简单的实现原理如下：</p>
+<ul>
+<li>一个事务多个操作，那么共享一个 java.sql.Connection 。可以使用透明事务管理，利用回调编程模型去传递</li>
+<li>保持有限的空闲连接</li>
+</ul>
+<p>最后，我坚信非阻塞 JDBC 很快就会出现的。这样我们就开心的调用 MySQL 了。</p>
+<h2 id="四、对象"><a href="#四、对象" class="headerlink" title="四、对象"></a>四、对象</h2><p>修改 org.spring.springboot.domain 包里面的城市实体对象类。修改城市（City）对象 City，代码如下：</p>
+<pre><code>import org.springframework.data.annotation.Id;
+
+/**
  * 城市实体类
  *
  */
@@ -260,6 +315,7 @@ public class City &#123;
     /**
      * 城市编号
      */
+    @Id
     private Long id;
 
     /**
@@ -310,60 +366,60 @@ public class City &#123;
     &#125;
 &#125;
 </code></pre>
-<p>城市包含了城市编号、省份编号、城市名称和描述。具体开发中，会使用 Lombok 工具来消除冗长的 Java 代码，尤其是 POJO 的 getter &#x2F; setter 方法。具体查看 Lombok 官网地址：projectlombok.org。</p>
-<h2 id="四、数据访问层-CityRepository"><a href="#四、数据访问层-CityRepository" class="headerlink" title="四、数据访问层 CityRepository"></a>四、数据访问层 CityRepository</h2><p>新建包 org.spring.springboot.dao ，作为编写城市数据访问层类 Repository。新建 CityRepository，代码如下：</p>
+<p>@Id 注解标记对应库表的主键或者唯一标识符。因为这个是我们的 DO ，数据访问对象一一映射到数据存储。</p>
+<h2 id="五、MongoDB-数据访问层-CityRepository"><a href="#五、MongoDB-数据访问层-CityRepository" class="headerlink" title="五、MongoDB 数据访问层 CityRepository"></a>五、MongoDB 数据访问层 CityRepository</h2><p>修改 CityRepository 类，代码如下：</p>
 <pre><code>import org.spring.springboot.domain.City;
+import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Collection;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
-import java.util.concurrent.atomic.AtomicLong;
-
 @Repository
-public class CityRepository &#123;
+public interface CityRepository extends ReactiveMongoRepository&lt;City, Long&gt; &#123;
 
-    private ConcurrentMap&lt;Long, City&gt; repository = new ConcurrentHashMap&lt;&gt;();
-
-    private static final AtomicLong idGenerator = new AtomicLong(0);
-
-    public Long save(City city) &#123;
-        Long id = idGenerator.incrementAndGet();
-        city.setId(id);
-        repository.put(id, city);
-        return id;
-    &#125;
-
-    public Collection&lt;City&gt; findAll() &#123;
-        return repository.values();
-    &#125;
-
-    public City findCityById(Long id) &#123;
-        return repository.get(id);
-    &#125;
-
-    public Long updateCity(City city) &#123;
-        repository.put(city.getId(), city);
-        return city.getId();
-    &#125;
-
-    public Long deleteCity(Long id) &#123;
-        repository.remove(id);
-        return id;
-    &#125;
 &#125;
 </code></pre>
-<p><code>@Repository</code> 用于标注数据访问组件，即 DAO 组件。实现代码中使用名为 <code>repository</code> 的 Map 对象作为内存数据存储，并对对象具体实现了具体业务逻辑。<code>CityRepository</code> 负责将 Book 持久层（数据操作）相关的封装组织，完成新增、查询、删除等操作。</p>
-<p>这里不会涉及到数据存储这块，具体数据存储会在后续介绍。</p>
-<h2 id="五、处理器类-Handler"><a href="#五、处理器类-Handler" class="headerlink" title="五、处理器类 Handler"></a>五、处理器类 Handler</h2><p>新建包 org.spring.springboot.handler ，作为编写城市处理器类 CityHandler。新建 CityHandler，代码如下：</p>
-<pre><code>import org.spring.springboot.dao.CityRepository;
-import org.spring.springboot.domain.City;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
+<p>CityRepository 接口只要继承 ReactiveMongoRepository 类即可。默认会提供很多实现，比如 CRUD 和列表查询参数相关的实现。ReactiveMongoRepository 接口默认实现了如下：</p>
+<pre><code>    &lt;S extends T&gt; Mono&lt;S&gt; insert(S var1);
 
-@Component
+    &lt;S extends T&gt; Flux&lt;S&gt; insert(Iterable&lt;S&gt; var1);
+
+    &lt;S extends T&gt; Flux&lt;S&gt; insert(Publisher&lt;S&gt; var1);
+
+    &lt;S extends T&gt; Flux&lt;S&gt; findAll(Example&lt;S&gt; var1);
+
+    &lt;S extends T&gt; Flux&lt;S&gt; findAll(Example&lt;S&gt; var1, Sort var2);
+</code></pre>
+<p>如图，ReactiveMongoRepository 的集成类 ReactiveSortingRepository、ReactiveCrudRepository 实现了很多常用的接口。</p>
+<p>ReactiveCrudRepository 接口</p>
+<p>另外可以看出，接口的命名是遵循规范的。常用命名规则如下：</p>
+<ul>
+<li>关键字 ：： 方法命名</li>
+<li>And ：： findByNameAndPwd</li>
+<li>Or ：： findByNameOrSex</li>
+<li>Is ：： findById</li>
+<li>Between ：： findByIdBetween</li>
+<li>Like ：： findByNameLike</li>
+<li>NotLike ：： findByNameNotLike</li>
+<li>OrderBy ：： findByIdOrderByXDesc</li>
+<li>Not ：： findByNameNot</li>
+</ul>
+<p>常用案例，代码如下：</p>
+<pre><code>    Flux&lt;Person&gt; findByLastname(String lastname);
+
+    @Query(&quot;&#123; &#39;firstname&#39;: ?0, &#39;lastname&#39;: ?1&#125;&quot;)
+    Mono&lt;Person&gt; findByFirstnameAndLastname(String firstname, String lastname);
+
+    // Accept parameter inside a reactive type for deferred execution
+    Flux&lt;Person&gt; findByLastname(Mono&lt;String&gt; lastname);
+
+    Mono&lt;Person&gt; findByFirstnameAndLastname(Mono&lt;String&gt; firstname, String lastname);
+
+    @Tailable // Use a tailable cursor
+    Flux&lt;Person&gt; findWithTailableCursorBy();
+</code></pre>
+<h4 id="5-1-源码层面"><a href="#5-1-源码层面" class="headerlink" title="5.1 源码层面"></a>5.1 源码层面</h4><p>ReactiveCrudRepository 抽象在 reactive 包。</p>
+<p>这里我们可以看出，支持了 reactive 还支持了 RxJava。对应老的 CrudRepository 新增了 ReactiveCrudRepository 接口及各种存储实现。</p>
+<h2 id="六、处理器类-Handler-和控制器类-Controller"><a href="#六、处理器类-Handler-和控制器类-Controller" class="headerlink" title="六、处理器类 Handler 和控制器类 Controller"></a>六、处理器类 Handler 和控制器类 Controller</h2><p>修改下 Handler ，代码如下：</p>
+<pre><code>@Component
 public class CityHandler &#123;
 
     private final CityRepository cityRepository;
@@ -373,65 +429,33 @@ public class CityHandler &#123;
         this.cityRepository = cityRepository;
     &#125;
 
-    public Mono&lt;Long&gt; save(City city) &#123;
-        return Mono.create(cityMonoSink -&gt; cityMonoSink.success(cityRepository.save(city)));
+    public Mono&lt;City&gt; save(City city) &#123;
+        return cityRepository.save(city);
     &#125;
 
     public Mono&lt;City&gt; findCityById(Long id) &#123;
-        return Mono.justOrEmpty(cityRepository.findCityById(id));
+
+        return cityRepository.findById(id);
     &#125;
 
     public Flux&lt;City&gt; findAllCity() &#123;
-        return Flux.fromIterable(cityRepository.findAll());
+
+        return cityRepository.findAll();
     &#125;
 
-    public Mono&lt;Long&gt; modifyCity(City city) &#123;
-        return Mono.create(cityMonoSink -&gt; cityMonoSink.success(cityRepository.updateCity(city)));
+    public Mono&lt;City&gt; modifyCity(City city) &#123;
+
+        return cityRepository.save(city);
     &#125;
 
     public Mono&lt;Long&gt; deleteCity(Long id) &#123;
-        return Mono.create(cityMonoSink -&gt; cityMonoSink.success(cityRepository.deleteCity(id)));
+        cityRepository.deleteById(id);
+        return Mono.create(cityMonoSink -&gt; cityMonoSink.success(id));
     &#125;
 &#125;
 </code></pre>
-<p><code>@Component</code> 泛指组件，当组件不好归类的时候，使用该注解进行标注。然后用 <code>final</code> 和 <code>@Autowired</code> 标注在构造器注入 CityRepository Bean，代码如下：</p>
-<pre><code>    private final CityRepository cityRepository;
-
-    @Autowired
-    public CityHandler(CityRepository cityRepository) &#123;
-        this.cityRepository = cityRepository;
-    &#125;
-</code></pre>
-<p>从返回值可以看出，Mono 和 Flux 适用于两个场景，即：</p>
-<ul>
-<li>Mono：实现发布者，并返回 0 或 1 个元素，即单对象</li>
-<li>Flux：实现发布者，并返回 N 个元素，即 List 列表对象</li>
-</ul>
-<p>有人会问，这为啥不直接返回对象，比如返回 City&#x2F;Long&#x2F;List。原因是，直接使用 Flux 和 Mono 是非阻塞写法，相当于回调方式。利用函数式可以减少了回调，因此会看不到相关接口。反应了是 WebFlux 的好处：集合了非阻塞 + 异步。</p>
-<h3 id="5-1-Mono"><a href="#5-1-Mono" class="headerlink" title="5.1 Mono"></a>5.1 Mono</h3><p>Mono 是什么？ 官方描述如下：A Reactive Streams Publisher with basic rx operators that completes successfully by emitting an element, or with an error.</p>
-<p>Mono 是响应流 Publisher ，即要么成功发布元素，要么错误。</p>
-<p>Mono 常用的方法有：</p>
-<ul>
-<li>Mono.create()：使用 MonoSink 来创建 Mono</li>
-<li>Mono.justOrEmpty()：从一个 Optional 对象或 null 对象中创建 Mono。</li>
-<li>Mono.error()：创建一个只包含错误消息的 Mono</li>
-<li>Mono.never()：创建一个不包含任何消息通知的 Mono</li>
-<li>Mono.delay()：在指定的延迟时间之后，创建一个 Mono，产生数字 0 作为唯一值</li>
-</ul>
-<h3 id="5-2-Flux"><a href="#5-2-Flux" class="headerlink" title="5.2 Flux"></a>5.2 Flux</h3><p>Flux 是什么？ 官方描述如下：A Reactive Streams Publisher with rx operators that emits 0 to N elements, and then completes (successfully or with an error).</p>
-<p>Flux 是响应流 Publisher ，即要么成功发布 0 到 N 个元素，要么错误。Flux 其实是 Mono 的一个补充。</p>
-<p>所以要注意：如果知道 Publisher 是 0 或 1 个，则用 Mono。</p>
-<p>Flux 最值得一提的是 fromIterable 方法。fromIterable(Iterable&lt;? extends T&gt; it) 可以发布 Iterable 类型的元素。当然，Flux 也包含了基础的操作：map、merge、concat、flatMap、take，这里就不展开介绍了。</p>
-<h2 id="六、控制器类-Controller"><a href="#六、控制器类-Controller" class="headerlink" title="六、控制器类 Controller"></a>六、控制器类 Controller</h2><p>Spring Boot WebFlux 也可以使用自动配置加注解驱动的模式来进行开发。</p>
-<p>新建包目录 <code>org.spring.springboot.webflux.controller</code> ，并在目录中创建名为 CityWebFluxController 来处理不同的 HTTP Restful 业务请求。代码如下：</p>
-<pre><code>import org.spring.springboot.domain.City;
-import org.spring.springboot.handler.CityHandler;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
-
-@RestController
+<p>不要对 Mono 、Flux 陌生，把他当成对象即可。继续修改下控制器类 Controller ，代码如下：</p>
+<pre><code>@RestController
 @RequestMapping(value = &quot;/city&quot;)
 public class CityWebFluxController &#123;
 
@@ -449,12 +473,12 @@ public class CityWebFluxController &#123;
     &#125;
 
     @PostMapping()
-    public Mono&lt;Long&gt; saveCity(@RequestBody City city) &#123;
+    public Mono&lt;City&gt; saveCity(@RequestBody City city) &#123;
         return cityHandler.save(city);
     &#125;
 
     @PutMapping()
-    public Mono&lt;Long&gt; modifyCity(@RequestBody City city) &#123;
+    public Mono&lt;City&gt; modifyCity(@RequestBody City city) &#123;
         return cityHandler.modifyCity(city);
     &#125;
 
@@ -464,28 +488,8 @@ public class CityWebFluxController &#123;
     &#125;
 &#125;
 </code></pre>
-<p>这里按照 REST 风格实现接口。那具体什么是 REST?</p>
-<p>REST 是属于 WEB 自身的一种架构风格，是在 HTTP 1.1 规范下实现的。Representational State Transfer 全称翻译为表现层状态转化。Resource：资源。比如 newsfeed；Representational：表现形式，比如用JSON，富文本等；State Transfer：状态变化。通过HTTP 动作实现。</p>
-<p>理解 REST ,要明白五个关键要素：</p>
-<ul>
-<li>资源（Resource）</li>
-<li>资源的表述（Representation）</li>
-<li>状态转移（State Transfer）</li>
-<li>统一接口（Uniform Interface）</li>
-<li>超文本驱动（Hypertext Driven）</li>
-</ul>
-<p>6 个主要特性：</p>
-<ul>
-<li>面向资源（Resource Oriented）</li>
-<li>可寻址（Addressability）</li>
-<li>连通性（Connectedness）</li>
-<li>无状态（Statelessness）</li>
-<li>统一接口（Uniform Interface）</li>
-<li>超文本驱动（Hypertext Driven）</li>
-</ul>
-<p>请求入参、Filters、重定向、Conversion、formatting 等知识会和以前 MVC 的知识一样，详情见文档： <a target="_blank" rel="noopener" href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html">https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html</a></p>
 <h2 id="七、运行工程"><a href="#七、运行工程" class="headerlink" title="七、运行工程"></a>七、运行工程</h2><p>一个 CRUD 的 Spring Boot Webflux 工程就开发完毕了，下面运行工程验证下。使用 IDEA 右侧工具栏，点击 Maven Project Tab ，点击使用下 Maven 插件的 <code>install</code> 命令。或者使用命令行的形式，在工程根目录下，执行 Maven 清理和安装工程的指令：</p>
-<pre><code>cd springboot-webflux-2-restful
+<pre><code>cd springboot-webflux-3-mongodb
 mvn clean install
 </code></pre>
 <p>在控制台中看到成功的输出：</p>
@@ -506,31 +510,28 @@ mvn clean install
 </code></pre>
 <p>打开 POST MAN 工具，开发必备。进行下面操作：</p>
 <p>新增城市信息 POST <a target="_blank" rel="noopener" href="http://127.0.0.1:8080/city">http://127.0.0.1:8080/city</a></p>
-<p><img src="/images/restful/4.png"></p>
-<p>获取城市信息列表 GET <a target="_blank" rel="noopener" href="http://127.0.0.1:8080/city">http://127.0.0.1:8080/city</a></p>
-<p><img src="/images/restful/4.png"></p>
-<p>其他接口就不演示了。</p>
-<h2 id="八、总结"><a href="#八、总结" class="headerlink" title="八、总结"></a>八、总结</h2><p>这里，探讨了 Spring WebFlux 的一些功能，构建没有底层数据库的基本 CRUD 工程。为了更好的展示了如何创建 Flux 流，以及如何对其进行操作。下面会讲到如何操作数据存储。</p>
+<h3 id="7-1-连接-MongoDB-验证数据"><a href="#7-1-连接-MongoDB-验证数据" class="headerlink" title="7.1 连接 MongoDB , 验证数据"></a>7.1 连接 MongoDB , 验证数据</h3><p>连接 MongoDB</p>
+<pre><code>docker run -it --rm --link mongo:mongo mongo mongo -u admin -p admin --authenticationDatabase admin mongo/admin
+</code></pre>
+<p>显示库列表：</p>
+<pre><code>show dbs
+</code></pre>
+<p>使用某数据库</p>
+<pre><code>use admin
+</code></pre>
+<p>显示表列表</p>
+<pre><code>show collections
+</code></pre>
+<p>如果存在 city 表，格式化显示 city 表内容：</p>
+<pre><code>db.city.find().pretty()
+</code></pre>
+<h2 id="八、总结"><a href="#八、总结" class="headerlink" title="八、总结"></a>八、总结</h2><p>这里，探讨了 Spring WebFlux 的如何整合 MongoDB 。整合其他存储 Cassandra、Redis、Couchbase，就大同小异了。下面，我们能会整合 Thymeleaf，更好的页面展示给大家。顺便让大家学习下 Thymeleaf 的基本用法。</p>
 <p>文章工程：</p>
 <ul>
 <li>JDK 1.8</li>
 <li>Maven 3.5.2</li>
 <li>Spring Boot 2.1.3.RELEASE</li>
-<li>工程名：springboot-webflux-2-restful</li>
-<li>工程地址：见文末</li>
-</ul>
-<h3 id="系列教程目录"><a href="#系列教程目录" class="headerlink" title="系列教程目录"></a>系列教程目录</h3><ul>
-<li>《01：WebFlux 系列教程大纲》</li>
-<li>《02：WebFlux 快速入门实践》</li>
-<li>《03：WebFlux Web CRUD 实践》</li>
-<li>《04：WebFlux 整合 Mongodb》</li>
-<li>《05：WebFlux 整合 Thymeleaf》</li>
-<li>《06：WebFlux 中 Thymeleaf 和 Mongodb 实践》</li>
-<li>《07：WebFlux 整合 Redis》</li>
-<li>《08：WebFlux 中 Redis 实现缓存》</li>
-<li>《09：WebFlux 中 WebSocket 实现通信》</li>
-<li>《10：WebFlux 集成测试及部署》</li>
-<li>《11：WebFlux 实战图书管理系统》</li>
+<li>工程名：springboot-webflux-4-thymeleaf</li>
 </ul>
 <h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><p>本文示例读者可以通过查看下面仓库的中的模块工程名: 2-x-spring-boot-webflux-handling-errors：</p>
 <ul>
@@ -574,19 +575,19 @@ mvn clean install
     
 <nav class="article-nav">
   
-    <a href="/spring-boot-webflux-mongodb-example/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/spring-boot-webflux-thymeleaf-example/" id="article-nav-newer" class="article-nav-link-wrap">
       <div class="article-nav-caption">下一篇</div>
       <div class="article-nav-title">
         
-          Spring Boot WebFlux 集成 Mongodb 案例教程
+          Spring Boot WebFlux 集成 Thymeleaf 案例教程
         
       </div>
     </a>
   
   
-    <a href="/spring-boot-webflux-resutapi-example/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/spring-boot-webflux-crud-example/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-caption">上一篇</div>
-      <div class="article-nav-title">Spring Boot WebFlux 响应式 REST API 错误码案例教程</div>
+      <div class="article-nav-title">Spring Boot WebFlux 响应式 REST API CRUD 案例教程</div>
     </a>
   
 </nav>
@@ -595,15 +596,15 @@ mvn clean install
     <section class="share">
         <div class="share-title">分享</div>
         <a class="share-item" target="_blank"
-            href="https://twitter.com/share?text=Spring Boot WebFlux 响应式 REST API CRUD 案例教程 - 程序员泥瓦匠&url=https%3A%2F%2Fbysocket.com%2Fspring-boot-webflux-crud-example%2F">
+            href="https://twitter.com/share?text=Spring Boot WebFlux 集成 Mongodb 案例教程 - 程序员泥瓦匠&url=https%3A%2F%2Fbysocket.com%2Fspring-boot-webflux-mongodb-example%2F">
             <ion-icon name="logo-twitter"></ion-icon>
         </a>
         <a class="share-item" target="_blank"
-            href="https://www.facebook.com/sharer.php?title=Spring Boot WebFlux 响应式 REST API CRUD 案例教程 - 程序员泥瓦匠&u=https%3A%2F%2Fbysocket.com%2Fspring-boot-webflux-crud-example%2F">
+            href="https://www.facebook.com/sharer.php?title=Spring Boot WebFlux 集成 Mongodb 案例教程 - 程序员泥瓦匠&u=https%3A%2F%2Fbysocket.com%2Fspring-boot-webflux-mongodb-example%2F">
             <ion-icon name="logo-facebook"></ion-icon>
         </a>
         <!-- <a class="share-item" target="_blank"
-            href="https://service.weibo.com/share/share.php?title=Spring Boot WebFlux 响应式 REST API CRUD 案例教程 - 程序员泥瓦匠&url=https://bysocket.com/spring-boot-webflux-crud-example/&pic=">
+            href="https://service.weibo.com/share/share.php?title=Spring Boot WebFlux 集成 Mongodb 案例教程 - 程序员泥瓦匠&url=https://bysocket.com/spring-boot-webflux-mongodb-example/&pic=">
             <div class="n-icon n-icon-weibo"></div>
         </a> -->
     </section>
