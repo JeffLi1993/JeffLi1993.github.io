@@ -1,3 +1,4 @@
+https://bysocket.com/register-openai-chatgpt/
 https://bysocket.com/spring-boot-webflux-thymeleaf-example/
 https://bysocket.com/spring-boot-webflux-mongodb-example/
 https://bysocket.com/openai-chatgpt-too-many-requests-in-1-hour-try-again-later-chatgpt-fix/
