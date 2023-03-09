@@ -1,3 +1,4 @@
+https://bysocket.com/openai-chatgpt-parameters/
 https://bysocket.com/spring-boot-webflux-thymeleaf-example/
 https://bysocket.com/spring-boot-webflux-crud-example/
 https://bysocket.com/spring-boot-quickstart-example/
