@@ -1,3 +1,5 @@
+https://bysocket.com/mac-create-files-from-the-root-directory/
+https://bysocket.com/programmer-job-hopping/
 https://bysocket.com/openai-chatgpt-parameters/
 https://bysocket.com/spring-boot-webflux-thymeleaf-example/
 https://bysocket.com/spring-boot-webflux-crud-example/
@@ -81,6 +83,7 @@ https://bysocket.com/tags/TreeSet/
 https://bysocket.com/tags/LinkedHashSet/
 https://bysocket.com/tags/HBase/
 https://bysocket.com/tags/MongoDB/
+https://bysocket.com/tags/Mac/
 https://bysocket.com/categories/%E6%80%9D%E8%80%83/
 https://bysocket.com/categories/Spring-Boot/
 https://bysocket.com/categories/ElasticSearch/
