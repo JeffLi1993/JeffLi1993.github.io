@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>Elasticsearch 7.x 如何安装及配置（最详细） | 程序员泥瓦匠</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;一、Elasticsearch-7-x&#34;&gt;&lt;a href=&#34;#一、Elasticsearch-7-x&#34; class=&#34;headerlink&#34; title=&#34;一、Elasticsearch 7.x&#34;&gt;&lt;/a&gt;一、Elasticsearch 7.x&lt;/h1&gt;&lt;p&gt;小马哥说过，学习技术栈得看版本，那么 Elasticsearch 7.x 有什么好的特性呢？ ES 7.0 是 2019 年 4 月份发布的，底层是 Lucene 8.0。其他还有需要了解的是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;废除单个索引下多 Type 的支持&lt;/li&gt;
+&lt;li&gt;ES Security 免费使用&lt;/li&gt;
+&lt;/ul&gt;">
+    <link rel="canonical" href="https://bysocket.com/elasticsearch-7-install/"/>
+    <meta name="keywords" content="">
+
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "Elasticsearch 7.x 如何安装及配置（最详细） | 程序员泥瓦匠"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;一、Elasticsearch-7-x&#34;&gt;&lt;a href=&#34;#一、Elasticsearch-7-x&#34; class=&#34;headerlink&#34; title=&#34;一、Elasticsearch 7.x&#34;&gt;&lt;/a&gt;一、Elasticsearch 7.x&lt;/h1&gt;&lt;p&gt;小马哥说过，学习技术栈得看版本，那么 Elasticsearch 7.x 有什么好的特性呢？ ES 7.0 是 2019 年 4 月份发布的，底层是 Lucene 8.0。其他还有需要了解的是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;废除单个索引下多 Type 的支持&lt;/li&gt;
+&lt;li&gt;ES Security 免费使用&lt;/li&gt;
+&lt;/ul&gt;" />
+    <meta property="og:url" content="https://bysocket.com/elasticsearch-7-install/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="泥瓦匠" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;一、Elasticsearch-7-x&#34;&gt;&lt;a href=&#34;#一、Elasticsearch-7-x&#34; class=&#34;headerlink&#34; title=&#34;一、Elasticsearch 7.x&#34;&gt;&lt;/a&gt;一、Elasticsearch 7.x&lt;/h1&gt;&lt;p&gt;小马哥说过，学习技术栈得看版本，那么 Elasticsearch 7.x 有什么好的特性呢？ ES 7.0 是 2019 年 4 月份发布的，底层是 Lucene 8.0。其他还有需要了解的是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;废除单个索引下多 Type 的支持&lt;/li&gt;
+&lt;li&gt;ES Security 免费使用&lt;/li&gt;
+&lt;/ul&gt;" />
+    <meta name="twitter:title" content="Elasticsearch 7.x 如何安装及配置（最详细） | 程序员泥瓦匠"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;一、Elasticsearch-7-x&#34;&gt;&lt;a href=&#34;#一、Elasticsearch-7-x&#34; class=&#34;headerlink&#34; title=&#34;一、Elasticsearch 7.x&#34;&gt;&lt;/a&gt;一、Elasticsearch 7.x&lt;/h1&gt;&lt;p&gt;小马哥说过，学习技术栈得看版本，那么 Elasticsearch 7.x 有什么好的特性呢？ ES 7.0 是 2019 年 4 月份发布的，底层是 Lucene 8.0。其他还有需要了解的是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;废除单个索引下多 Type 的支持&lt;/li&gt;
+&lt;li&gt;ES Security 免费使用&lt;/li&gt;
+&lt;/ul&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;一、Elasticsearch-7-x&#34;&gt;&lt;a href=&#34;#一、Elasticsearch-7-x&#34; class=&#34;headerlink&#34; title=&#34;一、Elasticsearch 7.x&#34;&gt;&lt;/a&gt;一、Elasticsearch 7.x&lt;/h1&gt;&lt;p&gt;小马哥说过，学习技术栈得看版本，那么 Elasticsearch 7.x 有什么好的特性呢？ ES 7.0 是 2019 年 4 月份发布的，底层是 Lucene 8.0。其他还有需要了解的是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;废除单个索引下多 Type 的支持&lt;/li&gt;
+&lt;li&gt;ES Security 免费使用&lt;/li&gt;
+&lt;/ul&gt;",
+            "author": { "@type": "Person", "name": "泥瓦匠" },
+            "@type": "BlogPosting",
+            "url": "https://bysocket.com/elasticsearch-7-install/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://bysocket.comhttps://image.bysocket.com/avatar.webp?dpr=0.1"
+            },
+            "name": "泥瓦匠"
+            },
+            "headline": "Elasticsearch 7.x 如何安装及配置（最详细） | 程序员泥瓦匠",
+            "datePublished": "2023-03-18T08:50:00.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://bysocket.com/elasticsearch-7-install/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+    <!-- Google 广告 AdSense 代码 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2686883599479094" crossorigin="anonymous"></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-avatar avatar avatar-sm">
+                <img src="https://image.bysocket.com/avatar.webp?dpr=0.1" alt="泥瓦匠">
+            </div>
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>程序员泥瓦匠</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">首页</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/about">关于</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/JeffLi1993">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+    <a class="social" target="_blank" href="https://twitter.com/CoderJeffLee">
+        <ion-icon name="logo-twitter"></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/about">关于</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-clfdpd5qw00005k3s8yhb0goq" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      Elasticsearch 7.x 如何安装及配置（最详细）
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2023-03-18T08:50:00.000Z" itemprop="datePublished">2023-03-18</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/Elasticsearch/">Elasticsearch</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Elasticsearch/" rel="tag">Elasticsearch</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="一、Elasticsearch-7-x"><a href="#一、Elasticsearch-7-x" class="headerlink" title="一、Elasticsearch 7.x"></a>一、Elasticsearch 7.x</h1><p>小马哥说过，学习技术栈得看版本，那么 Elasticsearch 7.x 有什么好的特性呢？ ES 7.0 是 2019 年 4 月份发布的，底层是 Lucene 8.0。其他还有需要了解的是：</p>
+<ul>
+<li>废除单个索引下多 Type 的支持</li>
+<li>ES Security 免费使用</li>
+</ul>
+<span id="more"></span>
+
+<ul>
+<li>ECK - ES Operator on K8s</li>
+<li>新功能：New Cluster coordination</li>
+<li>新功能：完整的 High Level REST Client</li>
+<li>新功能：Script Score Query</li>
+<li>性能：默认 Primary Shard 数从 5 到 1 ，避免 Over Sharding；性能优化更快的 Top K</li>
+</ul>
+<h1 id="二、Elasticsearch-7-x-安装步骤"><a href="#二、Elasticsearch-7-x-安装步骤" class="headerlink" title="二、Elasticsearch 7.x 安装步骤"></a>二、Elasticsearch 7.x 安装步骤</h1><h2 id="2-1-下载-Elasticsearch-7-2-1"><a href="#2-1-下载-Elasticsearch-7-2-1" class="headerlink" title="2.1 下载 Elasticsearch 7.2.1"></a>2.1 下载 Elasticsearch 7.2.1</h2><p>下载地址：<a target="_blank" rel="noopener" href="https://www.elastic.co/cn/downloads/elasticsearch">https://www.elastic.co/cn/downloads/elasticsearch</a></p>
+<p>下载对应需要的 ES 。我这边是 MacOS ，所以直接下载了 MacOS 的本。另外 ES 支持 Docker 方式启动。另外，ES 7.x 不需要本地 JDK 环境支持：</p>
+<ul>
+<li>ES 5，安装需要 JDK 8 以上</li>
+<li>ES 6.5，安装需要 JDK 11 以上</li>
+<li>ES 7.2.1，内置了 JDK 12</li>
+</ul>
+<p>下载完后，Elasticsearch 7.2.1 目录结构如下：</p>
+<ul>
+<li>bin ：脚本文件，包括 ES 启动 &amp; 安装插件等等</li>
+<li>config ： elasticsearch.yml（ES 配置文件）、jvm.options（JVM 配置文件）、日志配置文件等等</li>
+<li>JDK ： 内置的 JDK，JAVA_VERSION&#x3D;”12.0.1”</li>
+<li>lib ： 类库</li>
+<li>logs ： 日志文件</li>
+<li>modules ： ES 所有模块，包括 X-pack 等</li>
+<li>plugins ： ES 已经安装的插件。默认没有插件</li>
+<li>data ： ES 启动的时候，会有该目录，用来存储文档数据。该目录可以设置</li>
+</ul>
+<p>具体看看关键的 jvm.options JVM 配置文件，默认配置如下：</p>
+<pre><code>-Xms1g
+-Xmx1g
+</code></pre>
+<p>ES 默认安装后设置的堆内存是 1 GB，对于任何业务来说这个设置肯定是少了。那设置多少？ 推荐：如果足够的内存，也尽量不要 超过 32 GB。即每个节点内存分配不超过 32 GB。 因为它浪费了内存，降低了 CPU 的性能，还要让 GC 应对大内存。如果你想保证其安全可靠，设置堆内存为 31 GB 是一个安全的选择。</p>
+<p>上述推荐，理由来自《堆内存:大小和交换编辑》：<a target="_blank" rel="noopener" href="https://www.elastic.co/guide/cn/elasticsearch/guide/current/heap-sizing.html">https://www.elastic.co/guide/cn/elasticsearch/guide/current/heap-sizing.html</a></p>
+<h2 id="2-2-启动-Elasticsearch-7-2-1"><a href="#2-2-启动-Elasticsearch-7-2-1" class="headerlink" title="2.2 启动 Elasticsearch 7.2.1"></a>2.2 启动 Elasticsearch 7.2.1</h2><p>启动方式很简单，在 ES 根目录下面，执行启动脚本文件：</p>
+<pre><code>cd elasticsearch-7.2.1
+bin/elasticsearch
+</code></pre>
+<p>运行完后，会出现下面的日志：</p>
+<pre><code>future versions of Elasticsearch will require Java 11; your Java version from [/Library/Java/JavaVirtualMachines/jdk1.8.0_152.jdk/Contents/Home/jre] does not meet this requirement
+
+... 省略
+
+[2019-08-16T16:29:53,069][INFO ][o.e.n.Node               ] [BYSocketdeMacBook-Pro-2.local] started
+[2019-08-16T16:29:53,478][INFO ][o.e.l.LicenseService     ] [BYSocketdeMacBook-Pro-2.local] license [ef60f54d-4964-4cb6-98ac-aafdc0f2a4c0] mode [basic] - valid
+[2019-08-16T16:29:53,491][INFO ][o.e.g.GatewayService     ] [BYSocketdeMacBook-Pro-2.local] recovered [0] indices into cluster_state
+[2019-08-16T16:30:23,057][INFO ][o.e.c.r.a.DiskThresholdMonitor] [BYSocketdeMacBook-Pro-2.local] low disk watermark [85%] exceeded on [DRs4DZO0SzCaYz3n3vA3Fg][BYSocketdeMacBook-Pro-2.local][/javaee/es/elasticsearch-7.2.1/data/nodes/0] free: 49.2gb[10.6%], replicas will not be assigned to this node
+</code></pre>
+<p>日志中有两个信息需要注意：</p>
+<ul>
+<li>本机环境是 JDK 8 ，它会提醒后面版本需要 JDK 11 支持。但它是向下兼容的</li>
+<li>表示本机 ES 启动成功 [BYSocketdeMacBook-Pro-2.local] started</li>
+</ul>
+<h2 id="2-3-验证是否启动成功"><a href="#2-3-验证是否启动成功" class="headerlink" title="2.3 验证是否启动成功"></a>2.3 验证是否启动成功</h2><p>打开浏览器，输入 <a target="_blank" rel="noopener" href="http://localhost:9200/">http://localhost:9200/</a> 地址，然后可以得到下面的信息：</p>
+<pre><code>&#123;
+    &quot;name&quot;: &quot;BYSocketdeMacBook-Pro-2.local&quot;,
+    &quot;cluster_name&quot;: &quot;elasticsearch&quot;,
+    &quot;cluster_uuid&quot;: &quot;tc9h17oqSHKvGJb3qK2tPg&quot;,
+    &quot;version&quot;: &#123;
+        &quot;number&quot;: &quot;7.2.1&quot;,
+        &quot;build_flavor&quot;: &quot;default&quot;,
+        &quot;build_type&quot;: &quot;tar&quot;,
+        &quot;build_hash&quot;: &quot;fe6cb20&quot;,
+        &quot;build_date&quot;: &quot;2019-07-24T17:58:29.979462Z&quot;,
+        &quot;build_snapshot&quot;: false,
+        &quot;lucene_version&quot;: &quot;8.0.0&quot;,
+        &quot;minimum_wire_compatibility_version&quot;: &quot;6.8.0&quot;,
+        &quot;minimum_index_compatibility_version&quot;: &quot;6.0.0-beta1&quot;
+    &#125;,
+    &quot;tagline&quot;: &quot;You Know, for Search&quot;
+&#125;
+</code></pre>
+<p>重点几个关注下即可：</p>
+<ul>
+<li>name ： 默认启动的时候指定了 ES 实例名称，name 为 BYSocketdeMacBook-Pro-2.local</li>
+<li>cluster_name ： 默认名为 elasticsearch</li>
+<li>version ：版本信息</li>
+</ul>
+<p>同样通过 <a target="_blank" rel="noopener" href="http://localhost:9200/_cat/nodes?v">http://localhost:9200/_cat/nodes?v</a> 地址，可以看到当前节点信息，如下：</p>
+<pre><code>127.0.0.1 30 100 22 2.87   mdi * BYSocketdeMacBook-Pro-2.local
+</code></pre>
+<h2 id="2-4-单机集群多个-ES-实例安装"><a href="#2-4-单机集群多个-ES-实例安装" class="headerlink" title="2.4 单机集群多个 ES 实例安装"></a>2.4 单机集群多个 ES 实例安装</h2><p>单机多个 ES 实例，形成一个 ES 单机伪集群，启动脚本如下：</p>
+<pre><code>bin/elasticsearch -E node.name=node01 -E cluster.name=bysocket_es_cluster -E path.data=node01_data -d
+
+bin/elasticsearch -E node.name=node02 -E cluster.name=bysocket_es_cluster -E path.data=node02_data -d
+
+bin/elasticsearch -E node.name=node03 -E cluster.name=bysocket_es_cluster -E path.data=node03_data -d
+
+bin/elasticsearch -E node.name=node04 -E cluster.name=bysocket_es_cluster -E path.data=node04_data -d
+</code></pre>
+<p>命令简单解释如下：</p>
+<ul>
+<li>node.name ： ES 节点名称，即实例名</li>
+<li>cluster.name ： ES 集群名称</li>
+<li>path.data ： 指定了存储文档数据目录</li>
+</ul>
+<p>执行完脚本后，需要等一会 ES 启动，也可以查看 logs 看看执行情况。</p>
+<p>打开浏览器，输入 <a target="_blank" rel="noopener" href="http://localhost:9200/_cat/nodes?v">http://localhost:9200/_cat/nodes?v</a> 地址，可以看到启动情况：node01 为当前 master 节点 如何关闭集群中的 ES 实例，可以使用简单的命令实现：</p>
+<pre><code>ps | grep elasticsearch
+kill -9 pid
+</code></pre>
+<h1 id="三、Elasticsearch-7-x-插件概述"><a href="#三、Elasticsearch-7-x-插件概述" class="headerlink" title="三、Elasticsearch 7.x 插件概述"></a>三、Elasticsearch 7.x 插件概述</h1><p>插件是用来增强 Elasticsearch 功能的方法，分为 核心插件（官方） &amp; 社区插件。 安装 analysis-icu ICU 分析插件，命令如下：</p>
+<pre><code>sudo bin/elasticsearch-plugin install analysis-icu
+</code></pre>
+<p>查看已安装的插件，命令如下：</p>
+<pre><code>bin/elasticsearch-plugin list 
+</code></pre>
+<p>删除已安装的插件，命令如下：</p>
+<pre><code>sudo bin/elasticsearch-plugin remove analysis-icu
+</code></pre>
+<h1 id="四、小结"><a href="#四、小结" class="headerlink" title="四、小结"></a>四、小结</h1><p>本文介绍了两种安装以及插件安装，因为方便学习集群相关的知识点。另外注意 JVM 配置相关的优化即可。后续继续 Elasticsearch 7.x 操作学习 ~ （完）原创不易，帮转 ~ </p>
+
+        </div>
+
+    </div>
+
+    <div class="article-copyright">
+
+        <div style="float: left;width: 20%;align:center;text-align: center;">
+             <img style="width: 100px; height: 100px;" src="https://image.bysocket.com/2023/02/qrcode.webp" alt="QRCode" >
+        </div>
+        <div style="float: left;width: 80%;">
+                <br/>
+                本文由 <a target="_blank" rel="noopener" href="https://www.bysocket.com/">泥瓦匠</a> 创作<br/><br/>
+                原创不易，欢迎关注公众号！转载请注明出处，感谢支持！如果本文对您有用，欢迎转发分享！
+        </div>
+
+      </div><br/><br/><br/><br/><br/>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/elasticsearch-7-index-documents/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          Elasticsearch 7.x 之文档、索引和 REST API（快速入门）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/mac-create-files-from-the-root-directory/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">Mac 系统如何利用软链接在根目录创建文件夹？</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=Elasticsearch 7.x 如何安装及配置（最详细） - 程序员泥瓦匠&url=https%3A%2F%2Fbysocket.com%2Felasticsearch-7-install%2F">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=Elasticsearch 7.x 如何安装及配置（最详细） - 程序员泥瓦匠&u=https%3A%2F%2Fbysocket.com%2Felasticsearch-7-install%2F">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=Elasticsearch 7.x 如何安装及配置（最详细） - 程序员泥瓦匠&url=https://bysocket.com/elasticsearch-7-install/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>分类</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/">ElasticSearch</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/Elasticsearch/">Elasticsearch</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Elasticsearch/">Elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JDK/">JDK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JSP/">JSP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Microservice-Architecture/">Microservice Architecture</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SEO/">SEO</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/">Spring Boot</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/ElasticSearch/">ElasticSearch</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/ElasticSearch/Elasticsearch/">Elasticsearch</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot-WebFlux/">Spring Boot WebFlux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%9D%E8%80%83/">思考</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">问题记录</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>标签</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AdSense/" rel="tag">AdSense</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Architecture/" rel="tag">Architecture</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ChatGPT/" rel="tag">ChatGPT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collections/" rel="tag">Collections</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Config/" rel="tag">Config</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Druid/" rel="tag">Druid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dubbo/" rel="tag">Dubbo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Elasticsearch/" rel="tag">Elasticsearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FreeMarker/" rel="tag">FreeMarker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HBase/" rel="tag">HBase</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashSet/" rel="tag">HashSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-IO/" rel="tag">Java IO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LinkedHashSet/" rel="tag">LinkedHashSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/" rel="tag">MongoDB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenAI/" rel="tag">OpenAI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Properties/" rel="tag">Properties</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/" rel="tag">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Data/" rel="tag">Spring Data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thymeleaf/" rel="tag">Thymeleaf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TreeSet/" rel="tag">TreeSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UUID/" rel="tag">UUID</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Validation/" rel="tag">Validation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ZooKeeper/" rel="tag">ZooKeeper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>最新文章</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/microservice-architecture/">微服务架构一直火，为什么服务化要搞懂</a>
+          </li>
+        
+          <li>
+            <a href="/elasticsearch-7-node/">Elasticsearch 7.x 之节点、集群、分片及副本（快速入门）</a>
+          </li>
+        
+          <li>
+            <a href="/elasticsearch-7-index-documents/">Elasticsearch 7.x 之文档、索引和 REST API（快速入门）</a>
+          </li>
+        
+          <li>
+            <a href="/elasticsearch-7-install/">Elasticsearch 7.x 如何安装及配置（最详细）</a>
+          </li>
+        
+          <li>
+            <a href="/mac-create-files-from-the-root-directory/">Mac 系统如何利用软链接在根目录创建文件夹？</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            程序员泥瓦匠 &copy; 2023<br>
+            <a href="https://beian.miit.gov.cn" rel="nofollow" target="_blank">浙ICP备15028451号-7</a> | <a href="https://www.decompilertool.com/" target="_blank">Java Decompiler</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+<!-- 百度链接提交 -->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+<!-- Google Analytics-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RR50H8B3V1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-RR50H8B3V1');
+</script>
+
+
+
+
+
+
+
+
+<!-- Baidu Analytics-->
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e43a8b7f6b87c80c7d5d89ee04348971";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

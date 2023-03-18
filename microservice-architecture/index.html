@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>微服务架构一直火，为什么服务化要搞懂 | 程序员泥瓦匠</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;一、对微服务架构的理解&#34;&gt;&lt;a href=&#34;#一、对微服务架构的理解&#34; class=&#34;headerlink&#34; title=&#34;一、对微服务架构的理解&#34;&gt;&lt;/a&gt;一、对微服务架构的理解&lt;/h1&gt;&lt;h2 id=&#34;1-1-微服务架构&#34;&gt;&lt;a href=&#34;#1-1-微服务架构&#34; class=&#34;headerlink&#34; title=&#34;1.1 微服务架构&#34;&gt;&lt;/a&gt;1.1 微服务架构&lt;/h2&gt;&lt;p&gt;微服务架构，主要是多了个 “微”。亚马逊有个粗粗的定义：一个微服务应用工程的所有开发、测试、运维加起来大约 6 到 8 个人，只需要两个披萨就可以聚餐了。&lt;/p&gt;">
+    <link rel="canonical" href="https://bysocket.com/microservice-architecture/"/>
+    <meta name="keywords" content="">
+
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "微服务架构一直火，为什么服务化要搞懂 | 程序员泥瓦匠"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;一、对微服务架构的理解&#34;&gt;&lt;a href=&#34;#一、对微服务架构的理解&#34; class=&#34;headerlink&#34; title=&#34;一、对微服务架构的理解&#34;&gt;&lt;/a&gt;一、对微服务架构的理解&lt;/h1&gt;&lt;h2 id=&#34;1-1-微服务架构&#34;&gt;&lt;a href=&#34;#1-1-微服务架构&#34; class=&#34;headerlink&#34; title=&#34;1.1 微服务架构&#34;&gt;&lt;/a&gt;1.1 微服务架构&lt;/h2&gt;&lt;p&gt;微服务架构，主要是多了个 “微”。亚马逊有个粗粗的定义：一个微服务应用工程的所有开发、测试、运维加起来大约 6 到 8 个人，只需要两个披萨就可以聚餐了。&lt;/p&gt;" />
+    <meta property="og:url" content="https://bysocket.com/microservice-architecture/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="泥瓦匠" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;一、对微服务架构的理解&#34;&gt;&lt;a href=&#34;#一、对微服务架构的理解&#34; class=&#34;headerlink&#34; title=&#34;一、对微服务架构的理解&#34;&gt;&lt;/a&gt;一、对微服务架构的理解&lt;/h1&gt;&lt;h2 id=&#34;1-1-微服务架构&#34;&gt;&lt;a href=&#34;#1-1-微服务架构&#34; class=&#34;headerlink&#34; title=&#34;1.1 微服务架构&#34;&gt;&lt;/a&gt;1.1 微服务架构&lt;/h2&gt;&lt;p&gt;微服务架构，主要是多了个 “微”。亚马逊有个粗粗的定义：一个微服务应用工程的所有开发、测试、运维加起来大约 6 到 8 个人，只需要两个披萨就可以聚餐了。&lt;/p&gt;" />
+    <meta name="twitter:title" content="微服务架构一直火，为什么服务化要搞懂 | 程序员泥瓦匠"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;一、对微服务架构的理解&#34;&gt;&lt;a href=&#34;#一、对微服务架构的理解&#34; class=&#34;headerlink&#34; title=&#34;一、对微服务架构的理解&#34;&gt;&lt;/a&gt;一、对微服务架构的理解&lt;/h1&gt;&lt;h2 id=&#34;1-1-微服务架构&#34;&gt;&lt;a href=&#34;#1-1-微服务架构&#34; class=&#34;headerlink&#34; title=&#34;1.1 微服务架构&#34;&gt;&lt;/a&gt;1.1 微服务架构&lt;/h2&gt;&lt;p&gt;微服务架构，主要是多了个 “微”。亚马逊有个粗粗的定义：一个微服务应用工程的所有开发、测试、运维加起来大约 6 到 8 个人，只需要两个披萨就可以聚餐了。&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;一、对微服务架构的理解&#34;&gt;&lt;a href=&#34;#一、对微服务架构的理解&#34; class=&#34;headerlink&#34; title=&#34;一、对微服务架构的理解&#34;&gt;&lt;/a&gt;一、对微服务架构的理解&lt;/h1&gt;&lt;h2 id=&#34;1-1-微服务架构&#34;&gt;&lt;a href=&#34;#1-1-微服务架构&#34; class=&#34;headerlink&#34; title=&#34;1.1 微服务架构&#34;&gt;&lt;/a&gt;1.1 微服务架构&lt;/h2&gt;&lt;p&gt;微服务架构，主要是多了个 “微”。亚马逊有个粗粗的定义：一个微服务应用工程的所有开发、测试、运维加起来大约 6 到 8 个人，只需要两个披萨就可以聚餐了。&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "泥瓦匠" },
+            "@type": "BlogPosting",
+            "url": "https://bysocket.com/microservice-architecture/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://bysocket.comhttps://image.bysocket.com/avatar.webp?dpr=0.1"
+            },
+            "name": "泥瓦匠"
+            },
+            "headline": "微服务架构一直火，为什么服务化要搞懂 | 程序员泥瓦匠",
+            "datePublished": "2023-03-18T11:00:00.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://bysocket.com/microservice-architecture/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+    <!-- Google 广告 AdSense 代码 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2686883599479094" crossorigin="anonymous"></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-avatar avatar avatar-sm">
+                <img src="https://image.bysocket.com/avatar.webp?dpr=0.1" alt="泥瓦匠">
+            </div>
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>程序员泥瓦匠</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">首页</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/about">关于</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/JeffLi1993">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+    <a class="social" target="_blank" href="https://twitter.com/CoderJeffLee">
+        <ion-icon name="logo-twitter"></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/about">关于</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-clfdpw3rv000c5k3s478o1eh3" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      微服务架构一直火，为什么服务化要搞懂
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2023-03-18T11:00:00.000Z" itemprop="datePublished">2023-03-18</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/Microservice-Architecture/">Microservice Architecture</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Architecture/" rel="tag">Architecture</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="一、对微服务架构的理解"><a href="#一、对微服务架构的理解" class="headerlink" title="一、对微服务架构的理解"></a>一、对微服务架构的理解</h1><h2 id="1-1-微服务架构"><a href="#1-1-微服务架构" class="headerlink" title="1.1 微服务架构"></a>1.1 微服务架构</h2><p>微服务架构，主要是多了个 “微”。亚马逊有个粗粗的定义：一个微服务应用工程的所有开发、测试、运维加起来大约 6 到 8 个人，只需要两个披萨就可以聚餐了。</p>
+<span id="more"></span>
+
+<p>微服务架构，这 5 年左右一直被认可，是软件架构的未来方向。需要大家理解的是，为什么需要服务化。比如微服务架构对企业来说，带来什么价值？有啥弊端？ 这里浅谈一下微服务架构，主要还是在理解 Why ：为什么需要服务化？</p>
+<h1 id="一、对微服务架构的理解-1"><a href="#一、对微服务架构的理解-1" class="headerlink" title="一、对微服务架构的理解"></a>一、对微服务架构的理解</h1><h2 id="1-1-微服务架构-1"><a href="#1-1-微服务架构-1" class="headerlink" title="1.1 微服务架构"></a>1.1 微服务架构</h2><p>微服务架构，主要是多了个 “微”。亚马逊有个粗粗的定义：一个微服务应用工程的所有开发、测试、运维加起来大约 6 到 8 个人，只需要两个披萨就可以聚餐了。</p>
+<p>反例：不是一个 Service 类组成的应用工程，发布成服务就是微服务。这样分的太小，理解微服务就很片面。杭州某金融大厂，曾经分的很细，造成了运维测试成本巨大。开始分了合，折腾…</p>
+<h2 id="1-2-为啥需要微服务？"><a href="#1-2-为啥需要微服务？" class="headerlink" title="1.2 为啥需要微服务？"></a>1.2 为啥需要微服务？</h2><p>由 SOA 架构 -&gt; 微服务架构的转变，得理解为什么微服务架构被广泛提到并实践。它解决了什么问题，带来了什么价值？ 传统企业或者很多企业的软件，大多不止一套系统，都是各个独立大系统的堆砌。整体存在的问题是：</p>
+<ul>
+<li>扩展性差</li>
+<li>可靠性不高</li>
+<li>维护成本还很大</li>
+<li>重复轮子很多</li>
+</ul>
+<p>那么这些问题，可以想到的解决方案就是：</p>
+<ul>
+<li>组件化</li>
+<li>服务化</li>
+</ul>
+<p>微服务架构，将各个组件或者模块分散到各个服务中，对整个系统实现解耦。那微服务架构强调的重中之重就是业务系统需要完善的组件化和服务化。什么是组件化？ 组件化，即将一个大系统，按照一定的业务或者技术维度关注形式，拆分成独立的组件。目的是为了分而治之，为了可重用，为了减少耦合度。比如按照技术维度：搜索组件、缓存组件；按照业务维度：用户中心、支付中心等</p>
+<p>组件化是不是有点中台的意思？阿里巴巴提出 大中台，小前台；就是把组件化、插件化、服务化解决方案到极致。通过产品线公共业务或者技术下沉，形成各种技术或者业务中台</p>
+<h1 id="二、服务化前的问题"><a href="#二、服务化前的问题" class="headerlink" title="二、服务化前的问题"></a>二、服务化前的问题</h1><h2 id="2-1-没有服务化，不代表不是分布式或集群"><a href="#2-1-没有服务化，不代表不是分布式或集群" class="headerlink" title="2.1 没有服务化，不代表不是分布式或集群"></a>2.1 没有服务化，不代表不是分布式或集群</h2><p>分布式，就是多个实例提供相同的服务。比如多个地方动车站里面，多个机器提供取票服务。多个地方，北京上海等，就是多机房，多个取票服务一起组成了集群，形成分布式服务。那啥是服务化？ 服务化，强调 “化”！核心就是不同服务之间的通信。是一种以服务为中心的解决方案：</p>
+<ul>
+<li>服务注册</li>
+<li>服务发布</li>
+<li>服务调用</li>
+<li>服务监控</li>
+<li>服务负载均衡</li>
+<li>等等</li>
+</ul>
+<h2 id="2-2-没有服务化的架构问题"><a href="#2-2-没有服务化的架构问题" class="headerlink" title="2.2 没有服务化的架构问题"></a>2.2 没有服务化的架构问题</h2><p>没有服务化前，举个例子，会更形象： 假设有个取票服务、买票服务、改座服务都需要验证下用户身份真实性，那么会存在下面的问题：</p>
+<ul>
+<li>取票服务 -&gt; 调用用户DB代码 -&gt; 用户DB</li>
+<li>买票服务 -&gt; 调用用户DB代码 -&gt; 用户DB</li>
+<li>改座服务 -&gt; 调用用户DB代码 -&gt; 用户DB</li>
+</ul>
+<p>明显的问题是：</p>
+<ul>
+<li>代码重复：不同业务相同访问 DB 的 userDAO 代码逻辑。而且每个服务这块代码是不同人维护的。</li>
+<li>可维护性低：不同人维护；不同地方维护；每次 DB 字段改变或者迁库，全部业务都有修改</li>
+<li>DB 访问耦合</li>
+</ul>
+<p>自然也有解决方案是：lib。维护一个 user-DAO-lib 1.0.0 release 包，给各个业务方。 解决了问题，引入了新的问题，lib 升级是巨大而又漫长的问题。比如小李是维护 user-DAO-lib 的人，有一次写了隐蔽的 bug 。user-lib 升级到了 1.0.1 release，花了 1 个月左右时间，推几十个业务方升级完毕。然后这个 bug 运行了几天出现了，考虑升级fix或者回滚都是巨大的成本 基于服务化，就可以完美解决问题。</p>
+<h1 id="三、服务化后的好处"><a href="#三、服务化后的好处" class="headerlink" title="三、服务化后的好处"></a>三、服务化后的好处</h1><p>Post 文章服务调用 Video 视频服务，需要通过最上层的 Service 之间相互调用。服务化明显改变：</p>
+<ul>
+<li>DB 隔离：这样底层细节设计可以屏蔽，后续加上其他存储 Cache 等对业务调用方无感知。</li>
+<li>通过 Service 之间通信：具体协议可以 RPC &#x2F; HTTP 等</li>
+</ul>
+<p>服务化后的好处：</p>
+<ul>
+<li>调用简单：不用写相同的访问用户服务代码，调用一个服务即可</li>
+<li>代码复用：跟 lib 形式的代码复用有所区别在于，服务化通过通信的方式解决</li>
+<li>业务隔离</li>
+<li>数据库解耦</li>
+<li>等等</li>
+</ul>
+<h1 id="四、不可否认的微服务架构或者服务化带来新的问题"><a href="#四、不可否认的微服务架构或者服务化带来新的问题" class="headerlink" title="四、不可否认的微服务架构或者服务化带来新的问题"></a>四、不可否认的微服务架构或者服务化带来新的问题</h1><p>1、本身不大的系统，业务不复杂的系统也不需要微服务架构。微服务架构会带来一定的复杂性，是一套完整的服务治理方案 2、多个模块数据库，分布式事务是一个挑战 3、开发过程，增加了测试等一定的复杂性 有利必有弊，具体场景具体选择</p>
+<h1 id="五、小结"><a href="#五、小结" class="headerlink" title="五、小结"></a>五、小结</h1><p>本小结，不是讲how，讲的是 why。只有懂 why ，才能更好地 do。从为啥服务化？到为啥微服务架构这么流行：</p>
+<ul>
+<li>微服务扩展性高</li>
+<li>微服务可靠性高</li>
+<li>微服务 维护成本小</li>
+<li>微服务几乎没有重复轮子</li>
+<li>微服务直接调用调用简单</li>
+<li>微服务业务隔离</li>
+<li>微服务数据库解耦</li>
+<li>等等</li>
+</ul>
+<blockquote>
+<p>欢迎关注微信公众号：程序员泥瓦匠。获取我整理精品学习资料和每日干货推送 博文原创链接，尽在：<a href="https://bysocket.com/">bysocket.com</a></p>
+</blockquote>
+
+        </div>
+
+    </div>
+
+    <div class="article-copyright">
+
+        <div style="float: left;width: 20%;align:center;text-align: center;">
+             <img style="width: 100px; height: 100px;" src="https://image.bysocket.com/2023/02/qrcode.webp" alt="QRCode" >
+        </div>
+        <div style="float: left;width: 80%;">
+                <br/>
+                本文由 <a target="_blank" rel="noopener" href="https://www.bysocket.com/">泥瓦匠</a> 创作<br/><br/>
+                原创不易，欢迎关注公众号！转载请注明出处，感谢支持！如果本文对您有用，欢迎转发分享！
+        </div>
+
+      </div><br/><br/><br/><br/><br/>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+  
+    <a href="/elasticsearch-7-node/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">Elasticsearch 7.x 之节点、集群、分片及副本（快速入门）</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=微服务架构一直火，为什么服务化要搞懂 - 程序员泥瓦匠&url=https%3A%2F%2Fbysocket.com%2Fmicroservice-architecture%2F">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=微服务架构一直火，为什么服务化要搞懂 - 程序员泥瓦匠&u=https%3A%2F%2Fbysocket.com%2Fmicroservice-architecture%2F">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=微服务架构一直火，为什么服务化要搞懂 - 程序员泥瓦匠&url=https://bysocket.com/microservice-architecture/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>分类</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/">ElasticSearch</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/Elasticsearch/">Elasticsearch</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Elasticsearch/">Elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JDK/">JDK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JSP/">JSP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Microservice-Architecture/">Microservice Architecture</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SEO/">SEO</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/">Spring Boot</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/ElasticSearch/">ElasticSearch</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/ElasticSearch/Elasticsearch/">Elasticsearch</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot-WebFlux/">Spring Boot WebFlux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%9D%E8%80%83/">思考</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">问题记录</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>标签</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AdSense/" rel="tag">AdSense</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Architecture/" rel="tag">Architecture</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ChatGPT/" rel="tag">ChatGPT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collections/" rel="tag">Collections</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Config/" rel="tag">Config</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Druid/" rel="tag">Druid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dubbo/" rel="tag">Dubbo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Elasticsearch/" rel="tag">Elasticsearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FreeMarker/" rel="tag">FreeMarker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HBase/" rel="tag">HBase</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashSet/" rel="tag">HashSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-IO/" rel="tag">Java IO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LinkedHashSet/" rel="tag">LinkedHashSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/" rel="tag">MongoDB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenAI/" rel="tag">OpenAI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Properties/" rel="tag">Properties</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/" rel="tag">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Data/" rel="tag">Spring Data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thymeleaf/" rel="tag">Thymeleaf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TreeSet/" rel="tag">TreeSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UUID/" rel="tag">UUID</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Validation/" rel="tag">Validation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ZooKeeper/" rel="tag">ZooKeeper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>最新文章</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/microservice-architecture/">微服务架构一直火，为什么服务化要搞懂</a>
+          </li>
+        
+          <li>
+            <a href="/elasticsearch-7-node/">Elasticsearch 7.x 之节点、集群、分片及副本（快速入门）</a>
+          </li>
+        
+          <li>
+            <a href="/elasticsearch-7-index-documents/">Elasticsearch 7.x 之文档、索引和 REST API（快速入门）</a>
+          </li>
+        
+          <li>
+            <a href="/elasticsearch-7-install/">Elasticsearch 7.x 如何安装及配置（最详细）</a>
+          </li>
+        
+          <li>
+            <a href="/mac-create-files-from-the-root-directory/">Mac 系统如何利用软链接在根目录创建文件夹？</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            程序员泥瓦匠 &copy; 2023<br>
+            <a href="https://beian.miit.gov.cn" rel="nofollow" target="_blank">浙ICP备15028451号-7</a> | <a href="https://www.decompilertool.com/" target="_blank">Java Decompiler</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+<!-- 百度链接提交 -->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+<!-- Google Analytics-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RR50H8B3V1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-RR50H8B3V1');
+</script>
+
+
+
+
+
+
+
+
+<!-- Baidu Analytics-->
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e43a8b7f6b87c80c7d5d89ee04348971";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

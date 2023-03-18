@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>Elasticsearch 7.x 之节点、集群、分片及副本（快速入门） | 程序员泥瓦匠</title>
+
+    <meta name="description" content="&lt;p&gt;从物理空间概念，Elasticsearch 分布式系统会有 3 个关键点需要学习。本次总结了下面相关内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;分布式&lt;/li&gt;
+&lt;li&gt;节点 &amp;amp; 集群&lt;/li&gt;
+&lt;li&gt;主分片及副本&lt;/li&gt;
+&lt;/ul&gt;">
+    <link rel="canonical" href="https://bysocket.com/elasticsearch-7-node/"/>
+    <meta name="keywords" content="">
+
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "Elasticsearch 7.x 之节点、集群、分片及副本（快速入门） | 程序员泥瓦匠"  />
+    <meta property="og:description" content= "&lt;p&gt;从物理空间概念，Elasticsearch 分布式系统会有 3 个关键点需要学习。本次总结了下面相关内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;分布式&lt;/li&gt;
+&lt;li&gt;节点 &amp;amp; 集群&lt;/li&gt;
+&lt;li&gt;主分片及副本&lt;/li&gt;
+&lt;/ul&gt;" />
+    <meta property="og:url" content="https://bysocket.com/elasticsearch-7-node/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="泥瓦匠" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;p&gt;从物理空间概念，Elasticsearch 分布式系统会有 3 个关键点需要学习。本次总结了下面相关内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;分布式&lt;/li&gt;
+&lt;li&gt;节点 &amp;amp; 集群&lt;/li&gt;
+&lt;li&gt;主分片及副本&lt;/li&gt;
+&lt;/ul&gt;" />
+    <meta name="twitter:title" content="Elasticsearch 7.x 之节点、集群、分片及副本（快速入门） | 程序员泥瓦匠"/>
+    <meta name="twitter:description" content="&lt;p&gt;从物理空间概念，Elasticsearch 分布式系统会有 3 个关键点需要学习。本次总结了下面相关内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;分布式&lt;/li&gt;
+&lt;li&gt;节点 &amp;amp; 集群&lt;/li&gt;
+&lt;li&gt;主分片及副本&lt;/li&gt;
+&lt;/ul&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;p&gt;从物理空间概念，Elasticsearch 分布式系统会有 3 个关键点需要学习。本次总结了下面相关内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;分布式&lt;/li&gt;
+&lt;li&gt;节点 &amp;amp; 集群&lt;/li&gt;
+&lt;li&gt;主分片及副本&lt;/li&gt;
+&lt;/ul&gt;",
+            "author": { "@type": "Person", "name": "泥瓦匠" },
+            "@type": "BlogPosting",
+            "url": "https://bysocket.com/elasticsearch-7-node/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://bysocket.comhttps://image.bysocket.com/avatar.webp?dpr=0.1"
+            },
+            "name": "泥瓦匠"
+            },
+            "headline": "Elasticsearch 7.x 之节点、集群、分片及副本（快速入门） | 程序员泥瓦匠",
+            "datePublished": "2023-03-18T08:59:00.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://bysocket.com/elasticsearch-7-node/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+    <!-- Google 广告 AdSense 代码 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2686883599479094" crossorigin="anonymous"></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-avatar avatar avatar-sm">
+                <img src="https://image.bysocket.com/avatar.webp?dpr=0.1" alt="泥瓦匠">
+            </div>
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>程序员泥瓦匠</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">首页</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/about">关于</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/JeffLi1993">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+    <a class="social" target="_blank" href="https://twitter.com/CoderJeffLee">
+        <ion-icon name="logo-twitter"></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/about">关于</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-clfdprgbt00085k3s8ean5iml" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      Elasticsearch 7.x 之节点、集群、分片及副本（快速入门）
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2023-03-18T08:59:00.000Z" itemprop="datePublished">2023-03-18</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/Elasticsearch/">Elasticsearch</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Elasticsearch/" rel="tag">Elasticsearch</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <p>从物理空间概念，Elasticsearch 分布式系统会有 3 个关键点需要学习。本次总结了下面相关内容：</p>
+<ul>
+<li>分布式</li>
+<li>节点 &amp; 集群</li>
+<li>主分片及副本</li>
+</ul>
+<span id="more"></span>
+
+<h1 id="一、Elasticsearch-分布式"><a href="#一、Elasticsearch-分布式" class="headerlink" title="一、Elasticsearch 分布式"></a>一、Elasticsearch 分布式</h1><p>Elasticsearch 分布式特性包括如下几个点：</p>
+<h1 id="1-1-高可用"><a href="#1-1-高可用" class="headerlink" title="1.1 高可用"></a>1.1 高可用</h1><p>什么是高可用？CAP 定理是分布式系统的基础，也是分布式系统的 3 个指标：</p>
+<ol>
+<li>Consistency（一致性）</li>
+<li>Availability（可用性）</li>
+<li>Partition tolerance（分区容错性）</li>
+</ol>
+<p>那高可用（High Availability）是什么？高可用，简称 HA，是系统一种特征或者指标，通常是指，提供一定性能上的服务运行时间，高于平均正常时间段。反之，消除系统服务不可用的时间。 衡量系统是否满足高可用，就是当一台或者多台服务器宕机的时候，系统整体和服务依然正常可用。</p>
+<p>举个例子，一些知名的网站保证 4 个 9 以上的可用性，也就是可用性超过 99.99%。那 0.01% 就是所谓故障时间的百分比。 Elasticsearch 在高可用性上，体现如下两点：</p>
+<ul>
+<li>服务可用性：允许部分节点停止服务，整体服务没有影响</li>
+<li>数据可用性：允许部分节点丢失，最终不会丢失数据</li>
+</ul>
+<h1 id="1-2-可扩展"><a href="#1-2-可扩展" class="headerlink" title="1.2 可扩展"></a>1.2 可扩展</h1><p>随着公司业务发展，Elasticsearch 也面临两个挑战：</p>
+<ul>
+<li>搜索数据量从百万到亿量级</li>
+<li>搜索请求 QPS 也猛增</li>
+</ul>
+<p>那么需要将原来节点和增量数据重新从 10 个节点分布到 100 个节点。Elasticsearch 可以横向扩展至数百（甚至数千）的服务器节点，同时可以处理PB级数据。Elasticsearch 为了可扩展性而生，由小规模集群增长为大规模集群的过程几乎完全自动化，这是水平扩展的体现。</p>
+<h1 id="1-3-Elasticsearch-分布式特性"><a href="#1-3-Elasticsearch-分布式特性" class="headerlink" title="1.3 Elasticsearch 分布式特性"></a>1.3 Elasticsearch 分布式特性</h1><p>上面通过可扩展性，可以看出 Elasticsearch 分布式的好处明显：</p>
+<ul>
+<li>存储可以水平扩容，水平空间换时间</li>
+<li>部分节点停止服务，整个集群服务不受影响，照样正常提供服务</li>
+</ul>
+<p>Elasticsearch 在后台自动完成了分布式相关工作，如下：</p>
+<ul>
+<li>自动分配文档到不同分片或者多节点上</li>
+<li>均衡分配分片到集群节点上，index 和 search 操作时进行负载均衡</li>
+<li>复制每个分片，支持数据冗余，防止硬件故障数据丢失</li>
+<li>集群扩容时，无缝整合新节点，并且重新分配分片</li>
+<li>等等</li>
+</ul>
+<p>Elasticsearch 集群知识点如下：</p>
+<ul>
+<li>不同集群通过名字区分，默认集群名称为 “elasticsearch”</li>
+<li>集群名 cluster name ，可以通过配置文件修改或者命令行 -E cluster.name&#x3D;user-es-cluster 进行设置</li>
+<li>一个集群由多个节点组成</li>
+</ul>
+<h1 id="二、Elasticsearch-节点-amp-集群"><a href="#二、Elasticsearch-节点-amp-集群" class="headerlink" title="二、Elasticsearch 节点 &amp; 集群"></a>二、Elasticsearch 节点 &amp; 集群</h1><p>Elasticsearch 集群有多个节点组成，形成分布式集群。那么，什么是节点呢？ 节点（Node），就是一个 Elasticsearch 应用实例。大家都知道 Elasticsearch 源代码是 Java 写的，那么节点就是一个 Java 进程。所以类似 Spring 应用一样，一台服务器或者本机可以运行多个节点，只要对应的端口不同即可。但生产服务器中，一般一台服务器运行一个 Elasticsearch 节点。还有需要注意：</p>
+<ul>
+<li>Elasticsearch 都会有 name ，通过 -E node.name&#x3D;node01 指定或者配置文件中配置</li>
+<li>每个节点启动成功，都会分配对应得一个 UID ，保存在 data 目录</li>
+</ul>
+<p>可以通过命令 <code>_cluster/health</code> 查看集群的健康状态，如下：</p>
+<ul>
+<li>Green 主分片与副本分片都正常</li>
+<li>Yellow 主分片正常，副本分片不正常</li>
+<li>Red 有主分片不正常，可能某个分片容量超过了磁盘大小等</li>
+</ul>
+<p>有主（Master）节点和其他节点。那么节点有多少类型呢？</p>
+<h2 id="2-1-Master-eligible-Node-和-Master-Node"><a href="#2-1-Master-eligible-Node-和-Master-Node" class="headerlink" title="2.1 Master-eligible Node 和 Master Node"></a>2.1 Master-eligible Node 和 Master Node</h2><p>Elasticsearch 被启动后，默认就是 Master-eligible Node。然后通过参与选主过程，可以成为 Master Node。具体选主原理，后续单独写一篇文章。Master Node 有什么作用呢？</p>
+<ul>
+<li>Master Node 负责同步集群状态信息：<ul>
+<li>所有节点信息</li>
+<li>所有索引即其 Mapping 和 Setting 信息</li>
+<li>所有分片路由信息</li>
+</ul>
+</li>
+<li>只能 Master 节点可以修改信息，是因为这样就能保证数据得一致性</li>
+</ul>
+<h2 id="2-2-Data-Node-和-Coordinating-Node"><a href="#2-2-Data-Node-和-Coordinating-Node" class="headerlink" title="2.2 Data Node 和 Coordinating Node"></a>2.2 Data Node 和 Coordinating Node</h2><p>Data Node，又称数据节点。用于保存数据，其在数据扩展上起至关重要的作用。 Coordinating Node，是负责接收任何 Client 的请求，包括 REST Client 等。该节点将请求分发到合适的节点，最终把结果汇集到一起。一般来说，每个节点默认起到了 Coordinating Node 的职责。</p>
+<h2 id="2-3-其他节点类型"><a href="#2-3-其他节点类型" class="headerlink" title="2.3 其他节点类型"></a>2.3 其他节点类型</h2><p>还有其他节点类型，虽然不常见，但需要知道：</p>
+<ul>
+<li>Hot &amp; Warm Node：不同硬件配置的 Data Node，用来实现冷热数据节点架构，降低运维部署的成本</li>
+<li>Machine Learning Node：负责机器学习的节点</li>
+<li>Tribe Node：负责连接不同的集群。支持跨集群搜索 Cross Cluster Search</li>
+</ul>
+<p>一般在开发环境中，设置单一的角色节点：</p>
+<ul>
+<li>master node：通过 node.master 配置，默认 true</li>
+<li>data node：通过 node.data 配置，默认 true</li>
+<li>ingest node：通过 node.ingest 配置，默认 true</li>
+<li>coordinating node：默认每个节点都是 coordinating 节点，设置其他类型全部为 false。</li>
+<li>machine learning：通过 node.ml 配置，默认 true，需要通过 x-pack 开启。</li>
+</ul>
+<h1 id="三、主分片及副本"><a href="#三、主分片及副本" class="headerlink" title="三、主分片及副本"></a>三、主分片及副本</h1><p>3 个节点分别为 Node1、Node2、Node3。并且 Node3 上面有一个主分片 P0 和一个副本 R2。那什么是主分片呢？ 主分片，用来解决数据水平扩展的问题。比如上图这个解决可以将数据分布到所有节点上：</p>
+<ul>
+<li>节点上可以有主分片，也可以没有主分片</li>
+<li>主分片在索引创建的时候确定，后续不允许修改。除非 Reindex 操作进行修改</li>
+</ul>
+<p>副本，用来备份数据，提高数据的高可用性。副本分片是主分片的拷贝</p>
+<ul>
+<li>副本分片数，可以动态调整</li>
+<li>增加副本数，可以一定程度上提高服务读取的吞吐和可用性</li>
+</ul>
+<p>如何查看 Elasticsearch 集群的分片配置呢？可以从 settings 从看出：</p>
+<ul>
+<li><p>number_of_shards 主分片数</p>
+</li>
+<li><p>number_of_replicas 副本分片数</p>
+<p>{<br>“my_index”: {<br>“settings”: {<br>“index”: {<br>“number_of_shards”: “8”,<br>“number_of_replicas”: “1”<br>}<br>}<br>}<br>}</p>
+</li>
+</ul>
+<p>实战建议：对生产环境中，分片设置很重要，需要最好容量评估与规划</p>
+<ul>
+<li>根据数据容量评估分配数，设置过小，后续无法水平扩展；单分片数据量太大，也容易导致数据分片耗时严重</li>
+<li>分片数设置如果太大，会导致资源浪费，性能降低；同时也会影响搜索结果打分和搜索准确性</li>
+</ul>
+<p>索引评估，每个索引下面的单分片数不用太大。如何评估呢？比如这个索引 100 G 数据量，那设置 10 个分片，平均每个分片数据量就是 10G 。每个分片 10 G 数据量这么大，耗时肯定严重。所以根据评估的数据量合理安排分片数即可。如果需要调整主分片数，那么需要进行 reindex 等迁索引操作。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>从上一篇到这一篇：</p>
+<ul>
+<li>一个节点，对应一个实例</li>
+<li>一个节点，可以多个索引</li>
+<li>一个索引，可以多个分片</li>
+<li>一个分片，对应底层一个 lucene 分片</li>
+</ul>
+<p>比如知道了搜索性能场景，例如多少数据量，多大的写入，是写为主还是查询为主等等，才可以确定：</p>
+<ul>
+<li>磁盘，推荐 SSD，JVM最大 Xmx 不要超过30G。副本分片至少设置为1。主分片，单个存储不要超过 30 GB，按照这个你推算出分片数，进行设定。</li>
+<li>集群中磁盘快满的时候，你再增加机器，确实可能导致新建的索引全部分配到新节点上去的可能性。最终导致数据分配不均。所以要记得监控集群，到70%就需要考虑删除数据或是增加节点</li>
+<li>可以设置最大分片数缓解这个问题。</li>
+<li>分片的尺寸如果过大，确实也没有快速恢复的办法，所以尽量保证分片的size在40G以下</li>
+</ul>
+
+        </div>
+
+    </div>
+
+    <div class="article-copyright">
+
+        <div style="float: left;width: 20%;align:center;text-align: center;">
+             <img style="width: 100px; height: 100px;" src="https://image.bysocket.com/2023/02/qrcode.webp" alt="QRCode" >
+        </div>
+        <div style="float: left;width: 80%;">
+                <br/>
+                本文由 <a target="_blank" rel="noopener" href="https://www.bysocket.com/">泥瓦匠</a> 创作<br/><br/>
+                原创不易，欢迎关注公众号！转载请注明出处，感谢支持！如果本文对您有用，欢迎转发分享！
+        </div>
+
+      </div><br/><br/><br/><br/><br/>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/microservice-architecture/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          微服务架构一直火，为什么服务化要搞懂
+        
+      </div>
+    </a>
+  
+  
+    <a href="/elasticsearch-7-index-documents/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">Elasticsearch 7.x 之文档、索引和 REST API（快速入门）</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=Elasticsearch 7.x 之节点、集群、分片及副本（快速入门） - 程序员泥瓦匠&url=https%3A%2F%2Fbysocket.com%2Felasticsearch-7-node%2F">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=Elasticsearch 7.x 之节点、集群、分片及副本（快速入门） - 程序员泥瓦匠&u=https%3A%2F%2Fbysocket.com%2Felasticsearch-7-node%2F">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=Elasticsearch 7.x 之节点、集群、分片及副本（快速入门） - 程序员泥瓦匠&url=https://bysocket.com/elasticsearch-7-node/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>分类</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/">ElasticSearch</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/Elasticsearch/">Elasticsearch</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Elasticsearch/">Elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JDK/">JDK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JSP/">JSP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Microservice-Architecture/">Microservice Architecture</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SEO/">SEO</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/">Spring Boot</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/ElasticSearch/">ElasticSearch</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/ElasticSearch/Elasticsearch/">Elasticsearch</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot-WebFlux/">Spring Boot WebFlux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%9D%E8%80%83/">思考</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">问题记录</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>标签</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AdSense/" rel="tag">AdSense</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Architecture/" rel="tag">Architecture</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ChatGPT/" rel="tag">ChatGPT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collections/" rel="tag">Collections</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Config/" rel="tag">Config</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Druid/" rel="tag">Druid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dubbo/" rel="tag">Dubbo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Elasticsearch/" rel="tag">Elasticsearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FreeMarker/" rel="tag">FreeMarker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HBase/" rel="tag">HBase</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashSet/" rel="tag">HashSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-IO/" rel="tag">Java IO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LinkedHashSet/" rel="tag">LinkedHashSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/" rel="tag">MongoDB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenAI/" rel="tag">OpenAI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Properties/" rel="tag">Properties</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/" rel="tag">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Data/" rel="tag">Spring Data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thymeleaf/" rel="tag">Thymeleaf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TreeSet/" rel="tag">TreeSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UUID/" rel="tag">UUID</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Validation/" rel="tag">Validation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ZooKeeper/" rel="tag">ZooKeeper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>最新文章</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/microservice-architecture/">微服务架构一直火，为什么服务化要搞懂</a>
+          </li>
+        
+          <li>
+            <a href="/elasticsearch-7-node/">Elasticsearch 7.x 之节点、集群、分片及副本（快速入门）</a>
+          </li>
+        
+          <li>
+            <a href="/elasticsearch-7-index-documents/">Elasticsearch 7.x 之文档、索引和 REST API（快速入门）</a>
+          </li>
+        
+          <li>
+            <a href="/elasticsearch-7-install/">Elasticsearch 7.x 如何安装及配置（最详细）</a>
+          </li>
+        
+          <li>
+            <a href="/mac-create-files-from-the-root-directory/">Mac 系统如何利用软链接在根目录创建文件夹？</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            程序员泥瓦匠 &copy; 2023<br>
+            <a href="https://beian.miit.gov.cn" rel="nofollow" target="_blank">浙ICP备15028451号-7</a> | <a href="https://www.decompilertool.com/" target="_blank">Java Decompiler</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+<!-- 百度链接提交 -->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+<!-- Google Analytics-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RR50H8B3V1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-RR50H8B3V1');
+</script>
+
+
+
+
+
+
+
+
+<!-- Baidu Analytics-->
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e43a8b7f6b87c80c7d5d89ee04348971";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

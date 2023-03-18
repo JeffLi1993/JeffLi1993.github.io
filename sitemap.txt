@@ -1,3 +1,7 @@
+https://bysocket.com/microservice-architecture/
+https://bysocket.com/elasticsearch-7-node/
+https://bysocket.com/elasticsearch-7-index-documents/
+https://bysocket.com/elasticsearch-7-install/
 https://bysocket.com/mac-create-files-from-the-root-directory/
 https://bysocket.com/programmer-job-hopping/
 https://bysocket.com/openai-chatgpt-parameters/
@@ -57,6 +61,7 @@ https://bysocket.com/tags/%E5%8E%9F%E7%90%86/
 https://bysocket.com/tags/REST/
 https://bysocket.com/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/
 https://bysocket.com/tags/Redis/
+https://bysocket.com/tags/ElasticSearch/
 https://bysocket.com/tags/OpenAI/
 https://bysocket.com/tags/Mybatis/
 https://bysocket.com/tags/Druid/
@@ -84,6 +89,7 @@ https://bysocket.com/tags/LinkedHashSet/
 https://bysocket.com/tags/HBase/
 https://bysocket.com/tags/MongoDB/
 https://bysocket.com/tags/Mac/
+https://bysocket.com/tags/Architecture/
 https://bysocket.com/categories/%E6%80%9D%E8%80%83/
 https://bysocket.com/categories/Spring-Boot/
 https://bysocket.com/categories/ElasticSearch/
@@ -98,3 +104,4 @@ https://bysocket.com/categories/Elasticsearch/
 https://bysocket.com/categories/ElasticSearch/Elasticsearch/
 https://bysocket.com/categories/Spring-Boot/ElasticSearch/
 https://bysocket.com/categories/Spring-Boot/ElasticSearch/Elasticsearch/
+https://bysocket.com/categories/Microservice-Architecture/

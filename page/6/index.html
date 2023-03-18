@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>程序员泥瓦匠</title>
+
+    <meta name="description" content="程序员泥瓦匠的技术博客。内容涵盖 Java 后端技术、Spring Boot、Spring Cloud、微服务架构、运维开发、系统监控等相关的研究与知识分享。">
+    <link rel="canonical" href="https://bysocket.com/page/6/"/>
+    <meta name="keywords" content="">
+
+
+    
+
+
+
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content=""/>
+    <meta property="og:description" content=""/>
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://bysocket.com/page/6/index.html" />
+    <meta property="og:site_name" content="泥瓦匠" />
+    <meta property="article:publisher" content="" />
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "",
+            "description": "",
+            "publisher": {
+                "@type": "Organization",
+                "name": "泥瓦匠"
+            }
+        }
+    </script>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = false
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+    <!-- Google 广告 AdSense 代码 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2686883599479094" crossorigin="anonymous"></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-avatar avatar avatar-sm">
+                <img src="https://image.bysocket.com/avatar.webp?dpr=0.1" alt="泥瓦匠">
+            </div>
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>程序员泥瓦匠</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">首页</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/about">关于</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/JeffLi1993">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+    <a class="social" target="_blank" href="https://twitter.com/CoderJeffLee">
+        <ion-icon name="logo-twitter"></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/about">关于</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="index">
+  
+    
+      <article
+id="post-spring-boot-web-annotation"
+class="article article-type-post"
+>
+
+
+
+<div class="article-inner">
+    
+
+    <div class="article-body">
+    <header class="article-title">
+        <a href="/spring-boot-web-annotation/">Spring Boot Web 开发注解篇</a>
+    </header>
+    <div class="article-entry post-inner-html">
+        
+        <p>运行环境：JDK 7 或 8、Maven 3.0+<br>技术栈：SpringBoot 1.5+、SpringBoot Mybatis Starter 1.2+ 、MyBatis 3.4+</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>spring-boot-starter-web</p>
+<p>在 Spring Boot 快速入门中，只要在 pom.xml 加入了 spring-boot-starter-web 依赖，即可快速开发 web 应用。可见，Spring Boot 极大地简化了 Spring 应用从搭建到开发的过程，做到了「开箱即用」的方式。Spring Boot 已经提供很多「开箱即用」的依赖，如上面开发 web 应用使用的 spring-boot-starter-web ，都是以 spring-boot-starter-xx 进行命名的。</p>
+        
+    </div>
+    </div>
+
+    <div class="article-badge">
+        
+        
+    </div>
+
+</div>
+
+<footer class="article-footer">
+    <div class="article-more-info">
+    <div class="article-date">
+  <time datetime="2023-01-14T15:50:15.000Z" itemprop="datePublished">2023-01-14</time>
+</div>
+    
+        <div class="article-category">
+        <a class="article-category-link" href="/categories/Spring-Boot/">Spring Boot</a>
+        </div>
+    
+    
+        <div class="article-tag">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li></ul>
+        </div>
+    
+    </div>
+</footer>
+
+</article>
+
+    
+  
+    
+      <article
+id="post-spring-boot-mybatis"
+class="article article-type-post"
+>
+
+
+
+<div class="article-inner">
+    
+
+    <div class="article-body">
+    <header class="article-title">
+        <a href="/spring-boot-mybatis/">Spring Boot 整合 MyBatis 配置等案例教程</a>
+    </header>
+    <div class="article-entry post-inner-html">
+        
+        <p>运行环境：JDK 7 或 8、Maven 3.0+<br>技术栈：SpringBoot 1.5+、SpringBoot Mybatis Starter 1.2+ 、MyBatis 3.4+</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>距离第一篇 Spring Boot 系列的博文 3 个月了。《Springboot 整合 Mybatis 的完整 Web 案例》第一篇出来是 XML 配置 SQL 的形式。虽然 XML 形式是我比较推荐的，但是注解形式也是方便的。尤其一些小系统，快速的 CRUD 轻量级的系统。</p>
+        
+    </div>
+    </div>
+
+    <div class="article-badge">
+        
+        
+    </div>
+
+</div>
+
+<footer class="article-footer">
+    <div class="article-more-info">
+    <div class="article-date">
+  <time datetime="2023-01-13T15:50:15.000Z" itemprop="datePublished">2023-01-13</time>
+</div>
+    
+        <div class="article-category">
+        <a class="article-category-link" href="/categories/Spring-Boot/">Spring Boot</a>
+        </div>
+    
+    
+        <div class="article-tag">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li></ul>
+        </div>
+    
+    </div>
+</footer>
+
+</article>
+
+    
+  
+    
+      <article
+id="post-spring_boot_hello_world"
+class="article article-type-post"
+>
+
+
+
+<div class="article-inner">
+    
+
+    <div class="article-body">
+    <header class="article-title">
+        <a href="/spring_boot_hello_world/">Spring Boot Hello World 基于 IDEA 案例详解</a>
+    </header>
+    <div class="article-entry post-inner-html">
+        
+        <h2 id="一、Spring-Boot-是什么"><a href="#一、Spring-Boot-是什么" class="headerlink" title="一、Spring Boot 是什么"></a>一、Spring Boot 是什么</h2><p>世界上最好的文档来源自官方的《Spring Boot Reference Guide》，是这样介绍的：</p>
+<blockquote>
+<p>Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can “just run”…Most Spring Boot applications need very little Spring configuration.</p>
+</blockquote>
+        
+    </div>
+    </div>
+
+    <div class="article-badge">
+        
+        
+    </div>
+
+</div>
+
+<footer class="article-footer">
+    <div class="article-more-info">
+    <div class="article-date">
+  <time datetime="2023-01-13T06:50:15.000Z" itemprop="datePublished">2023-01-13</time>
+</div>
+    
+        <div class="article-category">
+        <a class="article-category-link" href="/categories/Spring-Boot/">Spring Boot</a>
+        </div>
+    
+    
+        <div class="article-tag">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+        </div>
+    
+    </div>
+</footer>
+
+</article>
+
+    
+  
+    
+      <article
+id="post-about"
+class="article article-type-post"
+>
+
+
+
+<div class="article-inner">
+    
+
+    <div class="article-body">
+    <header class="article-title">
+        <a href="/about/">关于我们</a>
+    </header>
+    <div class="article-entry post-inner-html">
+        
+        <p>程序员泥瓦匠（bysocket.com），是一个技术技术博客网站。</p>
+<p>该网站内容涵盖 Java 后端技术、Spring Boot、Spring Cloud、微服务架构、运维开发、系统监控等相关的研究与知识分享。</p>
+<p>联系 Email：<a href="mailto:&#x39;&#52;&#x39;&#49;&#x37;&#x33;&#x36;&#53;&#x30;&#x40;&#x71;&#113;&#x2e;&#x63;&#x6f;&#109;">&#x39;&#52;&#x39;&#49;&#x37;&#x33;&#x36;&#53;&#x30;&#x40;&#x71;&#113;&#x2e;&#x63;&#x6f;&#109;</a></p>
+        
+    </div>
+    </div>
+
+    <div class="article-badge">
+        
+        
+    </div>
+
+</div>
+
+<footer class="article-footer">
+    <div class="article-more-info">
+    <div class="article-date">
+  <time datetime="2022-01-13T02:50:15.000Z" itemprop="datePublished">2022-01-13</time>
+</div>
+    
+        <div class="article-category">
+        <a class="article-category-link" href="/categories/%E6%80%9D%E8%80%83/">思考</a>
+        </div>
+    
+    
+        <div class="article-tag">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+        </div>
+    
+    </div>
+</footer>
+
+</article>
+
+    
+  
+
+  
+    <nav class="pagination">
+        <a class="extend prev" rel="prev" href="/page/5/">Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
+    </nav>
+  
+</div>
+
+<!-- 博客老地址重定向 -->
+<script>
+    try {
+        // http://www.bysocket.com/?p=2306
+        var reg = new RegExp("(^|&)p=([^&]*)(&|$)");
+        var r = window.location.href.split('?')[1].match(reg);
+
+        if(r != null) {
+            if('1124' === r[2]) {
+                window.location.href = 'https://bysocket.com/spring_boot_hello_world/';
+            }
+            if('1610' === r[2]) {
+                window.location.href = 'https://bysocket.com/spring-boot-mybatis/';
+            }
+            if('1929' === r[2]) {
+                window.location.href = 'https://bysocket.com/spring-boot-web-annotation/';
+            }
+            if('1627' === r[2]) {
+                window.location.href = 'https://bysocket.com/spring-boot-restful/';
+            }
+            if('1786' === r[2]) {
+                window.location.href = 'https://bysocket.com/spring-boot-properties/';
+            }
+            if('1756' === r[2]) {
+                window.location.href = 'https://bysocket.com/spring-boot-redis/';
+            }
+            if('1829' === r[2]) {
+                window.location.href = 'https://bysocket.com/spring-boot-elasticsearch/';
+            }
+            if('1080' === r[2]) {
+                window.location.href = 'https://bysocket.com/spring-boot-restful-verify/';
+            }
+            if('1889' === r[2]) {
+                window.location.href = 'https://bysocket.com/how-elasticsearch-works/';
+            }
+            if('1712' === r[2]) {
+                window.location.href = 'https://bysocket.com/spring-boot-mybatis-druid/';
+            }
+            if('1692' === r[2]) {
+                window.location.href = 'https://bysocket.com/spring-boot-restful-error-handling/';
+            }
+            if('1681' === r[2]) {
+                window.location.href = 'https://bysocket.com/spring-boot-dubbo-zookeeper/';
+            }
+            if('518' === r[2]) {
+                window.location.href = 'https://bysocket.com/jsp-servlet-hello-world-example/';
+            }
+            if('449' === r[2]) {
+                window.location.href = 'https://bysocket.com/java-filenamefilter-source-example/';
+            }
+            if('1811' === r[2]) {
+                window.location.href = 'https://bysocket.com/spring-boot-mybatis-annotation-web/';
+            }
+            if('162' === r[2]) {
+                window.location.href = 'https://bysocket.com/java-collection-framework/';
+            }
+            if('1950' === r[2]) {
+                window.location.href = 'https://bysocket.com/spring-boot-data-pageable-query/';
+            }
+            if('1942' === r[2]) {
+                window.location.href = 'https://bysocket.com/spring-boot-starter-validation-example/';
+            }
+            if('282' === r[2]) {
+                window.location.href = 'https://bysocket.com/http-intro/';
+            }
+            if('420' === r[2]) {
+                window.location.href = 'https://bysocket.com/java-io-file-example/';
+            }
+            if('1973' === r[2]) {
+                window.location.href = 'https://bysocket.com/spring-boot-thymeleaf-web-example/';
+            }
+            if('2008' === r[2]) {
+                window.location.href = 'https://bysocket.com/spring-boot-mybatis-collection-example/';
+            }
+            if('592' === r[2]) {
+                window.location.href = 'https://bysocket.com/java-io-outputstream-example/';
+            }
+            if('1174' === r[2]) {
+                window.location.href = 'https://bysocket.com/sql-ddl-dml-dcl-tcl-commands-with-examples/';
+            }
+            if('139' === r[2]) {
+                window.location.href = 'https://bysocket.com/java-8-characters-uuid-generator-example/';
+            }
+            if('1744' === r[2]) {
+                window.location.href = 'https://bysocket.com/elasticsearch-head-install/';
+            }
+            if('1666' === r[2]) {
+                window.location.href = 'https://bysocket.com/spring-boot-freemarker/';
+            }
+            if('1666' === r[2]) {
+                window.location.href = 'https://bysocket.com/spring-boot-configuration-habse-example/';
+            }
+            if('2119' === r[2]) {
+                window.location.href = 'https://bysocket.com/spring-boot-quickstart-example/';
+            }
+            if('2358' === r[2]) {
+                window.location.href = 'https://bysocket.com/spring-boot-webflux-thymeleaf-example/';
+            }
+        }
+    } catch(e) {
+
+    }
+</script>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>分类</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/">ElasticSearch</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/Elasticsearch/">Elasticsearch</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Elasticsearch/">Elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JDK/">JDK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JSP/">JSP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Microservice-Architecture/">Microservice Architecture</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SEO/">SEO</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/">Spring Boot</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/ElasticSearch/">ElasticSearch</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/ElasticSearch/Elasticsearch/">Elasticsearch</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot-WebFlux/">Spring Boot WebFlux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%9D%E8%80%83/">思考</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">问题记录</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>标签</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AdSense/" rel="tag">AdSense</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Architecture/" rel="tag">Architecture</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ChatGPT/" rel="tag">ChatGPT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collections/" rel="tag">Collections</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Config/" rel="tag">Config</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Druid/" rel="tag">Druid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dubbo/" rel="tag">Dubbo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Elasticsearch/" rel="tag">Elasticsearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FreeMarker/" rel="tag">FreeMarker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HBase/" rel="tag">HBase</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashSet/" rel="tag">HashSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-IO/" rel="tag">Java IO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LinkedHashSet/" rel="tag">LinkedHashSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/" rel="tag">MongoDB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenAI/" rel="tag">OpenAI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Properties/" rel="tag">Properties</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/" rel="tag">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Data/" rel="tag">Spring Data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thymeleaf/" rel="tag">Thymeleaf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TreeSet/" rel="tag">TreeSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UUID/" rel="tag">UUID</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Validation/" rel="tag">Validation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ZooKeeper/" rel="tag">ZooKeeper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>最新文章</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/microservice-architecture/">微服务架构一直火，为什么服务化要搞懂</a>
+          </li>
+        
+          <li>
+            <a href="/elasticsearch-7-node/">Elasticsearch 7.x 之节点、集群、分片及副本（快速入门）</a>
+          </li>
+        
+          <li>
+            <a href="/elasticsearch-7-index-documents/">Elasticsearch 7.x 之文档、索引和 REST API（快速入门）</a>
+          </li>
+        
+          <li>
+            <a href="/elasticsearch-7-install/">Elasticsearch 7.x 如何安装及配置（最详细）</a>
+          </li>
+        
+          <li>
+            <a href="/mac-create-files-from-the-root-directory/">Mac 系统如何利用软链接在根目录创建文件夹？</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            程序员泥瓦匠 &copy; 2023<br>
+            <a href="https://beian.miit.gov.cn" rel="nofollow" target="_blank">浙ICP备15028451号-7</a> | <a href="https://www.decompilertool.com/" target="_blank">Java Decompiler</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+<!-- 百度链接提交 -->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+<!-- Google Analytics-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RR50H8B3V1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-RR50H8B3V1');
+</script>
+
+
+
+
+
+
+
+
+<!-- Baidu Analytics-->
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e43a8b7f6b87c80c7d5d89ee04348971";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

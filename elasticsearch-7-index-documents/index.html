@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>Elasticsearch 7.x 之文档、索引和 REST API（快速入门） | 程序员泥瓦匠</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;一、Elasticsearch-7-x&#34;&gt;&lt;a href=&#34;#一、Elasticsearch-7-x&#34; class=&#34;headerlink&#34; title=&#34;一、Elasticsearch 7.x&#34;&gt;&lt;/a&gt;一、Elasticsearch 7.x&lt;/h1&gt;&lt;p&gt;上一篇《Elasticsearch 7.x 最详细安装及配置》，今天继续最新版基础入门内容。这一篇简单总结了 Elasticsearch 7.x 之文档、索引和 REST API。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;什么是文档&lt;/li&gt;
+&lt;li&gt;文档Unique ID&lt;/li&gt;
+&lt;li&gt;文档元数据&lt;/li&gt;
+&lt;li&gt;什么是索引&lt;/li&gt;
+&lt;li&gt;REST API&lt;/li&gt;
+&lt;/ul&gt;">
+    <link rel="canonical" href="https://bysocket.com/elasticsearch-7-index-documents/"/>
+    <meta name="keywords" content="">
+
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "Elasticsearch 7.x 之文档、索引和 REST API（快速入门） | 程序员泥瓦匠"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;一、Elasticsearch-7-x&#34;&gt;&lt;a href=&#34;#一、Elasticsearch-7-x&#34; class=&#34;headerlink&#34; title=&#34;一、Elasticsearch 7.x&#34;&gt;&lt;/a&gt;一、Elasticsearch 7.x&lt;/h1&gt;&lt;p&gt;上一篇《Elasticsearch 7.x 最详细安装及配置》，今天继续最新版基础入门内容。这一篇简单总结了 Elasticsearch 7.x 之文档、索引和 REST API。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;什么是文档&lt;/li&gt;
+&lt;li&gt;文档Unique ID&lt;/li&gt;
+&lt;li&gt;文档元数据&lt;/li&gt;
+&lt;li&gt;什么是索引&lt;/li&gt;
+&lt;li&gt;REST API&lt;/li&gt;
+&lt;/ul&gt;" />
+    <meta property="og:url" content="https://bysocket.com/elasticsearch-7-index-documents/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="泥瓦匠" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;一、Elasticsearch-7-x&#34;&gt;&lt;a href=&#34;#一、Elasticsearch-7-x&#34; class=&#34;headerlink&#34; title=&#34;一、Elasticsearch 7.x&#34;&gt;&lt;/a&gt;一、Elasticsearch 7.x&lt;/h1&gt;&lt;p&gt;上一篇《Elasticsearch 7.x 最详细安装及配置》，今天继续最新版基础入门内容。这一篇简单总结了 Elasticsearch 7.x 之文档、索引和 REST API。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;什么是文档&lt;/li&gt;
+&lt;li&gt;文档Unique ID&lt;/li&gt;
+&lt;li&gt;文档元数据&lt;/li&gt;
+&lt;li&gt;什么是索引&lt;/li&gt;
+&lt;li&gt;REST API&lt;/li&gt;
+&lt;/ul&gt;" />
+    <meta name="twitter:title" content="Elasticsearch 7.x 之文档、索引和 REST API（快速入门） | 程序员泥瓦匠"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;一、Elasticsearch-7-x&#34;&gt;&lt;a href=&#34;#一、Elasticsearch-7-x&#34; class=&#34;headerlink&#34; title=&#34;一、Elasticsearch 7.x&#34;&gt;&lt;/a&gt;一、Elasticsearch 7.x&lt;/h1&gt;&lt;p&gt;上一篇《Elasticsearch 7.x 最详细安装及配置》，今天继续最新版基础入门内容。这一篇简单总结了 Elasticsearch 7.x 之文档、索引和 REST API。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;什么是文档&lt;/li&gt;
+&lt;li&gt;文档Unique ID&lt;/li&gt;
+&lt;li&gt;文档元数据&lt;/li&gt;
+&lt;li&gt;什么是索引&lt;/li&gt;
+&lt;li&gt;REST API&lt;/li&gt;
+&lt;/ul&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;一、Elasticsearch-7-x&#34;&gt;&lt;a href=&#34;#一、Elasticsearch-7-x&#34; class=&#34;headerlink&#34; title=&#34;一、Elasticsearch 7.x&#34;&gt;&lt;/a&gt;一、Elasticsearch 7.x&lt;/h1&gt;&lt;p&gt;上一篇《Elasticsearch 7.x 最详细安装及配置》，今天继续最新版基础入门内容。这一篇简单总结了 Elasticsearch 7.x 之文档、索引和 REST API。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;什么是文档&lt;/li&gt;
+&lt;li&gt;文档Unique ID&lt;/li&gt;
+&lt;li&gt;文档元数据&lt;/li&gt;
+&lt;li&gt;什么是索引&lt;/li&gt;
+&lt;li&gt;REST API&lt;/li&gt;
+&lt;/ul&gt;",
+            "author": { "@type": "Person", "name": "泥瓦匠" },
+            "@type": "BlogPosting",
+            "url": "https://bysocket.com/elasticsearch-7-index-documents/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://bysocket.comhttps://image.bysocket.com/avatar.webp?dpr=0.1"
+            },
+            "name": "泥瓦匠"
+            },
+            "headline": "Elasticsearch 7.x 之文档、索引和 REST API（快速入门） | 程序员泥瓦匠",
+            "datePublished": "2023-03-18T08:55:00.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://bysocket.com/elasticsearch-7-index-documents/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+    <!-- Google 广告 AdSense 代码 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2686883599479094" crossorigin="anonymous"></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-avatar avatar avatar-sm">
+                <img src="https://image.bysocket.com/avatar.webp?dpr=0.1" alt="泥瓦匠">
+            </div>
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>程序员泥瓦匠</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">首页</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/about">关于</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/JeffLi1993">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+    <a class="social" target="_blank" href="https://twitter.com/CoderJeffLee">
+        <ion-icon name="logo-twitter"></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/about">关于</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-clfdpgl5a00045k3s66xd13sr" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      Elasticsearch 7.x 之文档、索引和 REST API（快速入门）
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2023-03-18T08:55:00.000Z" itemprop="datePublished">2023-03-18</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/Elasticsearch/">Elasticsearch</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Elasticsearch/" rel="tag">Elasticsearch</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="一、Elasticsearch-7-x"><a href="#一、Elasticsearch-7-x" class="headerlink" title="一、Elasticsearch 7.x"></a>一、Elasticsearch 7.x</h1><p>上一篇《Elasticsearch 7.x 最详细安装及配置》，今天继续最新版基础入门内容。这一篇简单总结了 Elasticsearch 7.x 之文档、索引和 REST API。</p>
+<ul>
+<li>什么是文档</li>
+<li>文档Unique ID</li>
+<li>文档元数据</li>
+<li>什么是索引</li>
+<li>REST API</li>
+</ul>
+<span id="more"></span>
+
+<h1 id="一、索引文档（Document）"><a href="#一、索引文档（Document）" class="headerlink" title="一、索引文档（Document）"></a>一、索引文档（Document）</h1><h2 id="1-1-白话什么是文档"><a href="#1-1-白话什么是文档" class="headerlink" title="1.1 白话什么是文档"></a>1.1 白话什么是文档</h2><p>从使用案例出发，Elasticsearch 是面向文档，文档是所有搜索数据的最小单元。</p>
+<ul>
+<li><p>案例一：每个公司都有业务日志平台，比如交易业务日志。 文档：每一条日志文件中的日志项，就是文档</p>
+</li>
+<li><p>案例二：可以搜索并播放电影的在线视频网站 文档：每一个电影的具体信息，就是文档</p>
+</li>
+<li><p>案例三：可以搜索并下载文件的云存储网站，类似百度云 文档：每一个文件具体内容信息，就是文档</p>
+</li>
+</ul>
+<p>等等案例很多，那么文档就是类似数据库里面的一条长长的存储记录。文档（Document）是索引信息的基本单位。 文档被序列化成为 JSON 格式，物理保存在一个索引中。JSON 是一种常见的互联网数据交换格式：</p>
+<ul>
+<li>文档字段名：JSON 格式由 name&#x2F;value pairs 组成，对应的 name 就是文档字段名</li>
+<li>文档字段类型：每个字段都有对应的字段类型：String、integer、long 等，并支持数据&amp;嵌套</li>
+</ul>
+<h2 id="1-2-文档的-Unique-ID"><a href="#1-2-文档的-Unique-ID" class="headerlink" title="1.2 文档的 Unique ID"></a>1.2 文档的 Unique ID</h2><p>每个文档都会有一个 Unique ID，其字段名称为 <code>_id</code> ：</p>
+<ul>
+<li><p>自行设置指定 ID 或通过 Elasticsearch 自动生成</p>
+</li>
+<li><p>其值不会被索引</p>
+</li>
+<li><p>注意：该 _id 字段的值可以在某些查询 term, terms, match, query_string, simple_query_string 等中访问，但不能在 aggregations，scripts 或 sorting 中使用。如果需要对 _id 字段进行排序或汇总，建议新建一个文档字段复制 _id 字段的内容</p>
+<p>PUT my_index&#x2F;_doc&#x2F;1<br>{<br>“text”: “Document with ID 1”<br>}</p>
+<p>PUT my_index&#x2F;_doc&#x2F;2&amp;refresh&#x3D;true<br>{<br>“text”: “Document with ID 2”<br>}</p>
+<p>GET my_index&#x2F;_search<br>{<br>“query”: {<br>“terms”: {<br>“_id”: [ “1”, “2” ]<br>}<br>}<br>}</p>
+</li>
+</ul>
+<h2 id="1-3-文档元数据"><a href="#1-3-文档元数据" class="headerlink" title="1.3 文档元数据"></a>1.3 文档元数据</h2><p>元数据是用于标注文档的相关信息，那么索引文档的元数据如下：</p>
+<ul>
+<li>_index 文档所属索引名称</li>
+<li>_type 文档所属类型名</li>
+<li>_id 文档唯一 ID</li>
+<li>_score 文档相关性打分</li>
+<li>_source 文档 JSON 数据</li>
+<li>_version 文档版本信息</li>
+</ul>
+<p>其中 _type 文档所属类型名，需要关注版本不同之间区别：</p>
+<ul>
+<li>7.0 之前，一个索引可以设置多个 types</li>
+<li>7.0 开始，被 Deprecated 了。一个索引只能创建一个 type，值为 _doc</li>
+</ul>
+<h1 id="二、索引（Index）"><a href="#二、索引（Index）" class="headerlink" title="二、索引（Index）"></a>二、索引（Index）</h1><h2 id="2-1-索引不同意思"><a href="#2-1-索引不同意思" class="headerlink" title="2.1 索引不同意思"></a>2.1 索引不同意思</h2><p>作为名词，索引代表是在 Elasticsearch 集群中，可以创建很多不同索引。也是本小节要总结的内容。 作为动词，索引代表保存一个文档到 Elasticsearch。就是在 Elasticsearch 创建一个倒排索引的意思</p>
+<h2 id="2-2-什么是索引"><a href="#2-2-什么是索引" class="headerlink" title="2.2 什么是索引"></a>2.2 什么是索引</h2><p>索引，就是相似类型文档的集合。类似 Spring Bean 容器装载着很多 Bean ，ES 索引就是文档的容器，是一类文档的集合。 以前导入了 kibana_sample_data_flights 索引，通过 GET 下面这个 URL ，就能得到索引一些信息：</p>
+<pre><code>GET http://localhost:9200/kibana_sample_data_flights
+</code></pre>
+<p>结果如下：</p>
+<pre><code>&#123;
+    &quot;kibana_sample_data_flights&quot;: &#123;
+        &quot;aliases&quot;: &#123;&#125;,
+        &quot;mappings&quot;: &#123;
+            &quot;properties&quot;: &#123;
+                &quot;AvgTicketPrice&quot;: &#123;
+                    &quot;type&quot;: &quot;float&quot;
+                &#125;,
+                &quot;Cancelled&quot;: &#123;
+                    &quot;type&quot;: &quot;boolean&quot;
+                &#125;,
+                &quot;Carrier&quot;: &#123;
+                    &quot;type&quot;: &quot;keyword&quot;
+                &#125;,
+                &quot;DestLocation&quot;: &#123;
+                    &quot;type&quot;: &quot;geo_point&quot;
+                &#125;,
+                &quot;FlightDelay&quot;: &#123;
+                    &quot;type&quot;: &quot;boolean&quot;
+                &#125;,
+                &quot;FlightDelayMin&quot;: &#123;
+                    &quot;type&quot;: &quot;integer&quot;
+                &#125;,
+                &quot;timestamp&quot;: &#123;
+                    &quot;type&quot;: &quot;date&quot;
+                &#125;
+            &#125;
+        &#125;,
+        &quot;settings&quot;: &#123;
+            &quot;index&quot;: &#123;
+                &quot;number_of_shards&quot;: &quot;1&quot;,
+                &quot;auto_expand_replicas&quot;: &quot;0-1&quot;,
+                &quot;blocks&quot;: &#123;
+                    &quot;read_only_allow_delete&quot;: &quot;true&quot;
+                &#125;,
+                &quot;provided_name&quot;: &quot;kibana_sample_data_flights&quot;,
+                &quot;creation_date&quot;: &quot;1566271868125&quot;,
+                &quot;number_of_replicas&quot;: &quot;0&quot;,
+                &quot;uuid&quot;: &quot;SfR20UNiSLKJWIpR1bcrzQ&quot;,
+                &quot;version&quot;: &#123;
+                    &quot;created&quot;: &quot;7020199&quot;
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>根据返回结果，我们知道：</p>
+<ul>
+<li>mappings：定义文档字段的类型</li>
+<li>settings：定义不同数据分布</li>
+<li>aliases：定义索引的别名，可以通过别名访问该索引</li>
+</ul>
+<p>索引，是逻辑空间概念，每个索引有对那个的 Mapping 定义，对应的就是文档的字段名和字段类型。相比后面会讲到分片，是物理空间概念，索引中存储数据会分散到分片上。 实战经验总结：aliases 别名大有作为，比如 my_index 迁移到 my_index_new , 数据迁移后，只需要保持一致的别名配置。那么通过别名访问索引的业务方都不需要修改，直接迁移即可。</p>
+<h2 id="2-3-跟-MySQL-类比"><a href="#2-3-跟-MySQL-类比" class="headerlink" title="2.3 跟 MySQL 类比"></a>2.3 跟 MySQL 类比</h2><p>基本理解了 Elasticsearch 重要的两个概念，可以将 ES 关键点跟关系型数据库类比如下</p>
+<h1 id="三、REST-API-方便-ES-被各种语言调用"><a href="#三、REST-API-方便-ES-被各种语言调用" class="headerlink" title="三、REST API 方便 ES 被各种语言调用"></a>三、REST API 方便 ES 被各种语言调用</h1><p>Elasticsearch 提供了 REST API，方便，相关索引 API 如下：</p>
+<pre><code># 查看索引相关信息
+GET kibana_sample_data_ecommerce
+
+# 查看索引的文档总数
+GET kibana_sample_data_ecommerce/_count
+
+# 查看前10条文档，了解文档格式
+POST kibana_sample_data_ecommerce/_search
+&#123;
+&#125;
+
+# _cat indices API
+# 查看indices
+GET /_cat/indices/kibana*?v&amp;s=index
+
+# 查看状态为绿的索引
+GET /_cat/indices?v&amp;health=green
+
+# 按照文档个数排序
+GET /_cat/indices?v&amp;s=docs.count:desc
+
+# 查看具体的字段
+GET /_cat/indices/kibana*?pri&amp;v&amp;h=health,index,pri,rep,docs.count,mt
+
+# How much memory is used per index?
+GET /_cat/indices?v&amp;h=i,tm&amp;s=tm:desc
+</code></pre>
+<p>具体 API 可以通过 POSTMan 等工具操作，或者安装 kibana ，对应的 Dev Tools 工具进行访问。 （完），</p>
+<p>更多可以看 ES 7.x 系列教程 bysocket.com 资料</p>
+
+        </div>
+
+    </div>
+
+    <div class="article-copyright">
+
+        <div style="float: left;width: 20%;align:center;text-align: center;">
+             <img style="width: 100px; height: 100px;" src="https://image.bysocket.com/2023/02/qrcode.webp" alt="QRCode" >
+        </div>
+        <div style="float: left;width: 80%;">
+                <br/>
+                本文由 <a target="_blank" rel="noopener" href="https://www.bysocket.com/">泥瓦匠</a> 创作<br/><br/>
+                原创不易，欢迎关注公众号！转载请注明出处，感谢支持！如果本文对您有用，欢迎转发分享！
+        </div>
+
+      </div><br/><br/><br/><br/><br/>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/elasticsearch-7-node/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          Elasticsearch 7.x 之节点、集群、分片及副本（快速入门）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/elasticsearch-7-install/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">Elasticsearch 7.x 如何安装及配置（最详细）</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=Elasticsearch 7.x 之文档、索引和 REST API（快速入门） - 程序员泥瓦匠&url=https%3A%2F%2Fbysocket.com%2Felasticsearch-7-index-documents%2F">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=Elasticsearch 7.x 之文档、索引和 REST API（快速入门） - 程序员泥瓦匠&u=https%3A%2F%2Fbysocket.com%2Felasticsearch-7-index-documents%2F">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=Elasticsearch 7.x 之文档、索引和 REST API（快速入门） - 程序员泥瓦匠&url=https://bysocket.com/elasticsearch-7-index-documents/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>分类</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/">ElasticSearch</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/Elasticsearch/">Elasticsearch</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Elasticsearch/">Elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JDK/">JDK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JSP/">JSP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Microservice-Architecture/">Microservice Architecture</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SEO/">SEO</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/">Spring Boot</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/ElasticSearch/">ElasticSearch</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/ElasticSearch/Elasticsearch/">Elasticsearch</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot-WebFlux/">Spring Boot WebFlux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%9D%E8%80%83/">思考</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">问题记录</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>标签</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AdSense/" rel="tag">AdSense</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Architecture/" rel="tag">Architecture</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ChatGPT/" rel="tag">ChatGPT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collections/" rel="tag">Collections</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Config/" rel="tag">Config</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Druid/" rel="tag">Druid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dubbo/" rel="tag">Dubbo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Elasticsearch/" rel="tag">Elasticsearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FreeMarker/" rel="tag">FreeMarker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HBase/" rel="tag">HBase</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashSet/" rel="tag">HashSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-IO/" rel="tag">Java IO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LinkedHashSet/" rel="tag">LinkedHashSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/" rel="tag">MongoDB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenAI/" rel="tag">OpenAI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Properties/" rel="tag">Properties</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/" rel="tag">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Data/" rel="tag">Spring Data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thymeleaf/" rel="tag">Thymeleaf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TreeSet/" rel="tag">TreeSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UUID/" rel="tag">UUID</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Validation/" rel="tag">Validation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ZooKeeper/" rel="tag">ZooKeeper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>最新文章</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/microservice-architecture/">微服务架构一直火，为什么服务化要搞懂</a>
+          </li>
+        
+          <li>
+            <a href="/elasticsearch-7-node/">Elasticsearch 7.x 之节点、集群、分片及副本（快速入门）</a>
+          </li>
+        
+          <li>
+            <a href="/elasticsearch-7-index-documents/">Elasticsearch 7.x 之文档、索引和 REST API（快速入门）</a>
+          </li>
+        
+          <li>
+            <a href="/elasticsearch-7-install/">Elasticsearch 7.x 如何安装及配置（最详细）</a>
+          </li>
+        
+          <li>
+            <a href="/mac-create-files-from-the-root-directory/">Mac 系统如何利用软链接在根目录创建文件夹？</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            程序员泥瓦匠 &copy; 2023<br>
+            <a href="https://beian.miit.gov.cn" rel="nofollow" target="_blank">浙ICP备15028451号-7</a> | <a href="https://www.decompilertool.com/" target="_blank">Java Decompiler</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+<!-- 百度链接提交 -->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+<!-- Google Analytics-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RR50H8B3V1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-RR50H8B3V1');
+</script>
+
+
+
+
+
+
+
+
+<!-- Baidu Analytics-->
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e43a8b7f6b87c80c7d5d89ee04348971";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</body>
+
+</html>
