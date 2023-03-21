@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>Elasticsearch 7.x Nested 嵌套类型查询案例教程 | 程序员泥瓦匠</title>
+
+    <meta name="description" content="&lt;h1 id=&#34;一、什么是-ES-Nested-嵌套&#34;&gt;&lt;a href=&#34;#一、什么是-ES-Nested-嵌套&#34; class=&#34;headerlink&#34; title=&#34;一、什么是 ES Nested 嵌套&#34;&gt;&lt;/a&gt;一、什么是 ES Nested 嵌套&lt;/h1&gt;&lt;p&gt;Elasticsearch 有很多数据类型，大致如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;基本数据类型：&lt;ul&gt;
+&lt;li&gt;string 类型。ES 7.x 中，string 类型会升级为：text 和 keyword。keyword 可以排序；text 默认分词，不可以排序。&lt;/li&gt;
+&lt;li&gt;数据类型：integer、long 等&lt;/li&gt;
+&lt;li&gt;时间类型、布尔类型、二进制类型、区间类型等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;复杂数据类型：&lt;ul&gt;
+&lt;li&gt;数组类型：Array&lt;/li&gt;
+&lt;li&gt;对象类型：Object&lt;/li&gt;
+&lt;li&gt;Nested 类型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;特定数据类型：地理位置、IP 等&lt;/li&gt;
+&lt;/ul&gt;">
+    <link rel="canonical" href="https://bysocket.com/elasticsearch-7-nested-query-example/"/>
+    <meta name="keywords" content="">
+
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "Elasticsearch 7.x Nested 嵌套类型查询案例教程 | 程序员泥瓦匠"  />
+    <meta property="og:description" content= "&lt;h1 id=&#34;一、什么是-ES-Nested-嵌套&#34;&gt;&lt;a href=&#34;#一、什么是-ES-Nested-嵌套&#34; class=&#34;headerlink&#34; title=&#34;一、什么是 ES Nested 嵌套&#34;&gt;&lt;/a&gt;一、什么是 ES Nested 嵌套&lt;/h1&gt;&lt;p&gt;Elasticsearch 有很多数据类型，大致如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;基本数据类型：&lt;ul&gt;
+&lt;li&gt;string 类型。ES 7.x 中，string 类型会升级为：text 和 keyword。keyword 可以排序；text 默认分词，不可以排序。&lt;/li&gt;
+&lt;li&gt;数据类型：integer、long 等&lt;/li&gt;
+&lt;li&gt;时间类型、布尔类型、二进制类型、区间类型等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;复杂数据类型：&lt;ul&gt;
+&lt;li&gt;数组类型：Array&lt;/li&gt;
+&lt;li&gt;对象类型：Object&lt;/li&gt;
+&lt;li&gt;Nested 类型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;特定数据类型：地理位置、IP 等&lt;/li&gt;
+&lt;/ul&gt;" />
+    <meta property="og:url" content="https://bysocket.com/elasticsearch-7-nested-query-example/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="泥瓦匠" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h1 id=&#34;一、什么是-ES-Nested-嵌套&#34;&gt;&lt;a href=&#34;#一、什么是-ES-Nested-嵌套&#34; class=&#34;headerlink&#34; title=&#34;一、什么是 ES Nested 嵌套&#34;&gt;&lt;/a&gt;一、什么是 ES Nested 嵌套&lt;/h1&gt;&lt;p&gt;Elasticsearch 有很多数据类型，大致如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;基本数据类型：&lt;ul&gt;
+&lt;li&gt;string 类型。ES 7.x 中，string 类型会升级为：text 和 keyword。keyword 可以排序；text 默认分词，不可以排序。&lt;/li&gt;
+&lt;li&gt;数据类型：integer、long 等&lt;/li&gt;
+&lt;li&gt;时间类型、布尔类型、二进制类型、区间类型等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;复杂数据类型：&lt;ul&gt;
+&lt;li&gt;数组类型：Array&lt;/li&gt;
+&lt;li&gt;对象类型：Object&lt;/li&gt;
+&lt;li&gt;Nested 类型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;特定数据类型：地理位置、IP 等&lt;/li&gt;
+&lt;/ul&gt;" />
+    <meta name="twitter:title" content="Elasticsearch 7.x Nested 嵌套类型查询案例教程 | 程序员泥瓦匠"/>
+    <meta name="twitter:description" content="&lt;h1 id=&#34;一、什么是-ES-Nested-嵌套&#34;&gt;&lt;a href=&#34;#一、什么是-ES-Nested-嵌套&#34; class=&#34;headerlink&#34; title=&#34;一、什么是 ES Nested 嵌套&#34;&gt;&lt;/a&gt;一、什么是 ES Nested 嵌套&lt;/h1&gt;&lt;p&gt;Elasticsearch 有很多数据类型，大致如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;基本数据类型：&lt;ul&gt;
+&lt;li&gt;string 类型。ES 7.x 中，string 类型会升级为：text 和 keyword。keyword 可以排序；text 默认分词，不可以排序。&lt;/li&gt;
+&lt;li&gt;数据类型：integer、long 等&lt;/li&gt;
+&lt;li&gt;时间类型、布尔类型、二进制类型、区间类型等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;复杂数据类型：&lt;ul&gt;
+&lt;li&gt;数组类型：Array&lt;/li&gt;
+&lt;li&gt;对象类型：Object&lt;/li&gt;
+&lt;li&gt;Nested 类型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;特定数据类型：地理位置、IP 等&lt;/li&gt;
+&lt;/ul&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h1 id=&#34;一、什么是-ES-Nested-嵌套&#34;&gt;&lt;a href=&#34;#一、什么是-ES-Nested-嵌套&#34; class=&#34;headerlink&#34; title=&#34;一、什么是 ES Nested 嵌套&#34;&gt;&lt;/a&gt;一、什么是 ES Nested 嵌套&lt;/h1&gt;&lt;p&gt;Elasticsearch 有很多数据类型，大致如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;基本数据类型：&lt;ul&gt;
+&lt;li&gt;string 类型。ES 7.x 中，string 类型会升级为：text 和 keyword。keyword 可以排序；text 默认分词，不可以排序。&lt;/li&gt;
+&lt;li&gt;数据类型：integer、long 等&lt;/li&gt;
+&lt;li&gt;时间类型、布尔类型、二进制类型、区间类型等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;复杂数据类型：&lt;ul&gt;
+&lt;li&gt;数组类型：Array&lt;/li&gt;
+&lt;li&gt;对象类型：Object&lt;/li&gt;
+&lt;li&gt;Nested 类型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;特定数据类型：地理位置、IP 等&lt;/li&gt;
+&lt;/ul&gt;",
+            "author": { "@type": "Person", "name": "泥瓦匠" },
+            "@type": "BlogPosting",
+            "url": "https://bysocket.com/elasticsearch-7-nested-query-example/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://bysocket.comhttps://image.bysocket.com/avatar.webp?dpr=0.1"
+            },
+            "name": "泥瓦匠"
+            },
+            "headline": "Elasticsearch 7.x Nested 嵌套类型查询案例教程 | 程序员泥瓦匠",
+            "datePublished": "2023-03-21T13:35:00.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://bysocket.com/elasticsearch-7-nested-query-example/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+    <!-- Google 广告 AdSense 代码 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2686883599479094" crossorigin="anonymous"></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-avatar avatar avatar-sm">
+                <img src="https://image.bysocket.com/avatar.webp?dpr=0.1" alt="泥瓦匠">
+            </div>
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>程序员泥瓦匠</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">首页</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/about">关于</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/JeffLi1993">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+    <a class="social" target="_blank" href="https://twitter.com/CoderJeffLee">
+        <ion-icon name="logo-twitter"></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/about">关于</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-clfiadpjc00030n3s2ttzai5w" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      Elasticsearch 7.x Nested 嵌套类型查询案例教程
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2023-03-21T13:35:00.000Z" itemprop="datePublished">2023-03-21</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/Elasticsearch/">Elasticsearch</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Elasticsearch/" rel="tag">Elasticsearch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nested/" rel="tag">Nested</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h1 id="一、什么是-ES-Nested-嵌套"><a href="#一、什么是-ES-Nested-嵌套" class="headerlink" title="一、什么是 ES Nested 嵌套"></a>一、什么是 ES Nested 嵌套</h1><p>Elasticsearch 有很多数据类型，大致如下：</p>
+<ul>
+<li>基本数据类型：<ul>
+<li>string 类型。ES 7.x 中，string 类型会升级为：text 和 keyword。keyword 可以排序；text 默认分词，不可以排序。</li>
+<li>数据类型：integer、long 等</li>
+<li>时间类型、布尔类型、二进制类型、区间类型等</li>
+</ul>
+</li>
+<li>复杂数据类型：<ul>
+<li>数组类型：Array</li>
+<li>对象类型：Object</li>
+<li>Nested 类型</li>
+</ul>
+</li>
+<li>特定数据类型：地理位置、IP 等</li>
+</ul>
+<span id="more"></span>
+
+<h1 id="一、什么是-ES-Nested-嵌套-1"><a href="#一、什么是-ES-Nested-嵌套-1" class="headerlink" title="一、什么是 ES Nested 嵌套"></a>一、什么是 ES Nested 嵌套</h1><p>Elasticsearch 有很多数据类型，大致如下：</p>
+<ul>
+<li>基本数据类型：<ul>
+<li>string 类型。ES 7.x 中，string 类型会升级为：text 和 keyword。keyword 可以排序；text 默认分词，不可以排序。</li>
+<li>数据类型：integer、long 等</li>
+<li>时间类型、布尔类型、二进制类型、区间类型等</li>
+</ul>
+</li>
+<li>复杂数据类型：<ul>
+<li>数组类型：Array</li>
+<li>对象类型：Object</li>
+<li>Nested 类型</li>
+</ul>
+</li>
+<li>特定数据类型：地理位置、IP 等</li>
+</ul>
+<p>注意：tring／nested／array 类型字段不能用作排序字段。因此 string 类型会升级为：text 和 keyword。keyword 可以排序，text 默认分词，不可以排序。</p>
+<h2 id="2-1-那什么是-Nested-类型？"><a href="#2-1-那什么是-Nested-类型？" class="headerlink" title="2.1 那什么是 Nested 类型？"></a>2.1 那什么是 Nested 类型？</h2><p>Elasticsearch 7.x 文档中，这样写到：</p>
+<pre><code>The nested type is a specialised version of the object datatype that allows arrays of objects to be indexed in a way that they can be queried independently of each other.
+</code></pre>
+<p>Nested （嵌套）类型，是特殊的对象类型，特殊的地方是索引对象数组方式不同，允许数组中的对象各自地进行索引。目的是对象之间彼此独立被查询出来。</p>
+<h2 id="2-2-如何使用-Nested-类型？"><a href="#2-2-如何使用-Nested-类型？" class="headerlink" title="2.2 如何使用 Nested 类型？"></a>2.2 如何使用 Nested 类型？</h2><p>在 ES 的 my_index 索引中存储 users 字段。比如说：</p>
+<pre><code>&#123;
+  &quot;group&quot; : &quot;fans&quot;,
+  &quot;users&quot; : [
+    &#123;
+      &quot;name&quot; : &quot;John&quot;,
+      &quot;age&quot; :  &quot;23&quot;
+    &#125;,
+    &#123;
+      &quot;name&quot; : &quot;Alice&quot;,
+      &quot;age&quot; :  &quot;18&quot;
+    &#125;
+  ]
+&#125;
+</code></pre>
+<p>其实存储看上去跟 Object 类型一样，只不过底层原理对数组 users 字段索引方式不同。设置 users 字段的索引方式 Nested 嵌套类型：</p>
+<pre><code>curl -X PUT &quot;localhost:9200/my_index&quot; -H &#39;Content-Type: application/json&#39; -d&#39;
+&#123;
+  &quot;mappings&quot;: &#123;
+    &quot;properties&quot;: &#123;
+      &quot;users&quot;: &#123;
+        &quot;type&quot;: &quot;nested&quot; 
+      &#125;
+    &#125;
+  &#125;
+&#125;
+&#39;
+</code></pre>
+<h1 id="二、Nested-Query-应用场景或案例"><a href="#二、Nested-Query-应用场景或案例" class="headerlink" title="二、Nested Query 应用场景或案例"></a>二、Nested Query 应用场景或案例</h1><p>比如小老弟我有一波小粉丝，users 字段类型是 object。存储如下：</p>
+<pre><code>&#123;
+  &quot;group&quot; : &quot;bysocket_fans&quot;,
+  &quot;users&quot; : [
+    &#123;
+      &quot;name&quot; : &quot;John&quot;,
+      &quot;age&quot; :  &quot;23&quot;
+    &#125;,
+    &#123;
+      &quot;name&quot; : &quot;Alice&quot;,
+      &quot;age&quot; :  &quot;18&quot;
+    &#125;
+  ]
+&#125;
+
+&#123;
+  &quot;group&quot; : &quot;路人甲_fans&quot;,
+  &quot;users&quot; : [
+    &#123;
+      &quot;name&quot; : &quot;Alice&quot;,
+      &quot;age&quot; :  &quot;22&quot;
+    &#125;,
+    &#123;
+      &quot;name&quot; : &quot;Jeff&quot;,
+      &quot;age&quot; :  &quot;18&quot;
+    &#125;
+  ]
+&#125;
+</code></pre>
+<p>比如 18 岁大姑娘 Alice 是小老弟我的粉丝，她也可能是周杰伦的粉丝。那这边就有一个需求，即应用场景： 如何找到 18 岁大姑娘 Alice {“name” : “Alice”,”age” :  “18”} 关注的所有明星呢？ 如果用老的查询语句是这样搜索的：</p>
+<pre><code>GET /my_index/_search?pretty
+&#123;
+  &quot;query&quot;: &#123;
+    &quot;bool&quot;: &#123;
+      &quot;must&quot;: [
+        &#123;
+          &quot;match&quot;: &#123;
+            &quot;users.name&quot;: &quot;Alice&quot;
+          &#125;
+        &#125;,
+        &#123;
+          &quot;match&quot;: &#123;
+            &quot;users.age&quot;: 18
+          &#125;
+        &#125;
+      ]
+    &#125;
+  &#125;
+&#125;
+</code></pre>
+<p>结果发现结果是不对的，路人甲 这条记录也出现了。 因为匹配到了第一个 Alice + 第二个 Jeff 的 18。所以这种查询不满足这个场景 那么需要使用 Nested 类型并用 Nested 查询，即让数组中的对象各自地进行索引。目的是对象之间彼此独立被查询出来。</p>
+<h1 id="三、Nested-Query-实战"><a href="#三、Nested-Query-实战" class="headerlink" title="三、Nested Query 实战"></a>三、Nested Query 实战</h1><h2 id="3-1-设置-Nested-类型"><a href="#3-1-设置-Nested-类型" class="headerlink" title="3.1 设置 Nested 类型"></a>3.1 设置 Nested 类型</h2><p>根据 2.2 如何使用 Nested 类型，将 users 字段类型从 object 修改为 nested：</p>
+<pre><code>curl -X PUT &quot;localhost:9200/my_index&quot; -H &#39;Content-Type: application/json&#39; -d&#39;
+&#123;
+  &quot;mappings&quot;: &#123;
+    &quot;properties&quot;: &#123;
+      &quot;users&quot;: &#123;
+        &quot;type&quot;: &quot;nested&quot; 
+      &#125;
+    &#125;
+  &#125;
+&#125;
+&#39;
+</code></pre>
+<h2 id="3-2-Nested-Query"><a href="#3-2-Nested-Query" class="headerlink" title="3.2 Nested Query"></a>3.2 Nested Query</h2><p>修改后，对应的 Nested Query ，如下：</p>
+<pre><code>GET /my_index/_search?pretty
+&#123;
+  &quot;query&quot;: &#123;
+    &quot;bool&quot;: &#123;
+      &quot;must&quot;: [
+        &#123;
+          &quot;nested&quot;: &#123;
+            &quot;path&quot;: &quot;users&quot;,
+            &quot;query&quot;: &#123;
+              &quot;bool&quot;: &#123;
+                &quot;must&quot;: [
+                  &#123;
+                    &quot;match&quot;: &#123;
+                      &quot;users.name&quot;: &quot;Alice&quot;
+                    &#125;
+                  &#125;,
+                  &#123;
+                    &quot;match&quot;: &#123;
+                      &quot;users.age&quot;: 18
+                    &#125;
+                  &#125;
+                ]
+              &#125;
+            &#125;
+          &#125;
+        &#125;
+      ]
+    &#125;
+  &#125;
+&#125;
+</code></pre>
+<p>语法很简单就是： - key 以 “nested” 开头 - path 就是嵌套对象数组的字段名 - 其他 - score_mode （可选的）匹配子对象的分数相关性分数。avg （默认，使用所有匹配子对象的平均相关性分数） - ignore_unmapped （可选的）是否忽略 path 未映射，不返回任何文档而不是错误。默认为 false，如果 path 不对就报错 这样查询得结果就是对的。</p>
+<h1 id="四、Nested-Query-性能"><a href="#四、Nested-Query-性能" class="headerlink" title="四、Nested Query 性能"></a>四、Nested Query 性能</h1><p>这边测试过，给大家一个测试报告和建议。 压测环境：3 个 server ，6 个 ES 节点 压测结论： 使用上小节查询语句，50 并发情况下，导致千兆网卡被打满了。TPS 4000 左右，如果提高并发，就会增加 RT。所以如果高性能大流量情况下，必须用 Nested 应该从网络流量方向进行优化。二者，尽量减少大数据对象的返回 建议：泥瓦匠建议，你听听看</p>
+<ul>
+<li>性能：Common Query 远远大于 Nested Query 远远大于 Parent&#x2F;Child Query</li>
+<li>性能优化：首先考虑减少后面两种 Query</li>
+<li>性能优化：Nested Query 业务可以优化下。比如上一小节完全可以多存一个 fanIds 数组。搜索两次，第一次查确定 18 岁大姑娘 Alice 的 fanId，第二次根据 fanId 搜索即可</li>
+<li>性能优化：实在没办法，高性能大流量情况下，必须用 Nested 应该从网络流量方向进行优化。二者，尽量减少大数据对象的返回</li>
+</ul>
+
+        </div>
+
+    </div>
+
+    <div class="article-copyright">
+
+        <div style="float: left;width: 20%;align:center;text-align: center;">
+             <img style="width: 100px; height: 100px;" src="https://image.bysocket.com/2023/02/qrcode.webp" alt="QRCode" >
+        </div>
+        <div style="float: left;width: 80%;">
+                <br/>
+                本文由 <a target="_blank" rel="noopener" href="https://www.bysocket.com/">泥瓦匠</a> 创作<br/><br/>
+                原创不易，欢迎关注公众号！转载请注明出处，感谢支持！如果本文对您有用，欢迎转发分享！
+        </div>
+
+      </div><br/><br/><br/><br/><br/>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/load-balancing-approach-in-distributed-system/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          分布式系统的负载均衡 | 架构干货
+        
+      </div>
+    </a>
+  
+  
+    <a href="/how-lucene-works/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">Elasticsearch Lucene 写入原理是如何工作的？</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=Elasticsearch 7.x Nested 嵌套类型查询案例教程 - 程序员泥瓦匠&url=https%3A%2F%2Fbysocket.com%2Felasticsearch-7-nested-query-example%2F">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=Elasticsearch 7.x Nested 嵌套类型查询案例教程 - 程序员泥瓦匠&u=https%3A%2F%2Fbysocket.com%2Felasticsearch-7-nested-query-example%2F">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=Elasticsearch 7.x Nested 嵌套类型查询案例教程 - 程序员泥瓦匠&url=https://bysocket.com/elasticsearch-7-nested-query-example/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>分类</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/">ElasticSearch</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/Elasticsearch/">Elasticsearch</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Elasticsearch/">Elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JDK/">JDK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JSP/">JSP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Microservice-Architecture/">Microservice Architecture</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SEO/">SEO</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/">Spring Boot</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/ElasticSearch/">ElasticSearch</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/ElasticSearch/Elasticsearch/">Elasticsearch</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot-WebFlux/">Spring Boot WebFlux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%9D%E8%80%83/">思考</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">问题记录</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>标签</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AdSense/" rel="tag">AdSense</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Architecture/" rel="tag">Architecture</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ChatGPT/" rel="tag">ChatGPT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collections/" rel="tag">Collections</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Config/" rel="tag">Config</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Druid/" rel="tag">Druid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dubbo/" rel="tag">Dubbo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Elasticsearch/" rel="tag">Elasticsearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FreeMarker/" rel="tag">FreeMarker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HBase/" rel="tag">HBase</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashSet/" rel="tag">HashSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-IO/" rel="tag">Java IO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LinkedHashSet/" rel="tag">LinkedHashSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/" rel="tag">MongoDB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nested/" rel="tag">Nested</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenAI/" rel="tag">OpenAI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Properties/" rel="tag">Properties</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/" rel="tag">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Data/" rel="tag">Spring Data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thymeleaf/" rel="tag">Thymeleaf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TreeSet/" rel="tag">TreeSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UUID/" rel="tag">UUID</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Validation/" rel="tag">Validation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ZooKeeper/" rel="tag">ZooKeeper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>最新文章</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/load-balancing-approach-in-distributed-system/">分布式系统的负载均衡 | 架构干货</a>
+          </li>
+        
+          <li>
+            <a href="/elasticsearch-7-nested-query-example/">Elasticsearch 7.x Nested 嵌套类型查询案例教程</a>
+          </li>
+        
+          <li>
+            <a href="/how-lucene-works/">Elasticsearch Lucene 写入原理是如何工作的？</a>
+          </li>
+        
+          <li>
+            <a href="/microservice-architecture/">微服务架构一直火，为什么服务化要搞懂</a>
+          </li>
+        
+          <li>
+            <a href="/elasticsearch-7-node/">Elasticsearch 7.x 之节点、集群、分片及副本（快速入门）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            程序员泥瓦匠 &copy; 2023<br>
+            <a href="https://beian.miit.gov.cn" rel="nofollow" target="_blank">浙ICP备15028451号-7</a> | <a href="https://www.decompilertool.com/" target="_blank">Java Decompiler</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+<!-- 百度链接提交 -->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+<!-- Google Analytics-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RR50H8B3V1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-RR50H8B3V1');
+</script>
+
+
+
+
+
+
+
+
+<!-- Baidu Analytics-->
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e43a8b7f6b87c80c7d5d89ee04348971";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

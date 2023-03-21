@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>分布式系统的负载均衡 | 架构干货 | 程序员泥瓦匠</title>
+
+    <meta name="description" content="&lt;h2 id=&#34;一、-什么是负载均衡？&#34;&gt;&lt;a href=&#34;#一、-什么是负载均衡？&#34; class=&#34;headerlink&#34; title=&#34;一、 什么是负载均衡？&#34;&gt;&lt;/a&gt;一、 什么是负载均衡？&lt;/h2&gt;&lt;p&gt;什么是负载均衡？&lt;/p&gt;
+&lt;p&gt;记得第一次接触 Nginx 是在实验室，那时候在服务器部署网站需要用 Nginx 。Nginx 是一个服务组件，用来反向代理、负载平衡和 HTTP 缓存等。那么这里的 负载均衡 是什么？&lt;/p&gt;
+&lt;p&gt;负载均衡（LB，Load Balance），是一种技术解决方案。用来在多个资源（一般是服务器）中分配负载，达到最优化资源使用，避免过载。&lt;/p&gt;
+&lt;p&gt;资源，相当于每个服务实例的执行操作单元，负载均衡就是将大量的数据处理操作分摊到多个操作单元进行执行，用来解决互联网分布式系统的大流量、高并发和高可用的问题。那什么是高可用呢？&lt;/p&gt;">
+    <link rel="canonical" href="https://bysocket.com/load-balancing-approach-in-distributed-system/"/>
+    <meta name="keywords" content="">
+
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "分布式系统的负载均衡 | 架构干货 | 程序员泥瓦匠"  />
+    <meta property="og:description" content= "&lt;h2 id=&#34;一、-什么是负载均衡？&#34;&gt;&lt;a href=&#34;#一、-什么是负载均衡？&#34; class=&#34;headerlink&#34; title=&#34;一、 什么是负载均衡？&#34;&gt;&lt;/a&gt;一、 什么是负载均衡？&lt;/h2&gt;&lt;p&gt;什么是负载均衡？&lt;/p&gt;
+&lt;p&gt;记得第一次接触 Nginx 是在实验室，那时候在服务器部署网站需要用 Nginx 。Nginx 是一个服务组件，用来反向代理、负载平衡和 HTTP 缓存等。那么这里的 负载均衡 是什么？&lt;/p&gt;
+&lt;p&gt;负载均衡（LB，Load Balance），是一种技术解决方案。用来在多个资源（一般是服务器）中分配负载，达到最优化资源使用，避免过载。&lt;/p&gt;
+&lt;p&gt;资源，相当于每个服务实例的执行操作单元，负载均衡就是将大量的数据处理操作分摊到多个操作单元进行执行，用来解决互联网分布式系统的大流量、高并发和高可用的问题。那什么是高可用呢？&lt;/p&gt;" />
+    <meta property="og:url" content="https://bysocket.com/load-balancing-approach-in-distributed-system/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="泥瓦匠" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;h2 id=&#34;一、-什么是负载均衡？&#34;&gt;&lt;a href=&#34;#一、-什么是负载均衡？&#34; class=&#34;headerlink&#34; title=&#34;一、 什么是负载均衡？&#34;&gt;&lt;/a&gt;一、 什么是负载均衡？&lt;/h2&gt;&lt;p&gt;什么是负载均衡？&lt;/p&gt;
+&lt;p&gt;记得第一次接触 Nginx 是在实验室，那时候在服务器部署网站需要用 Nginx 。Nginx 是一个服务组件，用来反向代理、负载平衡和 HTTP 缓存等。那么这里的 负载均衡 是什么？&lt;/p&gt;
+&lt;p&gt;负载均衡（LB，Load Balance），是一种技术解决方案。用来在多个资源（一般是服务器）中分配负载，达到最优化资源使用，避免过载。&lt;/p&gt;
+&lt;p&gt;资源，相当于每个服务实例的执行操作单元，负载均衡就是将大量的数据处理操作分摊到多个操作单元进行执行，用来解决互联网分布式系统的大流量、高并发和高可用的问题。那什么是高可用呢？&lt;/p&gt;" />
+    <meta name="twitter:title" content="分布式系统的负载均衡 | 架构干货 | 程序员泥瓦匠"/>
+    <meta name="twitter:description" content="&lt;h2 id=&#34;一、-什么是负载均衡？&#34;&gt;&lt;a href=&#34;#一、-什么是负载均衡？&#34; class=&#34;headerlink&#34; title=&#34;一、 什么是负载均衡？&#34;&gt;&lt;/a&gt;一、 什么是负载均衡？&lt;/h2&gt;&lt;p&gt;什么是负载均衡？&lt;/p&gt;
+&lt;p&gt;记得第一次接触 Nginx 是在实验室，那时候在服务器部署网站需要用 Nginx 。Nginx 是一个服务组件，用来反向代理、负载平衡和 HTTP 缓存等。那么这里的 负载均衡 是什么？&lt;/p&gt;
+&lt;p&gt;负载均衡（LB，Load Balance），是一种技术解决方案。用来在多个资源（一般是服务器）中分配负载，达到最优化资源使用，避免过载。&lt;/p&gt;
+&lt;p&gt;资源，相当于每个服务实例的执行操作单元，负载均衡就是将大量的数据处理操作分摊到多个操作单元进行执行，用来解决互联网分布式系统的大流量、高并发和高可用的问题。那什么是高可用呢？&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;h2 id=&#34;一、-什么是负载均衡？&#34;&gt;&lt;a href=&#34;#一、-什么是负载均衡？&#34; class=&#34;headerlink&#34; title=&#34;一、 什么是负载均衡？&#34;&gt;&lt;/a&gt;一、 什么是负载均衡？&lt;/h2&gt;&lt;p&gt;什么是负载均衡？&lt;/p&gt;
+&lt;p&gt;记得第一次接触 Nginx 是在实验室，那时候在服务器部署网站需要用 Nginx 。Nginx 是一个服务组件，用来反向代理、负载平衡和 HTTP 缓存等。那么这里的 负载均衡 是什么？&lt;/p&gt;
+&lt;p&gt;负载均衡（LB，Load Balance），是一种技术解决方案。用来在多个资源（一般是服务器）中分配负载，达到最优化资源使用，避免过载。&lt;/p&gt;
+&lt;p&gt;资源，相当于每个服务实例的执行操作单元，负载均衡就是将大量的数据处理操作分摊到多个操作单元进行执行，用来解决互联网分布式系统的大流量、高并发和高可用的问题。那什么是高可用呢？&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "泥瓦匠" },
+            "@type": "BlogPosting",
+            "url": "https://bysocket.com/load-balancing-approach-in-distributed-system/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://bysocket.comhttps://image.bysocket.com/avatar.webp?dpr=0.1"
+            },
+            "name": "泥瓦匠"
+            },
+            "headline": "分布式系统的负载均衡 | 架构干货 | 程序员泥瓦匠",
+            "datePublished": "2023-03-21T13:40:00.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://bysocket.com/load-balancing-approach-in-distributed-system/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+    <!-- Google 广告 AdSense 代码 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2686883599479094" crossorigin="anonymous"></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-avatar avatar avatar-sm">
+                <img src="https://image.bysocket.com/avatar.webp?dpr=0.1" alt="泥瓦匠">
+            </div>
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>程序员泥瓦匠</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">首页</a>
+                
+                <a href="/archives">存档</a>
+                
+                <a href="/about">关于</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/JeffLi1993">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+    <a class="social" target="_blank" href="https://twitter.com/CoderJeffLee">
+        <ion-icon name="logo-twitter"></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives">存档</a>
+                    
+                    <a href="/about">关于</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-clfial93i00080n3sfjnhhhtu" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      分布式系统的负载均衡 | 架构干货
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2023-03-21T13:40:00.000Z" itemprop="datePublished">2023-03-21</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/Elasticsearch/">Elasticsearch</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Elasticsearch/" rel="tag">Elasticsearch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nested/" rel="tag">Nested</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h2 id="一、-什么是负载均衡？"><a href="#一、-什么是负载均衡？" class="headerlink" title="一、 什么是负载均衡？"></a>一、 什么是负载均衡？</h2><p>什么是负载均衡？</p>
+<p>记得第一次接触 Nginx 是在实验室，那时候在服务器部署网站需要用 Nginx 。Nginx 是一个服务组件，用来反向代理、负载平衡和 HTTP 缓存等。那么这里的 负载均衡 是什么？</p>
+<p>负载均衡（LB，Load Balance），是一种技术解决方案。用来在多个资源（一般是服务器）中分配负载，达到最优化资源使用，避免过载。</p>
+<p>资源，相当于每个服务实例的执行操作单元，负载均衡就是将大量的数据处理操作分摊到多个操作单元进行执行，用来解决互联网分布式系统的大流量、高并发和高可用的问题。那什么是高可用呢？</p>
+<span id="more"></span>
+
+
+<h2 id="二、什么是高可用？"><a href="#二、什么是高可用？" class="headerlink" title="二、什么是高可用？"></a>二、什么是高可用？</h2><p>首先了解什么是高可用？</p>
+<p>这是 CAP 定理是分布式系统的基础，也是分布式系统的 3 个指标：</p>
+<ol>
+<li>Consistency（一致性）</li>
+<li>Availability（可用性）</li>
+<li>Partition tolerance（分区容错性）</li>
+</ol>
+<p>那高可用（High Availability）是什么？高可用，简称 HA，是系统一种特征或者指标，通常是指，提供一定性能上的服务运行时间，高于平均正常时间段。反之，消除系统服务不可用的时间。</p>
+<p>衡量系统是否满足高可用，就是当一台或者多台服务器宕机的时候，系统整体和服务依然正常可用。</p>
+<p>举个例子，一些知名的网站保证 4 个 9 以上的可用性，也就是可用性超过 99.99%。那 0.01% 就是所谓故障时间的百分比。比如电商网站有赞，服务不可用会造成商家损失金钱和用户。那么在提高可用性基础上同时，对系统宕机和服务不可用会有补偿。</p>
+<p>比如下单服务，可以使用带有负载均衡的多个下单服务实例，代替单一的下单服务实例，即使用冗余的方式来提高可靠性。</p>
+<p>总而言之，负载均衡（Load Balance）是分布式系统架构设计中必须考虑的因素之一。一般通过负载均衡，冗余同一个服务实例的方式，解决分布式系统的大流量、高并发和高可用的问题。负载均衡核心关键：在于是否分配均匀。</p>
+<h2 id="三、常见的负载均衡案例"><a href="#三、常见的负载均衡案例" class="headerlink" title="三、常见的负载均衡案例"></a>三、常见的负载均衡案例</h2><p>场景1：微服务架构中，网关路由到具体的服务实例 hello：</p>
+<ul>
+<li>两个相同的服务实例 hello service ，一个端口 8000 ，另一个端口 8082</li>
+<li>通过 Kong 的负载均衡 LB 功能，让请求均匀的分发到两个 hello 服务实例</li>
+<li>Kong 的负载均衡策略算法很多：默认 weighted-round-robin 算法，还有 consumer: consumer id 作为 hash 算法输入值等</li>
+</ul>
+<p>场景2：微服务架构中，A 服务调用 B 服务的集群。通过了 Ribbon 客户端负载均衡组件：</p>
+<ul>
+<li>负载均衡策略算法并不高级，最简单的是随机选择和轮循</li>
+</ul>
+<h2 id="四、互联网分布式系统解决方案"><a href="#四、互联网分布式系统解决方案" class="headerlink" title="四、互联网分布式系统解决方案"></a>四、互联网分布式系统解决方案</h2><p>常见的互联网分布式系统架构分为几层，一般如下：</p>
+<ul>
+<li>客户端层：比如用户浏览器、APP 端</li>
+<li>反向代理层：技术选型 Nignx 或者 F5 等</li>
+<li>Web 层：前后端分离场景下， Web 端可以用 NodeJS 、 RN 、Vue</li>
+<li>业务服务层：用 Java 、Go，一般互联网公司，技术方案选型就是 SC 或者 Spring Boot + Dubbo 服务化</li>
+<li>数据存储层：DB 选型 MySQL ，Cache 选型 Redis ，搜索选型 ES 等</li>
+</ul>
+<p>一个请求从第 1 层到第 4 层，层层访问都需要负载均衡。即每个上游调用下游多个业务方的时候，需要均匀调用。这样整体系统来看，就比较负载均衡</p>
+<h3 id="第-1-层：客户端层-gt-反向代理层-的负载均衡"><a href="#第-1-层：客户端层-gt-反向代理层-的负载均衡" class="headerlink" title="第 1 层：客户端层 -&gt; 反向代理层 的负载均衡"></a>第 1 层：客户端层 -&gt; 反向代理层 的负载均衡</h3><p>客户端层 -&gt; 反向代理层的负载均衡如何实现呢？</p>
+<p>答案是：DNS 的轮询。 DNS 可以通过 A （Address，返回域名指向的 IP 地址）设置多个 IP 地址。比如这里访问 bysocket.com 的 DNS 配置了 ip1 和 ip2 。为了反向代理层的高可用，至少会有两条 A 记录。这样冗余的两个 ip 对应的 nginx 服务实例，防止单点故障。</p>
+<p>每次请求 bysocket.com 域名的时候，通过 DNS 轮询，返回对应的 ip 地址，每个 ip 对应的反向代理层的服务实例，也就是 nginx 的外网ip。这样可以做到每一个反向代理层实例得到的请求分配是均衡的。</p>
+<h3 id="第-2-层：反向代理层-gt-Web-层-的负载均衡"><a href="#第-2-层：反向代理层-gt-Web-层-的负载均衡" class="headerlink" title="第 2 层：反向代理层 -&gt; Web 层 的负载均衡"></a>第 2 层：反向代理层 -&gt; Web 层 的负载均衡</h3><p>反向代理层 -&gt; Web 层 的负载均衡如何实现呢？</p>
+<p>是通过反向代理层的负载均衡模块处理。比如 nginx 有多种均衡方法：</p>
+<ol>
+<li><p>请求轮询。请求按时间顺序，逐一分配到 web 层服务，然后周而复始。如果 web 层服务 down 掉，自动剔除</p>
+<p>upstream web-server {<br>server ip3;<br>server ip4;<br>}</p>
+</li>
+<li><p>ip 哈希。按照 ip 的哈希值，确定路由到对应的 web 层。只要是用户的 ip 是均匀的，那么请求到 Web 层也是均匀的。 还有个好处就是同一个 ip 的请求会分发到相同的 web 层服务。这样每个用户固定访问一个 web 层服务，可以解决 session 的问题。</p>
+<p>upstream web-server {<br>ip_hash;<br>server ip3;<br>server ip4;<br>}</p>
+</li>
+<li><p>weight 权重 、 fair、url_hash 等</p>
+</li>
+</ol>
+<h3 id="第-3-层：Web-层-gt-业务服务层-的负载均衡"><a href="#第-3-层：Web-层-gt-业务服务层-的负载均衡" class="headerlink" title="第 3 层：Web 层 -&gt; 业务服务层 的负载均衡"></a>第 3 层：Web 层 -&gt; 业务服务层 的负载均衡</h3><p>Web 层 -&gt; 业务服务层 的负载均衡如何实现呢？</p>
+<p>比如 Dubbo 是一个服务治理方案，包括服务注册、服务降级、访问控制、动态配置路由规则、权重调节、负载均衡。其中一个特性就是智能负载均衡：内置多种负载均衡策略，智能感知下游节点健康状况，显著减少调用延迟，提高系统吞吐量。</p>
+<p>为了避免避免单点故障和支持服务的横向扩容，一个服务通常会部署多个实例，即 Dubbo 集群部署。会将多个服务实例成为一个服务提供方，然后根据配置的随机负载均衡策略，在20个 Provider 中随机选择了一个来调用，假设随机到了第7个 Provider。LoadBalance 组件从提供者地址列表中，使用均衡策略，选择选一个提供者进行调用，如果调用失败，再选另一台调用。</p>
+<p>Dubbo内置了4种负载均衡策略:</p>
+<ul>
+<li>RandomLoadBalance:随机负载均衡。随机的选择一个。是Dubbo的默认负载均衡策略。</li>
+<li>RoundRobinLoadBalance:轮询负载均衡。轮询选择一个。</li>
+<li>LeastActiveLoadBalance:最少活跃调用数，相同活跃数的随机。活跃数指调用前后计数差。使慢的 Provider 收到更少请求，因为越慢的 Provider 的调用前后计数差会越大。</li>
+<li>ConsistentHashLoadBalance:一致性哈希负载均衡。相同参数的请求总是落在同一台机器上。</li>
+</ul>
+<p>同样，因为业务的需要，也可以实现自己的负载均衡策略</p>
+<h3 id="第-4-层：业务服务层-gt-数据存储层-的负载均衡"><a href="#第-4-层：业务服务层-gt-数据存储层-的负载均衡" class="headerlink" title="第 4 层：业务服务层 -&gt; 数据存储层 的负载均衡"></a>第 4 层：业务服务层 -&gt; 数据存储层 的负载均衡</h3><p>数据存储层的负载均衡，一般通过 DBProxy 实现。比如 MySQL 分库分表。</p>
+<p>当单库或者单表访问太大，数据量太大的情况下，需要进行垂直拆分和水平拆分两个维度。比如水平切分规则：</p>
+<ul>
+<li>Range 、 时间</li>
+<li>hash 取模，订单根据店铺ID 等</li>
+</ul>
+<p>但伴随着这块的负载会出现下面的问题，需要解决：</p>
+<ul>
+<li>分布式事务</li>
+<li>跨库 join 等</li>
+</ul>
+<p>现状分库分表的产品方案很多：当当 sharding-jdbc、阿里的 Cobar 等</p>
+<h2 id="五、小结"><a href="#五、小结" class="headerlink" title="五、小结"></a>五、小结</h2><p>对外看来，负载均衡是一个系统或软件的整体。对内看来，层层上下游调用。只要存在调用，就需要考虑负载均衡这个因素。所以负载均衡（Load Balance）是分布式系统架构设计中必须考虑的因素之一。考虑主要是如何让下游接收到的请求是均匀分布的：</p>
+<ul>
+<li>第 1 层：客户端层 -&gt; 反向代理层 的负载均衡。通过 DNS 轮询</li>
+<li>第 2 层：反向代理层 -&gt; Web 层 的负载均衡。通过 Nginx 的负载均衡模块</li>
+<li>第 3 层：Web 层 -&gt; 业务服务层 的负载均衡。通过服务治理框架的负载均衡模块</li>
+<li>第 4 层：业务服务层 -&gt; 数据存储层 的负载均衡。通过数据的水平分布，数据均匀了，理论上请求也会均匀。比如通过买家ID分片类似</li>
+</ul>
+
+        </div>
+
+    </div>
+
+    <div class="article-copyright">
+
+        <div style="float: left;width: 20%;align:center;text-align: center;">
+             <img style="width: 100px; height: 100px;" src="https://image.bysocket.com/2023/02/qrcode.webp" alt="QRCode" >
+        </div>
+        <div style="float: left;width: 80%;">
+                <br/>
+                本文由 <a target="_blank" rel="noopener" href="https://www.bysocket.com/">泥瓦匠</a> 创作<br/><br/>
+                原创不易，欢迎关注公众号！转载请注明出处，感谢支持！如果本文对您有用，欢迎转发分享！
+        </div>
+
+      </div><br/><br/><br/><br/><br/>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+  
+    <a href="/elasticsearch-7-nested-query-example/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">Elasticsearch 7.x Nested 嵌套类型查询案例教程</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=分布式系统的负载均衡 | 架构干货 - 程序员泥瓦匠&url=https%3A%2F%2Fbysocket.com%2Fload-balancing-approach-in-distributed-system%2F">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=分布式系统的负载均衡 | 架构干货 - 程序员泥瓦匠&u=https%3A%2F%2Fbysocket.com%2Fload-balancing-approach-in-distributed-system%2F">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=分布式系统的负载均衡 | 架构干货 - 程序员泥瓦匠&url=https://bysocket.com/load-balancing-approach-in-distributed-system/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>分类</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/">ElasticSearch</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/Elasticsearch/">Elasticsearch</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Elasticsearch/">Elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JDK/">JDK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JSP/">JSP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Microservice-Architecture/">Microservice Architecture</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SEO/">SEO</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/">Spring Boot</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/ElasticSearch/">ElasticSearch</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/ElasticSearch/Elasticsearch/">Elasticsearch</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot-WebFlux/">Spring Boot WebFlux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%9D%E8%80%83/">思考</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">问题记录</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>标签</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AdSense/" rel="tag">AdSense</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Architecture/" rel="tag">Architecture</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ChatGPT/" rel="tag">ChatGPT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collections/" rel="tag">Collections</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Config/" rel="tag">Config</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Druid/" rel="tag">Druid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dubbo/" rel="tag">Dubbo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Elasticsearch/" rel="tag">Elasticsearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FreeMarker/" rel="tag">FreeMarker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HBase/" rel="tag">HBase</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashSet/" rel="tag">HashSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-IO/" rel="tag">Java IO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LinkedHashSet/" rel="tag">LinkedHashSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/" rel="tag">MongoDB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nested/" rel="tag">Nested</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenAI/" rel="tag">OpenAI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Properties/" rel="tag">Properties</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/" rel="tag">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Data/" rel="tag">Spring Data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thymeleaf/" rel="tag">Thymeleaf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TreeSet/" rel="tag">TreeSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UUID/" rel="tag">UUID</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Validation/" rel="tag">Validation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ZooKeeper/" rel="tag">ZooKeeper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E7%90%86/" rel="tag">原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>最新文章</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/load-balancing-approach-in-distributed-system/">分布式系统的负载均衡 | 架构干货</a>
+          </li>
+        
+          <li>
+            <a href="/elasticsearch-7-nested-query-example/">Elasticsearch 7.x Nested 嵌套类型查询案例教程</a>
+          </li>
+        
+          <li>
+            <a href="/how-lucene-works/">Elasticsearch Lucene 写入原理是如何工作的？</a>
+          </li>
+        
+          <li>
+            <a href="/microservice-architecture/">微服务架构一直火，为什么服务化要搞懂</a>
+          </li>
+        
+          <li>
+            <a href="/elasticsearch-7-node/">Elasticsearch 7.x 之节点、集群、分片及副本（快速入门）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            程序员泥瓦匠 &copy; 2023<br>
+            <a href="https://beian.miit.gov.cn" rel="nofollow" target="_blank">浙ICP备15028451号-7</a> | <a href="https://www.decompilertool.com/" target="_blank">Java Decompiler</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+<!-- 百度链接提交 -->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+<!-- Google Analytics-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RR50H8B3V1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-RR50H8B3V1');
+</script>
+
+
+
+
+
+
+
+
+<!-- Baidu Analytics-->
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e43a8b7f6b87c80c7d5d89ee04348971";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

@@ -1,3 +1,6 @@
+https://bysocket.com/load-balancing-approach-in-distributed-system/
+https://bysocket.com/elasticsearch-7-nested-query-example/
+https://bysocket.com/how-lucene-works/
 https://bysocket.com/microservice-architecture/
 https://bysocket.com/elasticsearch-7-node/
 https://bysocket.com/elasticsearch-7-index-documents/
@@ -90,6 +93,7 @@ https://bysocket.com/tags/HBase/
 https://bysocket.com/tags/MongoDB/
 https://bysocket.com/tags/Mac/
 https://bysocket.com/tags/Architecture/
+https://bysocket.com/tags/Nested/
 https://bysocket.com/categories/%E6%80%9D%E8%80%83/
 https://bysocket.com/categories/Spring-Boot/
 https://bysocket.com/categories/ElasticSearch/
