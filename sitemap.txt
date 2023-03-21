@@ -1,3 +1,5 @@
+https://bysocket.com/overseas-saas/
+https://bysocket.com/about/
 https://bysocket.com/load-balancing-approach-in-distributed-system/
 https://bysocket.com/elasticsearch-7-nested-query-example/
 https://bysocket.com/how-lucene-works/
@@ -39,7 +41,6 @@ https://bysocket.com/spring-boot-thymeleaf-web-example/
 https://bysocket.com/java-filenamefilter-source-example/
 https://bysocket.com/java-io-file-example/
 https://bysocket.com/google-adsense-pin/
-https://bysocket.com/about/
 https://bysocket.com/http-intro/
 https://bysocket.com/spring-boot-starter-validation-example/
 https://bysocket.com/spring-boot-data-pageable-query/
@@ -94,6 +95,7 @@ https://bysocket.com/tags/MongoDB/
 https://bysocket.com/tags/Mac/
 https://bysocket.com/tags/Architecture/
 https://bysocket.com/tags/Nested/
+https://bysocket.com/tags/%E7%9F%A5%E8%AF%86%E6%98%9F%E7%90%83/
 https://bysocket.com/categories/%E6%80%9D%E8%80%83/
 https://bysocket.com/categories/Spring-Boot/
 https://bysocket.com/categories/ElasticSearch/
@@ -109,3 +111,4 @@ https://bysocket.com/categories/ElasticSearch/Elasticsearch/
 https://bysocket.com/categories/Spring-Boot/ElasticSearch/
 https://bysocket.com/categories/Spring-Boot/ElasticSearch/Elasticsearch/
 https://bysocket.com/categories/Microservice-Architecture/
+https://bysocket.com/categories/%E7%9F%A5%E8%AF%86%E6%98%9F%E7%90%83/
