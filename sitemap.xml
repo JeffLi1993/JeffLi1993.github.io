@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://bysocket.com/saas-think-202303/</loc>
+    
+    <lastmod>2023-03-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://bysocket.com/saas-50-think/</loc>
     
     <lastmod>2023-03-27</lastmod>
@@ -661,7 +670,7 @@
 
   <url>
     <loc>https://bysocket.com/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -669,308 +678,308 @@
   
   <url>
     <loc>https://bysocket.com/tags/PLG/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/RPA/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/Java/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/MyBatis/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/IDEA/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/%E5%8E%9F%E7%90%86/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/REST/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/Redis/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/ElasticSearch/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/OpenAI/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/Mybatis/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/Druid/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/Nginx/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/Dubbo/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/ZooKeeper/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/Servlet/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/Collections/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/Spring-Data/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/Validation/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/AdSense/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/ChatGPT/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/Java-IO/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/Thymeleaf/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/SQL/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/UUID/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/Elasticsearch/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/Web/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/Properties/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/Config/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/FreeMarker/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/HashSet/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/TreeSet/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/LinkedHashSet/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/HBase/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/MongoDB/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/Mac/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/Architecture/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/Nested/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/%E7%9F%A5%E8%AF%86%E6%98%9F%E7%90%83/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/5WHY/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/%E8%90%A5%E9%94%80/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/%E6%95%B0%E5%AD%97%E8%90%A5%E9%94%80/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/tags/%E5%B7%A5%E5%85%B7%E7%AB%99/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -979,119 +988,119 @@
   
   <url>
     <loc>https://bysocket.com/categories/SaaS/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/categories/%E6%80%9D%E8%80%83/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/categories/Spring-Boot/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/categories/ElasticSearch/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/categories/Spring-Boot-WebFlux/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/categories/JSP/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/categories/JDK/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/categories/HTTP/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/categories/SEO/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/categories/Elasticsearch/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/categories/ElasticSearch/Elasticsearch/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/categories/Spring-Boot/ElasticSearch/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/categories/Spring-Boot/ElasticSearch/Elasticsearch/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/categories/Microservice-Architecture/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://bysocket.com/categories/%E7%9F%A5%E8%AF%86%E6%98%9F%E7%90%83/</loc>
-    <lastmod>2023-03-27</lastmod>
+    <lastmod>2023-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
