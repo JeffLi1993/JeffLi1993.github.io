@@ -1,3 +1,4 @@
+https://bysocket.com/midjourney-how-to-use/
 https://bysocket.com/openai-how-to-use-chatgpt-for-google/
 https://bysocket.com/openai-chatgpt-fix-access-denied/
 https://bysocket.com/openai-chatgpt-too-many-requests-in-1-hour-try-again-later-chatgpt-fix/
@@ -119,6 +120,7 @@ https://bysocket.com/tags/5WHY/
 https://bysocket.com/tags/%E8%90%A5%E9%94%80/
 https://bysocket.com/tags/%E6%95%B0%E5%AD%97%E8%90%A5%E9%94%80/
 https://bysocket.com/tags/%E5%B7%A5%E5%85%B7%E7%AB%99/
+https://bysocket.com/tags/Midjourney/
 https://bysocket.com/categories/SaaS/
 https://bysocket.com/categories/%E6%80%9D%E8%80%83/
 https://bysocket.com/categories/Spring-Boot/
@@ -136,3 +138,4 @@ https://bysocket.com/categories/Spring-Boot/ElasticSearch/
 https://bysocket.com/categories/Spring-Boot/ElasticSearch/Elasticsearch/
 https://bysocket.com/categories/Microservice-Architecture/
 https://bysocket.com/categories/%E7%9F%A5%E8%AF%86%E6%98%9F%E7%90%83/
+https://bysocket.com/categories/Midjourney/
