@@ -1,3 +1,6 @@
+https://bysocket.com/midjourney-prompt-builders-guides-website/
+https://bysocket.com/about/
+https://bysocket.com/saas-rpa/
 https://bysocket.com/midjourney-how-to-use/
 https://bysocket.com/openai-how-to-use-chatgpt-for-google/
 https://bysocket.com/openai-chatgpt-fix-access-denied/
@@ -25,7 +28,6 @@ https://bysocket.com/5-why/
 https://bysocket.com/blog-post-plg-saas/
 https://bysocket.com/figma-plg-saas/
 https://bysocket.com/overseas-saas/
-https://bysocket.com/about/
 https://bysocket.com/load-balancing-approach-in-distributed-system/
 https://bysocket.com/elasticsearch-7-nested-query-example/
 https://bysocket.com/how-lucene-works/

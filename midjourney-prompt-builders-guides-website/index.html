@@ -6,12 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     
-    <title>Spring Boot 整合 ElasticSearch 案例教程 | 程序员泥瓦匠</title>
+    <title>Midjourney 提示词工具（10 个国内外最好最推荐的） | 程序员泥瓦匠</title>
 
-    <meta name="description" content="&lt;h2 id=&#34;一、ES-的使用场景&#34;&gt;&lt;a href=&#34;#一、ES-的使用场景&#34; class=&#34;headerlink&#34; title=&#34;一、ES 的使用场景&#34;&gt;&lt;/a&gt;一、ES 的使用场景&lt;/h2&gt;&lt;p&gt;简单说，ElasticSearch（简称 ES）是搜索引擎，是结构化数据的分布式搜索引擎。&lt;br&gt;我详细的介绍了如何安装，初步使用了 IK 分词器。这里，我主要讲下 SpringBoot 工程中如何使用 ElasticSearch。&lt;/p&gt;
-&lt;p&gt;运行环境：JDK 7 或 8，Maven 3.0+&lt;/p&gt;
-&lt;p&gt;技术栈：SpringBoot 1.5+，ElasticSearch 2.3.2&lt;/p&gt;">
-    <link rel="canonical" href="https://bysocket.com/spring-boot-elasticsearch/"/>
+    <meta name="description" content="&lt;p&gt;&lt;a href=&#34;https://midjourney.com/&#34;&gt;Midjourney&lt;/a&gt;，是一个革命性的基于人工智能的艺术生成器，可以从被称为提示的简单文本描述中生成令人惊叹的图像。Midjourney已经迅速成为艺术家、设计师和营销人员的首选工具（包括像我这样根本不会设计任何东西的无能之辈）。&lt;/p&gt;">
+    <link rel="canonical" href="https://bysocket.com/midjourney-prompt-builders-guides-website/"/>
     <meta name="keywords" content="">
 
 
@@ -19,29 +17,21 @@
 
     <meta property="og:locale" content="cn" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content= "Spring Boot 整合 ElasticSearch 案例教程 | 程序员泥瓦匠"  />
-    <meta property="og:description" content= "&lt;h2 id=&#34;一、ES-的使用场景&#34;&gt;&lt;a href=&#34;#一、ES-的使用场景&#34; class=&#34;headerlink&#34; title=&#34;一、ES 的使用场景&#34;&gt;&lt;/a&gt;一、ES 的使用场景&lt;/h2&gt;&lt;p&gt;简单说，ElasticSearch（简称 ES）是搜索引擎，是结构化数据的分布式搜索引擎。&lt;br&gt;我详细的介绍了如何安装，初步使用了 IK 分词器。这里，我主要讲下 SpringBoot 工程中如何使用 ElasticSearch。&lt;/p&gt;
-&lt;p&gt;运行环境：JDK 7 或 8，Maven 3.0+&lt;/p&gt;
-&lt;p&gt;技术栈：SpringBoot 1.5+，ElasticSearch 2.3.2&lt;/p&gt;" />
-    <meta property="og:url" content="https://bysocket.com/spring-boot-elasticsearch/index.html" />
+    <meta property="og:title" content= "Midjourney 提示词工具（10 个国内外最好最推荐的） | 程序员泥瓦匠"  />
+    <meta property="og:description" content= "&lt;p&gt;&lt;a href=&#34;https://midjourney.com/&#34;&gt;Midjourney&lt;/a&gt;，是一个革命性的基于人工智能的艺术生成器，可以从被称为提示的简单文本描述中生成令人惊叹的图像。Midjourney已经迅速成为艺术家、设计师和营销人员的首选工具（包括像我这样根本不会设计任何东西的无能之辈）。&lt;/p&gt;" />
+    <meta property="og:url" content="https://bysocket.com/midjourney-prompt-builders-guides-website/index.html" />
     <meta property="og:site_name" content="" />
     <meta property="article:author" content="泥瓦匠" />
     <meta property="article:publisher" content="" />
-    <meta property="og:description" content="&lt;h2 id=&#34;一、ES-的使用场景&#34;&gt;&lt;a href=&#34;#一、ES-的使用场景&#34; class=&#34;headerlink&#34; title=&#34;一、ES 的使用场景&#34;&gt;&lt;/a&gt;一、ES 的使用场景&lt;/h2&gt;&lt;p&gt;简单说，ElasticSearch（简称 ES）是搜索引擎，是结构化数据的分布式搜索引擎。&lt;br&gt;我详细的介绍了如何安装，初步使用了 IK 分词器。这里，我主要讲下 SpringBoot 工程中如何使用 ElasticSearch。&lt;/p&gt;
-&lt;p&gt;运行环境：JDK 7 或 8，Maven 3.0+&lt;/p&gt;
-&lt;p&gt;技术栈：SpringBoot 1.5+，ElasticSearch 2.3.2&lt;/p&gt;" />
-    <meta name="twitter:title" content="Spring Boot 整合 ElasticSearch 案例教程 | 程序员泥瓦匠"/>
-    <meta name="twitter:description" content="&lt;h2 id=&#34;一、ES-的使用场景&#34;&gt;&lt;a href=&#34;#一、ES-的使用场景&#34; class=&#34;headerlink&#34; title=&#34;一、ES 的使用场景&#34;&gt;&lt;/a&gt;一、ES 的使用场景&lt;/h2&gt;&lt;p&gt;简单说，ElasticSearch（简称 ES）是搜索引擎，是结构化数据的分布式搜索引擎。&lt;br&gt;我详细的介绍了如何安装，初步使用了 IK 分词器。这里，我主要讲下 SpringBoot 工程中如何使用 ElasticSearch。&lt;/p&gt;
-&lt;p&gt;运行环境：JDK 7 或 8，Maven 3.0+&lt;/p&gt;
-&lt;p&gt;技术栈：SpringBoot 1.5+，ElasticSearch 2.3.2&lt;/p&gt;"/>
+    <meta property="og:description" content="&lt;p&gt;&lt;a href=&#34;https://midjourney.com/&#34;&gt;Midjourney&lt;/a&gt;，是一个革命性的基于人工智能的艺术生成器，可以从被称为提示的简单文本描述中生成令人惊叹的图像。Midjourney已经迅速成为艺术家、设计师和营销人员的首选工具（包括像我这样根本不会设计任何东西的无能之辈）。&lt;/p&gt;" />
+    <meta name="twitter:title" content="Midjourney 提示词工具（10 个国内外最好最推荐的） | 程序员泥瓦匠"/>
+    <meta name="twitter:description" content="&lt;p&gt;&lt;a href=&#34;https://midjourney.com/&#34;&gt;Midjourney&lt;/a&gt;，是一个革命性的基于人工智能的艺术生成器，可以从被称为提示的简单文本描述中生成令人惊叹的图像。Midjourney已经迅速成为艺术家、设计师和营销人员的首选工具（包括像我这样根本不会设计任何东西的无能之辈）。&lt;/p&gt;"/>
     <script type="application/ld+json">
         {
-            "description": "&lt;h2 id=&#34;一、ES-的使用场景&#34;&gt;&lt;a href=&#34;#一、ES-的使用场景&#34; class=&#34;headerlink&#34; title=&#34;一、ES 的使用场景&#34;&gt;&lt;/a&gt;一、ES 的使用场景&lt;/h2&gt;&lt;p&gt;简单说，ElasticSearch（简称 ES）是搜索引擎，是结构化数据的分布式搜索引擎。&lt;br&gt;我详细的介绍了如何安装，初步使用了 IK 分词器。这里，我主要讲下 SpringBoot 工程中如何使用 ElasticSearch。&lt;/p&gt;
-&lt;p&gt;运行环境：JDK 7 或 8，Maven 3.0+&lt;/p&gt;
-&lt;p&gt;技术栈：SpringBoot 1.5+，ElasticSearch 2.3.2&lt;/p&gt;",
+            "description": "&lt;p&gt;&lt;a href=&#34;https://midjourney.com/&#34;&gt;Midjourney&lt;/a&gt;，是一个革命性的基于人工智能的艺术生成器，可以从被称为提示的简单文本描述中生成令人惊叹的图像。Midjourney已经迅速成为艺术家、设计师和营销人员的首选工具（包括像我这样根本不会设计任何东西的无能之辈）。&lt;/p&gt;",
             "author": { "@type": "Person", "name": "泥瓦匠" },
             "@type": "BlogPosting",
-            "url": "https://bysocket.com/spring-boot-elasticsearch/index.html",
+            "url": "https://bysocket.com/midjourney-prompt-builders-guides-website/index.html",
             "publisher": {
             "@type": "Organization",
             "logo": {
@@ -50,11 +40,11 @@
             },
             "name": "泥瓦匠"
             },
-            "headline": "Spring Boot 整合 ElasticSearch 案例教程 | 程序员泥瓦匠",
-            "datePublished": "2023-01-29T15:50:15.000Z",
+            "headline": "Midjourney 提示词工具（10 个国内外最好最推荐的） | 程序员泥瓦匠",
+            "datePublished": "2023-04-20T14:41:15.000Z",
             "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": "https://bysocket.com/spring-boot-elasticsearch/index.html"
+                "@id": "https://bysocket.com/midjourney-prompt-builders-guides-website/index.html"
             },
             "@context": "http://schema.org"
         }
@@ -190,7 +180,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-cldfjky7e000asn3s5d4g7m8t" class="article article-type-post" itemscope
+    <article id="post-clgp9qnmc0001rg3sf38fdh9u" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -206,7 +196,7 @@
             
   
     <h1 class="article-title" itemprop="name">
-      Spring Boot 整合 ElasticSearch 案例教程
+      Midjourney 提示词工具（10 个国内外最好最推荐的）
     </h1>
   
 
@@ -216,18 +206,18 @@
         <div class="article-more-info article-more-info-post hairline">
 
             <div class="article-date">
-  <time datetime="2023-01-29T15:50:15.000Z" itemprop="datePublished">2023-01-29</time>
+  <time datetime="2023-04-20T14:41:15.000Z" itemprop="datePublished">2023-04-20</time>
 </div>
 
             
             <div class="article-category">
-                <a class="article-category-link" href="/categories/Spring-Boot/">Spring Boot</a>
+                <a class="article-category-link" href="/categories/Midjourney/">Midjourney</a>
             </div>
             
 
             
             <div class="article-tag">
-                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Elasticsearch/" rel="tag">Elasticsearch</a></li></ul>
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Midjourney/" rel="tag">Midjourney</a></li></ul>
             </div>
             
 
@@ -236,263 +226,45 @@
         </div>
 
         <div class="article-entry post-inner-html hairline" itemprop="articleBody">
-            <h2 id="一、ES-的使用场景"><a href="#一、ES-的使用场景" class="headerlink" title="一、ES 的使用场景"></a>一、ES 的使用场景</h2><p>简单说，ElasticSearch（简称 ES）是搜索引擎，是结构化数据的分布式搜索引擎。<br>我详细的介绍了如何安装，初步使用了 IK 分词器。这里，我主要讲下 SpringBoot 工程中如何使用 ElasticSearch。</p>
-<p>运行环境：JDK 7 或 8，Maven 3.0+</p>
-<p>技术栈：SpringBoot 1.5+，ElasticSearch 2.3.2</p>
+            <p><a target="_blank" rel="noopener" href="https://midjourney.com/">Midjourney</a>，是一个革命性的基于人工智能的艺术生成器，可以从被称为提示的简单文本描述中生成令人惊叹的图像。Midjourney已经迅速成为艺术家、设计师和营销人员的首选工具（包括像我这样根本不会设计任何东西的无能之辈）。</p>
 <span id="more"></span>
 
-<p>ES 的使用场景大致分为两块：</p>
-<ol>
-<li><p>全文检索。加上分词（IK 是其中一个）、拼音插件等可以成为强大的全文搜索引擎。</p>
-</li>
-<li><p>日志统计分析。可以实时动态分析海量日志数据。</p>
-</li>
-</ol>
-<h2 id="二、运行-springboot-elasticsearch-工程"><a href="#二、运行-springboot-elasticsearch-工程" class="headerlink" title="二、运行 springboot-elasticsearch 工程"></a>二、运行 springboot-elasticsearch 工程</h2><p>注意的是这里使用的是 ElasticSearch 2.3.2。是因为版本对应关系 ：</p>
-<pre><code>Spring Boot Version (x)    Spring Data Elasticsearch Version (y)    Elasticsearch Version (z)
-x &lt;= 1.3.5    y &lt;= 1.3.4    z &lt;= 1.7.2*
-x &gt;= 1.4.x    2.0.0 &lt;=y &lt; 5.0.0**    2.0.0 &lt;= z &lt; 5.0.0**
-</code></pre>
+<p>为了帮助你开始使用这个强大的工具，我们汇编了一份<strong>15个资源的清单，可以帮助你为你的下一个项目制作更好的提示语</strong>……或者让我们承认，在你无聊的时候使用。</p>
+<p>无论你是专家还是初学者，这些资源将给你带来灵感和指导，让你用Midjourney创作出真正令人惊叹的作品。</p>
+<h2 id="1-PromptHero-中文官网（强烈推荐）"><a href="#1-PromptHero-中文官网（强烈推荐）" class="headerlink" title="1. PromptHero 中文官网（强烈推荐）"></a>1. PromptHero 中文官网（强烈推荐）</h2><p><a target="_blank" rel="noopener" href="https://promptheroes.cn/">PromptHero 中文官网</a> <a target="_blank" rel="noopener" href="https://promptheroes.cn/">https://promptheroes.cn/</a> ：Prompt Heroes 官网是提供 AI 绘画相关提示词中文网站，包括 Midjourney（MJ）、 Stable Diffusion、DALL-E 等</p>
 <ul>
-<li>只需要你修改下对应的 pom 文件版本号</li>
-<li>下一个 ES 的版本会有重大的更新</li>
+<li>热门标签功能</li>
+<li>搜索功能：根据中文或英文关键词直接，搜相关图 + MJ prompt</li>
 </ul>
-<p>git clone 下载工程 springboot-elasticsearch ，项目地址见 GitHub - <a target="_blank" rel="noopener" href="https://github.com/JeffLi1993/springboot-learning-example">https://github.com/JeffLi1993/springboot-learning-example</a> 。</p>
-<h3 id="1-后台起守护线程启动-Elasticsearch"><a href="#1-后台起守护线程启动-Elasticsearch" class="headerlink" title="1. 后台起守护线程启动 Elasticsearch"></a>1. 后台起守护线程启动 Elasticsearch</h3><pre><code>cd elasticsearch-2.3.2/
-./bin/elasticsearch -d
-</code></pre>
-<p>下面开始运行工程步骤（Quick Start）：</p>
-<h3 id="2-项目结构介绍"><a href="#2-项目结构介绍" class="headerlink" title="2. 项目结构介绍"></a>2. 项目结构介绍</h3><pre><code>org.spring.springboot.controller - Controller 层
-org.spring.springboot.repository - ES 数据操作层
-org.spring.springboot.domain - 实体类
-org.spring.springboot.service - ES 业务逻辑层
-Application - 应用启动类
-application.properties - 应用配置文件，应用启动会自动读取配置
-</code></pre>
-<p>本地启动的 ES ，就不需要改配置文件了。如果连测试 ES 服务地址，需要修改相应配置</p>
-<h3 id="3-编译工程"><a href="#3-编译工程" class="headerlink" title="3.编译工程"></a>3.编译工程</h3><p>在项目根目录 springboot-elasticsearch，运行 maven 指令：</p>
-<pre><code>mvn clean install
-</code></pre>
-<p>4.运行工程</p>
-<p>右键运行 Application 应用启动类（位置：&#x2F;springboot-learning-example&#x2F;springboot-elasticsearch&#x2F;src&#x2F;main&#x2F;java&#x2F;org&#x2F;spring&#x2F;springboot&#x2F;Application.java）的 main 函数，这样就成功启动了 springboot-elasticsearch 案例。</p>
-<p>用 Postman 工具新增两个城市</p>
-<p>新增城市信息</p>
-<pre><code>POST http://127.0.0.1:8080/api/city
-&#123;
-&quot;id&quot;:&quot;1&quot;,
-&quot;provinceid&quot;:&quot;1&quot;,
-&quot;cityname&quot;:&quot;温岭&quot;,
-&quot;description&quot;:&quot;温岭是个好城市&quot;
-&#125;
-</code></pre>
-<pre><code>POST http://127.0.0.1:8080/api/city
-&#123;
-&quot;id&quot;:&quot;2&quot;,
-&quot;provinceid&quot;:&quot;2&quot;,
-&quot;cityname&quot;:&quot;温州&quot;,
-&quot;description&quot;:&quot;温州是个热城市&quot;
-&#125;
-</code></pre>
-<p>可以打开 ES 可视化工具 head 插件：<a target="_blank" rel="noopener" href="http://localhost:9200/_plugin/head/%EF%BC%9A">http://localhost:9200/_plugin/head/：</a></p>
-<p>在「数据浏览」tab，可以查阅到 ES 中数据是否被插入，插入后的数据格式如下：</p>
-<pre><code>&#123;
-    &quot;_index&quot;: &quot;cityindex&quot;,
-    &quot;_type&quot;: &quot;city&quot;,
-    &quot;_id&quot;: &quot;1&quot;,
-    &quot;_version&quot;: 1,
-    &quot;_score&quot;: 1,
-    &quot;_source&quot;: &#123;
-        &quot;id&quot;: 1,
-        &quot;provinceid&quot;: 1,
-        &quot;cityname&quot;: &quot;温岭&quot;,
-        &quot;description&quot;: &quot;温岭是个好城市&quot;
-    &#125;
-&#125;
-</code></pre>
-<p>下面验证下权重分查询搜索接口的实现：</p>
-<pre><code>GET http://localhost:8080/api/city/search?pageNumber=0&amp;pageSize=10&amp;searchContent=温岭
-</code></pre>
-<p>数据是会出现：</p>
-<pre><code>[
-    &#123;
-    &quot;id&quot;: 1,
-    &quot;provinceid&quot;: 1,
-    &quot;cityname&quot;: &quot;温岭&quot;,
-    &quot;description&quot;: &quot;温岭是个好城市&quot;
-    &#125;,
-    &#123;
-    &quot;id&quot;: 2,
-    &quot;provinceid&quot;: 2,
-    &quot;cityname&quot;: &quot;温州&quot;,
-    &quot;description&quot;: &quot;温州是个热城市&quot;
-    &#125;
-]
-</code></pre>
-<p>从启动后台 Console 可以看出，打印出来对应的 DSL 语句：</p>
-<pre><code> &#123;
-  &quot;function_score&quot; : &#123;
-    &quot;functions&quot; : [ &#123;
-      &quot;filter&quot; : &#123;
-        &quot;bool&quot; : &#123;
-          &quot;should&quot; : &#123;
-            &quot;match&quot; : &#123;
-              &quot;cityname&quot; : &#123;
-                &quot;query&quot; : &quot;温岭&quot;,
-                &quot;type&quot; : &quot;boolean&quot;
-              &#125;
-            &#125;
-          &#125;
-        &#125;
-      &#125;,
-      &quot;weight&quot; : 1000.0
-    &#125;, &#123;
-      &quot;filter&quot; : &#123;
-        &quot;bool&quot; : &#123;
-          &quot;should&quot; : &#123;
-            &quot;match&quot; : &#123;
-              &quot;description&quot; : &#123;
-                &quot;query&quot; : &quot;温岭&quot;,
-                &quot;type&quot; : &quot;boolean&quot;
-              &#125;
-            &#125;
-          &#125;
-        &#125;
-      &#125;,
-      &quot;weight&quot; : 100.0
-    &#125; ]
-  &#125;
-&#125;
-</code></pre>
-<p>为什么会出现 温州 城市呢？因为 function score query 权重分查询，无相关的数据默认分值为 1。如果想除去，设置一个 setMinScore 分值即可。</p>
-<h3 id="三、springboot-elasticsearch-工程代码详解"><a href="#三、springboot-elasticsearch-工程代码详解" class="headerlink" title="三、springboot-elasticsearch 工程代码详解"></a>三、springboot-elasticsearch 工程代码详解</h3><p>具体代码见 GitHub - <a target="_blank" rel="noopener" href="https://github.com/JeffLi1993/springboot-learning-example">https://github.com/JeffLi1993/springboot-learning-example</a></p>
-<p>1.pom.xml 依赖</p>
-<pre><code>&lt;dependencies&gt;
-
-    &lt;!-- Spring Boot Elasticsearch 依赖 --&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-boot-starter-data-elasticsearch&lt;/artifactId&gt;
-    &lt;/dependency&gt;
-
-    &lt;!-- Spring Boot Web 依赖 --&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
-    &lt;/dependency&gt;
-
-    &lt;!-- Junit --&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;junit&lt;/groupId&gt;
-        &lt;artifactId&gt;junit&lt;/artifactId&gt;
-        &lt;version&gt;4.12&lt;/version&gt;
-    &lt;/dependency&gt;
-&lt;/dependencies&gt;
-</code></pre>
-<ol start="2">
-<li>application.properties 配置 ES 地址</li>
-</ol>
-<pre><code># ES
-spring.data.elasticsearch.repositories.enabled = true
-spring.data.elasticsearch.cluster-nodes = 127.0.0.1:9300
-</code></pre>
-<p>默认 9300 是 Java 客户端的端口。9200 是支持 Restful HTTP 的接口。</p>
-<ol start="3">
-<li>ES 数据操作层</li>
-</ol>
-<pre><code>@Repository
-public interface CityRepository extends ElasticsearchRepository&lt;City,Long&gt; &#123;
-
-&#125;
-</code></pre>
-<p>接口只要继承 ElasticsearchRepository 类即可。默认会提供很多实现，比如 CRUD 和搜索相关的实现。</p>
-<ol start="4">
-<li>实体类</li>
-</ol>
-<pre><code>@Document(indexName = &quot;cityindex&quot;, type = &quot;city&quot;)
-public class City implements Serializable&#123;
-
-    private static final long serialVersionUID = -1L;
-
-    /**
-     * 城市编号
-     */
-    private Long id;
-
-    /**
-     * 省份编号
-     */
-    private Long provinceid;
-
-    /**
-     * 城市名称
-     */
-    private String cityname;
-
-    /**
-     * 描述
-     */
-    private String description;
-&#125;
-</code></pre>
-<p>注意</p>
-<p>index 配置必须是全部小写，不然会引出异常：</p>
-<p>org.elasticsearch.indices.InvalidIndexNameException: Invalid index name [cityIndex], must be lowercase</p>
-<ol start="5">
-<li>ES 业务逻辑层</li>
-</ol>
-<p>Service 实现类：</p>
-<pre><code>/**
-* 城市 ES 业务逻辑实现类
-*
-* Created by bysocket on 07/02/2017.
-  */
-  @Service
-  public class CityESServiceImpl implements CityService &#123;
-
-  private static final Logger LOGGER = LoggerFactory.getLogger(CityESServiceImpl.class);
-
-  @Autowired
-  CityRepository cityRepository;
-
-  @Override
-  public Long saveCity(City city) &#123;
-
-       City cityResult = cityRepository.save(city);
-       return cityResult.getId();
-  &#125;
-
-  @Override
-  public List&lt;City&gt; searchCity(Integer pageNumber,
-  Integer pageSize,
-  String searchContent) &#123;
-  // 分页参数
-  Pageable pageable = new PageRequest(pageNumber, pageSize);
-
-       // Function Score Query
-       FunctionScoreQueryBuilder functionScoreQueryBuilder = QueryBuilders.functionScoreQuery()
-               .add(QueryBuilders.boolQuery().should(QueryBuilders.matchQuery(&quot;cityname&quot;, searchContent)),
-                   ScoreFunctionBuilders.weightFactorFunction(1000))
-               .add(QueryBuilders.boolQuery().should(QueryBuilders.matchQuery(&quot;description&quot;, searchContent)),
-                       ScoreFunctionBuilders.weightFactorFunction(100));
-
-       // 创建搜索 DSL 查询
-       SearchQuery searchQuery = new NativeSearchQueryBuilder()
-               .withPageable(pageable)
-               .withQuery(functionScoreQueryBuilder).build();
-
-       LOGGER.info(&quot;\n searchCity(): searchContent [&quot; + searchContent + &quot;] \n DSL  = \n &quot; + searchQuery.getQuery().toString());
-
-       Page&lt;City&gt; searchPageResults = cityRepository.search(searchQuery);
-       return searchPageResults.getContent();
-  &#125;
-
-&#125;
-</code></pre>
-<p>保存逻辑很简单，这里不解释了。</p>
-<p>分页 function score query 搜索逻辑：</p>
-<p>先创建分页参数，然后用 FunctionScoreQueryBuilder 定义 Function Score Query，并设置对应字段的权重分值。城市名称 1000 分，description 100 分。</p>
-<p>然后创建该搜索的 DSL 查询，并打印出来。</p>
-<h2 id="四、小结"><a href="#四、小结" class="headerlink" title="四、小结"></a>四、小结</h2><p>实际场景还会很复杂。这里只是点睛之笔，后续大家优化或者更改下 DSL 语句就可以完成自己想要的搜索规则。</p>
+<p>每天更新几十张好看的 AI 绘画图 + MJ prompt ：</p>
+<p><a target="_blank" rel="noopener" href="https://promptheroes.cn/categories/midjourney-prompt/">https://promptheroes.cn/categories/midjourney-prompt/</a></p>
+<p><img src="https://image.bysocket.com/2023/04/20/202304202259807.webp"></p>
+<p>点击打开：<a target="_blank" rel="noopener" href="https://promptheroes.cn/">https://promptheroes.cn/</a></p>
+<h4 id="2-AiTuts-Prompt"><a href="#2-AiTuts-Prompt" class="headerlink" title="2. AiTuts Prompt"></a>2. AiTuts Prompt</h4><p><a target="_blank" rel="noopener" href="https://prompts.aituts.com/">https://prompts.aituts.com/</a></p>
+<p>AiTuts Prompt <strong>是一个精心策划的高质量Midjourney提示数据库，提供了广泛的不同风格供你选择</strong>。对于任何想用Midjourney创造令人惊叹的AI生成的图像的人来说，这是一个很好的资源。该数据库包括各种提示，如游戏艺术提示，平面设计提示，艺术和工艺，插图，等等。</p>
+<h2 id="3-Midjourney-Prompts-Database"><a href="#3-Midjourney-Prompts-Database" class="headerlink" title="3. Midjourney Prompts Database"></a>3. Midjourney Prompts Database</h2><p><a target="_blank" rel="noopener" href="https://aealexander.com/midjourney-prompt-database/">https://aealexander.com/midjourney-prompt-database/</a></p>
+<p>该数据库分为几个类别，每个类别都集中在一个特定的艺术风格、媒介或主题。该数据库还包括<strong>传统艺术家、电视和电影、视频游戏和角色提示的类别，</strong>为用户提供了广泛的选择。</p>
+<h2 id="4-MJ-Prompt-Tool"><a href="#4-MJ-Prompt-Tool" class="headerlink" title="4. MJ Prompt Tool"></a>4. MJ Prompt Tool</h2><p><a target="_blank" rel="noopener" href="https://prompt.noonshot.com/">https://prompt.noonshot.com/</a></p>
+<p>该工具中的选项包括风格、灯光、相机类型或样式、<strong>艺术家、颜色、材料、大小、焦点、质量</strong>，甚至还可以选择风格化或上传灵感图片。</p>
+<p>MJ提示工具是一个用户友好和高效的工具，使创建中捷提示变得轻而易举。它的<strong>GUI功能，广泛的选项</strong>，以及上传鼓舞人心的图像的能力，使用户能够轻松地生成他们想要的图像。</p>
+<h2 id="5-Promptmania"><a href="#5-Promptmania" class="headerlink" title="5. Promptmania"></a>5. Promptmania</h2><p><a target="_blank" rel="noopener" href="https://promptomania.com/midjourney-prompt-builder/">https://promptomania.com/midjourney-prompt-builder/</a></p>
+<p>Promptmania是一个Midjourney的提示构建器，可以让你<strong>轻松地创建提示，用于基于AI的艺术生成器，Midjourney</strong>。它与MJ Prompt Tool相似，但有不同的方式来构建提示。</p>
+<p>Promptmania的一个突出特点是，它<strong>为你选择的每个选项提供了例子</strong>。如果你有一个特定的艺术风格，你想实现它，但你不太确定如何解释，或者你想要一个特定的相机场景，你不再需要只是想象和写出来，因为他们有每个例子。</p>
+<h2 id="6-Midjourney-Styles-and-Keywords-Reference"><a href="#6-Midjourney-Styles-and-Keywords-Reference" class="headerlink" title="6. Midjourney Styles and Keywords Reference"></a>6. Midjourney Styles and Keywords Reference</h2><p><a target="_blank" rel="noopener" href="https://github.com/willwulfken/MidJourney-Styles-and-Keywords-Reference/blob/main/README.md">https://github.com/willwulfken/MidJourney-Styles-and-Keywords-Reference/blob/main/README.md</a></p>
+<p>在这里，你将学习到所有你需要知道的东西。在这里，你将<strong>学习一切你需要知道的，在生成AI图像方面从零到专业</strong>。</p>
+<p>你可以了解特定主题的不同艺术风格，艺术家，灯光，材料及其属性，几何学，格式化，以及一些参数，这些都将提高你编写提示的 “技巧”。</p>
+<h2 id="7-Arthub-AI"><a href="#7-Arthub-AI" class="headerlink" title="7. Arthub AI"></a>7. Arthub AI</h2><p><a target="_blank" rel="noopener" href="https://arthub.ai/">https://arthub.ai/</a></p>
+<p>Arthub.ai 是一个众筹 Midjourney 提示资源的网站。该网站的独特之处在于，<strong>所有的提示和其生成的人工智能艺术都显示出来，供你检查</strong>，复制，还可以加注或减注。这使你能够探索Midjourney的不同类型的提示和图像，以及为你自己的项目获得灵感。</p>
+<p>Arthub.ai的另一个伟大的特点是，它<strong>包括海报使用的参数，以及用于生成图像的种子数</strong>和比例、步骤和尺寸等设置。</p>
+<h2 id="8-Jrnylist"><a href="#8-Jrnylist" class="headerlink" title="8. Jrnylist"></a>8. Jrnylist</h2><p><a target="_blank" rel="noopener" href="https://www.jrnylist.com/">https://www.jrnylist.com/</a></p>
+<p>Jrnylist是一个用于Midjourney的**提示生成器，它可以让你轻松地为你的下一个项目创建完美的提示。凭借其友好的界面，你可以写下你的主要想法，然后点击选项，轻松地建立你的提示。你不需要成为专家，任何人都可以使用它。</p>
+<h2 id="9-Midjourney-Prompt-Helper"><a href="#9-Midjourney-Prompt-Helper" class="headerlink" title="9. Midjourney Prompt Helper"></a>9. Midjourney Prompt Helper</h2><p><a target="_blank" rel="noopener" href="https://midjourney-prompt-helper.netlify.app/">https://midjourney-prompt-helper.netlify.app/</a></p>
+<p>Midjourney Prompt Helper是一个提示生成器，它是<em><strong>简单和直接的。它的界面很简单，你可以轻松地写下你的提示，并点击可用的选项，如艺术风格，或动物、照明、景观、艺术家或流行的类别。然后你可以</strong>调整尺寸，添加修饰语，最后生成的提示语就会出现</em>*。</p>
+<p>Midjourney Prompt Helper的简单性使得任何人都可以轻松使用，无论你是初学者还是经验丰富的用户。可用的选项允许你创建一个符合你的具体需求和喜好的提示。</p>
+<p>你可以选择艺术风格、动物、照明、景观和艺术家等类别，甚至选择流行的东西。而且，通过调整尺寸和添加修改器的能力，你可以确保你产生的图像将是你想要的。</p>
+<h2 id="10-MJPromptBuilder"><a href="#10-MJPromptBuilder" class="headerlink" title="10. MJPromptBuilder"></a>10. MJPromptBuilder</h2><p><a target="_blank" rel="noopener" href="https://mj-prompt.anorihon.com/">https://mj-prompt.anorihon.com/</a></p>
+<p>MjPromptBuilder是一个直接的提示语构建工具。尽管它可能没有一个好的设计，但它仍然可以完成工作。该工具不像其他提示语生成器那样深入，因为你需要了解<strong>具体的参数、艺术风格和修改器</strong>等。</p>
+<p>最后强烈推荐： <a target="_blank" rel="noopener" href="https://promptheroes.cn/">PromptHero 中文官网</a> <a target="_blank" rel="noopener" href="https://promptheroes.cn/">https://promptheroes.cn/</a> ：Prompt Heroes 官网是提供 AI 绘画相关提示词中文网站，包括 Midjourney（MJ）、 Stable Diffusion、DALL-E 等</p>
 
         </div>
 
@@ -534,19 +306,10 @@ public class City implements Serializable&#123;
     
 <nav class="article-nav">
   
-    <a href="/how-elasticsearch-works/" id="article-nav-newer" class="article-nav-link-wrap">
-      <div class="article-nav-caption">下一篇</div>
-      <div class="article-nav-title">
-        
-          ElasticSearch 架构初探 - ES 如何工作的？
-        
-      </div>
-    </a>
   
-  
-    <a href="/spring-boot-redis/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/saas-rpa/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-caption">上一篇</div>
-      <div class="article-nav-title">Spring Boot 整合 Redis 案例教程</div>
+      <div class="article-nav-title">聊聊 RPA 方向的思路</div>
     </a>
   
 </nav>
@@ -555,15 +318,15 @@ public class City implements Serializable&#123;
     <section class="share">
         <div class="share-title">分享</div>
         <a class="share-item" target="_blank"
-            href="https://twitter.com/share?text=Spring Boot 整合 ElasticSearch 案例教程 - 程序员泥瓦匠&url=https%3A%2F%2Fbysocket.com%2Fspring-boot-elasticsearch%2F">
+            href="https://twitter.com/share?text=Midjourney 提示词工具（10 个国内外最好最推荐的） - 程序员泥瓦匠&url=https%3A%2F%2Fbysocket.com%2Fmidjourney-prompt-builders-guides-website%2F">
             <ion-icon name="logo-twitter"></ion-icon>
         </a>
         <a class="share-item" target="_blank"
-            href="https://www.facebook.com/sharer.php?title=Spring Boot 整合 ElasticSearch 案例教程 - 程序员泥瓦匠&u=https%3A%2F%2Fbysocket.com%2Fspring-boot-elasticsearch%2F">
+            href="https://www.facebook.com/sharer.php?title=Midjourney 提示词工具（10 个国内外最好最推荐的） - 程序员泥瓦匠&u=https%3A%2F%2Fbysocket.com%2Fmidjourney-prompt-builders-guides-website%2F">
             <ion-icon name="logo-facebook"></ion-icon>
         </a>
         <!-- <a class="share-item" target="_blank"
-            href="https://service.weibo.com/share/share.php?title=Spring Boot 整合 ElasticSearch 案例教程 - 程序员泥瓦匠&url=https://bysocket.com/spring-boot-elasticsearch/&pic=">
+            href="https://service.weibo.com/share/share.php?title=Midjourney 提示词工具（10 个国内外最好最推荐的） - 程序员泥瓦匠&url=https://bysocket.com/midjourney-prompt-builders-guides-website/&pic=">
             <div class="n-icon n-icon-weibo"></div>
         </a> -->
     </section>
