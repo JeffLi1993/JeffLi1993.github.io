@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     
-    <title>Spring Boot 整合 Dubbo + ZooKeeper 实现分布式服务案例教程 | 程序员泥瓦匠</title>
+    <title>OpenAI ChatGPT 能取代多少程序员的工作？导致失业吗？ | 程序员泥瓦匠</title>
 
-    <meta name="description" content="&lt;h2 id=&#34;一、为什么整合-Dubbo&#34;&gt;&lt;a href=&#34;#一、为什么整合-Dubbo&#34; class=&#34;headerlink&#34; title=&#34;一、为什么整合 Dubbo&#34;&gt;&lt;/a&gt;一、为什么整合 Dubbo&lt;/h2&gt;&lt;p&gt;Dubbo 不单单只是高性能的 RPC 调用框架，更是 SOA 分布式服务治理的一种方案。&lt;/p&gt;">
-    <link rel="canonical" href="https://bysocket.com/spring-boot-dubbo-zookeeper/"/>
+    <meta name="description" content="&lt;p&gt;ChatGPT 能取代多少程序员的工作？导致我们程序员失业吗？这是一个很好的话题，我这里分享下：&lt;/p&gt;
+&lt;h2 id=&#34;一、ChatGPT-是什么？有什么作用&#34;&gt;&lt;a href=&#34;#一、ChatGPT-是什么？有什么作用&#34; class=&#34;headerlink&#34; title=&#34;一、ChatGPT 是什么？有什么作用&#34;&gt;&lt;/a&gt;一、ChatGPT 是什么？有什么作用&lt;/h2&gt;&lt;p&gt;ChatGPT是一种基于人工智能技术的语言模型，是可以生成代码。&lt;/p&gt;">
+    <link rel="canonical" href="https://bysocket.com/openai-chatgpt-vs-developer/"/>
     <meta name="keywords" content="">
 
 
@@ -17,21 +18,25 @@
 
     <meta property="og:locale" content="cn" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content= "Spring Boot 整合 Dubbo + ZooKeeper 实现分布式服务案例教程 | 程序员泥瓦匠"  />
-    <meta property="og:description" content= "&lt;h2 id=&#34;一、为什么整合-Dubbo&#34;&gt;&lt;a href=&#34;#一、为什么整合-Dubbo&#34; class=&#34;headerlink&#34; title=&#34;一、为什么整合 Dubbo&#34;&gt;&lt;/a&gt;一、为什么整合 Dubbo&lt;/h2&gt;&lt;p&gt;Dubbo 不单单只是高性能的 RPC 调用框架，更是 SOA 分布式服务治理的一种方案。&lt;/p&gt;" />
-    <meta property="og:url" content="https://bysocket.com/spring-boot-dubbo-zookeeper/index.html" />
+    <meta property="og:title" content= "OpenAI ChatGPT 能取代多少程序员的工作？导致失业吗？ | 程序员泥瓦匠"  />
+    <meta property="og:description" content= "&lt;p&gt;ChatGPT 能取代多少程序员的工作？导致我们程序员失业吗？这是一个很好的话题，我这里分享下：&lt;/p&gt;
+&lt;h2 id=&#34;一、ChatGPT-是什么？有什么作用&#34;&gt;&lt;a href=&#34;#一、ChatGPT-是什么？有什么作用&#34; class=&#34;headerlink&#34; title=&#34;一、ChatGPT 是什么？有什么作用&#34;&gt;&lt;/a&gt;一、ChatGPT 是什么？有什么作用&lt;/h2&gt;&lt;p&gt;ChatGPT是一种基于人工智能技术的语言模型，是可以生成代码。&lt;/p&gt;" />
+    <meta property="og:url" content="https://bysocket.com/openai-chatgpt-vs-developer/index.html" />
     <meta property="og:site_name" content="" />
     <meta property="article:author" content="泥瓦匠" />
     <meta property="article:publisher" content="" />
-    <meta property="og:description" content="&lt;h2 id=&#34;一、为什么整合-Dubbo&#34;&gt;&lt;a href=&#34;#一、为什么整合-Dubbo&#34; class=&#34;headerlink&#34; title=&#34;一、为什么整合 Dubbo&#34;&gt;&lt;/a&gt;一、为什么整合 Dubbo&lt;/h2&gt;&lt;p&gt;Dubbo 不单单只是高性能的 RPC 调用框架，更是 SOA 分布式服务治理的一种方案。&lt;/p&gt;" />
-    <meta name="twitter:title" content="Spring Boot 整合 Dubbo + ZooKeeper 实现分布式服务案例教程 | 程序员泥瓦匠"/>
-    <meta name="twitter:description" content="&lt;h2 id=&#34;一、为什么整合-Dubbo&#34;&gt;&lt;a href=&#34;#一、为什么整合-Dubbo&#34; class=&#34;headerlink&#34; title=&#34;一、为什么整合 Dubbo&#34;&gt;&lt;/a&gt;一、为什么整合 Dubbo&lt;/h2&gt;&lt;p&gt;Dubbo 不单单只是高性能的 RPC 调用框架，更是 SOA 分布式服务治理的一种方案。&lt;/p&gt;"/>
+    <meta property="og:description" content="&lt;p&gt;ChatGPT 能取代多少程序员的工作？导致我们程序员失业吗？这是一个很好的话题，我这里分享下：&lt;/p&gt;
+&lt;h2 id=&#34;一、ChatGPT-是什么？有什么作用&#34;&gt;&lt;a href=&#34;#一、ChatGPT-是什么？有什么作用&#34; class=&#34;headerlink&#34; title=&#34;一、ChatGPT 是什么？有什么作用&#34;&gt;&lt;/a&gt;一、ChatGPT 是什么？有什么作用&lt;/h2&gt;&lt;p&gt;ChatGPT是一种基于人工智能技术的语言模型，是可以生成代码。&lt;/p&gt;" />
+    <meta name="twitter:title" content="OpenAI ChatGPT 能取代多少程序员的工作？导致失业吗？ | 程序员泥瓦匠"/>
+    <meta name="twitter:description" content="&lt;p&gt;ChatGPT 能取代多少程序员的工作？导致我们程序员失业吗？这是一个很好的话题，我这里分享下：&lt;/p&gt;
+&lt;h2 id=&#34;一、ChatGPT-是什么？有什么作用&#34;&gt;&lt;a href=&#34;#一、ChatGPT-是什么？有什么作用&#34; class=&#34;headerlink&#34; title=&#34;一、ChatGPT 是什么？有什么作用&#34;&gt;&lt;/a&gt;一、ChatGPT 是什么？有什么作用&lt;/h2&gt;&lt;p&gt;ChatGPT是一种基于人工智能技术的语言模型，是可以生成代码。&lt;/p&gt;"/>
     <script type="application/ld+json">
         {
-            "description": "&lt;h2 id=&#34;一、为什么整合-Dubbo&#34;&gt;&lt;a href=&#34;#一、为什么整合-Dubbo&#34; class=&#34;headerlink&#34; title=&#34;一、为什么整合 Dubbo&#34;&gt;&lt;/a&gt;一、为什么整合 Dubbo&lt;/h2&gt;&lt;p&gt;Dubbo 不单单只是高性能的 RPC 调用框架，更是 SOA 分布式服务治理的一种方案。&lt;/p&gt;",
+            "description": "&lt;p&gt;ChatGPT 能取代多少程序员的工作？导致我们程序员失业吗？这是一个很好的话题，我这里分享下：&lt;/p&gt;
+&lt;h2 id=&#34;一、ChatGPT-是什么？有什么作用&#34;&gt;&lt;a href=&#34;#一、ChatGPT-是什么？有什么作用&#34; class=&#34;headerlink&#34; title=&#34;一、ChatGPT 是什么？有什么作用&#34;&gt;&lt;/a&gt;一、ChatGPT 是什么？有什么作用&lt;/h2&gt;&lt;p&gt;ChatGPT是一种基于人工智能技术的语言模型，是可以生成代码。&lt;/p&gt;",
             "author": { "@type": "Person", "name": "泥瓦匠" },
             "@type": "BlogPosting",
-            "url": "https://bysocket.com/spring-boot-dubbo-zookeeper/index.html",
+            "url": "https://bysocket.com/openai-chatgpt-vs-developer/index.html",
             "publisher": {
             "@type": "Organization",
             "logo": {
@@ -40,11 +45,11 @@
             },
             "name": "泥瓦匠"
             },
-            "headline": "Spring Boot 整合 Dubbo + ZooKeeper 实现分布式服务案例教程 | 程序员泥瓦匠",
-            "datePublished": "2023-02-01T06:07:15.000Z",
+            "headline": "OpenAI ChatGPT 能取代多少程序员的工作？导致失业吗？ | 程序员泥瓦匠",
+            "datePublished": "2023-04-23T13:51:15.000Z",
             "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": "https://bysocket.com/spring-boot-dubbo-zookeeper/index.html"
+                "@id": "https://bysocket.com/openai-chatgpt-vs-developer/index.html"
             },
             "@context": "http://schema.org"
         }
@@ -180,7 +185,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-clgtieyt5005btw3sbymve255" class="article article-type-post" itemscope
+    <article id="post-clgtieysj002ytw3s8ckl7it3" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -196,7 +201,7 @@
             
   
     <h1 class="article-title" itemprop="name">
-      Spring Boot 整合 Dubbo + ZooKeeper 实现分布式服务案例教程
+      OpenAI ChatGPT 能取代多少程序员的工作？导致失业吗？
     </h1>
   
 
@@ -206,18 +211,18 @@
         <div class="article-more-info article-more-info-post hairline">
 
             <div class="article-date">
-  <time datetime="2023-02-01T06:07:15.000Z" itemprop="datePublished">2023-02-01</time>
+  <time datetime="2023-04-23T13:51:15.000Z" itemprop="datePublished">2023-04-23</time>
 </div>
 
             
             <div class="article-category">
-                <a class="article-category-link" href="/categories/Spring-Boot/">Spring Boot</a>
+                <a class="article-category-link" href="/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">问题记录</a>
             </div>
             
 
             
             <div class="article-tag">
-                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dubbo/" rel="tag">Dubbo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ZooKeeper/" rel="tag">ZooKeeper</a></li></ul>
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ChatGPT/" rel="tag">ChatGPT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenAI/" rel="tag">OpenAI</a></li></ul>
             </div>
             
 
@@ -226,222 +231,30 @@
         </div>
 
         <div class="article-entry post-inner-html hairline" itemprop="articleBody">
-            <h2 id="一、为什么整合-Dubbo"><a href="#一、为什么整合-Dubbo" class="headerlink" title="一、为什么整合 Dubbo"></a>一、为什么整合 Dubbo</h2><p>Dubbo 不单单只是高性能的 RPC 调用框架，更是 SOA 分布式服务治理的一种方案。</p>
+            <p>ChatGPT 能取代多少程序员的工作？导致我们程序员失业吗？这是一个很好的话题，我这里分享下：</p>
+<h2 id="一、ChatGPT-是什么？有什么作用"><a href="#一、ChatGPT-是什么？有什么作用" class="headerlink" title="一、ChatGPT 是什么？有什么作用"></a>一、ChatGPT 是什么？有什么作用</h2><p>ChatGPT是一种基于人工智能技术的语言模型，是可以生成代码。</p>
 <span id="more"></span>
 
-<p><strong>核心</strong>：</p>
-<ol>
-<li><p>远程通信，向本地调用一样调用远程方法。</p>
-</li>
-<li><p>集群容错</p>
-</li>
-<li><p>服务自动发现和注册，可平滑添加或者删除服务提供者。</p>
-</li>
-</ol>
-<p>我们常常使用 Springboot 暴露 HTTP 服务，并走 JSON 模式。但慢慢量大了，一种 SOA 的治理方案。这样可以暴露出 Dubbo 服务接口，提供给 Dubbo 消费者进行 RPC 调用。下面我们详解下如何集成 Dubbo。</p>
-<h2 id="二、运行-springboot-dubbo-server-和-springboot-dubbo-client-工程"><a href="#二、运行-springboot-dubbo-server-和-springboot-dubbo-client-工程" class="headerlink" title="二、运行 springboot-dubbo-server 和 springboot-dubbo-client 工程"></a>二、运行 springboot-dubbo-server 和 springboot-dubbo-client 工程</h2><p>运行环境：JDK 7 或 8，Maven 3.0+</p>
-<p>技术栈：SpringBoot 1.5+、Dubbo 2.5+、ZooKeeper 3.3+</p>
-<p><strong>1.ZooKeeper 服务注册中心</strong></p>
-<p>ZooKeeper 是一个分布式的，开放源码的分布式应用程序协调服务。它是一个为分布式应用提供一致性服务的软件，提供的功能包括：配置维护、域名服务、分布式同步、组服务等。</p>
-<p>下载 ZooKeeper ，地址 <a target="_blank" rel="noopener" href="http://www.apache.org/dyn/closer.cgi/zookeeper">http://www.apache.org/dyn/closer.cgi/zookeeper</a></p>
-<p>解压 ZooKeeper</p>
-<pre><code>tar zxvf zookeeper-3.4.8.tar.gz
-</code></pre>
-<p>在 conf 目录新建 zoo.cfg ，照着该目录的 zoo_sample.cfg 配置如下。</p>
-<pre><code>cd zookeeper-3.3.6/conf
-vim zoo.cfg
-</code></pre>
-<p>zoo.cfg 代码如下（自己指定 log 文件目录）：</p>
-<pre><code>tickTime=2000
-dataDir=/javaee/zookeeper/data 
-dataLogDir=/javaee/zookeeper/log
-clientPort=2181
-</code></pre>
-<p>在 bin 目录下，启动 ZooKeeper：</p>
-<pre><code>cd zookeeper-3.3.6/bin
-./zkServer.sh start
-</code></pre>
-<p><strong>2. git clone 下载工程 springboot-learning-example</strong></p>
-<p>项目地址见 GitHub - <a target="_blank" rel="noopener" href="https://github.com/JeffLi1993/springboot-learning-example">https://github.com/JeffLi1993/springboot-learning-example</a></p>
-<pre><code>git clone git@github.com:JeffLi1993/springboot-learning-example.git
-</code></pre>
-<p>然后，Maven 编译安装这个工程：</p>
-<pre><code>cd springboot-learning-example
-mvn clean install
-</code></pre>
-<p><strong>3.运行 springboot-dubbo-server Dubbo 服务提供者工程</strong></p>
-<p>右键运行 springboot-dubbo-server 工程 ServerApplication 应用启动类的 main 函数。Console 中出现如下表示项目启动成功：</p>
-<p><img src="/images/dubbo/server-application.webp"></p>
-<p>这里表示 Dubbo 服务已经启动成功，并注册到 ZK （ZooKeeper）中。</p>
-<p><strong>4.运行 springboot-dubbo-client Dubbo 服务消费者工程</strong></p>
-<p>右键运行 springboot-dubbo-client 工程 ClientApplication 应用启动类的 main 函数。Console 中出现如下：</p>
-<pre><code>...
-2017-03-01 16:31:38.473  INFO 9896 --- \[           main\] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
-2017-03-01 16:31:38.538  INFO 9896 --- \[           main\] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8081 (http)
-2017-03-01 16:31:38.547  INFO 9896 --- \[           main\] org.spring.springboot.ClientApplication  : Started ClientApplication in 6.055 seconds (JVM running for 7.026)
-City&#123;id=1, provinceId=2, cityName=&#39;温岭&#39;, description=&#39;是我的故乡&#39;&#125;
-</code></pre>
-<p>最后打印的城市信息，就是通过 Dubbo 服务接口调用获取的。顺利运行成功，下面详解下各个代码及配置。</p>
-<h2 id="三、springboot-dubbo-server-和-springboot-dubbo-client-工程配置详解"><a href="#三、springboot-dubbo-server-和-springboot-dubbo-client-工程配置详解" class="headerlink" title="三、springboot-dubbo-server 和 springboot-dubbo-client 工程配置详解"></a>三、springboot-dubbo-server 和 springboot-dubbo-client 工程配置详解</h2><p><strong>1.详解 springboot-dubbo-server Dubbo 服务提供者工程</strong></p>
-<p>springboot-dubbo-server 工程目录结构</p>
-<pre><code>├── pom.xml
-└── src
-    └── main
-        ├── java
-        │   └── org
-        │       └── spring
-        │           └── springboot
-        │               ├── ServerApplication.java
-        │               ├── domain
-        │               │   └── City.java
-        │               └── dubbo
-        │                   ├── CityDubboService.java
-        │                   └── impl
-        │                       └── CityDubboServiceImpl.java
-        └── resources
-            └── application.properties
-</code></pre>
-<p><strong>a.pom.xml 配置</strong></p>
-<p>pom.xml 中依赖了 spring-boot-starter-dubbo 工程，该项目地址是 <a target="_blank" rel="noopener" href="https://github.com/teaey/spring-boot-starter-dubbo">https://github.com/teaey/spring-boot-starter-dubbo</a> pom.xml 配置如下</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
-    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
-
-    &lt;groupId&gt;springboot&lt;/groupId&gt;
-    &lt;artifactId&gt;springboot-dubbo-server&lt;/artifactId&gt;
-    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
-    &lt;name&gt;springboot-dubbo 服务端:: 整合 Dubbo/ZooKeeper 详解 SOA 案例&lt;/name&gt;
-
-    &lt;!-- Spring Boot 启动父依赖 --&gt;
-    &lt;parent&gt;
-        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
-        &lt;version&gt;1.5.1.RELEASE&lt;/version&gt;
-    &lt;/parent&gt;
-
-    &lt;properties&gt;
-        &lt;dubbo-spring-boot&gt;1.0.0&lt;/dubbo-spring-boot&gt;
-    &lt;/properties&gt;
-
-    &lt;dependencies&gt;
-
-        &lt;!-- Spring Boot Dubbo 依赖 --&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;io.dubbo.springboot&lt;/groupId&gt;
-            &lt;artifactId&gt;spring-boot-starter-dubbo&lt;/artifactId&gt;
-            &lt;version&gt;$&#123;dubbo-spring-boot&#125;&lt;/version&gt;
-        &lt;/dependency&gt;
-
-        &lt;!-- Spring Boot Web 依赖 --&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
-        &lt;/dependency&gt;
-
-        &lt;!-- Spring Boot Test 依赖 --&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
-            &lt;scope&gt;test&lt;/scope&gt;
-        &lt;/dependency&gt;
-
-        &lt;!-- Junit --&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;junit&lt;/groupId&gt;
-            &lt;artifactId&gt;junit&lt;/artifactId&gt;
-            &lt;version&gt;4.12&lt;/version&gt;
-        &lt;/dependency&gt;
-    &lt;/dependencies&gt;
-&lt;/project&gt;
-</code></pre>
-<p><strong>b.application.properties 配置</strong></p>
-<pre><code>## Dubbo 服务提供者配置
-spring.dubbo.application.name=provider
-spring.dubbo.registry.address=zookeeper://127.0.0.1:2181
-spring.dubbo.protocol.name=dubbo
-spring.dubbo.protocol.port=20880
-spring.dubbo.scan=org.spring.springboot.dubbo
-</code></pre>
-<p>这里 ZK 配置的地址和端口，就是上面本机搭建的 ZK 。如果有自己的 ZK 可以修改下面的配置。配置解释如下：</p>
-<p>spring.dubbo.application.name 应用名称</p>
-<p>spring.dubbo.registry.address 注册中心地址</p>
-<p>spring.dubbo.protocol.name 协议名称</p>
-<p>spring.dubbo.protocol.port 协议端口</p>
-<p>spring.dubbo.scan dubbo 服务类包目录</p>
-<p><strong>c.CityDubboServiceImpl.java 城市业务 Dubbo 服务层实现层类</strong></p>
-<pre><code>// 注册为 Dubbo 服务
-@Service(version = &quot;1.0.0&quot;)
-public class CityDubboServiceImpl implements CityDubboService &#123;
-
-    public City findCityByName(String cityName) &#123;
-        return new City(1L,2L,&quot;温岭&quot;,&quot;是我的故乡&quot;);
-    &#125;
-&#125;
-</code></pre>
-<p>@Service 注解标识为 Dubbo 服务，并通过 version 指定了版本号。</p>
-<p><strong>d.City.java 城市实体类</strong></p>
-<p>实体类通过 Dubbo 服务之间 RPC 调用，则需要实现序列化接口。最好指定下 serialVersionUID 值。</p>
-<p><strong>2.详解 springboot-dubbo-client Dubbo 服务消费者工程</strong></p>
-<p>springboot-dubbo-client 工程目录结构</p>
-<pre><code>├── pom.xml
-└── src
-    └── main
-        ├── java
-        │   └── org
-        │       └── spring
-        │           └── springboot
-        │               ├── ClientApplication.java
-        │               ├── domain
-        │               │   └── City.java
-        │               └── dubbo
-        │                   ├── CityDubboConsumerService.java
-        │                   └── CityDubboService.java
-        └── resources
-            └── application.properties
-</code></pre>
-<p>pom.xml 、 CityDubboService.java、City.java 没有改动。Dubbo 消费者通过引入接口实现 Dubbo 接口的调用。</p>
-<p><strong>a.application.properties 配置</strong></p>
-<pre><code>## 避免和 server 工程端口冲突
-server.port=8081
-
-## Dubbo 服务消费者配置
-spring.dubbo.application.name=consumer
-spring.dubbo.registry.address=zookeeper://127.0.0.1:2181
-spring.dubbo.scan=org.spring.springboot.dubbo
-</code></pre>
-<p>因为 springboot-dubbo-server 工程启动占用了 8080 端口，所以这边设置端口为 8081。</p>
-<p><strong>b.CityDubboConsumerService.java 城市 Dubbo 服务消费者</strong></p>
-<pre><code>@Component
-public class CityDubboConsumerService &#123;
-
-    @Reference(version = &quot;1.0.0&quot;)
-    CityDubboService cityDubboService;
-
-    public void printCity() &#123;
-        String cityName=&quot;温岭&quot;;
-        City city = cityDubboService.findCityByName(cityName);
-        System.out.println(city.toString());
-    &#125;
-&#125;
-</code></pre>
-<p>@Reference(version &#x3D; “1.0.0”) 通过该注解，订阅该接口版本为 1.0.0 的 Dubbo 服务。</p>
-<p>这里将 CityDubboConsumerService 注入 Spring 容器，是为了更方便的获取该 Bean，然后验证这个 Dubbo 调用是否成功。</p>
-<p><strong>c.ClientApplication.java 客户端启动类</strong></p>
-<pre><code>@SpringBootApplication
-public class ClientApplication &#123;
-
-    public static void main(String[] args) &#123;
-        // 程序启动入口
-        // 启动嵌入式的 Tomcat 并初始化 Spring 环境及其各 Spring 组件
-        ConfigurableApplicationContext run = SpringApplication.run(ClientApplication.class, args);
-        CityDubboConsumerService cityService = run.getBean(CityDubboConsumerService.class);
-        cityService.printCity();
-    &#125;
-&#125;
-</code></pre>
-<p>解释下这段逻辑，就是启动后从 Bean 容器中获取城市 Dubbo 服务消费者 Bean。然后调用该 Bean 方法去验证 Dubbo 调用是否成功。</p>
-<h3 id="四、小结"><a href="#四、小结" class="headerlink" title="四、小结"></a>四、小结</h3><p>还有涉及到服务的监控，治理。这本质上和 SpringBoot 无关，所以这边不做一一介绍。感谢阿里 teaey 提供的 starter-dubbo 项目。</p>
+<p><img src="https://image.bysocket.com/2023/04/23/20230423223019.webp" alt="ChatGPT vs Developer"></p>
+<p>它可以理解自然语言，并生成符合语法和语义的文本。ChatGPT的出现，为人工智能和自然语言处理领域带来了很多的惊喜和便利。在某些特定的领域中，ChatGPT可以发挥重要作用，例如自然语言生成、自动化测试、代码生成等。</p>
+<p>点击领取海外原装 ChatGPT 正版账号：<a target="_blank" rel="noopener" href="http://aa.nsjiasu.com/details/2D1BB2BC">http://aa.nsjiasu.com/details/2D1BB2BC</a></p>
+<h2 id="二、程序员的工作"><a href="#二、程序员的工作" class="headerlink" title="二、程序员的工作"></a>二、程序员的工作</h2><p>作为一名程序员，其工作可以概括为以下几个方面：</p>
+<ul>
+<li>编写代码：程序员需要根据需求，使用编程语言来编写代码，实现系统的功能。</li>
+<li>设计系统：程序员需要根据需求，设计系统的架构、逻辑和数据结构，以实现系统的高效、可靠和安全性。</li>
+<li>调试系统：程序员需要对系统进行测试和调试，以发现和解决系统中的问题和故障。</li>
+<li>维护系统：程序员需要对系统进行维护和更新，以保证系统的稳定和高效运行。</li>
+<li>优化系统：程序员需要对系统进行优化和改进，以提高系统的性能和可靠性。</li>
+<li>开发新系统：程序员需要开发新的系统和应用程序，以满足用户的需求和市场的变化。</li>
+<li>参与团队合作：程序员需要参与团队合作，与其他成员一起协作完成项目。</li>
+</ul>
+<p>程序员需要具备编程能力、系统设计能力、团队合作能力和沟通能力，并且需要不断学习和更新自己的知识和技能，以适应不断变化的技术环境和需求。</p>
+<p><img src="https://image.bysocket.com/2023/04/23/202304232232633.webp" alt="ChatGPT for Developer"></p>
+<h2 id="三、ChatGPT-能取代多少程序员的工作？导致失业吗？"><a href="#三、ChatGPT-能取代多少程序员的工作？导致失业吗？" class="headerlink" title="三、ChatGPT 能取代多少程序员的工作？导致失业吗？"></a>三、ChatGPT 能取代多少程序员的工作？导致失业吗？</h2><p>对于程序员来说，他们需要具备更多的技能和知识，来设计和实现复杂的软件系统。程序员需要掌握算法设计、软件开发、系统架构等方面的知识，以便能够设计出高效、可靠、安全的软件。同时，程序员也需要不断学习和更新自己的知识，来适应新的技术变革和需求。</p>
+<p>ChatGPT可以帮助程序员编写一些重复性的任务，例如自动化测试、代码生成等。ChatGPT可以快速地生成一些自然语言的文本，并且可以模拟人类撰写文本的方式，从而节省时间和提高效率。此外，ChatGPT可以作为一种辅助工具，用于查询和解答技术问题，或者用于创建自动化的问答系统等。</p>
+<p>虽然ChatGPT可以帮助程序员完成一些任务，但它并不能完全取代程序员的角色。程序员需要具备更多的技能和知识，来设计和实现复杂的软件系统。在某些情况下，程序员需要手动编写代码，或者使用其他工具来完成任务。因此，ChatGPT通常只能作为一种辅助工具，来帮助程序员提高工作效率和完成任务。</p>
+<p>点击领取海外原装 ChatGPT 正版账号：<a target="_blank" rel="noopener" href="http://aa.nsjiasu.com/details/2D1BB2BC">http://aa.nsjiasu.com/details/2D1BB2BC</a></p>
+<p>点击领取海外原装 ChatGPT 正版账号：<a target="_blank" rel="noopener" href="http://aa.nsjiasu.com/details/2D1BB2BC">http://aa.nsjiasu.com/details/2D1BB2BC</a></p>
 
         </div>
 
@@ -483,19 +296,10 @@ public class ClientApplication &#123;
     
 <nav class="article-nav">
   
-    <a href="/jsp-servlet-hello-world-example/" id="article-nav-newer" class="article-nav-link-wrap">
-      <div class="article-nav-caption">下一篇</div>
-      <div class="article-nav-title">
-        
-          图解 JSP Servlet Hello World 案例和源码
-        
-      </div>
-    </a>
   
-  
-    <a href="/nginx-unexpected-end-of-file-expecting-in-key-file/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/niche-software/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-caption">上一篇</div>
-      <div class="article-nav-title">Nginx unexpected end of file 配置证书遇到问题，如何解决？</div>
+      <div class="article-nav-title">行业细分软件：如何做正确的方法或步骤是什么？（复盘案例）</div>
     </a>
   
 </nav>
@@ -504,15 +308,15 @@ public class ClientApplication &#123;
     <section class="share">
         <div class="share-title">分享</div>
         <a class="share-item" target="_blank"
-            href="https://twitter.com/share?text=Spring Boot 整合 Dubbo + ZooKeeper 实现分布式服务案例教程 - 程序员泥瓦匠&url=https%3A%2F%2Fbysocket.com%2Fspring-boot-dubbo-zookeeper%2F">
+            href="https://twitter.com/share?text=OpenAI ChatGPT 能取代多少程序员的工作？导致失业吗？ - 程序员泥瓦匠&url=https%3A%2F%2Fbysocket.com%2Fopenai-chatgpt-vs-developer%2F">
             <ion-icon name="logo-twitter"></ion-icon>
         </a>
         <a class="share-item" target="_blank"
-            href="https://www.facebook.com/sharer.php?title=Spring Boot 整合 Dubbo + ZooKeeper 实现分布式服务案例教程 - 程序员泥瓦匠&u=https%3A%2F%2Fbysocket.com%2Fspring-boot-dubbo-zookeeper%2F">
+            href="https://www.facebook.com/sharer.php?title=OpenAI ChatGPT 能取代多少程序员的工作？导致失业吗？ - 程序员泥瓦匠&u=https%3A%2F%2Fbysocket.com%2Fopenai-chatgpt-vs-developer%2F">
             <ion-icon name="logo-facebook"></ion-icon>
         </a>
         <!-- <a class="share-item" target="_blank"
-            href="https://service.weibo.com/share/share.php?title=Spring Boot 整合 Dubbo + ZooKeeper 实现分布式服务案例教程 - 程序员泥瓦匠&url=https://bysocket.com/spring-boot-dubbo-zookeeper/&pic=">
+            href="https://service.weibo.com/share/share.php?title=OpenAI ChatGPT 能取代多少程序员的工作？导致失业吗？ - 程序员泥瓦匠&url=https://bysocket.com/openai-chatgpt-vs-developer/&pic=">
             <div class="n-icon n-icon-weibo"></div>
         </a> -->
     </section>
