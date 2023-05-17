@@ -83,9 +83,9 @@ https://bysocket.com/spring_boot_hello_world/
 https://bysocket.com/
 https://bysocket.com/tags/5WHY/
 https://bysocket.com/tags/Java/
+https://bysocket.com/tags/PLG/
 https://bysocket.com/tags/OpenAI/
 https://bysocket.com/tags/ChatGPT/
-https://bysocket.com/tags/PLG/
 https://bysocket.com/tags/Elasticsearch/
 https://bysocket.com/tags/ElasticSearch/
 https://bysocket.com/tags/Nested/
@@ -99,8 +99,8 @@ https://bysocket.com/tags/LinkedHashSet/
 https://bysocket.com/tags/Java-IO/
 https://bysocket.com/tags/Servlet/
 https://bysocket.com/tags/Mac/
-https://bysocket.com/tags/Architecture/
 https://bysocket.com/tags/Midjourney/
+https://bysocket.com/tags/Architecture/
 https://bysocket.com/tags/Nginx/
 https://bysocket.com/tags/%E5%B7%A5%E5%85%B7%E7%AB%99/
 https://bysocket.com/tags/%E7%9F%A5%E8%AF%86%E6%98%9F%E7%90%83/
@@ -135,9 +135,9 @@ https://bysocket.com/categories/ElasticSearch/
 https://bysocket.com/categories/HTTP/
 https://bysocket.com/categories/JDK/
 https://bysocket.com/categories/JSP/
-https://bysocket.com/categories/ElasticSearch/Elasticsearch/
-https://bysocket.com/categories/Microservice-Architecture/
 https://bysocket.com/categories/Midjourney/
+https://bysocket.com/categories/Microservice-Architecture/
+https://bysocket.com/categories/ElasticSearch/Elasticsearch/
 https://bysocket.com/categories/%E7%9F%A5%E8%AF%86%E6%98%9F%E7%90%83/
 https://bysocket.com/categories/Spring-Boot/
 https://bysocket.com/categories/Spring-Boot/ElasticSearch/
