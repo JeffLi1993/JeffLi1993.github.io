@@ -1,4 +1,5 @@
 User-Agent: *
+Allow: /
 Disallow: /archives
 
 Sitemap: https://bysocket.com/robots.txt
