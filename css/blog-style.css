@@ -81,7 +81,9 @@ h5,
 h6{
     font-weight: 400;
 }
-h2{font-size: 22px;line-height: 1.5;letter-spacing:0.03em;}
+h2{font-size: 22px;line-height: 1.5;letter-spacing:0.08em;
+  border-bottom: 3px solid #3b82f6;
+  box-shadow: 0 4px 6px -4px rgba(59, 130, 246, 0.6);}
 h3{font-size: 20px}
 h4{font-size: 18px}
 h5{font-size: 16px}
@@ -885,11 +887,11 @@ img::-moz-selection {
     .one-tag-list .post-preview .post-meta {
         font-size: 18px;
     }
-	
+
 	.one-archive-list .post-preview {
 		margin-left: 40px;
 	}
-	
+
 	.archive-month {
 		margin-left: 20px;
 	}
@@ -902,6 +904,16 @@ img::-moz-selection {
     max-width: 100%;
     height: auto;
     margin: 1.5em auto 1.6em auto;
+
+  /* 外发光 */
+  box-shadow:
+    0 0 5px rgba(99, 102, 241, 0.6),
+    0 0 5px rgba(139, 92, 246, 0.4);
+
+  /* 内边框渐变 */
+  border: 1px solid transparent;
+  border-image: linear-gradient(90deg, #06b6d4, #3b82f6);
+  border-image-slice: 1;
 }
 
 /* Hux Optimize UserExperience */
