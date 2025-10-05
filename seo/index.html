@@ -179,20 +179,119 @@ SEO for AI Website · User Growth Playbook
 
 <!-- Post Content -->
 <article>
-    <div class="container" style="width: 80%;height: 1000px;">
-        <span style="
-            font-style: italic;
-            ">
-            如果遇到下面文档展示看不到内容，可以点击打开飞书文档直接看：
-        </span>
-        <span style="
-            font-style: italic;
-            font-weight: bold;
-            ">
-            <a href="https://usdunlunl.feishu.cn/docx/JasgdjA7yoy1KTxpwuIcEkJ1noo" target="_blank">https://usdunlunl.feishu.cn/docx/JasgdjA7yoy1KTxpwuIcEkJ1noo</a>
-        </span>
-        <iframe src="https://usdunlunl.feishu.cn/docx/JasgdjA7yoy1KTxpwuIcEkJ1noo" style="width: 100%;height:100%;overflow:hidden;"></iframe>
+  <style>
+    .doc-container {
+      width: 80%;
+      max-width: 1200px;
+      height: 80vh;
+      margin: 0 auto;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .doc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .doc-header span {
+      font-style: italic;
+      font-size: 15px;
+    }
+
+    .doc-header a {
+      font-style: italic;
+      font-weight: bold;
+      color: #007aff;
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .doc-header a:hover {
+      text-decoration: underline;
+    }
+
+    #fullscreenBtn {
+      background-color: #007aff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.2s;
+    }
+
+    #fullscreenBtn:hover {
+      background-color: #005fcc;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border: none;
+      flex-grow: 1;
+    }
+
+    @media (max-width: 768px) {
+      .doc-container {
+        width: 95%;
+        height: 70vh;
+      }
+
+      .doc-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      #fullscreenBtn {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <div class="doc-container">
+    <div class="doc-header">
+      <span>如果遇到下面文档展示看不到内容，可以点击打开飞书文档直接看：</span>
+      <button id="fullscreenBtn">全屏阅读</button>
+      <a href="https://usdunlunl.feishu.cn/docx/JasgdjA7yoy1KTxpwuIcEkJ1noo" target="_blank">
+        https://usdunlunl.feishu.cn/docx/JasgdjA7yoy1KTxpwuIcEkJ1noo
+      </a>
     </div>
+
+    <iframe
+      id="docFrame"
+      src="https://usdunlunl.feishu.cn/docx/JasgdjA7yoy1KTxpwuIcEkJ1noo"
+      allowfullscreen
+    ></iframe>
+  </div>
+
+  <script>
+    const btn = document.getElementById("fullscreenBtn");
+    const iframe = document.getElementById("docFrame");
+
+    btn.addEventListener("click", () => {
+      if (!document.fullscreenElement) {
+        iframe.requestFullscreen?.() || iframe.webkitRequestFullscreen?.();
+        btn.textContent = "退出全屏";
+      } else {
+        document.exitFullscreen?.() || document.webkitExitFullscreen?.();
+        btn.textContent = "全屏阅读";
+      }
+    });
+
+    document.addEventListener("fullscreenchange", () => {
+      if (!document.fullscreenElement) {
+        btn.textContent = "全屏阅读";
+      }
+    });
+  </script>
 </article>
 
 
