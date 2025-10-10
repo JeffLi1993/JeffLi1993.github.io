@@ -180,117 +180,226 @@ SEO for AI Website · User Growth Playbook
 <!-- Post Content -->
 <article>
   <style>
-    .doc-container {
-      width: 80%;
+    :root{
+      --brand:#007aff;
+      --brand-600:#005fcc;
+      --text:#1f2937;
+      --muted:#6b7280;
+      --bg:#ffffff;
+      --panel:#ffffff;
+      --ring:rgba(0,122,255,.25);
+      --shadow:0 10px 25px rgba(0,0,0,.08);
+      --radius:14px;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --text:#e5e7eb;
+        --muted:#9ca3af;
+        --bg:#0b0f14;
+        --panel:#0f141b;
+        --shadow:0 10px 25px rgba(0,0,0,.4);
+        --ring:rgba(0,122,255,.35);
+      }
+    }
+
+    *{box-sizing:border-box}
+    body{background:var(--bg)}
+
+    .doc-wrap{
       max-width: 1200px;
-      height: 80vh;
-      margin: 0 auto;
-      position: relative;
-      display: flex;
-      flex-direction: column;
+      margin: 24px auto 60px;
+      padding: 0 16px;
     }
 
-    .doc-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 10px;
+    .doc-card{
+      background: var(--panel);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0,0,0,.06);
+      overflow: hidden;
     }
 
-    .doc-header span {
+    /* 顶部信息条 */
+    .doc-bar{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+      padding: 14px 16px;
+      background:
+        linear-gradient(180deg, rgba(0,122,255,.05), transparent);
+      border-bottom:1px solid rgba(0,0,0,.06);
+    }
+    .doc-info{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px 12px;
+      align-items:center;
+      min-width:0;
+    }
+    .doc-info .hint{
       font-style: italic;
-      font-size: 15px;
+      color: var(--muted);
+      font-size: 14px;
+      white-space:nowrap;
     }
-
-    .doc-header a {
+    .doc-info .link{
       font-style: italic;
-      font-weight: bold;
-      color: #007aff;
+      font-weight: 600;
+      color: var(--brand);
       text-decoration: none;
       word-break: break-all;
     }
+    .doc-info .link:hover{ text-decoration: underline; }
 
-    .doc-header a:hover {
-      text-decoration: underline;
+    /* 按钮样式（主按钮 + 悬浮按钮共用） */
+    .btn{
+      appearance:none;
+      border:none;
+      background: var(--brand);
+      color:#fff;
+      padding:8px 14px;
+      border-radius:10px;
+      font-size:14px;
+      font-weight:600;
+      cursor:pointer;
+      transition: transform .05s ease, background .2s ease, box-shadow .2s ease;
+      box-shadow: 0 6px 14px rgba(0,122,255,.18);
+      outline: none;
+    }
+    .btn:hover{ background: var(--brand-600); }
+    .btn:active{ transform: translateY(1px) scale(.99); }
+    .btn:focus-visible{ box-shadow: 0 0 0 4px var(--ring); }
+
+    /* 内容区域 */
+    .doc-stage{
+      position:relative;
+      width:100%;
+      /* 让高度在不同设备更舒适：桌面 78vh，平板 72vh，手机 68vh */
+      height: clamp(60vh, 78vh, 88vh);
+      border-radius: 0 0 var(--radius) var(--radius);
+      overflow:hidden;
+      background: radial-gradient(1200px 400px at 0% 0%, rgba(0,122,255,.05), transparent 60%);
     }
 
-    #fullscreenBtn {
-      background-color: #007aff;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      padding: 6px 12px;
-      cursor: pointer;
-      font-size: 14px;
-      transition: background-color 0.2s;
+    iframe#docFrame{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      border:0;
+      display:block;
+      background:transparent;
     }
 
-    #fullscreenBtn:hover {
-      background-color: #005fcc;
+    /* 右上角悬浮全屏按钮（阅读时也能点） */
+    .float-fullscreen{
+      position:absolute;
+      top:12px; right:12px;
+      z-index:10;
+      opacity:.98;
+      backdrop-filter: blur(12px);
+      background: rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.25);
+      box-shadow: 0 8px 20px rgba(0,0,0,.25);
+    }
+    .float-fullscreen:hover{ background: rgba(0,0,0,.45); }
+    .float-fullscreen .icon{
+      display:inline-block; width:16px; height:16px; margin-right:6px;
+      vertical-align:-3px;
+      filter: invert(1);
     }
 
-    iframe {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      border: none;
-      flex-grow: 1;
+    /* 小屏优化 */
+    @media (max-width: 900px){
+      .doc-bar{ align-items:flex-start; flex-direction:column; gap:10px; }
     }
-
-    @media (max-width: 768px) {
-      .doc-container {
-        width: 95%;
-        height: 70vh;
-      }
-
-      .doc-header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      #fullscreenBtn {
-        width: 100%;
-      }
+    @media (max-width: 640px){
+      .doc-stage{ height: 68vh; }
+      .btn{ width:100%; }
+      .doc-info .hint{ white-space:normal; }
+      .float-fullscreen{ top:10px; right:10px; }
     }
   </style>
 
-  <div class="doc-container">
-    <div class="doc-header">
-      <span>如果遇到下面文档展示看不到内容，可以点击打开飞书文档直接看：</span>
-      <button id="fullscreenBtn">全屏阅读</button>
-      <a href="https://usdunlunl.feishu.cn/docx/JasgdjA7yoy1KTxpwuIcEkJ1noo" target="_blank">
-        https://usdunlunl.feishu.cn/docx/JasgdjA7yoy1KTxpwuIcEkJ1noo
-      </a>
-    </div>
+  <div class="doc-wrap">
+    <div class="doc-card">
+      <div class="doc-bar" role="region" aria-label="文档说明与操作">
+        <div class="doc-info">
+          <span class="hint">如果下面内嵌预览加载异常，可直接打开飞书文档：</span>
+          <a class="link" href="https://usdunlunl.feishu.cn/docx/JasgdjA7yoy1KTxpwuIcEkJ1noo" target="_blank" rel="noopener">
+            https://usdunlunl.feishu.cn/docx/JasgdjA7yoy1KTxpwuIcEkJ1noo
+          </a>
+        </div>
+        <button id="fullscreenBtn" class="btn" aria-pressed="false" aria-label="切换全屏">
+          全屏阅读
+        </button>
+      </div>
 
-    <iframe
-      id="docFrame"
-      src="https://usdunlunl.feishu.cn/docx/JasgdjA7yoy1KTxpwuIcEkJ1noo"
-      allowfullscreen
-    ></iframe>
+      <div class="doc-stage">
+        <button id="floatBtn" class="btn float-fullscreen" title="全屏阅读" aria-label="全屏阅读">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M7 3h4v2H9v2H7V3zm10 0h-4v2h2v2h2V3zM7 21h4v-2H9v-2H7v4zm10 0h-4v-2h2v-2h2v4z"/>
+          </svg>
+          全屏
+        </button>
+
+        <iframe
+          id="docFrame"
+          src="https://usdunlunl.feishu.cn/docx/JasgdjA7yoy1KTxpwuIcEkJ1noo"
+          allow="fullscreen"
+          allowfullscreen
+          loading="lazy"
+          title="飞书文档预览"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
   </div>
 
   <script>
-    const btn = document.getElementById("fullscreenBtn");
-    const iframe = document.getElementById("docFrame");
+    (function(){
+      const iframe = document.getElementById('docFrame');
+      const btn    = document.getElementById('fullscreenBtn');
+      const float  = document.getElementById('floatBtn');
 
-    btn.addEventListener("click", () => {
-      if (!document.fullscreenElement) {
-        iframe.requestFullscreen?.() || iframe.webkitRequestFullscreen?.();
-        btn.textContent = "退出全屏";
-      } else {
-        document.exitFullscreen?.() || document.webkitExitFullscreen?.();
-        btn.textContent = "全屏阅读";
+      function isFullscreen(){
+        return !!(document.fullscreenElement || document.webkitFullscreenElement);
       }
-    });
+      function enterFS(el){
+        (el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen)?.call(el);
+      }
+      function exitFS(){
+        (document.exitFullscreen || document.webkitExitFullscreen || document.msExitFullscreen)?.call(document);
+      }
+      function toggleFS(){
+        if(!isFullscreen()){
+          enterFS(iframe);
+        }else{
+          exitFS();
+        }
+      }
+      function syncBtn(){
+        const fs = isFullscreen();
+        btn.textContent = fs ? '退出全屏' : '全屏阅读';
+        btn.setAttribute('aria-pressed', String(fs));
+        float.innerHTML = fs
+          ? '<svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 3h2v4H7V5h2V3zm6 0h2v2h2v2h-4V3zM7 17h4v4H9v-2H7v-2zm10 0h4v2h-2v2h-2v-4z"/></svg> 退出'
+          : '<svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 3h4v2H9v2H7V3zm10 0h-4v2h2v2h2V3zM7 21h4v-2H9v-2H7v4zm10 0h-4v-2h2v-2h2v4z"/></svg> 全屏';
+      }
 
-    document.addEventListener("fullscreenchange", () => {
-      if (!document.fullscreenElement) {
-        btn.textContent = "全屏阅读";
-      }
-    });
+      btn.addEventListener('click', toggleFS);
+      float.addEventListener('click', toggleFS);
+
+      document.addEventListener('fullscreenchange', syncBtn);
+      document.addEventListener('webkitfullscreenchange', syncBtn);
+
+      // 初始同步
+      syncBtn();
+
+      // 可选：iframe 加载失败兜底（有些环境会拦 iframe）
+      iframe.addEventListener('error', () => {
+        console.warn('iframe 加载失败：可能被目标网站的 X-Frame-Options 限制');
+      });
+    })();
   </script>
 </article>
 
