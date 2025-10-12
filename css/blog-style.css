@@ -81,9 +81,17 @@ h5,
 h6{
     font-weight: 400;
 }
-h2{font-size: 22px;line-height: 1.5;letter-spacing:0.08em;
-  border-bottom: 3px solid #3b82f6;
-  box-shadow: 0 4px 6px -4px rgba(59, 130, 246, 0.6);}
+h2 {
+  display: inline-block;
+  font-size: 22px;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  background-image: linear-gradient(to right, #3b82f6, #60a5fa);
+  background-repeat: no-repeat;
+  background-size: 100% 3px;
+  background-position: 0 100%;
+  padding-bottom: 4px;
+}
 h3{font-size: 20px}
 h4{font-size: 18px}
 h5{font-size: 16px}
