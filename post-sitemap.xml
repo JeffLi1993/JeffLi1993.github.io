@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://bysocket.com/hello-world/</loc>
+        <lastmod>2025-10-20T03:01:37.741Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://bysocket.com/ai-seo-for-indie-hacker/</loc>
         <lastmod>2025-10-17T10:42:25.183Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -43,14 +51,6 @@
     <url>
         <loc>https://bysocket.com/how-to-find-influencers/</loc>
         <lastmod>2025-08-05T08:57:49.464Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://bysocket.com/hello-world/</loc>
-        <lastmod>2025-08-01T09:18:59.059Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
