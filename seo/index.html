@@ -271,15 +271,27 @@ SEO for AI Website · User Growth Playbook
     .btn:active{ transform: translateY(1px) scale(.99); }
     .btn:focus-visible{ box-shadow: 0 0 0 4px var(--ring); }
 
-    /* 内容区域 */
-    .doc-stage{
-      position:relative;
-      width:100%;
-      /* 让高度在不同设备更舒适：桌面 78vh，平板 72vh，手机 68vh */
-      height: clamp(60vh, 78vh, 88vh);
+    .doc-stage {
+      position: relative;
+      width: 100%;
+      height: 85vh; /* 默认更大 */
       border-radius: 0 0 var(--radius) var(--radius);
-      overflow:hidden;
+      overflow: hidden;
       background: radial-gradient(1200px 400px at 0% 0%, rgba(0,122,255,.05), transparent 60%);
+    }
+
+    /* 平板 */
+    @media (max-width: 1024px) {
+      .doc-stage {
+        height: 80vh;
+      }
+    }
+
+    /* 手机 */
+    @media (max-width: 768px) {
+      .doc-stage {
+        height: 75vh;
+      }
     }
 
     iframe#docFrame{
