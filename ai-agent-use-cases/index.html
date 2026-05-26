@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="写增长的子木，聚焦 SaaS 出海创业，分享 SEO、红人营销、Ads、EDM 等前沿增长策略，深入解析各类实操案例，帮助创业者实现产品推广和市场扩展。通过丰富的行业经验和详实的内容，为 SaaS 团队提供具实效性的增长见解，助力海外业务快速发展。">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="写增长的子木" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        大白话：什么场景适合做 AI Agent 应用？｜写增长的子木
+        
+    </title>
+
+    <link rel="canonical" href="https://bysocket.com/ai-agent-use-cases/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('https://bysocket.com/images/header-img.webp')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    写增长的子木
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="nullhttps://bysocket.com/images/hello-world/header-img.webp">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('https://bysocket.com/images/hello-world/header-img.webp?imageView2/1/w/1400/h/400/interlace/1/q/90')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>大白话：什么场景适合做 AI Agent 应用？</h1>
+                    
+                    <span class="meta">
+                         作者 子木
+                        <span>
+                          日期 2025-08-01
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            大白话：什么场景适合做 AI Agent 应用？
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <p>学习贴，错了大家评论交流，我继续学习改正</p>
+<p>大家可以看到，软件这块从普通应用到 AI 应用，然后现在都在说 AI Agent 应用。我感觉我自己心里定义都不是很清楚。</p>
+<p>下面从用户角度大白话分享下</p>
+<h2 id="一、普通应用-vs-AI-应用-vs-AI-Agent-应用"><a href="#一、普通应用-vs-AI-应用-vs-AI-Agent-应用" class="headerlink" title="一、普通应用 vs AI 应用 vs AI Agent 应用"></a>一、普通应用 vs AI 应用 vs AI Agent 应用</h2><p><strong>普通应用</strong>，比如 CRM 系统。特征：</p>
+<ul>
+<li>你做决策（你是工人）</li>
+<li>系统层面，按系统功能执行</li>
+</ul>
+<p><strong>AI 应用</strong>，比如智能客服系统。特征：</p>
+<ul>
+<li>你做决策（你是工人）</li>
+<li>系统层面，AI 提供智能辅助，本质还是按系统功能执行</li>
+</ul>
+<p>系统里面用到 LLM 等 AI 能力，让系统变得相对智能。比如智能客服系统，里面会有智能预警各种功能</p>
+<p><strong>AI Agent 应用</strong>，比如 Lovart - AI Design Agent。特征：</p>
+<ul>
+<li>你给目标（你是老板，系统是你的工人）</li>
+<li>系统层面，AI 做决策，AI 执行流程，直接给结果。</li>
+</ul>
+<p>这个 AI Agent 应用整个就像一个工人，自己思考、自己干活给结果。最多中间环节老板 check point 下</p>
+<p><img src="https://bysocket.com/images/ai-agent/ai-agent-vs-ai-app.png"></p>
+<p>简单理解：普通应用就是工具，AI 应用就是聪明点的工具。而 AI Agent 应用就是从工具变成像个实习生，它会思考 &amp; 能干活。（聪明不聪明，幻觉难评 哈哈）</p>
+<h2 id="二、什么场景适合做-AI-Agent-应用？"><a href="#二、什么场景适合做-AI-Agent-应用？" class="headerlink" title="二、什么场景适合做 AI Agent 应用？"></a>二、什么场景适合做 AI Agent 应用？</h2><p>说白了，那些传统流程干着干着开始卡壳、效率低、还老出错的地方，才值得用 AI Agent。</p>
+<p>说白了，那些需要实习生干的（上面普通或 AI 应用干不了）的场景，才值得用 AI Agent。但其实 AI Agent 应用一般包括上面普通或 AI 应用的能力啦</p>
+<p>AI Agent 应用的主要适合以下三种典型场景：</p>
+<ol>
+<li><strong>复杂决策类</strong>：流程里有“含糊空间”的业务。</li>
+</ol>
+<p>比如 VIP 客户说订单出错要赔偿，这赔不赔？得看上下文、看历史数据、看规则，不是简单 if 判断能搞定的，这种适合 Agent 来“动脑筋”。</p>
+<ol start="2">
+<li><strong>难维护规则类</strong>：那种规则一多就像蜘蛛网的业务。</li>
+</ol>
+<p>比如合规审查、风控策略……加一个新条件，要改一堆地方，动一下就容易出 bug。这时候与其人脑绕弯，不如 Agent 来梳理和判断。</p>
+<ol start="3">
+<li><strong>非结构化数据类</strong></li>
+</ol>
+<p>比如文档太多、邮件杂、网页乱，传统系统看不懂这些“人话”。但 Agent 能从 PDF、网页、自然语言中提取出关键数据，再自动处理后续流程，才叫聪明！</p>
+<p><img src="https://bysocket.com/images/ai-agent/ai-agent-when.png"></p>
+<h2 id="三、怎么理解单-Agent-应用和多-Agent-应用？"><a href="#三、怎么理解单-Agent-应用和多-Agent-应用？" class="headerlink" title="三、怎么理解单 Agent 应用和多 Agent 应用？"></a>三、怎么理解单 Agent 应用和多 Agent 应用？</h2><p>别被术语吓住，用职场打比方就懂了：</p>
+<p>• 单 Agent 应用：就像你招了一个实习生，啥都自己干，从收集资料到输出方案一个人包圆。适合流程简单但要求“聪明”的任务，比如 Logo 设计、广告视频创作等等。</p>
+<p>• 多 Agent 应用：就像你招了一组实习生，每人负责一环，比如一个负责查资料、一个画图、一个写总结，彼此之间还能沟通协调。适合流程长、步骤多、有角色分工的场景，比如一个市场调研 + 报告撰写 + 策略制定的全链路任务。</p>
+<p>下面是 AI Agent 系统架构演进：</p>
+<p><img src="https://bysocket.com/images/ai-agent/ai-agent-tech.png"></p>
+<h2 id="四、小结"><a href="#四、小结" class="headerlink" title="四、小结"></a>四、小结</h2><p>普通应用是工具，AI 应用是聪明工具，而 AI Agent 应用，是能主动干活、自己决策的“数字员工”。</p>
+<p>如果你遇到的业务场景：</p>
+<p>• 不能简单写死流程<br>• 总有例外和判断需要脑子<br>• 数据又乱又多让人头大</p>
+<p>那就别犹豫了——是时候让 Agent 上岗了。</p>
+<br/>
+
+<p>📧 <strong>电子邮件</strong>: <a href="mailto:&#x71;&#x69;&#97;&#x6e;&#103;&#x71;&#x69;&#97;&#x6e;&#103;&#x6c;&#x69;&#x31;&#x39;&#57;&#x33;&#x40;&#x67;&#x6d;&#97;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;">&#x71;&#x69;&#97;&#x6e;&#103;&#x71;&#x69;&#97;&#x6e;&#103;&#x6c;&#x69;&#x31;&#x39;&#57;&#x33;&#x40;&#x67;&#x6d;&#97;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;</a><br>🛰️ <strong>加微信号</strong>: qqcode168</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/how-to-find-influencers/" data-toggle="tooltip" data-placement="top"
+                           title="AI 产品红人筛选与策略（一）">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/geo-vs-seo/" data-toggle="tooltip" data-placement="top"
+                           title="大白话：GEO 和 SEO 的区别">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%99%AE%E9%80%9A%E5%BA%94%E7%94%A8-vs-AI-%E5%BA%94%E7%94%A8-vs-AI-Agent-%E5%BA%94%E7%94%A8"><span class="toc-text">一、普通应用 vs AI 应用 vs AI Agent 应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E4%BB%80%E4%B9%88%E5%9C%BA%E6%99%AF%E9%80%82%E5%90%88%E5%81%9A-AI-Agent-%E5%BA%94%E7%94%A8%EF%BC%9F"><span class="toc-text">二、什么场景适合做 AI Agent 应用？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%80%8E%E4%B9%88%E7%90%86%E8%A7%A3%E5%8D%95-Agent-%E5%BA%94%E7%94%A8%E5%92%8C%E5%A4%9A-Agent-%E5%BA%94%E7%94%A8%EF%BC%9F"><span class="toc-text">三、怎么理解单 Agent 应用和多 Agent 应用？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%B0%8F%E7%BB%93"><span class="toc-text">四、小结</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/CoderJeffLee">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/jeffpage0709">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 写增长的子木 2026
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://bysocket.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="https://bysocket.com/images/avatar.jpeg">
+</body>
+
+</html>
