@@ -1205,7 +1205,53 @@ img::-moz-selection {
         padding-top: 90px;
     }
 }
-/*wechat ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã¢â‚¬Â¹Ãƒâ€¦Ã¢â‚¬Å“ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¥ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚ÂºÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¾ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â°ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¤ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¼ÃƒÆ’Ã¢â‚¬Â¹Ãƒâ€¦Ã¢â‚¬Å“ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¥ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œ*/
+/**
+ * ===== 文章 H2 标题样式 =====
+ * 渐变底部装饰线，保留 anchor 偏移
+ */
+article .post-container h2 {
+    font-size: 22px;
+    font-weight: 700;
+    padding-bottom: 0.55em;
+    color: #2c3e50;
+    border: none;
+    position: relative;
+}
+article .post-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 56px;
+    height: 3px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #0085a1 0%, #4db8c7 100%);
+}
+@media screen and (max-width: 768px) {
+    article .post-container h2 {
+        font-size: 20px;
+    }
+    article .post-container h2::after {
+        width: 44px;
+        height: 2px;
+    }
+}
+
+/**
+ * ===== 文章配图微光 =====
+ * 轻微 box-shadow + hover 提亮
+ */
+.post-container img:not(.no-shadow) {
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.07), 0 0 0 1px rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.post-container img:not(.no-shadow):hover {
+    box-shadow: 0 3px 16px rgba(0, 133, 161, 0.12), 0 0 0 1px rgba(0, 133, 161, 0.1);
+    transform: translateY(-1px);
+}
+
+/*wechat ÃƒÆ'Ã†â€™Ãƒâ€šÃ‚Â¦ÃƒÆ'Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â ÃƒÆ'Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¡ÃƒÆ'Ã†â€™Ãƒâ€šÃ‚Â©ÃƒÆ'Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ'Ã¢â‚¬Â¹Ãƒâ€¦Ã¢â‚¬Å“ÃƒÆ'Ã†â€™Ãƒâ€šÃ‚Â¥ÃƒÆ'Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚ÂºÃƒÆ'Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¾ÃƒÆ'Ã†â€™Ãƒâ€šÃ‚Â§ÃƒÆ'Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â°ÃƒÆ'Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¡ÃƒÆ'Ã†â€™Ãƒâ€šÃ‚Â¤ÃƒÆ'Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¼ÃƒÆ'Ã¢â‚¬Â¹Ãƒâ€¦Ã¢â‚¬Å“ÃƒÆ'Ã†â€™Ãƒâ€šÃ‚Â¥ÃƒÆ'Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ'Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œ*/
 .wechat-title-img{
     position: absolute;
     height:0;
