@@ -70,6 +70,7 @@ body {
 
 p {
     margin:0 0 20px;
+    letter-spacing
 }
 
 h1,
@@ -80,7 +81,17 @@ h5,
 h6{
     font-weight: 400;
 }
-h2{font-size: 22px}
+h2 {
+  display: inline-block;
+  font-size: 22px;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  background-image: linear-gradient(to right, #3b82f6, #60a5fa);
+  background-repeat: no-repeat;
+  background-size: 100% 3px;
+  background-position: 0 100%;
+  padding-bottom: 4px;
+}
 h3{font-size: 20px}
 h4{font-size: 18px}
 h5{font-size: 16px}
@@ -553,7 +564,7 @@ a:focus {
 
 footer {
     font-size: 20px;
-    padding: 50px 0 65px;
+    padding: 10px 0 65px;
 }
 
 footer .list-inline {
@@ -565,6 +576,7 @@ footer .copyright {
     font-size: 14px;
     text-align: center;
     margin-top: 12px;
+    color: #666666;
 }
 
 footer .copyright a {
@@ -900,6 +912,16 @@ img::-moz-selection {
     max-width: 100%;
     height: auto;
     margin: 1.5em auto 1.6em auto;
+
+  /* 外发光 */
+  box-shadow:
+    0 0 5px rgba(99, 102, 241, 0.6),
+    0 0 5px rgba(139, 92, 246, 0.4);
+
+  /* 内边框渐变 */
+  border: 1px solid transparent;
+  border-image: linear-gradient(90deg, #06b6d4, #3b82f6);
+  border-image-slice: 1;
 }
 
 /* Hux Optimize UserExperience */
@@ -1065,12 +1087,12 @@ img::-moz-selection {
 }
 
 .container .toc-wrap .toc-level-2 > a {
-    color: #0085a1;
+    color: #333333;
     font-size: .9em;
 }
 
 .container .toc-wrap li ol a {
-    color: #555;
+    color: #333333;
     font-size: .85em;
     padding-left: 5px;
 }
