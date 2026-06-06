@@ -3,6 +3,34 @@
 
 
     <url>
+        <loc>https://bysocket.com/tags/%E4%BA%A7%E5%93%81%E5%A2%9E%E9%95%BF/</loc>
+        <lastmod>2026-06-06T00:27:27.276Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://bysocket.com/tags/%E5%87%BA%E6%B5%B7%E5%A2%9E%E9%95%BF/</loc>
+        <lastmod>2026-06-06T00:27:27.276Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://bysocket.com/tags/GEO/</loc>
+        <lastmod>2026-06-06T00:27:27.276Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://bysocket.com/tags/SEO/</loc>
+        <lastmod>2026-06-06T00:27:27.276Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://bysocket.com/tags/AI%E5%B7%A5%E5%85%B7/</loc>
         <lastmod>2026-05-31T03:09:06.039Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -45,13 +73,6 @@
     </url>
 
     <url>
-        <loc>https://bysocket.com/tags/SEO/</loc>
-        <lastmod>2026-05-29T13:17:08.725Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://bysocket.com/tags/AI%E5%B7%A5%E5%85%B7%E7%AB%99/</loc>
         <lastmod>2026-05-29T13:17:08.725Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -88,13 +109,6 @@
 
     <url>
         <loc>https://bysocket.com/tags/Microsoft-Clarity/</loc>
-        <lastmod>2026-05-26T14:26:42.624Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://bysocket.com/tags/GEO/</loc>
         <lastmod>2026-05-26T14:26:42.624Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
