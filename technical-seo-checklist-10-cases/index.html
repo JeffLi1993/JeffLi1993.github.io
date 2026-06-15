@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="写增长的子木，聚焦 SaaS 出海创业，分享 SEO、红人营销、Ads、EDM 等前沿增长策略，深入解析各类实操案例，帮助创业者实现产品推广和市场扩展。通过丰富的行业经验和详实的内容，为 SaaS 团队提供具实效性的增长见解，助力海外业务快速发展。">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="写增长的子木" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        Technical SEO 自查清单：10 个真实踩坑案例｜写增长的子木
+        
+    </title>
+
+    <link rel="canonical" href="https://bysocket.com/technical-seo-checklist-10-cases/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('https://bysocket.com/images/header-img.webp')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    写增长的子木
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="https://usdunlunl.feishu.cn/docx/JasgdjA7yoy1KTxpwuIcEkJ1noo" target="_blank">SEO 小册子</a>
+                    </li>
+                    <li>
+                        <a href="https://nanoskill.ai/" target="_blank">Agent Skills</a>
+                    </li>
+					
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>Technical SEO 自查清单：10 个真实踩坑案例</h1>
+                    
+                    <span class="meta">
+                         作者 子木
+                        <span>
+                          日期 2026-06-15
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#SEO"
+                           title="SEO">SEO</a>
+                        
+                        <a class="tag" href="/tags/#出海增长"
+                           title="出海增长">出海增长</a>
+                        
+                        <a class="tag" href="/tags/#Technical SEO"
+                           title="Technical SEO">Technical SEO</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            Technical SEO 自查清单：10 个真实踩坑案例
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <p>大家都知道我喜欢打比方，今天继续聊 Technical SEO 的本质。</p>
+<p>一句话说清它要解决什么：<strong>让网站先具备被 Google 抓取、理解、收录和正常访问的基础能力。</strong></p>
+<p>Google 本质上就是一只爬虫加一套页面理解系统。它先派爬虫上门翻你的网站，再尝试读懂每一页讲了什么，最后决定要不要收录、给什么排名。<strong>所以如果你的网页打不开、加载慢、结构混乱、移动端体验差、服务还不稳定，就像一本书破到翻不开，连摆上书架都难，更别提被人翻到。</strong></p>
+<p>也正因为这样，Technical SEO 的重点不是直接冲排名，而是先把这些地基问题解决掉：</p>
+<p>页面性能、前后端加载、CDN、稳定性、URL 结构、目录层级、内链、多语言、响应式、lang &#x2F; hreflang、结构化数据、robots.txt、sitemap、404 和重定向。</p>
+<p><strong>我们的目标只有一个：让网站基建达到 SEO Friendly。</strong></p>
+<p>下面是我认为最值得拎出来讲的 10 个 Technical SEO 错误案例，以及对应的解决思路 ～</p>
+<h2 id="1、test-xx-ai-测试子域名，跟-www-一模一样"><a href="#1、test-xx-ai-测试子域名，跟-www-一模一样" class="headerlink" title="1、test.xx.ai 测试子域名，跟 www 一模一样"></a><strong>1、test.xx.ai 测试子域名，跟 www 一模一样</strong></h2><p>很多团队为了测试方便，会照着 www 搭一套一模一样的环境，部署在一个测试子域名上。最神奇的是，用 <code>site: test.xx.ai</code> 一搜，发现谷歌居然把它也收录了，而且内容跟正式官网几乎没区别。</p>
+<p>问题就出在这里。对 Google 来说，test.xx.ai 和 <a href="http://www.xx.ai/">www.xx.ai</a> 是两个长得完全相同的页面，它分不清谁是正主，<strong>于是判定为「重复页面」</strong>，权重被两边分摊，正式官网的排名反而被自己的测试环境拖累。</p>
+<p><strong>怎么处理：</strong></p>
+<ul>
+<li><p>给 test.xx.ai 加访问密码，让爬虫根本进不去；</p>
+</li>
+<li><p>在 test.xx.ai 的 robots.txt 里明确禁止所有搜索引擎爬虫抓取和收录。</p>
+</li>
+</ul>
+<p><img src="https://bysocket.com/images/technical-seo-checklist-10-cases/test-subdomain-duplicate.webp" alt="图 01：test 子域名和正式官网长得一模一样，Google 分不清谁是正主"></p>
+<p><em>两本一模一样的破书都摆不上架，Google 干脆判成重复页面，权重两边分摊。</em></p>
+<h2 id="2、产品上了多语言，SEO-却没跟上"><a href="#2、产品上了多语言，SEO-却没跟上" class="headerlink" title="2、产品上了多语言，SEO 却没跟上"></a><strong>2、产品上了多语言，SEO 却没跟上</strong></h2><p>有时候 <code>/en</code> 和不带语言前缀的地址都能打开，内容还一模一样。对 Google 来说，这就是两个独立页面，等于自己跟自己抢同一份首页权重。</p>
+<p><strong>建议的做法：</strong></p>
+<ul>
+<li><p>把英文设为默认语言，统一收口到不带 <code>/en</code> 的规范 URL，比如直接用 <code>https://soloent.ai</code>。权重集中在一个首页上，也避免了默认语言的重复页面问题。</p>
+</li>
+<li><p>其他语言走清晰、可被索引的独立路径，比如 <code>/zh/</code>、<code>/ja/</code>、<code>/ko/</code>，而不是只靠前端的语言切换按钮换文案，那种方式 Google 根本看不到其他语言版本。</p>
+</li>
+<li><p>全站补齐 <code>hreflang</code> 和 <code>canonical</code>，让 Google 明确知道「默认英文页」和「各语言版本」之间的对应关系，<strong>减少误判、重复内容和地区流量错配</strong>。注意 canonical 要和实际 URL 路径保持一致。</p>
+</li>
+</ul>
+<p>像 xx.ai 现在已经有多语言切换了，但 URL 结构和 SEO 信号还不完整，搜索引擎既不知道这些语言版本的存在，也不知道该怎么收录它们。所以核心页面要优先处理：首页、feature 页、Blog 博客页。</p>
+<p>两个一致原则记住就行：</p>
+<ul>
+<li><p><strong>hreflang 要一致</strong></p>
+</li>
+<li><p><strong>lang 要一致</strong></p>
+</li>
+</ul>
+<p><img src="https://bysocket.com/images/technical-seo-checklist-10-cases/multi-lang-no-seo.webp" alt="图 02：同一份内容挂在 /en 和根路径两个 URL，等于自己跟自己抢权重"></p>
+<p><em>一份首页权重被天平劈成两半，收口到规范 URL 才能把它合回来。</em></p>
+<h2 id="3、全站-E-E-A-T-信任信号"><a href="#3、全站-E-E-A-T-信任信号" class="headerlink" title="3、全站 E-E-A-T 信任信号"></a><strong>3、全站 E-E-A-T 信任信号</strong></h2><p>有些站连 privacy（隐私政策）和 terms（服务条款）页面都没有，最好再补一个 about 页面，pricing 也单独成页。</p>
+<p>这些页面看着不起眼，作用却很实在：让 Google 和用户都更容易确认，网站背后是一个真实、可信、可联系的团队或公司，从而提升整站的信任感和权威信号。这正是 E-E-A-T 想衡量的东西。</p>
+<h2 id="4、URL-唯一"><a href="#4、URL-唯一" class="headerlink" title="4、URL 唯一"></a><strong>4、URL 唯一</strong></h2><p>同一个页面不该有好几个能访问的地址。逐项检查：</p>
+<ul>
+<li><p>http 全部跳转到 https；</p>
+</li>
+<li><p>统一带 www 或统一不带 www，二选一；</p>
+</li>
+<li><p>结尾斜杠也要统一，要么都带 <code>/</code>，要么都不带。</p>
+</li>
+</ul>
+<h2 id="5、谷歌抓取状态异常"><a href="#5、谷歌抓取状态异常" class="headerlink" title="5、谷歌抓取状态异常"></a><strong>5、谷歌抓取状态异常</strong></h2><p>在 GSC 的抓取统计里，重点看请求中的错误占比。像图里这种错误比例就明显偏高了。什么时候会出现尖刺波动？通常是 CF 或 AWS 这类底层服务宕机的时候。</p>
+<p>这里有个关键概念，<strong>抓取预算</strong>：Google 每天分给一个站的抓取次数是有限的。如果 4xx&#x2F;404、5xx 占比偏高，说明 Googlebot 把宝贵的预算大量浪费在了打不开的死链和报错资源上，真正该被抓的好页面反而轮不到。</p>
+<p><img src="https://bysocket.com/images/technical-seo-checklist-10-cases/crawl-budget-waste.webp" alt="图 03：抓取预算有限，大量漏给了 404 和 5xx 死链"></p>
+<p><em>预算从 404&#x2F;5xx 的裂缝漏光，真正该抓的好页面只剩一线细流。</em></p>
+<h2 id="6、PageSpeed-Insights-性能分"><a href="#6、PageSpeed-Insights-性能分" class="headerlink" title="6、PageSpeed Insights 性能分"></a><strong>6、PageSpeed Insights 性能分</strong></h2><p>性能不只是体验问题，也是排名信号。可以在 GSC 后台看「核心网页指标」报告，或者直接用官方测试地址：<a href="https://pagespeed.web.dev/">https://pagespeed.web.dev/</a>。</p>
+<p>我这边的要求是：</p>
+<blockquote>
+<ul>
+<li><p>首页 PC 端：【性能】最好 90 分以上，其他几项尽量做到 100；</p>
+</li>
+<li><p>首页移动端：【性能】最好 80 分以上，其他几项尽量做到 100。</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="7、sitemap-xml-不完整"><a href="#7、sitemap-xml-不完整" class="headerlink" title="7、sitemap.xml 不完整"></a><strong>7、sitemap.xml 不完整</strong></h2><p>sitemap 是给 Google 的「目录索引」，常见两个坑：</p>
+<ul>
+<li><p>漏掉了多语言的 URL，等于没告诉 Google 还有别的语言版本；</p>
+</li>
+<li><p>页面量很大时没做分片处理，一个超大文件容易抓取不全。</p>
+</li>
+</ul>
+<h2 id="8、结构化数据（Schema）"><a href="#8、结构化数据（Schema）" class="headerlink" title="8、结构化数据（Schema）"></a><strong>8、结构化数据（Schema）</strong></h2><p>结构化数据是用一套标准格式，把「这是一篇文章」「这是个产品」「这是 FAQ」这类信息直接喂给 Google，让它更准确地理解页面，还可能拿到富媒体搜索结果。常见两个问题：</p>
+<ul>
+<li><p><strong>schema 属性配置错误</strong>，字段写错或缺失，Google 直接忽略；</p>
+</li>
+<li><p>Schema 没有做多语言，各语言版本应该有各自对应的结构化数据。</p>
+</li>
+</ul>
+<h2 id="9、URL-不规范"><a href="#9、URL-不规范" class="headerlink" title="9、URL 不规范"></a><strong>9、URL 不规范</strong></h2><p>估计是 AI 自动生成的，没人给定规范，导致 URL 又长又乱，最常见的是 Blog 文章的 slug 一长串。</p>
+<p>理想的 slug 应该短、英文小写、用连字符分隔关键词，比如 <code>/blog/technical-seo-checklist</code>，而不是把整句标题或一串随机字符塞进去。</p>
+<h2 id="10、Technical-SEO-的检查修复思路"><a href="#10、Technical-SEO-的检查修复思路" class="headerlink" title="10、Technical SEO 的检查修复思路"></a><strong>10、Technical SEO 的检查修复思路</strong></h2><p>最后说下我自己整套的检查修复打法：</p>
+<ul>
+<li><p><strong>首页单独处理</strong>，它通常最特殊、权重也最高；</p>
+</li>
+<li><p><strong>其余页面按模板归类</strong>，比如 <code>/blog</code>、<code>/blog/xxx</code> 一套，<code>/tools</code>、<code>/tools/xxx</code> 一套；</p>
+</li>
+<li><p><strong>能靠改模板一次性修复全站的，就在模板层一次解决</strong>，不要逐页手动改；</p>
+</li>
+<li><p><strong>剩下少数页面才有的个性化问题，用 plugins 这类插件化方式单独叠加</strong>，避免污染通用模板。</p>
+</li>
+</ul>
+<p><img src="https://bysocket.com/images/technical-seo-checklist-10-cases/three-layer-fix.webp" alt="图 04：三层修复法，首页单独、模板层一次修、插件单独叠加"></p>
+<p><em>别逐页手改，按首页 &#x2F; 模板 &#x2F; 插件三层来，一次修一层。</em></p>
+<p>一句话总结：<strong>地基稳了，排名才有的谈。Technical SEO 不性感，但它是后面一切内容和外链能不能生效的前提</strong>。</p>
+
+                <!-- WeChat Ad -->
+                <div class="wechat-ad">
+                    <div class="wechat-ad-inner">
+                        <div class="wechat-ad-text">
+                            <strong>👋 加我微信，交流 AI 出海 & SEO</strong>
+                            <p style="margin:4px 0 0;font-size:13px;color:#666;">微信号：qqcode168</p>
+                        </div>
+                        <img class="wechat-ad-qrcode" src="https://bysocket.com/images/wechat.jpg" alt="微信扫码添加">
+                    </div>
+                </div>
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/seo-intelligence-grok-task/" data-toggle="tooltip" data-placement="top"
+                           title="每天 5 分钟：靠 11 个 SEO 大神 + Grok 任务，追完一手 SEO 情报">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81test-xx-ai-%E6%B5%8B%E8%AF%95%E5%AD%90%E5%9F%9F%E5%90%8D%EF%BC%8C%E8%B7%9F-www-%E4%B8%80%E6%A8%A1%E4%B8%80%E6%A0%B7"><span class="toc-text">1、test.xx.ai 测试子域名，跟 www 一模一样</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E4%BA%A7%E5%93%81%E4%B8%8A%E4%BA%86%E5%A4%9A%E8%AF%AD%E8%A8%80%EF%BC%8CSEO-%E5%8D%B4%E6%B2%A1%E8%B7%9F%E4%B8%8A"><span class="toc-text">2、产品上了多语言，SEO 却没跟上</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E5%85%A8%E7%AB%99-E-E-A-T-%E4%BF%A1%E4%BB%BB%E4%BF%A1%E5%8F%B7"><span class="toc-text">3、全站 E-E-A-T 信任信号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81URL-%E5%94%AF%E4%B8%80"><span class="toc-text">4、URL 唯一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81%E8%B0%B7%E6%AD%8C%E6%8A%93%E5%8F%96%E7%8A%B6%E6%80%81%E5%BC%82%E5%B8%B8"><span class="toc-text">5、谷歌抓取状态异常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6%E3%80%81PageSpeed-Insights-%E6%80%A7%E8%83%BD%E5%88%86"><span class="toc-text">6、PageSpeed Insights 性能分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7%E3%80%81sitemap-xml-%E4%B8%8D%E5%AE%8C%E6%95%B4"><span class="toc-text">7、sitemap.xml 不完整</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8%E3%80%81%E7%BB%93%E6%9E%84%E5%8C%96%E6%95%B0%E6%8D%AE%EF%BC%88Schema%EF%BC%89"><span class="toc-text">8、结构化数据（Schema）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9%E3%80%81URL-%E4%B8%8D%E8%A7%84%E8%8C%83"><span class="toc-text">9、URL 不规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10%E3%80%81Technical-SEO-%E7%9A%84%E6%A3%80%E6%9F%A5%E4%BF%AE%E5%A4%8D%E6%80%9D%E8%B7%AF"><span class="toc-text">10、Technical SEO 的检查修复思路</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/CoderJeffLee">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/jeffpage0709">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 写增长的子木 2026
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://bysocket.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="https://bysocket.com/images/avatar.jpeg">
+</body>
+
+</html>
