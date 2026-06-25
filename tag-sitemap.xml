@@ -3,6 +3,20 @@
 
 
     <url>
+        <loc>https://bysocket.com/tags/AI/</loc>
+        <lastmod>2026-06-25T12:44:37.263Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://bysocket.com/tags/Agent/</loc>
+        <lastmod>2026-06-25T12:44:37.263Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://bysocket.com/tags/Technical-SEO/</loc>
         <lastmod>2026-06-15T13:26:47.411Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -10,14 +24,14 @@
     </url>
 
     <url>
-        <loc>https://bysocket.com/tags/%E5%87%BA%E6%B5%B7%E5%A2%9E%E9%95%BF/</loc>
+        <loc>https://bysocket.com/tags/SEO/</loc>
         <lastmod>2026-06-15T13:26:47.411Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://bysocket.com/tags/SEO/</loc>
+        <loc>https://bysocket.com/tags/%E5%87%BA%E6%B5%B7%E5%A2%9E%E9%95%BF/</loc>
         <lastmod>2026-06-15T13:26:47.411Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -45,14 +59,14 @@
     </url>
 
     <url>
-        <loc>https://bysocket.com/tags/AI-%E5%A2%9E%E9%95%BF/</loc>
+        <loc>https://bysocket.com/tags/Agent-Skills/</loc>
         <lastmod>2026-06-14T03:11:38.004Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://bysocket.com/tags/Agent-Skills/</loc>
+        <loc>https://bysocket.com/tags/AI-%E5%A2%9E%E9%95%BF/</loc>
         <lastmod>2026-06-14T03:11:38.004Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -145,20 +159,6 @@
     <url>
         <loc>https://bysocket.com/tags/AI%E5%B7%A5%E5%85%B7%E7%AB%99/</loc>
         <lastmod>2026-05-29T13:17:08.725Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://bysocket.com/tags/Agent/</loc>
-        <lastmod>2026-05-26T14:48:50.232Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://bysocket.com/tags/AI/</loc>
-        <lastmod>2026-05-26T14:48:50.232Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
