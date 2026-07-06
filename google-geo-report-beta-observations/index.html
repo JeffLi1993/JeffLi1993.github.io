@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        在 GEO / AIO 角度：如何优化 SEO 内容？｜写增长的子木
+        Google 后台 GEO 报告灰度了！我的一些观察｜写增长的子木
         
     </title>
 
-    <link rel="canonical" href="https://bysocket.com/ai-seo-for-content/">
+    <link rel="canonical" href="https://bysocket.com/google-geo-report-beta-observations/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -132,13 +132,13 @@
 
 
 <img class="wechat-title-img"
-     src="nullhttps://bysocket.com/images/banner_1500_500.png">
+     src="">
 
 
 <style>
     
     header.intro-header {
-        background-image: url('https://bysocket.com/images/banner_1500_500.png?imageView2/1/w/1400/h/400/interlace/1/q/90')
+        background-image: url('')
     }
 
     
@@ -149,15 +149,24 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>在 GEO / AIO 角度：如何优化 SEO 内容？</h1>
+                    <h1>Google 后台 GEO 报告灰度了！我的一些观察</h1>
                     
                     <span class="meta">
                          作者 子木
                         <span>
-                          日期 2025-10-23
+                          日期 2026-07-06
                          </span>
                     </span>
                     <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#SEO"
+                           title="SEO">SEO</a>
+                        
+                        <a class="tag" href="/tags/#GEO"
+                           title="GEO">GEO</a>
+                        
+                        <a class="tag" href="/tags/#Google"
+                           title="Google">Google</a>
                         
                     </div>
                 </div>
@@ -166,7 +175,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            在 GEO / AIO 角度：如何优化 SEO 内容？
+            Google 后台 GEO 报告灰度了！我的一些观察
         </span>
     </div>
 </header>
@@ -177,51 +186,53 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <p>原文大佬：about.ads.microsoft.com&#x2F;en&#x2F;blog&#x2F;post&#x2F;october-2025&#x2F;optimizing-your-content-for-inclusion-in-ai-search-answers</p>
-<h2 id="一、先把优化方向说清楚"><a href="#一、先把优化方向说清楚" class="headerlink" title="一、先把优化方向说清楚"></a>一、先把优化方向说清楚</h2><p>现在做内容的目标不仅仅是 SEO 排第几，而是被选进 AI 答案。</p>
-<p>AI 搜索会把页面切成可复用的小块，再按权威与相关性拼答案。传统 SEO 的可抓取、元数据、内链、外链仍是地基，但想被选中，核心是三件事：结构化表达、语义清楚、可直接剪裁。</p>
-<p><img src="https://bysocket.com/images/geo/geo-vs-seo.png" alt="SEO vs GEO"></p>
-<h2 id="二、实操点：如何怎么写，才能更容易被-AI-选中"><a href="#二、实操点：如何怎么写，才能更容易被-AI-选中" class="headerlink" title="二、实操点：如何怎么写，才能更容易被 AI 选中"></a>二、实操点：如何怎么写，才能更容易被 AI 选中</h2><h3 id="1-结构先行（让机器少猜）"><a href="#1-结构先行（让机器少猜）" class="headerlink" title="1. 结构先行（让机器少猜）"></a>1. 结构先行（让机器少猜）</h3><ul>
-<li>Title &#x2F; Meta &#x2F; H1 一致对齐：同一主题，不跑偏。</li>
-<li>H2&#x2F;H3 像目录切块：一块只回答一个问题，边界清晰。</li>
-<li>结论盒放在首屏：一两句把答案点明，配 1–2 个关键数据点。</li>
-<li>Q&amp;A 模块：高频问题用“问–答”直出，便于整句抽取。</li>
-<li>列表 &#x2F; 表格：步骤用编号、对比用表格，信息自洽，拿出来也能看懂。</li>
-<li>自包含句：脱离上下文也讲得通，便于拼接到答案里。</li>
+                <p>今天 Joker 刚跟我分享了他其中一个站灰度到了 GEO 的报告。我也看了下 Google Search Console，如下图，在左侧搜索结果下面的 生成式 AI 报告：</p>
+<p><img src="https://bysocket.com/images/google-geo-report/01-gsc-geo-report.png" alt="22.png"></p>
+<p>看了一圈，这份报告目前能证明哪些页面被 AI 看到，虽然 Beta 版本，也有一些参考意义的。具体如下：</p>
+<h2 id="一、什么算一次曝光？"><a href="#一、什么算一次曝光？" class="headerlink" title="一、什么算一次曝光？"></a>一、什么算一次曝光？</h2><p><img src="https://bysocket.com/images/google-geo-report/02-exposure-definition.png" alt="image.png"></p>
+<p>如上图，你在搜索 Best AI Music Generators 的时候，出现 aiva.ai 就相当于一次曝光了</p>
+<p>具体这里是 AI Overview。根据谷歌官方文档，基本上出现的位置是 <strong>AI Overviews 第一，AI Mode 第二，Discover 第三。</strong></p>
+<p><a href="https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports">https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports</a></p>
+<h2 id="二、有啥作用？"><a href="#二、有啥作用？" class="headerlink" title="二、有啥作用？"></a>二、有啥作用？</h2><p><img src="https://bysocket.com/images/google-geo-report/03-country-distribution.png" alt="image.png"></p>
+<p>作用一：<strong>国家分布说明 GEO 有全球性，这里证明了 SEO i18n 多语言做得好，很有市场！</strong></p>
+<p>作用二：可以佐证一些内容方向，目前报告还在 beta，还没有更细的数据，但可以结合 AI Bot 抓取记录去看。目前看到 AI 站的一些好的建议：</p>
+<h4 id="1、For-点击，GEO-的点击量"><a href="#1、For-点击，GEO-的点击量" class="headerlink" title="1、For 点击，GEO 的点击量"></a>1、For 点击，GEO 的点击量</h4><p>多做 **Best &#x2F; Alternatives &#x2F; VS 等博客，还有高级的 Research 统计类 **Stats &#x2F; Statistics <strong>文章</strong></p>
+<p>多做** Tool 页面**</p>
+<p>里面有些细节，除了 EEAT，少写一点泛的 listicle 文章，多写强意图 listicle 更香。比如 claude fable 5 alternatives in 2026 这种文章。</p>
+<p>具体公式：<strong>Best + 细分类目 + 替代对象 + 年份 &#x2F; 场景 &#x2F; 人群</strong></p>
+<p><img src="https://bysocket.com/images/google-geo-report/04-content-formula.jpg" alt="图 03：GEO 内容公式 — 把四个原料投进去，产出一篇高质量对比文章"></p>
+<p>文章范本框架推荐：</p>
+<ul>
+<li><p><strong>结论先行</strong></p>
+</li>
+<li><p><strong>场景分类</strong></p>
+</li>
+<li><p><strong>步骤清单</strong></p>
+</li>
+<li><p><strong>对比表</strong></p>
+</li>
+<li><p><strong>适合谁</strong></p>
+</li>
+<li><p><strong>FAQ</strong></p>
+</li>
+<li><p><strong>替代方案</strong></p>
+</li>
+<li><p><strong>相关问题</strong></p>
+</li>
 </ul>
-<h3 id="2-语义清楚（写给意图，不写给词）"><a href="#2-语义清楚（写给意图，不写给词）" class="headerlink" title="2. 语义清楚（写给意图，不写给词）"></a>2. 语义清楚（写给意图，不写给词）</h3><ul>
-<li>围绕意图写：直接回答用户的问题，不绕圈。</li>
-<li>量化事实锚定：用可度量数据、标准与约束（如多少量客户）。</li>
-<li>补上下文：给出适用场景与限制，减少歧义。</li>
-<li>同义与相关词：适度加入，帮助系统建立语义网络。</li>
-<li>标点简洁：句号、逗号为主，避免花哨符号和长破折号。</li>
-</ul>
-<h3 id="3-Schema-配合（把文本变成数据）"><a href="#3-Schema-配合（把文本变成数据）" class="headerlink" title="3. Schema 配合（把文本变成数据）"></a>3. Schema 配合（把文本变成数据）</h3><ul>
-<li>类型匹配：工具页用 SoftwareApplication，教程用 HowTo，常见问题用 FAQPage，文章用 Article，路径用 Breadcrumb。</li>
-<li>JSON-LD 注入：在代码或 CMS 中添加，确保可验证通过。</li>
-<li>内容先行：先有真实模块，再挂相应 Schema，避免为挂而挂。</li>
-</ul>
-<h3 id="4-常见坑"><a href="#4-常见坑" class="headerlink" title="4. 常见坑"></a>4. 常见坑</h3><ul>
-<li>长墙式大段落，观点混在一起，难拆分。</li>
-<li>关键答案藏在折叠 &#x2F; Tab，渲染不稳定易被忽略。</li>
-<li>核心信息只在 PDF &#x2F; 图片里，缺少 HTML 结构信号。</li>
-<li>装饰符号、关键词堆砌、空话形容，没有实证与场景。</li>
-</ul>
-<h3 id="5-最后上线自检"><a href="#5-最后上线自检" class="headerlink" title="5. 最后上线自检"></a>5. 最后上线自检</h3><ol>
-<li>这页是否有首屏结论盒？</li>
-<li>H2&#x2F;H3 是否把问题切清楚？</li>
-<li>是否提供 3–5 组真实 Q&amp;A？</li>
-<li>是否有对比表或步骤列表且自洽？</li>
-<li>是否添加并通过相应 Schema 校验？</li>
-<li>关键信息是否都在可见 HTML，而非图片&#x2F;Tab&#x2F;PDF？</li>
-<li>Title&#x2F;Meta&#x2F;H1 是否同题同调？</li>
-<li>GSC 可抓取&#x2F;可索引&#x2F;内链是否到位？</li>
-</ol>
-<h2 id="三、小结"><a href="#三、小结" class="headerlink" title="三、小结"></a>三、小结</h2><p>被 AI 选中的本质，是把答案做成机器愿意拿、人一眼看懂的形态。</p>
-<p>从一页开始改：加结论盒，按意图重排 H2&#x2F;H3，补 Q&amp;A 和表格；挂对路的 Schema。发布后 72 小时看收录与点击，再小步快迭代。</p>
-<br/>
-
-<p>📧 <strong>电子邮件</strong>: <a href="mailto:&#113;&#105;&#97;&#x6e;&#103;&#x71;&#105;&#x61;&#110;&#x67;&#108;&#x69;&#49;&#x39;&#57;&#51;&#64;&#103;&#109;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;">&#113;&#105;&#97;&#x6e;&#103;&#x71;&#105;&#x61;&#110;&#x67;&#108;&#x69;&#49;&#x39;&#57;&#51;&#64;&#103;&#109;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;</a><br>🛰️ <strong>加微信号</strong>: qqcode168</p>
+<h4 id="2、For-品牌露出"><a href="#2、For-品牌露出" class="headerlink" title="2、For 品牌露出"></a>2、For 品牌露出</h4><p><strong>做一些 How to &#x2F; Can 这种辅助内容</strong></p>
+<p><strong>同样，首页对应的品牌词也是有机会的，代表着 品牌实体 在 GEO 的解释。</strong></p>
+<p><img src="https://bysocket.com/images/google-geo-report/05-anomaly-spike.jpg" alt="图 04：异常曝光数据 — 某天突然上万，平时只有几十"></p>
+<p>但有些疑问，如下图，为什么其中一个页面某天展示高达上万，其他时候却只有几十？</p>
+<p>第一反应是数据不准</p>
+<p>再一想，莫非是被做 GEO 数据的人疯狂模拟 Chat Query 了？不应该啊</p>
+<p><em>图 04：日常几十的曝光突然有一天飙到上万 — 是数据 bug 还是被人刷 Chat Query 了？</em></p>
+<p><img src="https://bysocket.com/images/google-geo-report/06-ai-bot-queries.png" alt="image.png"></p>
+<h2 id="三、小结"><a href="#三、小结" class="headerlink" title="三、小结"></a>三、小结</h2><p><img src="https://bysocket.com/images/google-geo-report/07-geo-two-paths.jpg" alt="图 05：GEO 内容分两条路 — How-to/Can 喂 AI Overview，Best/VS/Tool 转化赚钱"></p>
+<p>AI SaaS 做 GEO，别把 How-to &#x2F; Can 当成成交页。它们的作用是抢占 AI Overview 的答案位、抢占用户的曝光心智、帮 Google 的 AI 建立对你品牌的实体理解。</p>
+<p>但用户大概率看完摘要就走，点击和转化都不会特别好。所以这类内容要少而精，作为内容矩阵的上游入口。</p>
+<p>真正优先做的还是 <strong>Best &#x2F; Alternatives &#x2F; VS &#x2F; Tool Page</strong>。</p>
+<p>这些页面同时满足 SEO 和 GEO：用户有选择意图，AI 需要引用对比信息，页面也更容易承接注册和付费。简单说，How-to &#x2F; Can 是喂 AI 的，Best &#x2F; VS &#x2F; Tool 是赚钱的。</p>
 
                 <!-- WeChat Ad -->
                 <div class="wechat-ad">
@@ -238,15 +249,10 @@
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/ai-seo-new-terms-product/" data-toggle="tooltip" data-placement="top"
-                           title="记：AI 工具站的一次讨论 - 1024 节日快乐">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/ai-seo-for-indie-hacker/" data-toggle="tooltip" data-placement="top"
-                           title="独立开发者找蓝海：新词引流实战">Next Post &rarr;</a>
+                        <a href="/hello-world/" data-toggle="tooltip" data-placement="top"
+                           title="关于子木">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -265,7 +271,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%85%88%E6%8A%8A%E4%BC%98%E5%8C%96%E6%96%B9%E5%90%91%E8%AF%B4%E6%B8%85%E6%A5%9A"><span class="toc-text">一、先把优化方向说清楚</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%AE%9E%E6%93%8D%E7%82%B9%EF%BC%9A%E5%A6%82%E4%BD%95%E6%80%8E%E4%B9%88%E5%86%99%EF%BC%8C%E6%89%8D%E8%83%BD%E6%9B%B4%E5%AE%B9%E6%98%93%E8%A2%AB-AI-%E9%80%89%E4%B8%AD"><span class="toc-text">二、实操点：如何怎么写，才能更容易被 AI 选中</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%BB%93%E6%9E%84%E5%85%88%E8%A1%8C%EF%BC%88%E8%AE%A9%E6%9C%BA%E5%99%A8%E5%B0%91%E7%8C%9C%EF%BC%89"><span class="toc-text">1. 结构先行（让机器少猜）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%AF%AD%E4%B9%89%E6%B8%85%E6%A5%9A%EF%BC%88%E5%86%99%E7%BB%99%E6%84%8F%E5%9B%BE%EF%BC%8C%E4%B8%8D%E5%86%99%E7%BB%99%E8%AF%8D%EF%BC%89"><span class="toc-text">2. 语义清楚（写给意图，不写给词）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Schema-%E9%85%8D%E5%90%88%EF%BC%88%E6%8A%8A%E6%96%87%E6%9C%AC%E5%8F%98%E6%88%90%E6%95%B0%E6%8D%AE%EF%BC%89"><span class="toc-text">3. Schema 配合（把文本变成数据）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%B8%B8%E8%A7%81%E5%9D%91"><span class="toc-text">4. 常见坑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%9C%80%E5%90%8E%E4%B8%8A%E7%BA%BF%E8%87%AA%E6%A3%80"><span class="toc-text">5. 最后上线自检</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%B0%8F%E7%BB%93"><span class="toc-text">三、小结</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E7%AE%97%E4%B8%80%E6%AC%A1%E6%9B%9D%E5%85%89%EF%BC%9F"><span class="toc-text">一、什么算一次曝光？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%9C%89%E5%95%A5%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="toc-text">二、有啥作用？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81For-%E7%82%B9%E5%87%BB%EF%BC%8CGEO-%E7%9A%84%E7%82%B9%E5%87%BB%E9%87%8F"><span class="toc-text">1、For 点击，GEO 的点击量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81For-%E5%93%81%E7%89%8C%E9%9C%B2%E5%87%BA"><span class="toc-text">2、For 品牌露出</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%B0%8F%E7%BB%93"><span class="toc-text">三、小结</span></a></li></ol>
                 </div>
             </div>
         </div>
