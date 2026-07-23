@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://bysocket.com/hello-world/</loc>
+        <lastmod>2026-07-23T03:50:48.512Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://bysocket.com/long-blog-to-viral-social-posts-agent-skill/</loc>
         <lastmod>2026-07-21T21:01:49.119Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -35,14 +43,6 @@
     <url>
         <loc>https://bysocket.com/google-geo-report-beta-observations/</loc>
         <lastmod>2026-07-06T04:09:21.602Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://bysocket.com/hello-world/</loc>
-        <lastmod>2026-07-06T04:03:28.432Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
