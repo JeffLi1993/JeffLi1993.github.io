@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="写增长的子木，聚焦 SaaS 出海创业，分享 SEO、红人营销、Ads、EDM 等前沿增长策略，深入解析各类实操案例，帮助创业者实现产品推广和市场扩展。通过丰富的行业经验和详实的内容，为 SaaS 团队提供具实效性的增长见解，助力海外业务快速发展。">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="写增长的子木" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        Agent Skill 写完就过时了咋办？这套多租户架构说清楚了｜写增长的子木
+        
+    </title>
+
+    <link rel="canonical" href="https://bysocket.com/agent-skill-multi-tenant-architecture/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('https://bysocket.com/images/header-img.webp')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    写增长的子木
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="https://usdunlunl.feishu.cn/docx/JasgdjA7yoy1KTxpwuIcEkJ1noo" target="_blank">SEO 小册子</a>
+                    </li>
+                    <li>
+                        <a href="https://nanoskill.ai/" target="_blank">Agent Skills</a>
+                    </li>
+					
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="nullhttps://bysocket.com/images/agent-skill-multi-tenant-architecture/header-img.webp">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('https://bysocket.com/images/agent-skill-multi-tenant-architecture/header-img.webp?imageView2/1/w/1400/h/400/interlace/1/q/90')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>Agent Skill 写完就过时了咋办？这套多租户架构说清楚了</h1>
+                    
+                    <span class="meta">
+                         作者 子木
+                        <span>
+                          日期 2026-07-23
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#Agent"
+                           title="Agent">Agent</a>
+                        
+                        <a class="tag" href="/tags/#Agent Skill"
+                           title="Agent Skill">Agent Skill</a>
+                        
+                        <a class="tag" href="/tags/#多租户"
+                           title="多租户">多租户</a>
+                        
+                        <a class="tag" href="/tags/#AI 架构"
+                           title="AI 架构">AI 架构</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            Agent Skill 写完就过时了咋办？这套多租户架构说清楚了
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <p>有天晚上，我在想一个事情：现在开源 Agent Skills 有 <strong>2,330,640</strong> 个，以后只会更多。这么多 Skills，多少会过时？多少会死去，成为历史的尘埃！</p>
+<p>为啥要有 Agent Skills？大家都明白：Agent Skill 的本质，是<strong>动手能力。好的 Skills，目的是让 Agent 更好地做对事。</strong>基础模型负责理解，Skill 负责执行——二者缺一不可。</p>
+<p>顺着这个思路，我觉得未来 Agent 应用可以这样设计。</p>
+<h2 id="一、方案概述"><a href="#一、方案概述" class="headerlink" title="一、方案概述"></a>一、方案概述</h2><p>本方案设计一种可持续进化的多租户 Agent 应用架构。</p>
+<p>核心思想：</p>
+<p><strong>Agent 应用 &#x3D; Shared Core Agent Skill + Tenant Wrapper Skill + Tenant Context + Feedback Loop</strong></p>
+<p>通过共享通用能力与租户业务能力分层，实现：</p>
+<ul>
+<li><p><strong>通用能力统一升级，所有租户共享收益</strong></p>
+</li>
+<li><p><strong>租户业务逻辑独立演进，适配不同业务场景</strong></p>
+</li>
+<li><p><strong>基于真实业务反馈持续优化 Agent 能力</strong></p>
+</li>
+</ul>
+<p><img src="https://bysocket.com/images/agent-skill-multi-tenant-architecture/01-layered-architecture.png" alt="图03：分层架构-核心能力与租户业务分层"></p>
+<p><em>图：四层堆叠 - 共享核心能力在底，租户业务、上下文、反馈闭环依次向上搭建</em></p>
+<h2 id="二、整体架构"><a href="#二、整体架构" class="headerlink" title="二、整体架构"></a>二、整体架构</h2><h3 id="1-Shared-Core-Agent-Skill（共享核心能力层）"><a href="#1-Shared-Core-Agent-Skill（共享核心能力层）" class="headerlink" title="1. Shared Core Agent Skill（共享核心能力层）"></a>1. Shared Core Agent Skill（共享核心能力层）</h3><p>负责沉淀跨业务通用能力，包括：</p>
+<ul>
+<li>通用任务执行流程</li>
+<li>基础推理能力</li>
+<li>工具调用能力</li>
+<li>通用策略框架</li>
+<li>质量评估机制</li>
+<li>Agent Workflow</li>
+</ul>
+<p>例如：</p>
+<p><img src="https://bysocket.com/images/agent-skill-multi-tenant-architecture/02-ads-agent.png" alt="ads.png"></p>
+<p>Ads Agent：</p>
+<ul>
+<li>用户与市场分析</li>
+<li>投放策略生成</li>
+<li>效果分析</li>
+<li>数据归因</li>
+<li>优化建议</li>
+</ul>
+<p><img src="https://bysocket.com/images/agent-skill-multi-tenant-architecture/03-seo-agent.png" alt="seo.png"></p>
+<p>SEO Agent：</p>
+<ul>
+<li>搜索意图分析</li>
+<li>内容策略生成</li>
+<li>SEO 质量评估</li>
+<li>内容优化流程</li>
+</ul>
+<p>Shared Core Agent Skill 由平台统一维护，通过 Evaluation 验证后进行版本升级。Agent Skill 升级流程大概如下：</p>
+<p>→ 收到能力优化<br>→ Offline Evaluation<br>→ 小流量验证<br>→ 正式发布<br>→ 所有租户 Agent 获取升级能力</p>
+<h2 id="三、Tenant-Wrapper-Skill（租户业务能力层）"><a href="#三、Tenant-Wrapper-Skill（租户业务能力层）" class="headerlink" title="三、Tenant Wrapper Skill（租户业务能力层）"></a>三、Tenant Wrapper Skill（租户业务能力层）</h2><p>每个租户拥有自己的业务 Wrapper Skill。</p>
+<p>Wrapper Skill 基于 Shared Core Agent Skill 扩展业务逻辑，包括：</p>
+<ul>
+<li>行业规则</li>
+<li>业务目标</li>
+<li>执行策略</li>
+<li>优化偏好</li>
+<li>决策规则</li>
+</ul>
+<p>Wrapper Skill 会根据租户自身反馈持续优化。</p>
+<p>例如 Ads Agent：</p>
+<p>客户 A：</p>
+<ul>
+<li>更关注 ROAS</li>
+<li>偏好高转化素材</li>
+<li>特定受众策略</li>
+</ul>
+<p>客户 B：</p>
+<ul>
+<li>更关注品牌曝光</li>
+<li>偏好长期增长</li>
+<li>不同预算策略</li>
+</ul>
+<p><strong>不同租户拥有独立业务演进路径，不互相影响。</strong></p>
+<p><img src="https://bysocket.com/images/agent-skill-multi-tenant-architecture/04-tenant-wrapper.png" alt="图04：同核不同包装-租户业务定制"></p>
+<p><em>图：同一个 Core，客户 A 套 ROAS 外壳，客户 B 套品牌曝光外壳，各自演进。</em></p>
+<h2 id="四、Tenant-Context-Private-Data（租户业务上下文层）"><a href="#四、Tenant-Context-Private-Data（租户业务上下文层）" class="headerlink" title="四、Tenant Context &amp; Private Data（租户业务上下文层）"></a>四、Tenant Context &amp; Private Data（租户业务上下文层）</h2><p>每个租户拥有独立业务资产：</p>
+<ul>
+<li>产品信息</li>
+<li>用户画像</li>
+<li>历史数据</li>
+<li>业务目标</li>
+<li>配置规则</li>
+<li>品牌偏好</li>
+<li>长期记忆</li>
+</ul>
+<p>这些数据用于驱动 Agent 生成符合业务需求的决策。</p>
+<h2 id="五、Feedback-Loop（持续学习闭环）"><a href="#五、Feedback-Loop（持续学习闭环）" class="headerlink" title="五、Feedback Loop（持续学习闭环）"></a>五、Feedback Loop（持续学习闭环）</h2><p>Agent 执行过程中持续收集反馈：</p>
+<p>数据来源：</p>
+<ul>
+<li>业务指标</li>
+<li>用户行为</li>
+<li>执行结果</li>
+<li>人工修改</li>
+<li>转化数据</li>
+</ul>
+<p>反馈作用：</p>
+<h3 id="租户级优化"><a href="#租户级优化" class="headerlink" title="租户级优化"></a>租户级优化</h3><p>影响当前租户：</p>
+<ul>
+<li>策略调整</li>
+<li>参数优化</li>
+<li>Workflow 调整</li>
+<li>业务规则更新</li>
+</ul>
+<h3 id="通用能力优化"><a href="#通用能力优化" class="headerlink" title="通用能力优化"></a>通用能力优化</h3><p>当多个租户出现共性需求：</p>
+<ul>
+<li>提交候选能力升级</li>
+<li>进入 Evaluation</li>
+<li>验证有效性</li>
+<li>升级 Shared Core Agent Skill</li>
+</ul>
+<p><strong>升级后，所有租户获得能力提升。</strong></p>
+<p><img src="https://bysocket.com/images/agent-skill-multi-tenant-architecture/05-feedback-loop.png" alt="图05：反馈闭环-持续学习"></p>
+<p><em>图：反馈像水流回流，一路浇灌租户策略，一路汇入核心能力池，形成闭环。</em></p>
+<h2 id="六、核心价值"><a href="#六、核心价值" class="headerlink" title="六、核心价值"></a>六、核心价值</h2><h3 id="1-能力复用"><a href="#1-能力复用" class="headerlink" title="1. 能力复用"></a>1. 能力复用</h3><p><strong>一次建设 Shared Core Agent Skill，多租户共享。</strong></p>
+<h3 id="2-业务适配"><a href="#2-业务适配" class="headerlink" title="2. 业务适配"></a>2. 业务适配</h3><p><strong>每个租户通过 Wrapper Skill 实现业务定制。</strong></p>
+<h3 id="3-持续进化"><a href="#3-持续进化" class="headerlink" title="3. 持续进化"></a>3. 持续进化</h3><p><strong>租户反馈推动业务能力升级，共性经验沉淀到通用能力层。</strong></p>
+<h3 id="4-规模化扩展"><a href="#4-规模化扩展" class="headerlink" title="4. 规模化扩展"></a>4. 规模化扩展</h3><p><strong>新增业务场景时，只需要创建新的 Tenant Wrapper Skill，无需重新开发完整 Agent。</strong></p>
+<h2 id="七、核心公式"><a href="#七、核心公式" class="headerlink" title="七、核心公式"></a>七、核心公式</h2><p><img src="https://bysocket.com/images/agent-skill-multi-tenant-architecture/06-core-formula.png" alt="图06：核心公式-四合一Agent"></p>
+<p>Agent 应用</p>
+<p>&#x3D; Shared Core Agent Skill</p>
+<p>+ Tenant Wrapper Skill（业务逻辑与反馈学习）</p>
+<p>+ Tenant Context（业务数据、配置、记忆）</p>
+<p>+ Feedback Loop（持续优化）</p>
+
+                <!-- WeChat Ad -->
+                <div class="wechat-ad">
+                    <div class="wechat-ad-inner">
+                        <div class="wechat-ad-text">
+                            <strong>👋 加我微信，交流 AI 出海 & SEO</strong>
+                            <p style="margin:4px 0 0;font-size:13px;color:#666;">微信号：qqcode168</p>
+                        </div>
+                        <img class="wechat-ad-qrcode" src="https://bysocket.com/images/wechat.jpg" alt="微信扫码添加">
+                    </div>
+                </div>
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/long-blog-to-viral-social-posts-agent-skill/" data-toggle="tooltip" data-placement="top"
+                           title="无聊蒸馏自己：长文转爆款社媒帖子 Agent Skill 开源">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%96%B9%E6%A1%88%E6%A6%82%E8%BF%B0"><span class="toc-text">一、方案概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84"><span class="toc-text">二、整体架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Shared-Core-Agent-Skill%EF%BC%88%E5%85%B1%E4%BA%AB%E6%A0%B8%E5%BF%83%E8%83%BD%E5%8A%9B%E5%B1%82%EF%BC%89"><span class="toc-text">1. Shared Core Agent Skill（共享核心能力层）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81Tenant-Wrapper-Skill%EF%BC%88%E7%A7%9F%E6%88%B7%E4%B8%9A%E5%8A%A1%E8%83%BD%E5%8A%9B%E5%B1%82%EF%BC%89"><span class="toc-text">三、Tenant Wrapper Skill（租户业务能力层）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81Tenant-Context-Private-Data%EF%BC%88%E7%A7%9F%E6%88%B7%E4%B8%9A%E5%8A%A1%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B1%82%EF%BC%89"><span class="toc-text">四、Tenant Context &amp; Private Data（租户业务上下文层）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81Feedback-Loop%EF%BC%88%E6%8C%81%E7%BB%AD%E5%AD%A6%E4%B9%A0%E9%97%AD%E7%8E%AF%EF%BC%89"><span class="toc-text">五、Feedback Loop（持续学习闭环）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%9F%E6%88%B7%E7%BA%A7%E4%BC%98%E5%8C%96"><span class="toc-text">租户级优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E7%94%A8%E8%83%BD%E5%8A%9B%E4%BC%98%E5%8C%96"><span class="toc-text">通用能力优化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E6%A0%B8%E5%BF%83%E4%BB%B7%E5%80%BC"><span class="toc-text">六、核心价值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%83%BD%E5%8A%9B%E5%A4%8D%E7%94%A8"><span class="toc-text">1. 能力复用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%B8%9A%E5%8A%A1%E9%80%82%E9%85%8D"><span class="toc-text">2. 业务适配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%8C%81%E7%BB%AD%E8%BF%9B%E5%8C%96"><span class="toc-text">3. 持续进化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%A7%84%E6%A8%A1%E5%8C%96%E6%89%A9%E5%B1%95"><span class="toc-text">4. 规模化扩展</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E6%A0%B8%E5%BF%83%E5%85%AC%E5%BC%8F"><span class="toc-text">七、核心公式</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/CoderJeffLee">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/jeffpage0709">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 写增长的子木 2026
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://bysocket.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="https://bysocket.com/images/avatar.jpeg">
+</body>
+
+</html>

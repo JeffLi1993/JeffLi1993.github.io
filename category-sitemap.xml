@@ -9,6 +9,13 @@
 
 
     <url>
+        <loc>https://bysocket.com/categories/AI/</loc>
+        <lastmod>2026-07-23T06:04:18.932Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://bysocket.com/categories/Agent-Skill/</loc>
         <lastmod>2026-07-21T21:01:49.119Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -18,13 +25,6 @@
     <url>
         <loc>https://bysocket.com/categories/SEO/</loc>
         <lastmod>2026-07-14T05:54:01.001Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://bysocket.com/categories/AI/</loc>
-        <lastmod>2026-06-25T12:44:37.263Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
