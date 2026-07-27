@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="写增长的子木，聚焦 SaaS 出海创业，分享 SEO、红人营销、Ads、EDM 等前沿增长策略，深入解析各类实操案例，帮助创业者实现产品推广和市场扩展。通过丰富的行业经验和详实的内容，为 SaaS 团队提供具实效性的增长见解，助力海外业务快速发展。">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="写增长的子木" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        GEO 流量密码因子之一：Fan-out Rank｜写增长的子木
+        
+    </title>
+
+    <link rel="canonical" href="https://bysocket.com/geo-fanout-rank/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('https://bysocket.com/images/header-img.webp')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    写增长的子木
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="https://usdunlunl.feishu.cn/docx/JasgdjA7yoy1KTxpwuIcEkJ1noo" target="_blank">SEO 小册子</a>
+                    </li>
+                    <li>
+                        <a href="https://nanoskill.ai/" target="_blank">Agent Skills</a>
+                    </li>
+					
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="nullhttps://bysocket.com/images/hello-world/header-img.webp">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('https://bysocket.com/images/hello-world/header-img.webp?imageView2/1/w/1400/h/400/interlace/1/q/90')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>GEO 流量密码因子之一：Fan-out Rank</h1>
+                    
+                    <span class="meta">
+                         作者 子木
+                        <span>
+                          日期 2026-07-27
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#SEO"
+                           title="SEO">SEO</a>
+                        
+                        <a class="tag" href="/tags/#GEO"
+                           title="GEO">GEO</a>
+                        
+                        <a class="tag" href="/tags/#Fan-out"
+                           title="Fan-out">Fan-out</a>
+                        
+                        <a class="tag" href="/tags/#AI 搜索"
+                           title="AI 搜索">AI 搜索</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            GEO 流量密码因子之一：Fan-out Rank
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <p>听 Span 的 Workshop，关于 GEO 的影响因子如下图：</p>
+<blockquote>
+<p>原文 <a href="https://signal.zyppy.com/p/ai-citation-ranking-factors">https://signal.zyppy.com/p/ai-citation-ranking-factors</a></p>
+</blockquote>
+<p><img src="https://bysocket.com/images/geo-fanout-rank/01-citation-factors.png" alt="AI Citation Ranking Factors"></p>
+<p>里面 Fan-out Rank 到底是什么？有什么对我们做 SEO 或做 GEO 有什么提示？</p>
+<p>下面是我 Research &amp; 一些实操心得在最后一个模块。我们先了解下面，是第一步：</p>
+<h2 id="一、GEO-工作原理-Query-Fan-out-Model-是什么？"><a href="#一、GEO-工作原理-Query-Fan-out-Model-是什么？" class="headerlink" title="一、GEO 工作原理 &amp; Query Fan-out Model 是什么？"></a>一、GEO 工作原理 &amp; Query Fan-out Model 是什么？</h2><p><img src="https://bysocket.com/images/geo-fanout-rank/02-geo-workflow.png" alt="產生的圖片 1.png"></p>
+<p>如上图，把下面这个论文的图，我微调了下。具体来源，你们看：「GEO：生成式引擎优化 <a href="https://arxiv.org/html/2311.09735v3">https://arxiv.org/html/2311.09735v3</a> 」</p>
+<p>类似 ChatGPT ，不仅仅会改写你的 Query &amp; 还会 Query Fan-out（查询扩散）。</p>
+<h3 id="第一步：Query-Reformulation（查询改写）"><a href="#第一步：Query-Reformulation（查询改写）" class="headerlink" title="第一步：Query Reformulation（查询改写）"></a>第一步：Query Reformulation（查询改写）</h3><p>例如，用户输入：</p>
+<blockquote>
+<p>best CRM</p>
+</blockquote>
+<p>进入查询改写，可能改成：</p>
+<blockquote>
+<p>best CRM for <strong>small business</strong> 2026</p>
+</blockquote>
+<p>注意这里的 small business，要思考下为啥？因为 best crm 其实信息不足的：面向谁？大概什么使用场景？等等</p>
+<p>这时候 ChatGPT 只能无脑推行业老大吗？不对！它根据你的历史数据、上下文、你之前的记录等信号，改写成它认为高概率的查询。俗称千人千面</p>
+<p>但你依旧问的很具体，它基本不会大改或者不改</p>
+<h3 id="第二步：Query-Fan-out（查询扩散）"><a href="#第二步：Query-Fan-out（查询扩散）" class="headerlink" title="第二步：Query Fan-out（查询扩散）"></a>第二步：Query Fan-out（查询扩散）</h3><p><img src="https://bysocket.com/images/geo-fanout-rank/03-query-fanout.png" alt="Query Fan-out 查询扩散"></p>
+<p>在上面改写后的主意图 Query 基础上，下一步拆成多个 Sub Queries</p>
+<p>子 Query：</p>
+<ol>
+<li><p>Best CRM for small business in 2026</p>
+</li>
+<li><p>Best <strong>free</strong> CRM for small business in 2026</p>
+</li>
+<li><p>Best CRM for** healthcare small business** in 2026</p>
+</li>
+<li><p>CRM software <strong>pricing</strong> 2026</p>
+</li>
+<li><p>CRM software <strong>features</strong> 2026</p>
+</li>
+<li><p>…</p>
+</li>
+</ol>
+<p>这就是 <strong><strong>Query Fan-out（查询扩散）</strong></strong></p>
+<p>这记住：<strong>free</strong> 、<strong>pricing</strong>、<strong>features</strong>… 不是人类真正搜的，是 AI 扩散出来的！！</p>
+<p>重点提：<strong>healthcare</strong> ，这个词「<strong>Best CRM for healthcare small business in 2026</strong>」如果这是你的 ICP 理想付费客户画像的搜索意图，那就找到「金矿词」了。</p>
+<p>大家都知道你可以围绕这个词，先做 SEO 文章内容！</p>
+<h2 id="二、那如何-Research-出更多的-Fan-out-Queries"><a href="#二、那如何-Research-出更多的-Fan-out-Queries" class="headerlink" title="二、那如何 Research 出更多的 Fan-out Queries"></a>二、那如何 Research 出更多的 <strong><strong>Fan-out</strong></strong> Queries</h2><p>方式方法很多，我举几个我感觉很靠谱的：</p>
+<h3 id="方法一：竞品调研"><a href="#方法一：竞品调研" class="headerlink" title="方法一：竞品调研"></a>方法一：竞品调研</h3><p>profound ai 为首的 AI 去围绕词根 Research 他们的 Queries。如下图</p>
+<p><img src="https://bysocket.com/images/geo-fanout-rank/04-competitor-research.png" alt="image.png"></p>
+<h3 id="方法二：ChatGPT-下拉框"><a href="#方法二：ChatGPT-下拉框" class="headerlink" title="方法二：ChatGPT 下拉框"></a>方法二：ChatGPT 下拉框</h3><p>不多说，如下图：</p>
+<p><img src="https://bysocket.com/images/geo-fanout-rank/05-chatgpt-dropdown-1.png" alt="image.png"></p>
+<p><img src="https://bysocket.com/images/geo-fanout-rank/06-chatgpt-dropdown-2.png" alt="image.png"></p>
+<h3 id="方法三等等："><a href="#方法三等等：" class="headerlink" title="方法三等等："></a>方法三等等：</h3><ul>
+<li><p>社区用户研究：从 Reddit、Quora、G2 等真实讨论中提取用户场景、痛点和隐藏需求</p>
+</li>
+<li><p>LLM 模拟 Fan-out：让 ChatGPT &#x2F; Claude 模拟 AI Search，生成回答一个 Query 前可能展开的子查询</p>
+</li>
+<li><p>ChatGPT 新账号自己 Query，看结果反推</p>
+</li>
+<li><p>Bing 或 Clarity 数据反推</p>
+</li>
+</ul>
+<p>要记住，本来都是 Search 用户，只是换了个输入框 Query 而已。底层逻辑没变，人还是那个人，需求还是那些需求，只是 AI 帮用户把没说出口的话，全扩散出来了。</p>
+<p><img src="https://bysocket.com/images/geo-fanout-rank/07-icp-gold-keywords.png" alt="ICP 筛选金矿词"></p>
+<p>大模型根据你的主 Query，推导出你的 <strong>不同意图、不同维度、以及隐含的背景问题</strong>，大概覆盖以下维度：</p>
+<ul>
+<li><p><strong>意图重构</strong>：判断你是购买决策、了解概念、还是找替代方案，拆成更精确的子查询。</p>
+</li>
+<li><p><strong>背景原理</strong>：补全没说出口的上下文，如 “CRM 是什么”、”CRM 怎么提效”。</p>
+</li>
+<li><p><strong>主题搜索</strong>：横向扩展关联词，如 “CRM integrations”、”CRM vs help desk”。</p>
+</li>
+<li><p><strong>商业决策与对比</strong>：扩散出价格、竞品对比、ROI 等强决策意图词——<strong>这些词背后站着准备掏钱的用户。</strong></p>
+</li>
+<li><p><strong>实时数据与垂直图谱</strong>：拉取最新价格、版本更新，拼入 healthcare、legal 等行业标签做精准匹配。</p>
+</li>
+</ul>
+<p>这里的你，就是我们想要的 <strong>ICP 理想客户画像</strong>。</p>
+<p>你要代入进去：如果你的付费客户是 healthcare 行业的 small business，那 “Best CRM for healthcare small business” 这条扩散词就是金矿</p>
+<p>它既是 AI 后台会去爬的子查询，又精准卡在你的 ICP 决策路径上。<strong>用 ICP 去筛选 Fan-out Queries，留下来的才是值得 All in 的内容选题。</strong></p>
+<h2 id="三、怎么应用到-SEO-或-GEO？"><a href="#三、怎么应用到-SEO-或-GEO？" class="headerlink" title="三、怎么应用到 SEO 或 GEO？"></a>三、怎么应用到 SEO 或 GEO？</h2><p>我们用 <strong>“best AI video generators”</strong> 这个词来完整走一遍实操流程。</p>
+<p>用户输入 <code>&quot;best ai video generators&quot;</code> 时，不会只用这一个词去搜，而是在后台并发调用 8-12 个子查询，其中大概率包含：</p>
+<ul>
+<li><p><em>“best ai video generators for content creators”</em></p>
+</li>
+<li><p><em>“best ai video generators for short-form social media”</em></p>
+</li>
+<li><p><em>“ai video generator pricing comparison 2026”</em></p>
+</li>
+<li><p><em>“best free ai video generators”</em></p>
+</li>
+<li><p><em>“ai video generator that can create animations”</em></p>
+</li>
+<li><p>…</p>
+</li>
+</ul>
+<p>背后对应不同用户决策阶段：</p>
+<ul>
+<li><p><strong>Content creators</strong> → 用户画像</p>
+</li>
+<li><p><strong>Short-form social media</strong> → 使用场景</p>
+</li>
+<li><p><strong>Pricing comparison</strong> → 商业决策</p>
+</li>
+<li><p><strong>Free AI video generators</strong> → 价格约束</p>
+</li>
+<li><p><strong>Animations</strong> → 功能需求</p>
+</li>
+<li><p><strong>Runway vs HeyGen</strong> → 竞品比较</p>
+</li>
+</ul>
+<p><img src="https://bysocket.com/images/geo-fanout-rank/08-pillar-cluster.png" alt="Pillar+Cluster 内容矩阵"></p>
+<p><strong>基础实操：</strong>如果你单独写了一篇极度垂直、高质量的 <strong>“best ai video generators for content creators”</strong> 并在传统 SEO 中排到了前几名。那肯定会有 GEO 流量</p>
+<p>文章建议：</p>
+<ul>
+<li><p><strong>结论先行</strong>：在文章开头，用一到两句话直接回答。例如：*”For content creators who need fast social clips, Runway Gen-3 offers the best motion quality; for talking-head avatars, HeyGen is the go-to choice.”*</p>
+</li>
+<li><p><strong>块状结构化表格（Table&#x2F;List）</strong>：用表格对比价格、功能、输出时长、分辨率</p>
+</li>
+<li><p><strong>覆盖多个子意图</strong>：Runway vs HeyGen 、Best AI video generator for YouTube creators、for TikTok shorts …</p>
+</li>
+<li><p>…</p>
+</li>
+</ul>
+<p><strong>进阶实操</strong>：站内同理 1 到 N，同主题继续原创多篇分发到 <strong>LLMs 喜欢的信源</strong></p>
+<p>既然你发现了这个点，不要只写一篇孤立的文章。</p>
+<p>同时同步建设<strong>外部信号</strong>：</p>
+<ul>
+<li><p><strong>Reddit</strong> discussions</p>
+</li>
+<li><p><strong>G2</strong> reviews</p>
+</li>
+<li><p><strong>覆盖 AI 常引用的信源地方</strong></p>
+</li>
+<li><p>…</p>
+</li>
+</ul>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p><img src="https://bysocket.com/images/geo-fanout-rank/09-fanout-citation.png" alt="Fan-out 到 Citation 漏斗"></p>
+<p>GEO 的核心逻辑就三句话：</p>
+<p><strong>AI 搜索会把用户的一个主 Query 扩散成 8-12 个子查询（Fan-out）</strong></p>
+<p><strong>你的内容只要精准命中其中一条子查询并排在前列，就能被 AI 引用为 Citation。</strong></p>
+<p>所以实操路径很清晰：先用 ICP 筛出属于你的「金矿子查询」，再围绕它做垂直深度内容 + 结构化金句，最后外部信源同步放大，让 AI 在多个子查询维度都能抓到你。</p>
+
+                <!-- WeChat Ad -->
+                <div class="wechat-ad">
+                    <div class="wechat-ad-inner">
+                        <div class="wechat-ad-text">
+                            <strong>👋 加我微信，交流 AI 出海 & SEO</strong>
+                            <p style="margin:4px 0 0;font-size:13px;color:#666;">微信号：qqcode168</p>
+                        </div>
+                        <img class="wechat-ad-qrcode" src="https://bysocket.com/images/wechat.jpg" alt="微信扫码添加">
+                    </div>
+                </div>
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/agent-skill-multi-tenant-architecture/" data-toggle="tooltip" data-placement="top"
+                           title="Agent Skill 写完就过时了咋办？这套多租户架构说清楚了">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81GEO-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86-Query-Fan-out-Model-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">一、GEO 工作原理 &amp; Query Fan-out Model 是什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9AQuery-Reformulation%EF%BC%88%E6%9F%A5%E8%AF%A2%E6%94%B9%E5%86%99%EF%BC%89"><span class="toc-text">第一步：Query Reformulation（查询改写）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9AQuery-Fan-out%EF%BC%88%E6%9F%A5%E8%AF%A2%E6%89%A9%E6%95%A3%EF%BC%89"><span class="toc-text">第二步：Query Fan-out（查询扩散）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E9%82%A3%E5%A6%82%E4%BD%95-Research-%E5%87%BA%E6%9B%B4%E5%A4%9A%E7%9A%84-Fan-out-Queries"><span class="toc-text">二、那如何 Research 出更多的 Fan-out Queries</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E7%AB%9E%E5%93%81%E8%B0%83%E7%A0%94"><span class="toc-text">方法一：竞品调研</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9AChatGPT-%E4%B8%8B%E6%8B%89%E6%A1%86"><span class="toc-text">方法二：ChatGPT 下拉框</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%89%E7%AD%89%E7%AD%89%EF%BC%9A"><span class="toc-text">方法三等等：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%80%8E%E4%B9%88%E5%BA%94%E7%94%A8%E5%88%B0-SEO-%E6%88%96-GEO%EF%BC%9F"><span class="toc-text">三、怎么应用到 SEO 或 GEO？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-text">小结</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/CoderJeffLee">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/jeffpage0709">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 写增长的子木 2026
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://bysocket.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="https://bysocket.com/images/avatar.jpeg">
+</body>
+
+</html>
