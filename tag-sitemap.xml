@@ -3,6 +3,41 @@
 
 
     <url>
+        <loc>https://bysocket.com/tags/%E5%86%85%E5%AE%B9%E7%AD%96%E7%95%A5/</loc>
+        <lastmod>2026-09-07T14:17:45.880Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://bysocket.com/tags/Topical-Map/</loc>
+        <lastmod>2026-09-07T14:17:45.880Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://bysocket.com/tags/Entity/</loc>
+        <lastmod>2026-09-07T14:17:45.880Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://bysocket.com/tags/GEO/</loc>
+        <lastmod>2026-09-07T14:17:45.880Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://bysocket.com/tags/SEO/</loc>
+        <lastmod>2026-09-07T14:17:45.880Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://bysocket.com/tags/%E5%86%85%E5%AE%B9%E8%90%A5%E9%94%80/</loc>
         <lastmod>2026-08-02T13:00:08.815Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -17,21 +52,7 @@
     </url>
 
     <url>
-        <loc>https://bysocket.com/tags/GEO/</loc>
-        <lastmod>2026-08-02T13:00:08.815Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://bysocket.com/tags/%E5%A2%9E%E9%95%BF/</loc>
-        <lastmod>2026-08-02T13:00:08.815Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://bysocket.com/tags/SEO/</loc>
         <lastmod>2026-08-02T13:00:08.815Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -199,14 +220,14 @@
     </url>
 
     <url>
-        <loc>https://bysocket.com/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/</loc>
+        <loc>https://bysocket.com/tags/AI%E5%B7%A5%E5%85%B7/</loc>
         <lastmod>2026-05-31T03:09:06.039Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://bysocket.com/tags/AI%E5%B7%A5%E5%85%B7/</loc>
+        <loc>https://bysocket.com/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/</loc>
         <lastmod>2026-05-31T03:09:06.039Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
