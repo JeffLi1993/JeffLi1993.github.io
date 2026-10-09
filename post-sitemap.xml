@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://bysocket.com/saas-seo-playbook/01-seo-is-a-system/</loc>
+        <lastmod>2026-10-09T03:17:25.281Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://bysocket.com/saas-seo-playbook/00-02-modern-seo-system/</loc>
         <lastmod>2026-10-08T19:01:15.562Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -225,14 +233,6 @@
     </url>
 
     <url>
-        <loc>https://bysocket.com/ai-indie-dev-blue-ocean-micro-saas/</loc>
-        <lastmod>2026-05-26T05:03:38.452Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://bysocket.com/ai-seo-for-content/</loc>
         <lastmod>2026-05-26T05:03:38.452Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -249,7 +249,7 @@
     </url>
 
     <url>
-        <loc>https://bysocket.com/ai-seo-keywrods-research/</loc>
+        <loc>https://bysocket.com/ai-indie-dev-blue-ocean-micro-saas/</loc>
         <lastmod>2026-05-26T05:03:38.452Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -258,6 +258,14 @@
 
     <url>
         <loc>https://bysocket.com/ai-seo-new-terms-product/</loc>
+        <lastmod>2026-05-26T05:03:38.452Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://bysocket.com/ai-seo-keywrods-research/</loc>
         <lastmod>2026-05-26T05:03:38.452Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>

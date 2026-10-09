@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="写增长的子木，聚焦 SaaS 出海创业，分享 SEO、红人营销、Ads、EDM 等前沿增长策略，深入解析各类实操案例，帮助创业者实现产品推广和市场扩展。通过丰富的行业经验和详实的内容，为 SaaS 团队提供具实效性的增长见解，助力海外业务快速发展。">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="写增长的子木" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        第 1 章 SEO 不是排名技巧，是一套增长系统｜写增长的子木
+        
+    </title>
+
+    <link rel="canonical" href="https://bysocket.com//saas-seo-playbook/01-seo-is-a-system/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('https://bysocket.com/images/header-img.webp')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    写增长的子木
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="https://nanoskill.ai/" target="_blank">Agent Skills</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/saas-seo-playbook/">SEO 小册子</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="nullhttps://bysocket.com/images/hello-world/header-img.webp">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('https://bysocket.com/images/hello-world/header-img.webp?imageView2/1/w/1400/h/400/interlace/1/q/90')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>第 1 章 SEO 不是排名技巧，是一套增长系统</h1>
+                    
+                    <span class="meta">
+                         作者 子木
+                        <span>
+                          日期 2026-09-17
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#SEO"
+                           title="SEO">SEO</a>
+                        
+                        <a class="tag" href="/tags/#AI工具站"
+                           title="AI工具站">AI工具站</a>
+                        
+                        <a class="tag" href="/tags/#SaaS"
+                           title="SaaS">SaaS</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            第 1 章 SEO 不是排名技巧，是一套增长系统
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <blockquote>
+<p>📖 本文是《AI 工具站 SEO 小册子：图解入门》的一部分，完整目录与源文件见 GitHub：<a href="https://github.com/JeffLi1993/saas-seo-playbook">JeffLi1993&#x2F;saas-seo-playbook</a></p>
+</blockquote>
+<blockquote>
+<p>❤️ 这一章节内容，感谢 Joker 当时分享的关键词搜索意图，非常赞！</p>
+</blockquote>
+<h2 id="一、你眼中的谷歌-SEO"><a href="#一、你眼中的谷歌-SEO" class="headerlink" title="一、你眼中的谷歌 SEO"></a>一、你眼中的谷歌 SEO</h2><p>很多人理解的谷歌 SEO 很简单：</p>
+<ul>
+<li>有排名 &#x3D; 有流量</li>
+<li>排名靠前 &#x3D; 自然流量</li>
+</ul>
+<p>所以：SEO &#x3D; 排名。</p>
+<p>从结果层面看没错，但从系统层面看，可以换一个更直观的模型这样理解：</p>
+<ul>
+<li>谷歌搜索引擎 &#x3D; 书架系统</li>
+<li>你的网站 &#x3D; 一本书</li>
+<li>你的网站页面 &#x3D; 书的章节</li>
+</ul>
+<p><strong>SEO 排名 &#x3D; 你的书 &#x2F; 章节在书架上的位置。</strong></p>
+<p><strong>SEO 的本质即是写文章，但也是让你的书和章节在书架系统里获得更靠前的位置。</strong></p>
+<p><img src="/images/saas-seo-playbook/01-01-search-engine-bookshelf.png" alt="图 1-1：搜索引擎是书架系统"></p>
+<h2 id="二、SEO-核心公式是什么？"><a href="#二、SEO-核心公式是什么？" class="headerlink" title="二、SEO 核心公式是什么？"></a>二、SEO 核心公式是什么？</h2><p><strong>谷歌 SEO 排名 &#x3D;（页面内容 + 页面基建）+ 外链</strong></p>
+<p><img src="/images/saas-seo-playbook/01-02-seo-ranking-formula.png" alt="图 1-2：SEO 竞争框架"></p>
+<p>拆开就是：</p>
+<ul>
+<li>站内<ul>
+<li>页面基建（Technical SEO + UX）</li>
+<li>页面内容（结构 + 搜索意图 + 信息质量）</li>
+</ul>
+</li>
+<li>站外<ul>
+<li>外链（信任投票系统）</li>
+</ul>
+</li>
+</ul>
+<p>这是一个完整的 SEO 竞争框架，不是单点优化问题。</p>
+<h3 id="2-1-页面基建（SEO-的地基系统）"><a href="#2-1-页面基建（SEO-的地基系统）" class="headerlink" title="2.1 页面基建（SEO 的地基系统）"></a>2.1 页面基建（SEO 的地基系统）</h3><p>谷歌是网页搜索引擎，本质是爬虫 + 页面理解系统。</p>
+<p>如果你的网页：</p>
+<ul>
+<li>打不开 &#x2F; 加载慢</li>
+<li>结构混乱 &#x2F; 适配差</li>
+<li>稳定性差</li>
+</ul>
+<p><strong>相当于你的书质量很差，翻都翻不动！那连上书架的资格都没有，更谈不上排名。</strong></p>
+<p>这就是 <strong>Technical SEO 的本质意义</strong>：不是优化排名，而是<strong>保证可索引、可理解、可使用</strong>。</p>
+<p>核心维度包括：</p>
+<ul>
+<li>页面性能<ul>
+<li>前端加载</li>
+<li>后端响应</li>
+<li>CDN</li>
+<li>服务稳定性</li>
+</ul>
+</li>
+<li>结构系统<ul>
+<li>URL 结构</li>
+<li>目录层级</li>
+<li>内链结构</li>
+</ul>
+</li>
+<li>设备体验<ul>
+<li>响应式适配</li>
+</ul>
+</li>
+<li>多语言<ul>
+<li>lang</li>
+<li>hreflang</li>
+</ul>
+</li>
+<li>语义结构<ul>
+<li>结构化数据</li>
+<li>Schema 自动化</li>
+</ul>
+</li>
+<li>其他<ul>
+<li>robots.txt</li>
+<li>sitemap.xml</li>
+<li>404 &#x2F; 重定向处理</li>
+</ul>
+</li>
+</ul>
+<p>这些东西的特点只有一个：</p>
+<ul>
+<li><strong>基本是一次性工程</strong></li>
+<li><strong>是系统地基，不是内容产出型工作</strong></li>
+</ul>
+<p>网站大改版才会重新 Check &amp; 修复，不是日常 SEO 动作。</p>
+<h3 id="2-2-页面内容（SEO-的核心竞争力）"><a href="#2-2-页面内容（SEO-的核心竞争力）" class="headerlink" title="2.2 页面内容（SEO 的核心竞争力）"></a>2.2 页面内容（SEO 的核心竞争力）</h3><h4 id="a-页面形式（Content-Type）"><a href="#a-页面形式（Content-Type）" class="headerlink" title="a. 页面形式（Content Type）"></a>a. 页面形式（Content Type）</h4><p>页面首先要解决的是：<strong>装内容的容器是什么形态。</strong></p>
+<p>比如：</p>
+<ul>
+<li>落地页</li>
+<li>博客页</li>
+<li>工具页</li>
+<li>资源下载页</li>
+<li>Prompt 页</li>
+<li>……</li>
+</ul>
+<p><img src="/images/saas-seo-playbook/01-03-content-types.png" alt="图 1-3：页面是内容的容器"></p>
+<p>这个不是你决定的，是谷歌 <strong>SERP 决定的</strong>：<strong>SERP 前排是什么页面形态，你就做什么形态。</strong></p>
+<p>这是 Google 的内容结构喜好逻辑，不是创作者偏好。</p>
+<h4 id="b-搜索词决定竞争难度"><a href="#b-搜索词决定竞争难度" class="headerlink" title="b. 搜索词决定竞争难度"></a>b. 搜索词决定竞争难度</h4><p>搜索词本身就是竞争等级系统：</p>
+<ul>
+<li>排名难度大的词：创业、视频生成</li>
+<li>排名难度中的词：AI 创业、AI 视频生成</li>
+<li>蓝海词：独立开发者 AI 创业、AI 音乐视频生成</li>
+</ul>
+<p><img src="/images/saas-seo-playbook/01-04-keyword-difficulty.png" alt="图 1-4：从长尾词逐步参与竞争"></p>
+<p>新站逻辑，推荐<strong>农村包围城市策略</strong>：<strong>蓝海词 → 中等词 → 大词。</strong></p>
+<p>不是战略选择，是竞争游戏的优先级选择逻辑。</p>
+<h4 id="c-搜索意图决定优先级"><a href="#c-搜索意图决定优先级" class="headerlink" title="c. 搜索意图决定优先级"></a>c. 搜索意图决定优先级</h4><p>搜索意图决定的不是能不能做，而是：</p>
+<ul>
+<li>做不做</li>
+<li>先做哪个</li>
+<li>做成什么形态</li>
+<li>投入资源值不值</li>
+</ul>
+<p>信息类、交易类、商业类，本质是<strong>用户价值密度</strong>不同。</p>
+<p>零点击时代，本质变化就是：</p>
+<ul>
+<li>信息型价值密度下降</li>
+<li>决策型、交易型价值密度上升</li>
+</ul>
+<p>所以关键词优先级不是按搜索量排，是按<strong>转化意图强度排</strong>。</p>
+<p><img src="/images/saas-seo-playbook/01-05-search-intent-priority.png" alt="图 1-5：搜索意图与优先级"></p>
+<h4 id="d-关键词研究决定站点结构"><a href="#d-关键词研究决定站点结构" class="headerlink" title="d. 关键词研究决定站点结构"></a>d. 关键词研究决定站点结构</h4><p>第一阶段的关键词 Research 不是写内容，而是定结构。</p>
+<p>决定：</p>
+<ul>
+<li><code>/tools</code></li>
+<li><code>/blogs</code></li>
+<li><code>/resources</code></li>
+<li><code>/docs</code></li>
+<li><code>/models</code></li>
+<li><code>/api</code></li>
+<li>……</li>
+</ul>
+<p>这不是 SEO 技术问题，是页面<strong>信息架构问题</strong>。SEO 本质不是页面工程，是<strong>内容系统工程</strong>。</p>
+<h4 id="e-SEO-内容创作的核心目标"><a href="#e-SEO-内容创作的核心目标" class="headerlink" title="e. SEO 内容创作的核心目标"></a>e. SEO 内容创作的核心目标</h4><p>不是写文章，而是同时满足两个系统：</p>
+<ul>
+<li>搜索引擎理解</li>
+<li>用户搜索价值</li>
+</ul>
+<p>所有内容必须同时满足：</p>
+<ul>
+<li>Google 能理解</li>
+<li>用户能通过内容解决真实问题</li>
+</ul>
+<p>这也是为什么要做：</p>
+<ul>
+<li>页面结构化（H1、H2、H3）</li>
+<li>模块化（功能、模板、FAQ、How to Use）</li>
+<li>意图匹配（页面类型匹配搜索意图）</li>
+<li>信息密度控制（不是堆字数）</li>
+</ul>
+<h4 id="f-内链本质"><a href="#f-内链本质" class="headerlink" title="f. 内链本质"></a>f. 内链本质</h4><p>内链不是 SEO 技巧，是<strong>权重引导系统</strong>。</p>
+<p>比如一个网站有 1 万个页面，Google 不可能认为 1 万个页面同等重要。</p>
+<p>内链的本质是告诉 Google：</p>
+<ul>
+<li>哪些是核心章节</li>
+<li>哪些是次级章节</li>
+<li>哪些是支撑内容</li>
+</ul>
+<p>这就像一本书：</p>
+<ul>
+<li>目录结构</li>
+<li><strong>核心章节</strong></li>
+<li><strong>重点章节</strong></li>
+<li>辅助章节</li>
+</ul>
+<p><img src="/images/saas-seo-playbook/01-06-site-structure-internal-links.png" alt="图 1-6：网站结构与内链关系"></p>
+<h2 id="三、外链（站外信任系统）"><a href="#三、外链（站外信任系统）" class="headerlink" title="三、外链（站外信任系统）"></a>三、外链（站外信任系统）</h2><p>SEO 排名结构 &#x3D;</p>
+<ul>
+<li>站内：内容 + 基建</li>
+<li>站外：外链</li>
+</ul>
+<p>外链本质是<strong>信任投票系统</strong>。</p>
+<p>外链的作用：</p>
+<ol>
+<li>排名提升：提升关键词页面在 SERP 中的权重竞争力</li>
+<li>引荐流量：导入真实用户，不是爬虫信号</li>
+<li>发现与收录：外链 &#x3D; 给爬虫修路。比如新站新页，有外链比只交 sitemap 更快收录</li>
+</ol>
+<p>外链简单可以分两类：</p>
+<ul>
+<li>首页外链：提升整站权重基数，影响全站各个页面的排名</li>
+<li>页面外链：提升单页竞争力，用于打核心关键词页</li>
+</ul>
+<p>外链必须是<strong>自然增长模型</strong>。如果一个新站：</p>
+<ul>
+<li>短时间大量新增高质量外链</li>
+<li>来源结构异常集中</li>
+<li>增长曲线异常陡峭</li>
+</ul>
+<p>结果只有一个：</p>
+<p>不是提升，是风控触发。</p>
+<p><img src="/images/saas-seo-playbook/01-07-backlink-growth-model.png" alt="图 1-7：外链增长与信任作用"></p>
+<h2 id="四、总结一句话"><a href="#四、总结一句话" class="headerlink" title="四、总结一句话"></a>四、总结一句话</h2><p>SEO 不是优化页面，SEO 是页面内容参与一个竞争系统。</p>
+<p>这个系统由三部分组成：</p>
+<ul>
+<li>技术系统（页面能不能被理解）</li>
+<li>内容系统（用户和 Google 是否认可）</li>
+<li>信任系统（外部世界是否投票给你）</li>
+</ul>
+<p>不是运营技巧，是系统工程。</p>
+<p>不是写文章，是构建内容产品。</p>
+<p>不是做 SEO 项目，是做一个能在搜索系统里长期竞争的内容型产品体系。</p>
+<p>如果要压缩成一句话作为方法论总结：</p>
+<p><strong>谷歌 SEO 不是排名技术，而是内容系统 + 信任系统 + 结构系统的长期竞争工程。</strong></p>
+<blockquote>
+<p>本章节完毕，谢谢大家，欢迎随时讨论。</p>
+</blockquote>
+
+                <!-- WeChat Ad -->
+                <div class="wechat-ad">
+                    <div class="wechat-ad-inner">
+                        <div class="wechat-ad-text">
+                            <strong>👋 加我微信，交流 AI 出海 & SEO</strong>
+                            <p style="margin:4px 0 0;font-size:13px;color:#666;">微信号：qqcode168</p>
+                        </div>
+                        <img class="wechat-ad-qrcode" src="https://bysocket.com/images/wechat.jpg" alt="微信扫码添加">
+                    </div>
+                </div>
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="//saas-seo-playbook/00-02-modern-seo-system/" data-toggle="tooltip" data-placement="top"
+                           title="0.2 现代 SEO 要当成一套系统来做">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E4%BD%A0%E7%9C%BC%E4%B8%AD%E7%9A%84%E8%B0%B7%E6%AD%8C-SEO"><span class="toc-text">一、你眼中的谷歌 SEO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81SEO-%E6%A0%B8%E5%BF%83%E5%85%AC%E5%BC%8F%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">二、SEO 核心公式是什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E9%A1%B5%E9%9D%A2%E5%9F%BA%E5%BB%BA%EF%BC%88SEO-%E7%9A%84%E5%9C%B0%E5%9F%BA%E7%B3%BB%E7%BB%9F%EF%BC%89"><span class="toc-text">2.1 页面基建（SEO 的地基系统）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E9%A1%B5%E9%9D%A2%E5%86%85%E5%AE%B9%EF%BC%88SEO-%E7%9A%84%E6%A0%B8%E5%BF%83%E7%AB%9E%E4%BA%89%E5%8A%9B%EF%BC%89"><span class="toc-text">2.2 页面内容（SEO 的核心竞争力）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-%E9%A1%B5%E9%9D%A2%E5%BD%A2%E5%BC%8F%EF%BC%88Content-Type%EF%BC%89"><span class="toc-text">a. 页面形式（Content Type）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-%E6%90%9C%E7%B4%A2%E8%AF%8D%E5%86%B3%E5%AE%9A%E7%AB%9E%E4%BA%89%E9%9A%BE%E5%BA%A6"><span class="toc-text">b. 搜索词决定竞争难度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c-%E6%90%9C%E7%B4%A2%E6%84%8F%E5%9B%BE%E5%86%B3%E5%AE%9A%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-text">c. 搜索意图决定优先级</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#d-%E5%85%B3%E9%94%AE%E8%AF%8D%E7%A0%94%E7%A9%B6%E5%86%B3%E5%AE%9A%E7%AB%99%E7%82%B9%E7%BB%93%E6%9E%84"><span class="toc-text">d. 关键词研究决定站点结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#e-SEO-%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C%E7%9A%84%E6%A0%B8%E5%BF%83%E7%9B%AE%E6%A0%87"><span class="toc-text">e. SEO 内容创作的核心目标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#f-%E5%86%85%E9%93%BE%E6%9C%AC%E8%B4%A8"><span class="toc-text">f. 内链本质</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%A4%96%E9%93%BE%EF%BC%88%E7%AB%99%E5%A4%96%E4%BF%A1%E4%BB%BB%E7%B3%BB%E7%BB%9F%EF%BC%89"><span class="toc-text">三、外链（站外信任系统）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%80%BB%E7%BB%93%E4%B8%80%E5%8F%A5%E8%AF%9D"><span class="toc-text">四、总结一句话</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/CoderJeffLee">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/jeffpage0709">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 写增长的子木 2026
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://bysocket.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="https://bysocket.com/images/avatar.jpeg">
+</body>
+
+</html>
