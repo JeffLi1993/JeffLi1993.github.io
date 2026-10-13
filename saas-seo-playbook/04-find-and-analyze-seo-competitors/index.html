@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="写增长的子木，聚焦 SaaS 出海创业，分享 SEO、红人营销、Ads、EDM 等前沿增长策略，深入解析各类实操案例，帮助创业者实现产品推广和市场扩展。通过丰富的行业经验和详实的内容，为 SaaS 团队提供具实效性的增长见解，助力海外业务快速发展。">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="写增长的子木" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        第 4 章 寻找并真正分析懂的 SEO 竞争对手｜写增长的子木
+        
+    </title>
+
+    <link rel="canonical" href="https://bysocket.com//saas-seo-playbook/04-find-and-analyze-seo-competitors/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('https://bysocket.com/images/header-img.webp')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    写增长的子木
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="https://nanoskill.ai/" target="_blank">Agent Skills</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/saas-seo-playbook/">SEO 小册子</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="nullhttps://bysocket.com/images/hello-world/header-img.webp">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('https://bysocket.com/images/hello-world/header-img.webp?imageView2/1/w/1400/h/400/interlace/1/q/90')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>第 4 章 寻找并真正分析懂的 SEO 竞争对手</h1>
+                    
+                    <span class="meta">
+                         作者 子木
+                        <span>
+                          日期 2026-09-20
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#SEO"
+                           title="SEO">SEO</a>
+                        
+                        <a class="tag" href="/tags/#AI工具站"
+                           title="AI工具站">AI工具站</a>
+                        
+                        <a class="tag" href="/tags/#SaaS"
+                           title="SaaS">SaaS</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            第 4 章 寻找并真正分析懂的 SEO 竞争对手
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <blockquote>
+<p>📖 本文是《AI 工具站 SEO 小册子：图解入门》的一部分，完整目录与源文件见 GitHub：<a href="https://github.com/JeffLi1993/saas-seo-playbook">JeffLi1993&#x2F;saas-seo-playbook</a></p>
+</blockquote>
+<blockquote>
+<p>❤️ 这一章节内容，感谢《创业清单》某一章节给我的启发。</p>
+</blockquote>
+<p>在规划和启动 SEO 时，先找到和分析 SEO 做得不错的竞争网站，是非常重要的。</p>
+<p>一方面，你以为自己很懂客户，但可能并不清楚搜索用户在搜什么，以及关键词背后的搜索意图。</p>
+<p>比如用户可能搜索：</p>
+<ul>
+<li>Best AI writing tools</li>
+<li>How to improve writing with AI</li>
+</ul>
+<p>这两个词看起来都与 AI 写作有关，但用户需求和决策阶段完全不同。</p>
+<p>分析 SEO 竞品，不只是看对手在做什么。还可以通过他们获得流量的关键词和页面，反过来理解用户正在搜索哪些问题。</p>
+<p>另一方面，每个新站都应该做 SEO 竞争分析。最起码要先判断：</p>
+<ul>
+<li>SEO 这个流量渠道能不能做</li>
+<li>现阶段该不该做</li>
+<li>应该先从哪里切入</li>
+</ul>
+<p>如果搜索结果里的竞争对手都是 DR 70+ 的老站，一个新站短期很难正面竞争。</p>
+<p>但如果有不少新站正在快速起量，说明这个赛道还有机会。</p>
+<h2 id="一、真正的-SEO-竞争对手是谁"><a href="#一、真正的-SEO-竞争对手是谁" class="headerlink" title="一、真正的 SEO 竞争对手是谁"></a>一、真正的 SEO 竞争对手是谁</h2><p>业务竞品，不一定是 SEO 竞品。</p>
+<p>你平时熟悉的行业头部品牌，可能主要依赖品牌、广告、渠道或销售增长，并没有与你争夺大量非品牌自然搜索流量。</p>
+<p>反过来，很多你从没听过的新站，却可能正在通过工具页、功能页、榜单页和替代页抢走搜索用户。</p>
+<p>所以从 SEO 流量维度看竞争对手，不能只看头部那几家。</p>
+<p>真正值得关注的，是这些网站：</p>
+<ul>
+<li>SEO 流量不错</li>
+<li>非品牌词占比较高</li>
+<li>网站比较新，但正在快速起量</li>
+<li>产品方向、用户需求或目标客群与你接近</li>
+</ul>
+<p>很多时候，真正跟你抢流量的不是行业老大，而是那些你没听说过、但 SEO 做得很猛的新站。</p>
+<p><img src="/images/saas-seo-playbook/04-01-business-vs-seo-competitors.png" alt="图 4-1：业务竞品与 SEO 竞品"></p>
+<h2 id="二、如何找到-SEO-竞争对手"><a href="#二、如何找到-SEO-竞争对手" class="headerlink" title="二、如何找到 SEO 竞争对手"></a>二、如何找到 SEO 竞争对手</h2><p>寻找 SEO 竞争对手，不应该是一次性任务。</p>
+<p>这类 SEO Marketing Research 可以每月做一次，帮助我们持续保持对 SEO × 所在行业的敏感度，及时发现正在起量的新公司、新网站和未知竞争对手。</p>
+<h3 id="1-从业务词根开始找"><a href="#1-从业务词根开始找" class="headerlink" title="1. 从业务词根开始找"></a>1. 从业务词根开始找</h3><p>先确定业务最核心的几个词根，然后去 Google 搜索。</p>
+<p>比如 AI 写作方向，可以从这些词开始：</p>
+<ul>
+<li><code>ai writing tool</code></li>
+<li><code>ai writing assistant</code></li>
+<li>Grammarly 等竞品品牌词</li>
+</ul>
+<p>就看 SERP 里出现哪些网站，去初筛。筛选时可以参考两个指标：</p>
+<ul>
+<li>月访问量大于 100K</li>
+<li>Search 流量占比超过 40%</li>
+</ul>
+<p>这里工具推荐：similarweb 、AITDK</p>
+<p>这说明网站的流量主要来自搜索，值得继续拆。</p>
+<p>指标只是帮助初筛，不是绝对门槛。我们的目标是找到一批：</p>
+<p><strong>SEO 流量不错 × 新站正在起量 × 业务可以对标的网站。</strong></p>
+<h3 id="2-围绕词根继续扩词"><a href="#2-围绕词根继续扩词" class="headerlink" title="2. 围绕词根继续扩词"></a>2. 围绕词根继续扩词</h3><p>只搜索核心词，通常不够。可以把词根扩展，同样是 AI 写作方向，可以按如下几类查询：</p>
+<ul>
+<li>核心词：比如 <code>ai writing tool</code>、<code>ai writing assistant</code></li>
+<li>Best 类词：比如 <code>best ai note taking apps</code></li>
+<li>Alternatives 类词：比如 <code>Grammarly alternatives</code>、<code>Otter alternatives</code>、<code>Notion AI alternatives</code></li>
+<li>Use Case &#x2F; 功能类词：比如 <code>linkedin post generator</code>、<code>ai email writer</code>、<code>ai writing assistant for marketers</code></li>
+</ul>
+<p>为什么用这些词？</p>
+<p>因为擅长 SEO 的对标站，通常也会围绕这些方向建设页面。</p>
+<p>不断扩词，就能不断发现新的 SEO 玩家。</p>
+<p><img src="/images/saas-seo-playbook/04-02-competitor-discovery-path.png" alt="图 4-2：SEO 竞品发现路径"></p>
+<h3 id="3-不要把竞品定义得太窄"><a href="#3-不要把竞品定义得太窄" class="headerlink" title="3. 不要把竞品定义得太窄"></a>3. 不要把竞品定义得太窄</h3><p>世界很大，基本可以确定存在与你相近的 SEO 玩家和对标网站。</p>
+<p>不要因为产品有一点差异，就认为自己没有竞争对手。</p>
+<p>除了直接竞争者，还应该关注：</p>
+<ul>
+<li>满足相同基础需求的网站</li>
+<li>服务相同客群的网站</li>
+<li>使用相同页面类型抢流量的网站</li>
+<li>围绕相同关键词和话题建设内容的网站</li>
+</ul>
+<p>尤其要关注域名创建时间较新、增速快、Search 流量占比高的网站。</p>
+<p>比如一个 2026 年开始起量的新站案例：</p>
+<ul>
+<li>起量时间在 1 月到 2 月</li>
+<li>Search 流量占比达到 74%</li>
+<li>Top Keywords 主要不是品牌词</li>
+<li>排名词包括 <code>AI song generator</code> 和其他竞品词</li>
+<li>流量国家主要是 T1 市场</li>
+</ul>
+<p>这样的站，比一个已经发展十年的头部品牌更值得新站参考。</p>
+<p><img src="/images/saas-seo-playbook/04-03-seo-competitor-scorecard.png" alt="图 4-3：判断网站是否值得对标的关键数据"></p>
+<h2 id="三、如何评估竞争对手"><a href="#三、如何评估竞争对手" class="headerlink" title="三、如何评估竞争对手"></a>三、如何评估竞争对手</h2><p>每次评估都是为了确定新的目标和策略，或者校对现有目标。</p>
+<p>SEO 目标不能拍脑袋定绝对值。</p>
+<p>分析竞品时，重点看两个维度：</p>
+<ol>
+<li>竞争对手的 SEO Top Pages</li>
+<li>竞争对手在 SEO 排名上升期的外链建设策略</li>
+</ol>
+<p>前者帮助我们看懂内容策略，后者帮助我们看懂站外信任是怎么建立的。</p>
+<h3 id="1-用-Top-Pages-看内容策略"><a href="#1-用-Top-Pages-看内容策略" class="headerlink" title="1. 用 Top Pages 看内容策略"></a>1. 用 Top Pages 看内容策略</h3><p>可以通过 Ahrefs 或 Semrush 查看竞争对手的 Top Pages。</p>
+<p>第一步，看整体增长趋势。</p>
+<p>重点观察：</p>
+<ul>
+<li>Organic Pages</li>
+<li>Organic Traffic</li>
+<li>SEO 页面增长最快的月份</li>
+</ul>
+<p>先找到网站的 SEO 爆发期。</p>
+<p>第二步，分析非品牌词页面。</p>
+<p>重点看：</p>
+<ul>
+<li>哪些页面带来最多非品牌流量</li>
+<li>页面对应的核心关键词是什么</li>
+<li>URL Slug 体现了什么搜索意图</li>
+<li>网站主要依靠哪种页面起量</li>
+</ul>
+<p>比如如下图，某个站从去年 11 月开始爆发：</p>
+<ul>
+<li>大量 SEO 页面排名上升</li>
+<li>首页品牌词流量只占 5.5%</li>
+<li>主要通过模型页、功能落地页获得流量</li>
+<li>同时做了一部分传统 Blog</li>
+</ul>
+<p>这些信息可以帮助我们判断：它的关键词从哪里挖，主要做什么页面，哪些内容方向正在起作用。</p>
+<p><img src="/images/saas-seo-playbook/04-04-top-pages-content-strategy.png" alt="图 4-4：用 Top Pages 拆解竞品内容策略"></p>
+<p>如果某个非品牌页面已经排名第一，还可以继续做一件事：</p>
+<p>以搜索用户身份搜索这个词，进入页面，完整体验注册和转化流程。</p>
+<p>让自己暂时成为竞争对手的新客户。</p>
+<p>只有完整走一遍，才更容易看懂：</p>
+<ul>
+<li>页面为什么能承接这个搜索词</li>
+<li>用户进入页面后看到了什么</li>
+<li>下一步 CTA 是什么</li>
+<li>SEO 流量如何被转化为产品用户</li>
+</ul>
+<h3 id="2-把内容起量时间与外链增长时间对齐"><a href="#2-把内容起量时间与外链增长时间对齐" class="headerlink" title="2. 把内容起量时间与外链增长时间对齐"></a>2. 把内容起量时间与外链增长时间对齐</h3><p>分析外链时，可以通过 Ahrefs 的 Overview 和 Backlink Profile 查看增长曲线。</p>
+<p>这里注意两个点。</p>
+<p>第一，AI 工具行业可以优先研究 DR 50 以下的网站，重点看 DR 30 到 50 阶段的外链策略。</p>
+<p>因为当网站 DR 已经很高、排名已经很靠前时，会产生很多自然外链，具体打法不容易复刻。</p>
+<p>第二，重点看 Organic Top Pages 增长最快的几个月，对应的外链是如何建设的。</p>
+<p>时间点要对得上，才能更接近真实因果关系。</p>
+<p>比如如下图，一个网站 2 月份 SEO 开始起量，而 1 月到 2 月外链建设明显加速，就值得进一步查看这段时间新增了哪些 Referring Domains。</p>
+<p>具体可以这样看：</p>
+<ol>
+<li>打开 Referring Domains</li>
+<li>按 First Seen 倒序排列</li>
+<li>优先筛选 Dofollow 和 Best Links</li>
+<li>逐个查看外链来源、页面和锚文本</li>
+</ol>
+<p>比如一个站共有 491 个 Referring Domains，其中 209 个域名提供了 Dofollow Best Links。</p>
+<p>逐个看下来，可能发现：</p>
+<ul>
+<li>前期主要提交 AI 导航站</li>
+<li>后面同步开展 Guest Post 客座博客</li>
+</ul>
+<p>看多了以后，就能总结出这个网站在不同阶段的外链建设策略。</p>
+<p><img src="/images/saas-seo-playbook/04-05-content-backlink-timeline.png" alt="图 4-5-1：查看 Referring Domains 的增长时间"></p>
+<p><img src="/images/saas-seo-playbook/04-05-new-referring-domains.png" alt="图 4-5-2：查看同期新增的 Referring Domains"></p>
+<p>还可以用 Ahrefs 持续追踪竞品变化。</p>
+<p>特别是在非品牌词页面整体起量时，观察对方上线了哪些新页面、增加了哪些外链，更容易看懂内容和外链之间的配合。</p>
+<h3 id="3-与竞争对手的员工交流"><a href="#3-与竞争对手的员工交流" class="headerlink" title="3. 与竞争对手的员工交流"></a>3. 与竞争对手的员工交流</h3><p>还可以与竞争对手现在或过去的 SEO 员工交流。</p>
+<p>通过交流、招聘等方式都可以，但大家交流策略就行。重点是了解：</p>
+<ul>
+<li>网站在什么阶段开始起量</li>
+<li>当时主要做了哪些页面</li>
+<li>内容与外链如何配合</li>
+<li>哪些策略对某个市场有效</li>
+</ul>
+<p>还有一个小技巧：看竞争对手的招聘 JD。</p>
+<p>JD 可能暴露他们下一阶段的策略。</p>
+<p>比如招聘小语种 SEO 内容运营，可能说明：</p>
+<ul>
+<li>小语种是接下来的增长方向</li>
+<li>某个语言市场已经验证了转化</li>
+<li>团队准备继续投入资源</li>
+</ul>
+<h2 id="四、如何根据竞品确定-SEO-目标"><a href="#四、如何根据竞品确定-SEO-目标" class="headerlink" title="四、如何根据竞品确定 SEO 目标"></a>四、如何根据竞品确定 SEO 目标</h2><p>新站 SEO 的目标，不是直接定我要多少流量。</p>
+<p>应该先找几个同类对标站，看它们近三个月的页面增长曲线和外链增长曲线，再反推出自己的阶段性追赶目标。</p>
+<p>核心可以定两类指标：</p>
+<ul>
+<li>流量与非品牌词占比</li>
+<li>Top Pages 数量与 Referring Domains 数量</li>
+</ul>
+<p>更实战一点，就是先算出对标站的 SEO 增长效率，再拆自己的差距：</p>
+<ul>
+<li>差多少页面</li>
+<li>差多少外链</li>
+<li>差多少非品牌词覆盖</li>
+</ul>
+<p>然后把目标落到未来三个月：</p>
+<ul>
+<li>要补多少页面</li>
+<li>Referring Domains 增长到什么水平</li>
+<li>自然流量做到多少</li>
+</ul>
+<p>这样定出来的目标，不是空口号，而是有对标、有路径、有节奏的增长计划。</p>
+<p><img src="/images/saas-seo-playbook/04-06-competitor-to-seo-goals.png" alt="图 4-6：从竞品数据反推三个月 SEO 目标"></p>
+<h2 id="五、小结"><a href="#五、小结" class="headerlink" title="五、小结"></a>五、小结</h2><p>SEO 竞争分析不是一次性任务，而是持续的市场洞察。</p>
+<p>找对标站、看增长曲线、拆解内容与外链策略，再反推自己的目标和路径。</p>
+<p>记住，你的竞争对手不只是行业老大，更多是那些你不知道、但正在快速起量的新站。</p>
+<blockquote>
+<p>本章节完毕，谢谢大家，欢迎随时讨论。</p>
+</blockquote>
+
+                <!-- WeChat Ad -->
+                <div class="wechat-ad">
+                    <div class="wechat-ad-inner">
+                        <div class="wechat-ad-text">
+                            <strong>👋 加我微信，交流 AI 出海 & SEO</strong>
+                            <p style="margin:4px 0 0;font-size:13px;color:#666;">微信号：qqcode168</p>
+                        </div>
+                        <img class="wechat-ad-qrcode" src="https://bysocket.com/images/wechat.jpg" alt="微信扫码添加">
+                    </div>
+                </div>
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="//saas-seo-playbook/03-search-intent-and-last-click/" data-toggle="tooltip" data-placement="top"
+                           title="第 3 章 搜索意图与 Last-Click">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%9C%9F%E6%AD%A3%E7%9A%84-SEO-%E7%AB%9E%E4%BA%89%E5%AF%B9%E6%89%8B%E6%98%AF%E8%B0%81"><span class="toc-text">一、真正的 SEO 竞争对手是谁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%A6%82%E4%BD%95%E6%89%BE%E5%88%B0-SEO-%E7%AB%9E%E4%BA%89%E5%AF%B9%E6%89%8B"><span class="toc-text">二、如何找到 SEO 竞争对手</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BB%8E%E4%B8%9A%E5%8A%A1%E8%AF%8D%E6%A0%B9%E5%BC%80%E5%A7%8B%E6%89%BE"><span class="toc-text">1. 从业务词根开始找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%9B%B4%E7%BB%95%E8%AF%8D%E6%A0%B9%E7%BB%A7%E7%BB%AD%E6%89%A9%E8%AF%8D"><span class="toc-text">2. 围绕词根继续扩词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%B8%8D%E8%A6%81%E6%8A%8A%E7%AB%9E%E5%93%81%E5%AE%9A%E4%B9%89%E5%BE%97%E5%A4%AA%E7%AA%84"><span class="toc-text">3. 不要把竞品定义得太窄</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%A6%82%E4%BD%95%E8%AF%84%E4%BC%B0%E7%AB%9E%E4%BA%89%E5%AF%B9%E6%89%8B"><span class="toc-text">三、如何评估竞争对手</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%94%A8-Top-Pages-%E7%9C%8B%E5%86%85%E5%AE%B9%E7%AD%96%E7%95%A5"><span class="toc-text">1. 用 Top Pages 看内容策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%8A%8A%E5%86%85%E5%AE%B9%E8%B5%B7%E9%87%8F%E6%97%B6%E9%97%B4%E4%B8%8E%E5%A4%96%E9%93%BE%E5%A2%9E%E9%95%BF%E6%97%B6%E9%97%B4%E5%AF%B9%E9%BD%90"><span class="toc-text">2. 把内容起量时间与外链增长时间对齐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%B8%8E%E7%AB%9E%E4%BA%89%E5%AF%B9%E6%89%8B%E7%9A%84%E5%91%98%E5%B7%A5%E4%BA%A4%E6%B5%81"><span class="toc-text">3. 与竞争对手的员工交流</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%A6%82%E4%BD%95%E6%A0%B9%E6%8D%AE%E7%AB%9E%E5%93%81%E7%A1%AE%E5%AE%9A-SEO-%E7%9B%AE%E6%A0%87"><span class="toc-text">四、如何根据竞品确定 SEO 目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%B0%8F%E7%BB%93"><span class="toc-text">五、小结</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/CoderJeffLee">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/jeffpage0709">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 写增长的子木 2026
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://bysocket.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="https://bysocket.com/images/avatar.jpeg">
+</body>
+
+</html>
