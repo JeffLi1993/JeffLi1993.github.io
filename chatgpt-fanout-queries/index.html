@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="写增长的子木，聚焦 SaaS 出海创业，分享 SEO、红人营销、Ads、EDM 等前沿增长策略，深入解析各类实操案例，帮助创业者实现产品推广和市场扩展。通过丰富的行业经验和详实的内容，为 SaaS 团队提供具实效性的增长见解，助力海外业务快速发展。">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="写增长的子木" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        GEO 开源 Skill：ChatGPT 的 Fan-out Queries 报告｜写增长的子木
+        
+    </title>
+
+    <link rel="canonical" href="https://bysocket.com//chatgpt-fanout-queries/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('https://bysocket.com/images/header-img.webp')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    写增长的子木
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="https://nanoskill.ai/" target="_blank">Agent Skills</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/saas-seo-playbook/">SEO 小册子</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="nullhttps://bysocket.com/images/hello-world/header-img.webp">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('https://bysocket.com/images/hello-world/header-img.webp?imageView2/1/w/1400/h/400/interlace/1/q/90')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>GEO 开源 Skill：ChatGPT 的 Fan-out Queries 报告</h1>
+                    
+                    <span class="meta">
+                         作者 子木
+                        <span>
+                          日期 2026-10-14
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#Agent Skill"
+                           title="Agent Skill">Agent Skill</a>
+                        
+                        <a class="tag" href="/tags/#GEO"
+                           title="GEO">GEO</a>
+                        
+                        <a class="tag" href="/tags/#ChatGPT"
+                           title="ChatGPT">ChatGPT</a>
+                        
+                        <a class="tag" href="/tags/#AI搜索"
+                           title="AI搜索">AI搜索</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            GEO 开源 Skill：ChatGPT 的 Fan-out Queries 报告
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <p>你问 ChatGPT 一个问题，它在回答前到底搜了什么？</p>
+<p>对做 GEO 的人来说，关键不只是答案，还包括：问题被展开成了哪些搜索词、搜索返回了哪些来源，以及哪些页面最终被引用。手动追踪这条链路很麻烦：要调 Responses API、开启 Web Search、保存完整 JSON，再从层层 output 中找 <code>web_search_call</code>、<code>queries</code>、<code>sources</code> 和 <code>url_citation</code>。而且，搜索返回的来源不等于最终答案引用的来源。</p>
+<p>所以我把这套流程做成了 Agent Skill：<strong>chatgpt-fanout-queries</strong>。</p>
+<p>给它一个真实问题，它会保留 API 返回的可见搜索轨迹，提取搜索词、工具调用、来源 URL、最终引用和回答，并生成可离线打开的 HTML 报告。</p>
+<p><img src="/images/chatgpt-fanout-queries/01-visible-search-trail.png" alt="图 01：一个问题的可见搜索轨迹（概念示意）"></p>
+<p><strong>开源 + 免费，欢迎用起来、提 Issue、一起把它做得更实用。</strong></p>
+<p>GitHub 地址：</p>
+<p><a href="https://github.com/JeffLi1993/open-growth-skills/tree/main/chatgpt-fanout-queries/">https://github.com/JeffLi1993/open-growth-skills/tree/main/chatgpt-fanout-queries/</a></p>
+<h2 id="一、为什么做这个-Skill？"><a href="#一、为什么做这个-Skill？" class="headerlink" title="一、为什么做这个 Skill？"></a>一、为什么做这个 Skill？</h2><p>Query fan-out 已经成了 GEO 里一个很重要的视角。</p>
+<p>用户输入的可能只是一句“best ai video generator”，但模型搜索时会把它展开成更具体的方向：某个产品的导出能力、某个工具的 AI 生成功能、某个平台的使用场景。你的页面能不能被看见，往往取决于它是否命中了这些展开后的需求。</p>
+<p>这个 Skill 做的，就是把展开后的搜索词、搜索来源和最终引用原样拿出来。它只记录 Responses API 实际返回的内容。如图：</p>
+<p><img src="/images/chatgpt-fanout-queries/02-api-output.png" alt="image.png"></p>
+<h3 id="这些输出能拿来做什么？"><a href="#这些输出能拿来做什么？" class="headerlink" title="这些输出能拿来做什么？"></a>这些输出能拿来做什么？</h3><p>一句话：<strong>把 AI 的可见搜索词和你的站内内容对照，找出已覆盖、覆盖太浅和完全缺失的 topic。</strong> 落到内容营销上，主要有四种用法：</p>
+<ul>
+<li><p><strong>补齐主题覆盖</strong>：AI 围绕核心问题还会搜哪些子主题，站内哪些还没回答</p>
+</li>
+<li><p><strong>发现内容缺口</strong>：对比搜索词、搜索来源和已有页面，找出值得新增的实体、场景、比较关系和用户问题</p>
+</li>
+<li><p><strong>调整内容结构：</strong>把反复出现的搜索意图组织成专题页、支柱页和内链，搭成 Topic Cluster，而不是零散追单个关键词</p>
+</li>
+<li><p><strong>排内容优先级：</strong>结合来源类型和最终引用，判断这个主题更适合做产品页、比较页、教程、案例还是数据型内容</p>
+</li>
+</ul>
+<p>要提醒的是，单次结果只是选题线索，不代表搜索量、排名难度，也不保证被 AI 引用。更稳的做法是用多组真实问题重复运行，再结合已有关键词、GSC 数据和业务相关性判断。</p>
+<p><img src="/images/chatgpt-fanout-queries/03-fanout-to-action.png" alt="图 02：从 Fan-out Topics 到内容行动（方法示意）"></p>
+<p><strong>开源 + 免费，欢迎用起来、提 Issue、一起把它做得更实用。</strong></p>
+<p>GitHub 地址：</p>
+<p><a href="https://github.com/JeffLi1993/open-growth-skills/tree/main/chatgpt-fanout-queries/">https://github.com/JeffLi1993/open-growth-skills</a></p>
+<h2 id="二、它具体会做什么？"><a href="#二、它具体会做什么？" class="headerlink" title="二、它具体会做什么？"></a>二、它具体会做什么？</h2><p>整个工作流不是一句 prompt 碰运气，而是一条可复现的数据流程：</p>
+<ul>
+<li><p><strong>原问题直送</strong>：不重写、不偷加研究指令，便于对比不同模型和参数</p>
+</li>
+<li><p><strong>保存原始响应</strong>：先写入完整 <code>raw-response.json</code>，再做任何解析</p>
+</li>
+<li><p><strong>提取可见搜索词</strong>：只保留 API 实际返回的 <code>queries</code> 或 <code>query</code></p>
+</li>
+<li><p><strong>分开来源与引用</strong>：搜索结果出现过，不等于最终答案使用了它</p>
+</li>
+<li><p><strong>保留调用记录</strong>：搜索、打开页面、页内查找分开计数</p>
+</li>
+<li><p><strong>生成结构化产物</strong>：JSON、CSV、Markdown 和一份完整 HTML 报告</p>
+</li>
+<li><p><strong>附加白话概览</strong>：在线模式下，默认再调用一次同一模型，根据已采集数据概括搜索角度、来源类型与明显遗漏</p>
+</li>
+</ul>
+<p>每次运行都会建立一个独立目录，里面保留：</p>
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>raw-response.json</code></td>
+<td>完整 API 原始响应</td>
+</tr>
+<tr>
+<td><code>request.json</code></td>
+<td>原问题与请求参数，不含 API Key</td>
+</tr>
+<tr>
+<td><code>summary.json</code></td>
+<td>模型、状态、用量、调用与来源统计</td>
+</tr>
+<tr>
+<td><code>queries.json</code></td>
+<td>API 暴露的 fan-out 搜索词</td>
+</tr>
+<tr>
+<td><code>web-search-calls.json</code></td>
+<td>原样保留的 Web Search 工具调用</td>
+</tr>
+<tr>
+<td><code>sources.csv</code></td>
+<td>搜索来源与引用 URL 的并集</td>
+</tr>
+<tr>
+<td><code>citations.json</code></td>
+<td>最终答案里的 URL 引用与原始偏移</td>
+</tr>
+<tr>
+<td><code>answer.md</code></td>
+<td>回答正文与去重后的引用链接</td>
+</tr>
+<tr>
+<td><code>overview.md</code></td>
+<td>模型生成的中文概览，可选</td>
+</tr>
+<tr>
+<td><code>report.html</code></td>
+<td>自包含、可离线打开的可视化报告</td>
+</tr>
+</tbody></table>
+<p>数据是可以继续分析的，报告是可以直接给人看的。如图：best ai ppt maker 、best ai video generator 案例：</p>
+<p><img src="/images/chatgpt-fanout-queries/04-example-cases.png" alt="image.png"></p>
+<h2 id="三、一个真实案例"><a href="#三、一个真实案例" class="headerlink" title="三、一个真实案例"></a>三、一个真实案例</h2><p>我用这个 Skill 跑了一次：best ai ppt maker</p>
+<p><img src="/images/chatgpt-fanout-queries/05-case-ppt-maker.png" alt="image.png"></p>
+<p>结果如下：</p>
+<p><img src="/images/chatgpt-fanout-queries/06-case-result.png" alt="image.png"></p>
+<p>这次 API 返回了 <strong>1 次 Web Search 工具调用</strong>，但这次调用里实际暴露了 <strong>4 条搜索词</strong>：</p>
+<p><img src="/images/chatgpt-fanout-queries/07-four-queries.png" alt="image.png"></p>
+<p>另外搜索返回了 <strong>41 个来源 URL</strong>，最终答案则引用了 <strong>3 个 URL</strong>。</p>
+<p><img src="/images/chatgpt-fanout-queries/08-41-sources.png" alt="image.png"></p>
+<p>这些结果有啥用呢？</p>
+<p><strong>1、「内容方向」</strong>：如果你要做营销内容，你要创作的主题方向</p>
+<p><strong>2、「内容竞品」</strong>：对应来源 &amp; 被引用的内容 URL 都是你参考对象</p>
+<p><strong>3、「内容营销渠道」</strong>：这些 domains 有些就是你后续做内容营销的平台</p>
+<p>对 GEO 研究来说，这些差异正是最值得分析的部分。</p>
+<p><strong>开源 + 免费，欢迎用起来、提 Issue、一起把它做得更实用。</strong></p>
+<p>GitHub 地址：</p>
+<p><a href="https://github.com/JeffLi1993/open-growth-skills/tree/main/chatgpt-fanout-queries/">https://github.com/JeffLi1993/open-growth-skills</a></p>
+<h2 id="四、怎么用？"><a href="#四、怎么用？" class="headerlink" title="四、怎么用？"></a>四、怎么用？</h2><p>它是一个标准 Agent Skill，仓库发布后可以这样安装：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npx skills add github.com/JeffLi1993/open-growth-skills --skill chatgpt-fanout-queries</span><br></pre></td></tr></table></figure>
+
+<p>然后直接把要研究的问题交给 Agent。例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">用 chatgpt-fanout-queries 分析：best ai website builder for a SaaS startup</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/chatgpt-fanout-queries/09-how-to-use.png" alt="image.png"></p>
+<p><strong>这个注意，需要你先配置下 Open API 的 key：在 .env 里配置你自己的 OPENAI_API_KEY 和默认模型即可</strong>。API Key 只放在本地，不会写入研究报告。</p>
+<h2 id="五、这个-Skill-刻意保持克制"><a href="#五、这个-Skill-刻意保持克制" class="headerlink" title="五、这个 Skill 刻意保持克制"></a>五、这个 Skill 刻意保持克制</h2><p>有些事它是故意不做的：</p>
+<ul>
+<li><p>API 没给搜索词，不会根据答案去猜</p>
+</li>
+<li><p>搜到的来源和答案里引用的来源分开算，不混成一个数</p>
+</li>
+<li><p>不会因为某个结果排在前面，就说它更重要、更可信</p>
+</li>
+<li><p>不会说 API 跑出来的结果就等于 ChatGPT 网页版</p>
+</li>
+</ul>
+<p>不是做不到，而是不该做。</p>
+<p><strong>做 GEO，数据少一点没关系，最怕的是把猜的当成真的。</strong></p>
+<p><img src="/images/chatgpt-fanout-queries/10-inference-boundary.png" alt="图 07：可见数据与推断边界（概念示意）"></p>
+<h2 id="最后说两句"><a href="#最后说两句" class="headerlink" title="最后说两句"></a>最后说两句</h2><p>我做这个 Skill，不是为了又做一个输入问题、输出答案的 AI 工具。</p>
+<p>它真正想解决的是：当你在研究 AI 搜索时，怎么把一次本来很难复核的过程，变成一组可保存、可对比、可重新解析的研究产物。</p>
+<p>问题是怎么被展开的，哪些页面出现在搜索来源中，哪些又真正出现在答案里 - 把这些看清楚，才能让 GEO 从猜模型喜欢什么，走向对可见证据分析 &amp; 内容方向的建设。</p>
+<p>GitHub 地址：</p>
+<p><a href="https://github.com/JeffLi1993/open-growth-skills/tree/main/chatgpt-fanout-queries/">https://github.com/JeffLi1993/open-growth-skills</a></p>
+<p>觉得有用欢迎给个 Star ⭐，有想法就提 Issue，也欢迎拿你的真实 GEO 问题来测试。</p>
+
+                <!-- WeChat Ad -->
+                <div class="wechat-ad">
+                    <div class="wechat-ad-inner">
+                        <div class="wechat-ad-text">
+                            <strong>👋 加我微信，交流 AI 出海 & SEO</strong>
+                            <p style="margin:4px 0 0;font-size:13px;color:#666;">微信号：qqcode168</p>
+                        </div>
+                        <img class="wechat-ad-qrcode" src="https://bysocket.com/images/wechat.jpg" alt="微信扫码添加">
+                    </div>
+                </div>
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="//saas-seo-playbook/04-find-and-analyze-seo-competitors/" data-toggle="tooltip" data-placement="top"
+                           title="第 4 章 寻找并真正分析懂的 SEO 竞争对手">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E5%81%9A%E8%BF%99%E4%B8%AA-Skill%EF%BC%9F"><span class="toc-text">一、为什么做这个 Skill？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%99%E4%BA%9B%E8%BE%93%E5%87%BA%E8%83%BD%E6%8B%BF%E6%9D%A5%E5%81%9A%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">这些输出能拿来做什么？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%AE%83%E5%85%B7%E4%BD%93%E4%BC%9A%E5%81%9A%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">二、它具体会做什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E4%B8%80%E4%B8%AA%E7%9C%9F%E5%AE%9E%E6%A1%88%E4%BE%8B"><span class="toc-text">三、一个真实案例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%80%8E%E4%B9%88%E7%94%A8%EF%BC%9F"><span class="toc-text">四、怎么用？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E8%BF%99%E4%B8%AA-Skill-%E5%88%BB%E6%84%8F%E4%BF%9D%E6%8C%81%E5%85%8B%E5%88%B6"><span class="toc-text">五、这个 Skill 刻意保持克制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E8%AF%B4%E4%B8%A4%E5%8F%A5"><span class="toc-text">最后说两句</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/CoderJeffLee">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/jeffpage0709">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 写增长的子木 2026
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://bysocket.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="https://bysocket.com/images/avatar.jpeg">
+</body>
+
+</html>
