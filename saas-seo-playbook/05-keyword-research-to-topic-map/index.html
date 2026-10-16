@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="写增长的子木，聚焦 SaaS 出海创业，分享 SEO、红人营销、Ads、EDM 等前沿增长策略，深入解析各类实操案例，帮助创业者实现产品推广和市场扩展。通过丰富的行业经验和详实的内容，为 SaaS 团队提供具实效性的增长见解，助力海外业务快速发展。">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="写增长的子木" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        第 5 章 从关键词研究到 Topic Map｜写增长的子木
+        
+    </title>
+
+    <link rel="canonical" href="https://bysocket.com//saas-seo-playbook/05-keyword-research-to-topic-map/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('https://bysocket.com/images/header-img.webp')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    写增长的子木
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="https://nanoskill.ai/" target="_blank">Agent Skills</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/saas-seo-playbook/">SEO 小册子</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="nullhttps://bysocket.com/images/hello-world/header-img.webp">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('https://bysocket.com/images/hello-world/header-img.webp?imageView2/1/w/1400/h/400/interlace/1/q/90')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>第 5 章 从关键词研究到 Topic Map</h1>
+                    
+                    <span class="meta">
+                         作者 子木
+                        <span>
+                          日期 2026-09-21
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#SEO"
+                           title="SEO">SEO</a>
+                        
+                        <a class="tag" href="/tags/#AI工具站"
+                           title="AI工具站">AI工具站</a>
+                        
+                        <a class="tag" href="/tags/#SaaS"
+                           title="SaaS">SaaS</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            第 5 章 从关键词研究到 Topic Map
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <blockquote>
+<p>📖 本文是《AI 工具站 SEO 小册子：图解入门》的一部分，完整目录与源文件见 GitHub：<a href="https://github.com/JeffLi1993/saas-seo-playbook">JeffLi1993&#x2F;saas-seo-playbook</a></p>
+</blockquote>
+<p>很多人第一次做关键词研究，会先打开 Ahrefs、Semrush 或其他关键词工具。</p>
+<p>输入一个词，导出几千个关键词，再按照搜索量从高到低排序。</p>
+<p>关键词表很快就有了，但接下来还是不知道：</p>
+<ul>
+<li>哪些词与产品真正相关</li>
+<li>哪些词应该先做</li>
+<li>哪些词其实属于同一个需求</li>
+<li>网站长期应该覆盖哪些主题</li>
+</ul>
+<p>因为关键词研究不是找一堆词。</p>
+<p><strong>它是在整理用户需求，并把这些需求变成一张可以持续建设的 Topic Map（主题地图）。</strong></p>
+<p>这一章虽然叫从关键词研究到 Topic Map，但真正执行时，不建议从关键词工具开始。</p>
+<p>更合适的顺序是：</p>
+<p><strong>定义 Entity → 收集主题 → 评估主题 → 挖掘关键词 → 关键词聚类 → 形成 Topic Map。</strong></p>
+<p><img src="/images/saas-seo-playbook/05-01-entity-to-topic-map.png" alt="图 5-1：从 Entity 到 Topic Map"></p>
+<h2 id="一、先说清楚网站的-Entity"><a href="#一、先说清楚网站的-Entity" class="headerlink" title="一、先说清楚网站的 Entity"></a>一、先说清楚网站的 Entity</h2><p>Entity 可以先用一句大白话理解：<strong>你这个网站到底是干什么的。</strong></p>
+<p>我一直喜欢把网站比作一本书。</p>
+<ul>
+<li>Entity 是书名，决定这本书主要讲什么</li>
+<li>Topic Map 是大纲，决定要覆盖哪些主题和子主题</li>
+<li>页面内容是章节，负责把每一个具体问题讲清楚</li>
+</ul>
+<p>如果书名和主题都没想清楚，后面导出再多关键词，也很容易东写一点、西写一点。</p>
+<p>比如你做一个 AI SaaS，不代表所有 AI 相关的流量都要做。</p>
+<p>每次新模型发布，都可能出现一批新词。但这个模型与产品没有关系，用户也不是你的目标客户，就不要因为有流量硬蹭。</p>
+<p>定义网站 Entity，可以先回答四个问题：</p>
+<ol>
+<li>我是谁</li>
+<li>我提供什么</li>
+<li>我服务谁</li>
+<li>我不覆盖什么</li>
+</ol>
+<p>假设我们做的是一款 AI Marketing Video 工具，可以这样定义：</p>
+<ul>
+<li>我是谁：帮助品牌制作营销视频的 AI 工具</li>
+<li>我提供什么：把商品链接、图片或素材生成营销视频</li>
+<li>我服务谁：电商品牌、广告投手和小型营销团队</li>
+<li>我不做什么：电影级制作、通用专业剪辑、广告投放管理，以及与营销无关的视频创作</li>
+</ul>
+<p>这里第四个问题很重要。很多网站只会写自己做什么，却没有想过自己不做什么。</p>
+<p>但如果没有排除项，关键词研究很容易越做越宽。最后看起来什么都能写，实际上搜索引擎和用户都不知道你最擅长什么。</p>
+<p><img src="/images/saas-seo-playbook/05-02-entity-four-questions.png" alt="图 5-2：Entity 四问画布"></p>
+<h2 id="二、Topic-Map-是网站的内容规划路线图"><a href="#二、Topic-Map-是网站的内容规划路线图" class="headerlink" title="二、Topic Map 是网站的内容规划路线图"></a>二、Topic Map 是网站的内容规划路线图</h2><p>Entity 定义好以后，Topic Map 就有了基本边界，也就是给这本书画了一个圈，让内容不跑偏。</p>
+<p>Topic Map 的核心作用，是按照主题和子主题的层次关系，规划网站长期应该覆盖什么内容。</p>
+<p>比如上面的 AI Marketing Video 工具，主主题 &amp; 子主题可以是：</p>
+<ul>
+<li>AI Marketing Video<ul>
+<li>Product URL to Video</li>
+<li>Product Image to Video</li>
+<li>Video Hook &#x2F; Script Generator</li>
+<li>AI Voiceover</li>
+<li>Auto Subtitle</li>
+<li>Social Media Ad Video</li>
+</ul>
+</li>
+</ul>
+<p>这些主题和子主题组合起来，就是这个网站的 Topic Map。</p>
+<p>它不是一张漂亮的思维导图，也不是把所有相关关键词塞进去。</p>
+<p>它要解决三个实际问题：</p>
+<ul>
+<li>网站应该长期覆盖哪些主题（书的大纲）</li>
+<li>每个主题下面还有哪些重要子主题（书的具体章节）</li>
+<li>哪些看起来相关的方向不应该进入网站（不是这本书的内容）</li>
+</ul>
+<p>Topic Map 也可以帮助我们理解主题权重。</p>
+<p>当一个网站长期围绕明确的主主题，持续覆盖相关子主题，并建立清楚的内容关系，搜索引擎和 AI 会更容易理解这个网站擅长什么。</p>
+<p>但主题权重不是靠文章数量堆出来的。</p>
+<p>如果内容与 Entity 没有关系，即使发了很多，也只是让网站主题越来越散。</p>
+<p><strong>主题覆盖要完整，但边界也要清楚。</strong></p>
+<p><img src="/images/saas-seo-playbook/05-03-entity-topic-map-content.png" alt="图 5-3：Entity 是书名，Topic Map 是大纲"></p>
+<h2 id="三、如何收集主题和子主题"><a href="#三、如何收集主题和子主题" class="headerlink" title="三、如何收集主题和子主题"></a>三、如何收集主题和子主题</h2><p>确定主主题以后，下一步是 Research 更多相关主题。</p>
+<p>主题来源可以分成外部和内部两部分。</p>
+<h3 id="1-从外部找主题"><a href="#1-从外部找主题" class="headerlink" title="1. 从外部找主题"></a>1. 从外部找主题</h3><p>常见的外部来源包括：</p>
+<ul>
+<li>Google 下拉框、Related Searches 和 People Also Ask</li>
+<li>Ahrefs、Semrush 等关键词工具</li>
+<li>SEO 竞争对手的 Top Pages 和站点目录</li>
+<li>Wikipedia 的目录、相关词条和概念关系</li>
+<li>Reddit、Quora 等真实用户讨论</li>
+<li>ChatGPT 等 AI 工具提供的主题建议</li>
+</ul>
+<p>AI 可以帮助发散，但不能直接替我们决定 Topic Map。</p>
+<p>它不知道你的真实产品能力、客户反馈和商业目标，最后还是需要人工 Review。</p>
+<h3 id="2-从内部找主题"><a href="#2-从内部找主题" class="headerlink" title="2. 从内部找主题"></a>2. 从内部找主题</h3><p>很多真正有价值的主题，不一定先出现在关键词工具里。</p>
+<p>它们可能来自：</p>
+<ul>
+<li>产品文档和帮助中心</li>
+<li>用户访谈</li>
+<li>客户反馈和客服工单</li>
+<li>售前咨询与客户邮件</li>
+<li>销售沟通和产品演示记录</li>
+<li>站内搜索记录</li>
+<li>用户社群讨论</li>
+<li>退订、退款和流失原因</li>
+<li>团队亲自做过的案例和踩过的坑</li>
+</ul>
+<p>外部数据告诉我们用户正在公开搜索什么。</p>
+<p>内部数据告诉我们用户真正关心什么、卡在哪里，以及为什么买或不买。</p>
+<p>两个方向都要看。</p>
+<p><img src="/images/saas-seo-playbook/05-04-topic-research-sources.png" alt="图 5-4：内外部主题来源地图"></p>
+<h2 id="四、先评估主题，再研究关键词"><a href="#四、先评估主题，再研究关键词" class="headerlink" title="四、先评估主题，再研究关键词"></a>四、先评估主题，再研究关键词</h2><p>收集完主题，先不要急着全部写进 Topic Map。</p>
+<p>不是所有相关主题都是你的菜。</p>
+<p>可以先看三个维度：</p>
+<ol>
+<li>品牌相关度</li>
+<li>商业价值</li>
+<li>流量潜力</li>
+</ol>
+<h3 id="1-品牌相关度"><a href="#1-品牌相关度" class="headerlink" title="1. 品牌相关度"></a>1. 品牌相关度</h3><p>这个主题是否符合网站的 Entity？</p>
+<p>它是不是产品希望建立的市场认知？是不是目标用户真正关心的问题？</p>
+<p>比如 AI Marketing Video 工具去做商品视频、广告素材和视频 Hook，品牌相关度很高。</p>
+<p>如果去写电影摄影器材或通用剪辑软件，虽然都与视频有关，但品牌相关度可能很低。</p>
+<h3 id="2-商业价值"><a href="#2-商业价值" class="headerlink" title="2. 商业价值"></a>2. 商业价值</h3><p>这个主题能不能自然连接到产品能力和业务结果？</p>
+<p>用户看完或使用以后，有没有合理的下一步，比如生成视频、注册、试用或付费？</p>
+<p>有流量，但无法承接，也没有任何合理转化路径的主题，优先级通常不会太高。</p>
+<h3 id="3-流量潜力"><a href="#3-流量潜力" class="headerlink" title="3. 流量潜力"></a>3. 流量潜力</h3><p>流量潜力不能只看一个关键词的搜索量。</p>
+<p>还要看：</p>
+<ul>
+<li>这个主题下面有多少相关长尾词</li>
+<li>整个关键词簇的总搜索需求</li>
+<li>对标页面能获得多少自然流量</li>
+<li>SERP 中有没有新站可以进入</li>
+</ul>
+<p>单个词的搜索量只是一个点，主题流量潜力才是一片需求。</p>
+<p>可以先用品牌相关度和商业价值确定该不该做，再用流量潜力判断值不值得优先做。</p>
+<p><img src="/images/saas-seo-playbook/05-05-topic-evaluation-matrix.png" alt="图 5-5：候选主题评估矩阵"></p>
+<h2 id="五、围绕确认的主题挖掘关键词"><a href="#五、围绕确认的主题挖掘关键词" class="headerlink" title="五、围绕确认的主题挖掘关键词"></a>五、围绕确认的主题挖掘关键词</h2><p>主题确定以后，再进入关键词研究。</p>
+<p>这样做的好处是，关键词工具只负责帮助我们把已经确认的需求挖深，而不是带着网站到处跑。</p>
+<p>围绕一个主题，常见的关键词可以分成五类。</p>
+<h3 id="1-核心词"><a href="#1-核心词" class="headerlink" title="1. 核心词"></a>1. 核心词</h3><p>直接描述产品品类或核心功能。</p>
+<p>比如：</p>
+<ul>
+<li><code>ai marketing video generator</code></li>
+<li><code>product video generator</code></li>
+</ul>
+<h3 id="2-长尾词"><a href="#2-长尾词" class="headerlink" title="2. 长尾词"></a>2. 长尾词</h3><p>加入更具体的场景、用户、输入或输出。</p>
+<p>比如：</p>
+<ul>
+<li><code>ai product video generator for ecommerce</code></li>
+<li><code>turn product url into video</code></li>
+</ul>
+<h3 id="3-问题词"><a href="#3-问题词" class="headerlink" title="3. 问题词"></a>3. 问题词</h3><p>用户围绕任务提出的具体问题。</p>
+<p>比如：</p>
+<ul>
+<li><code>how to make a product video with ai</code></li>
+<li><code>how to turn product images into ads</code></li>
+</ul>
+<h3 id="4-对比词"><a href="#4-对比词" class="headerlink" title="4. 对比词"></a>4. 对比词</h3><p>用户正在比较产品或解决方案。</p>
+<p>比如：</p>
+<ul>
+<li><code>product video generator vs video editor</code></li>
+<li><code>best ai product video generator</code></li>
+</ul>
+<h3 id="5-品牌邻接词"><a href="#5-品牌邻接词" class="headerlink" title="5. 品牌邻接词"></a>5. 品牌邻接词</h3><p>用户已经知道某个产品，但还在寻找替代方案、对比或相关能力。</p>
+<p>比如：</p>
+<ul>
+<li><code>HeyGen alternatives</code></li>
+<li><code>Creatify alternatives</code></li>
+</ul>
+<p>这些关键词虽然表达不同，但可能属于同一个主题，也可能代表完全不同的搜索意图。</p>
+<p>所以挖完词以后，还需要继续聚类。</p>
+<p><img src="/images/saas-seo-playbook/05-06-five-keyword-types.png" alt="图 5-6：五类关键词扩展"></p>
+<h2 id="六、关键词怎么聚类"><a href="#六、关键词怎么聚类" class="headerlink" title="六、关键词怎么聚类"></a>六、关键词怎么聚类</h2><p>关键词聚类，不是只看字面是否相似。</p>
+<p>比如：</p>
+<ul>
+<li><code>ai product video generator</code></li>
+<li><code>turn product image into video</code></li>
+<li><code>create ecommerce video with ai</code></li>
+</ul>
+<p>表达不同，但可能都在解决商品素材生成视频的任务。</p>
+<p>反过来，两个关键词即使都包含 <code>AI video</code>，意图也可能不同：</p>
+<ul>
+<li><code>ai video generator</code> 更接近直接使用工具</li>
+<li><code>best ai video generator</code> 更接近产品比较和选择</li>
+</ul>
+<p>聚类时，可以一起看四件事：</p>
+<ul>
+<li>用户要完成的任务是否相同</li>
+<li>搜索意图是否接近</li>
+<li>SERP 前排页面是否大量重合</li>
+<li>产品能否用同一种能力承接</li>
+</ul>
+<p>Ahrefs 的 Parent Topic 或关键词聚类功能可以帮助初步分组，但工具结果不是最终答案。</p>
+<p>工具看的是关键词数据，最后还要结合产品和用户任务人工判断。</p>
+<p>聚类完成以后，可以把结果放回 Topic Map：</p>
+<ul>
+<li>Main Topic<ul>
+<li>Supporting Topic<ul>
+<li>Sub-topic<ul>
+<li>Keyword Cluster</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>到这里，我们已经知道网站长期要覆盖什么，以及每个主题下面有哪些真实搜索需求。</p>
+<p>但先不要急着给每个词分配 URL。</p>
+<p>下一章 Keyword-to-Page，再决定一种搜索意图应该由哪个页面承接。</p>
+<p><img src="/images/saas-seo-playbook/05-07-topic-to-keyword-cluster.png" alt="图 5-7：从主题层级到关键词簇"></p>
+<h2 id="七、新站怎么确定优先级"><a href="#七、新站怎么确定优先级" class="headerlink" title="七、新站怎么确定优先级"></a>七、新站怎么确定优先级</h2><p>Topic Map 是长期内容路线图，不代表所有主题都要同时做。</p>
+<p>新站资源有限，还是要确定先后顺序。判断优先级时，可以一起看：</p>
+<ul>
+<li>产品相关性</li>
+<li>商业价值</li>
+<li>搜索意图</li>
+<li>主题流量潜力</li>
+<li>关键词竞争难度</li>
+<li>当前产品与内容的交付能力</li>
+</ul>
+<p>不要只按搜索量排序。</p>
+<blockquote>
+<p><strong>Tips：关键词和页面，可以分成 SEO 必做型与 SEO 增长型。</strong></p>
+<p>SEO 必做型负责说清楚产品是什么、具备哪些核心能力、服务哪些用户和场景。即使关键词竞争很难，或者短期没有排名，也应该先把页面建出来并完成基础 SEO 匹配。</p>
+<p>SEO 增长型负责在核心产品结构之外继续获得自然流量。这部分才需要根据产品相关性、商业价值、搜索意图和竞争难度，决定先做哪个、后做哪个。</p>
+</blockquote>
+<h3 id="SEO-必做型：产品定位页面"><a href="#SEO-必做型：产品定位页面" class="headerlink" title="SEO 必做型：产品定位页面"></a>SEO 必做型：产品定位页面</h3><p>SEO 必做型页面不只有首页，通常包括：</p>
+<ul>
+<li>Homepage：首页承接核心品类词</li>
+<li>Feature Page：功能页承接产品已经具备的核心能力</li>
+<li>Solution &#x2F; Use Case Page：场景页承接核心客群和主要使用场景</li>
+<li>Pricing、API、Docs 等页面：根据真实产品形态承接对应需求</li>
+</ul>
+<p>比如一款 AI Marketing Video 产品：</p>
+<ul>
+<li>首页需要匹配 <code>ai marketing video generator</code></li>
+<li>核心功能页需要承接 <code>product url to video</code>、<code>product image to video</code></li>
+<li>核心场景页需要承接 <code>ai video ads for ecommerce</code></li>
+</ul>
+<p>这些页面首先是产品官网应该具备的结构，其次才是 SEO 页面。</p>
+<p>所以即使关键词很难，Homepage、Feature Page 和 Solution Page 的 Title、H1、核心介绍、产品能力和 CTA 也要匹配对应需求。</p>
+<p>短期排不上去，不代表可以不做。它们属于产品定位，不是可选的 SEO 机会。</p>
+<h3 id="SEO-增长型：流量拓展页面"><a href="#SEO-增长型：流量拓展页面" class="headerlink" title="SEO 增长型：流量拓展页面"></a>SEO 增长型：流量拓展页面</h3><p>把核心产品页面建好以后，再围绕相关需求拓展更多工具页、长尾场景页、教程、榜单、对比和 Alternatives 页面。</p>
+<p>这些页面主要负责获得更多自然流量，可以根据机会决定先后顺序。</p>
+<p>一个大词有很多流量，但产品接不住、竞争对手又很强，如果它不属于产品定位型关键词，短期投入可能没有结果。</p>
+<p>相反，一个搜索量不大的长尾词，如果用户任务明确、产品能够直接解决、SERP 竞争也相对可进入，就更适合新站先做。</p>
+<p>也就是前面提到的农村包围城市策略：</p>
+<p><strong>蓝海词 → 中等词 → 大词。</strong></p>
+<p>这个策略主要用来安排 SEO 增长型页面，不是让我们放弃首页、核心功能页和核心场景页。</p>
+<p><img src="/images/saas-seo-playbook/05-08-must-have-vs-growth-pages.png" alt="图 5-8：SEO 必做型与 SEO 增长型页面"></p>
+<p>这里的蓝海词，不只是搜索量小的长尾词。</p>
+<p>还有一类更大的机会，是刚刚出现的新词。</p>
+<p>AI 行业几乎每天都有新模型、新功能和新玩法。每次变化，都可能带来一批过去不存在的搜索需求。</p>
+<p>比如 GPT-4o 图像生成能力发布后，很快出现了围绕 Ghibli（吉卜力）风格图片的新玩法。用户开始搜索：</p>
+<ul>
+<li><code>gpt-4o image generator</code></li>
+<li><code>ghibli style image generator</code></li>
+<li><code>turn photo into ghibli style</code></li>
+</ul>
+<p>这些词刚出现时，Ahrefs、Semrush 等工具可能还没有搜索量数据，或者显示的搜索量很小。</p>
+<p>但没有历史数据，不代表没有真实需求。</p>
+<p>如果一个新词正在社交媒体、社区和 Google Trends 中快速升温，同时又与产品能力高度相关，它可能比已经竞争多年的大词更值得马上验证。</p>
+<p>所以蓝海词可以分成两类：</p>
+<ul>
+<li>已有长尾词：需求稳定存在，但竞争相对较小</li>
+<li>新出现的词：需求刚刚形成，搜索量数据还没有及时跟上</li>
+</ul>
+<p>面对新词，速度很重要，但也不能什么热点都追。</p>
+<p>还是要回到三个问题：</p>
+<ul>
+<li>它是否符合网站的 Entity 和 Topic Map</li>
+<li>产品能不能真正承接这个新需求</li>
+<li>热点过去以后，页面是否还有长期价值</li>
+</ul>
+<p>如果三个问题都能回答清楚，就可以尽快上线 MVP 页面，再根据真实曝光、点击、使用和转化决定是否继续投入。</p>
+<p><img src="/images/saas-seo-playbook/05-09-emerging-keyword-window.png" alt="图 5-9：AI 新词的验证窗口"></p>
+<p>无论是已有长尾词还是新出现的词，至少应该满足：</p>
+<ul>
+<li>需求明确</li>
+<li>产品相关</li>
+<li>可以真正交付结果</li>
+<li>竞争相对可进入</li>
+<li>有合理的转化价值</li>
+</ul>
+<p>先通过一组具体需求验证页面和产品，再逐步进入更大的主题。</p>
+<h2 id="八、从关键词研究到-Topic-Map-的执行步骤"><a href="#八、从关键词研究到-Topic-Map-的执行步骤" class="headerlink" title="八、从关键词研究到 Topic Map 的执行步骤"></a>八、从关键词研究到 Topic Map 的执行步骤</h2><p>实际执行时，可以按照下面的顺序：</p>
+<ol>
+<li>用四个问题定义网站 Entity</li>
+<li>确定主主题和内容边界</li>
+<li>从外部与内部收集候选主题</li>
+<li>评估品牌相关度、商业价值和流量潜力</li>
+<li>删除高流量但低相关的主题</li>
+<li>围绕保留的主题挖掘关键词</li>
+<li>按照用户任务、搜索意图和 SERP 结果聚类</li>
+<li>整理 Main Topic、Supporting Topic、Sub-topic 和 Keyword Cluster</li>
+<li>区分 SEO 必做型与 SEO 增长型关键词和页面</li>
+<li>单独标记新出现、还没有稳定搜索量数据的关键词</li>
+<li>根据产品相关性、商业价值和竞争难度确定优先级</li>
+</ol>
+<p>最终可以先整理两张表。</p>
+<p>第一张是 Topic List：</p>
+<ul>
+<li>Main Topic</li>
+<li>Supporting Topic</li>
+<li>Sub-topic</li>
+<li>Brand Relevance</li>
+<li>Business Value</li>
+<li>Traffic Potential</li>
+<li>Priority</li>
+</ul>
+<p>第二张是 Keyword List：</p>
+<ul>
+<li>Keyword</li>
+<li>Keyword Cluster</li>
+<li>Keyword Type：SEO 必做型 &#x2F; SEO 增长型</li>
+<li>Search Intent</li>
+<li>Search Volume</li>
+<li>Keyword Difficulty</li>
+<li>Product Relevance</li>
+<li>Keyword Status：稳定需求 &#x2F; 新出现</li>
+<li>Priority</li>
+</ul>
+<p>这一章先把网站的大纲和主题边界确定下来。</p>
+<p>下一章再决定这些需求分别由什么页面承接。</p>
+<h2 id="九、本章执行清单"><a href="#九、本章执行清单" class="headerlink" title="九、本章执行清单"></a>九、本章执行清单</h2><ul>
+<li><input disabled="" type="checkbox"> 能不能用一句话说清网站是做什么的？</li>
+<li><input disabled="" type="checkbox"> 是否明确了我是谁、我提供什么、我服务谁和我不覆盖什么？</li>
+<li><input disabled="" type="checkbox"> 是否同时从外部数据和内部用户信息收集主题？</li>
+<li><input disabled="" type="checkbox"> 是否评估了主题的品牌相关度、商业价值和流量潜力？</li>
+<li><input disabled="" type="checkbox"> 是否删除了高流量但不符合 Entity 的方向？</li>
+<li><input disabled="" type="checkbox"> 是否围绕确认后的主题继续挖掘关键词？</li>
+<li><input disabled="" type="checkbox"> 关键词聚类是否基于用户任务、搜索意图和 SERP，而不只是字面相似？</li>
+<li><input disabled="" type="checkbox"> Topic Map 是否有主主题、支撑主题、子主题和关键词簇？</li>
+<li><input disabled="" type="checkbox"> 是否先完成了首页、核心功能页和核心场景页等 SEO 必做型页面？</li>
+<li><input disabled="" type="checkbox"> 是否把 SEO 增长型页面单独排序，而不是用难度决定核心产品页面做不做？</li>
+<li><input disabled="" type="checkbox"> 是否持续关注新模型、新功能和新玩法带来的新词？</li>
+<li><input disabled="" type="checkbox"> 新词是否同时符合 Entity、产品能力和长期价值？</li>
+<li><input disabled="" type="checkbox"> 新站是否优先选择了产品可以承接的蓝海需求？</li>
+</ul>
+<h2 id="十、小结"><a href="#十、小结" class="headerlink" title="十、小结"></a>十、小结</h2><p>关键词研究不是先导出一张大表，再从搜索量最高的词开始写。</p>
+<p>先定义 Entity，确定网站是谁、服务谁、解决什么问题，以及不覆盖什么。</p>
+<p>然后收集主题、评估边界，再通过关键词研究验证真实搜索需求，最终整理成 Topic Map。</p>
+<p>如果压缩成一句话：</p>
+<p><strong>Entity 是书名，Topic Map 是大纲，关键词是读者留下的需求线索。</strong></p>
+<p>先把书名和大纲想清楚，再决定每个章节怎么写。</p>
+<blockquote>
+<p>本章节完毕，谢谢大家，欢迎随时讨论。</p>
+</blockquote>
+
+                <!-- WeChat Ad -->
+                <div class="wechat-ad">
+                    <div class="wechat-ad-inner">
+                        <div class="wechat-ad-text">
+                            <strong>👋 加我微信，交流 AI 出海 & SEO</strong>
+                            <p style="margin:4px 0 0;font-size:13px;color:#666;">微信号：qqcode168</p>
+                        </div>
+                        <img class="wechat-ad-qrcode" src="https://bysocket.com/images/wechat.jpg" alt="微信扫码添加">
+                    </div>
+                </div>
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="//chatgpt-fanout-queries/" data-toggle="tooltip" data-placement="top"
+                           title="GEO 开源 Skill：ChatGPT 的 Fan-out Queries 报告">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="//saas-seo-playbook/04-find-and-analyze-seo-competitors/" data-toggle="tooltip" data-placement="top"
+                           title="第 4 章 寻找并真正分析懂的 SEO 竞争对手">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%85%88%E8%AF%B4%E6%B8%85%E6%A5%9A%E7%BD%91%E7%AB%99%E7%9A%84-Entity"><span class="toc-text">一、先说清楚网站的 Entity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Topic-Map-%E6%98%AF%E7%BD%91%E7%AB%99%E7%9A%84%E5%86%85%E5%AE%B9%E8%A7%84%E5%88%92%E8%B7%AF%E7%BA%BF%E5%9B%BE"><span class="toc-text">二、Topic Map 是网站的内容规划路线图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%A6%82%E4%BD%95%E6%94%B6%E9%9B%86%E4%B8%BB%E9%A2%98%E5%92%8C%E5%AD%90%E4%B8%BB%E9%A2%98"><span class="toc-text">三、如何收集主题和子主题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BB%8E%E5%A4%96%E9%83%A8%E6%89%BE%E4%B8%BB%E9%A2%98"><span class="toc-text">1. 从外部找主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BB%8E%E5%86%85%E9%83%A8%E6%89%BE%E4%B8%BB%E9%A2%98"><span class="toc-text">2. 从内部找主题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%85%88%E8%AF%84%E4%BC%B0%E4%B8%BB%E9%A2%98%EF%BC%8C%E5%86%8D%E7%A0%94%E7%A9%B6%E5%85%B3%E9%94%AE%E8%AF%8D"><span class="toc-text">四、先评估主题，再研究关键词</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%93%81%E7%89%8C%E7%9B%B8%E5%85%B3%E5%BA%A6"><span class="toc-text">1. 品牌相关度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC"><span class="toc-text">2. 商业价值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%B5%81%E9%87%8F%E6%BD%9C%E5%8A%9B"><span class="toc-text">3. 流量潜力</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%9B%B4%E7%BB%95%E7%A1%AE%E8%AE%A4%E7%9A%84%E4%B8%BB%E9%A2%98%E6%8C%96%E6%8E%98%E5%85%B3%E9%94%AE%E8%AF%8D"><span class="toc-text">五、围绕确认的主题挖掘关键词</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A0%B8%E5%BF%83%E8%AF%8D"><span class="toc-text">1. 核心词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%95%BF%E5%B0%BE%E8%AF%8D"><span class="toc-text">2. 长尾词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%97%AE%E9%A2%98%E8%AF%8D"><span class="toc-text">3. 问题词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%AF%B9%E6%AF%94%E8%AF%8D"><span class="toc-text">4. 对比词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%93%81%E7%89%8C%E9%82%BB%E6%8E%A5%E8%AF%8D"><span class="toc-text">5. 品牌邻接词</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%85%B3%E9%94%AE%E8%AF%8D%E6%80%8E%E4%B9%88%E8%81%9A%E7%B1%BB"><span class="toc-text">六、关键词怎么聚类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E6%96%B0%E7%AB%99%E6%80%8E%E4%B9%88%E7%A1%AE%E5%AE%9A%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-text">七、新站怎么确定优先级</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SEO-%E5%BF%85%E5%81%9A%E5%9E%8B%EF%BC%9A%E4%BA%A7%E5%93%81%E5%AE%9A%E4%BD%8D%E9%A1%B5%E9%9D%A2"><span class="toc-text">SEO 必做型：产品定位页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SEO-%E5%A2%9E%E9%95%BF%E5%9E%8B%EF%BC%9A%E6%B5%81%E9%87%8F%E6%8B%93%E5%B1%95%E9%A1%B5%E9%9D%A2"><span class="toc-text">SEO 增长型：流量拓展页面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E4%BB%8E%E5%85%B3%E9%94%AE%E8%AF%8D%E7%A0%94%E7%A9%B6%E5%88%B0-Topic-Map-%E7%9A%84%E6%89%A7%E8%A1%8C%E6%AD%A5%E9%AA%A4"><span class="toc-text">八、从关键词研究到 Topic Map 的执行步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E6%9C%AC%E7%AB%A0%E6%89%A7%E8%A1%8C%E6%B8%85%E5%8D%95"><span class="toc-text">九、本章执行清单</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E3%80%81%E5%B0%8F%E7%BB%93"><span class="toc-text">十、小结</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/CoderJeffLee">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/jeffpage0709">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 写增长的子木 2026
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://bysocket.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="https://bysocket.com/images/avatar.jpeg">
+</body>
+
+</html>
