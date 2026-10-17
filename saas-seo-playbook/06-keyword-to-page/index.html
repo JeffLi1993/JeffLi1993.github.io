@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="写增长的子木，聚焦 SaaS 出海创业，分享 SEO、红人营销、Ads、EDM 等前沿增长策略，深入解析各类实操案例，帮助创业者实现产品推广和市场扩展。通过丰富的行业经验和详实的内容，为 SaaS 团队提供具实效性的增长见解，助力海外业务快速发展。">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="写增长的子木" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        第 6 章 Keyword-to-Page：每个意图由谁承接｜写增长的子木
+        
+    </title>
+
+    <link rel="canonical" href="https://bysocket.com//saas-seo-playbook/06-keyword-to-page/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('https://bysocket.com/images/header-img.webp')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    写增长的子木
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="https://nanoskill.ai/" target="_blank">Agent Skills</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/saas-seo-playbook/">SEO 小册子</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="nullhttps://bysocket.com/images/hello-world/header-img.webp">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('https://bysocket.com/images/hello-world/header-img.webp?imageView2/1/w/1400/h/400/interlace/1/q/90')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>第 6 章 Keyword-to-Page：每个意图由谁承接</h1>
+                    
+                    <span class="meta">
+                         作者 子木
+                        <span>
+                          日期 2026-09-22
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#SEO"
+                           title="SEO">SEO</a>
+                        
+                        <a class="tag" href="/tags/#AI工具站"
+                           title="AI工具站">AI工具站</a>
+                        
+                        <a class="tag" href="/tags/#SaaS"
+                           title="SaaS">SaaS</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            第 6 章 Keyword-to-Page：每个意图由谁承接
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <blockquote>
+<p>📖 本文是《AI 工具站 SEO 小册子：图解入门》的一部分，完整目录与源文件见 GitHub：<a href="https://github.com/JeffLi1993/saas-seo-playbook">JeffLi1993&#x2F;saas-seo-playbook</a></p>
+</blockquote>
+<blockquote>
+<p>❤️ 这一章节内容，感谢 Joker 的交流</p>
+</blockquote>
+<p>上一章，我们把零散关键词整理成了 Topic Map 和 Keyword Cluster。</p>
+<p>接下来要解决一个更实际的问题：</p>
+<p><strong>这些关键词，最终应该由哪个页面负责？</strong></p>
+<p>很多网站做完关键词研究，就直接把词分给编辑。</p>
+<p>一个词写一篇，几百个词就准备做几百个页面。</p>
+<p>结果通常是：</p>
+<ul>
+<li>同一个需求被拆成很多相似页面</li>
+<li>几个页面同时竞争一个关键词</li>
+<li>应该做工具页的词，被写成了 Blog</li>
+<li>应该由首页或功能页承接的词，又新建了一个落地页</li>
+<li>页面越来越多，Google 和用户反而不知道该看哪一个</li>
+</ul>
+<p>所以，关键词研究结束以后，还需要做 Keyword-to-Page。</p>
+<p>我更愿意把它理解成给每个 Keyword Cluster 确定 Page Owner（页面负责人）。</p>
+<p>这里的 Owner 不是具体员工，而是负责承接这个词簇的唯一主要页面。</p>
+<p>核心原则可以写成一个公式：</p>
+<p><strong>一个页面 &#x3D; 一个 Keyword Cluster + 一个 Top Keyword + 一个主要搜索意图。</strong></p>
+<p>一个 Keyword Cluster 里可以有多个关键词，但只能确定一个 Top Keyword。</p>
+<p>Top Keyword 通常是词簇中搜索量最高、同时最能代表这组需求的词。其他关键词是同义表达、自然变体或长尾词，由同一个页面一起承接。</p>
+<p>如果搜索量最高的词与其他词不是同一种搜索意图，说明它们本来就不应该放在同一个 Keyword Cluster 里。</p>
+<p><img src="/images/saas-seo-playbook/06-01-keyword-to-page-ownership.png" alt="图 6-1：一个 Keyword Cluster 由唯一 Page Owner 承接"></p>
+<h2 id="一、不是一词一页，而是一词簇一页"><a href="#一、不是一词一页，而是一词簇一页" class="headerlink" title="一、不是一词一页，而是一词簇一页"></a>一、不是一词一页，而是一词簇一页</h2><p>关键词长得不一样，不代表一定要拆成不同页面。</p>
+<p>比如：</p>
+<ul>
+<li><code>ai product video generator</code></li>
+<li><code>product video generator ai</code></li>
+<li><code>generate product video with ai</code></li>
+</ul>
+<p>三个词的表达不同，但用户很可能想完成同一件事：用 AI 生成商品视频。</p>
+<p>如果 SERP 前排结果也高度相似，就没有必要为每个词单独建一页。</p>
+<p>可以选择词簇中搜索量最高的词作为 Top Keyword，再把其他词作为自然变体和次要关键词，由同一个页面承接。</p>
+<p>反过来，关键词看起来很像，搜索意图也可能完全不同。</p>
+<p>比如：</p>
+<ul>
+<li><code>ai product video generator</code>：用户想直接使用工具</li>
+<li><code>best ai product video generator</code>：用户想比较不同产品</li>
+<li><code>how to make a product video with ai</code>：用户想学习具体方法</li>
+</ul>
+<p>它们都包含 <code>ai product video generator</code>，但分别更适合：</p>
+<ul>
+<li>工具页或功能页</li>
+<li>榜单或测评页</li>
+<li>教程页</li>
+</ul>
+<p>所以不能只根据关键词的字面相似度决定合并或拆分。</p>
+<p>还要看具体需求、搜索意图和 Google 当前展示的页面形态。</p>
+<p><img src="/images/saas-seo-playbook/06-02-one-cluster-one-page.png" alt="图 6-2：同一需求合并到一个页面，不同搜索意图分配到不同页面"></p>
+<h2 id="二、先确定-Page-Owner"><a href="#二、先确定-Page-Owner" class="headerlink" title="二、先确定 Page Owner"></a>二、先确定 Page Owner</h2><p>一个页面可以覆盖一个 Keyword Cluster 中的多个相关关键词，但只能有一个 Top Keyword，也应该有一个明确的主要搜索意图。</p>
+<p>在 Keyword-to-Page 表里，可以先为每个关键词簇确定五件事：</p>
+<ol>
+<li>这个 Keyword Cluster 包含哪些词</li>
+<li>哪个词是搜索量最高的 Top Keyword</li>
+<li>主要搜索意图是什么</li>
+<li>应该用什么页面类型承接</li>
+<li>哪一个页面是 Page Owner</li>
+</ol>
+<p>比如一款 AI Marketing Video 产品：</p>
+<table>
+<thead>
+<tr>
+<th>Keyword Cluster</th>
+<th>Top Keyword</th>
+<th>页面类型</th>
+<th>Page Owner</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AI Marketing Video</td>
+<td><code>ai marketing video generator</code></td>
+<td>Homepage</td>
+<td>首页</td>
+</tr>
+<tr>
+<td>Product URL to Video</td>
+<td><code>product url to video</code></td>
+<td>Feature Page</td>
+<td>Product URL to Video 页面</td>
+</tr>
+<tr>
+<td>Ecommerce Video Ads</td>
+<td><code>ai video ads for ecommerce</code></td>
+<td>Solution Page</td>
+<td>Ecommerce Video Ads 页面</td>
+</tr>
+<tr>
+<td>Small Business Video</td>
+<td><code>ai marketing video for small business</code></td>
+<td>Solution Page</td>
+<td>Small Business Marketing Video 页面</td>
+</tr>
+<tr>
+<td>Product Video Tutorial</td>
+<td><code>how to make a product video with ai</code></td>
+<td>Blog &#x2F; Tutorial</td>
+<td>How-to 教程页</td>
+</tr>
+<tr>
+<td>Best Product Video Tools</td>
+<td><code>best ai product video generator</code></td>
+<td>Blog &#x2F; Listicle</td>
+<td>Best 榜单页</td>
+</tr>
+<tr>
+<td>HeyGen Alternatives</td>
+<td><code>HeyGen alternatives</code></td>
+<td>Blog &#x2F; Alternatives</td>
+<td>HeyGen Alternatives 文章</td>
+</tr>
+</tbody></table>
+<p>这里的 Blog 是页面类型，Tutorial、Listicle、Review、Comparison 和 Alternatives 是不同的内容范本。</p>
+<p>它们都可以放在 Blog 目录下，但内容结构和写法不一样。</p>
+<p>这张表不是最终 URL Structure。</p>
+<p>它先确定谁负责承接需求。具体放在哪个目录、URL 怎么命名，下一章再统一规划。</p>
+<p><img src="/images/saas-seo-playbook/06-03-intent-to-page-owner.png" alt="图 6-3：不同搜索需求与 Page Owner 的对应关系"></p>
+<h2 id="三、怎么判断是不是同一个-Keyword-Cluster"><a href="#三、怎么判断是不是同一个-Keyword-Cluster" class="headerlink" title="三、怎么判断是不是同一个 Keyword Cluster"></a>三、怎么判断是不是同一个 Keyword Cluster</h2><p>我认为主要看三个判断依据。</p>
+<h3 id="1-搜索需求是否相同"><a href="#1-搜索需求是否相同" class="headerlink" title="1. 搜索需求是否相同"></a>1. 搜索需求是否相同</h3><p>用户搜索几个词以后，想得到的结果是不是一样？</p>
+<p>如果最终都想上传同一种素材、使用同一个功能、得到同一种结果，通常可以先考虑合并。</p>
+<h3 id="2-搜索意图是否相同"><a href="#2-搜索意图是否相同" class="headerlink" title="2. 搜索意图是否相同"></a>2. 搜索意图是否相同</h3><p>不要只看它们都属于信息型、商业型或交易型，还要看背后的具体需求是否一致。</p>
+<p>如果一个想直接使用工具，另一个想比较产品，即使词根相同，也不适合硬塞进同一个页面。</p>
+<h3 id="3-SERP-结果是否大量重合"><a href="#3-SERP-结果是否大量重合" class="headerlink" title="3. SERP 结果是否大量重合"></a>3. SERP 结果是否大量重合</h3><p>分别搜索这些词，看 Google 前排是否反复出现同一批 URL 和同一种页面类型。</p>
+<p>如果大部分结果相同，说明 Google 很可能把它们理解为接近的需求。</p>
+<p>如果结果明显不同，就要谨慎合并。</p>
+<p>把关键词放进同一个 Cluster，不是为了少做页面。</p>
+<p>而是避免把一个完整需求切得太碎。</p>
+<h3 id="一个有意思的案例：AI-PPT-Generator-和-AI-Slide-Generator"><a href="#一个有意思的案例：AI-PPT-Generator-和-AI-Slide-Generator" class="headerlink" title="一个有意思的案例：AI PPT Generator 和 AI Slide Generator"></a>一个有意思的案例：AI PPT Generator 和 AI Slide Generator</h3><p>这两个词看起来很像，但 Google Top 10 里只有 2 个相同 URL，Google 下拉提示也不一样。</p>
+<p>区别用大白话讲：</p>
+<ul>
+<li><code>ai ppt generator</code> 已经限定了 PPT 格式，更偏整套生成和直接拿结果，比如生成大纲、完整 PPT 和导出 PPTX</li>
+<li><code>ai slide generator</code> 没有限定必须是 PPT，更偏幻灯片的制作、设计和编辑，结果里也更常出现 AI Presentation Maker</li>
+</ul>
+<p><code>AI PPT Generator</code> 明确指向 PowerPoint 演示文稿和 PPTX 结果；<code>AI Slide Generator</code> 更偏单张或多张 Slide 的生成、设计和编辑，输出形式也更宽。</p>
+<p>所以我会拆成两个页面：</p>
+<ul>
+<li><code>/ai-ppt-generator</code>：主攻从主题、文本或文档生成完整 PowerPoint</li>
+<li><code>/ai-slide-generator</code>：主攻生成单张或多张幻灯片、自定义版式和重新设计已有 Slide</li>
+</ul>
+<p><strong>词很像，不代表属于同一个 Keyword Cluster。SERP 重合少，用户想拿到的结果也不同，就应该拆开。</strong></p>
+<p>但拆成两个页面以后，产品体验和内容模块也要真的不同。如果只是改了 Title 和文案，背后还是同一个生成器、同一套功能，那就容易变成两个重复页面。</p>
+<p><img src="/images/saas-seo-playbook/06-04-ppt-vs-slide-serp.png" alt="图 6-4：AI PPT Generator 与 AI Slide Generator 的 SERP 和需求差异"></p>
+<h2 id="四、什么时候从大词继续扩展子页面"><a href="#四、什么时候从大词继续扩展子页面" class="headerlink" title="四、什么时候从大词继续扩展子页面"></a>四、什么时候从大词继续扩展子页面</h2><p>同一个 Keyword Cluster，应该由一个页面承接，不能为了多做页面硬拆。</p>
+<p>但大词下面的某个细分需求，也可能已经值得单独做成一个 Keyword Cluster。</p>
+<p>比如一开始可以先做：</p>
+<ul>
+<li><code>seo title generator</code></li>
+</ul>
+<p>这个通用页面可以覆盖 Blog、产品页和其他场景的 SEO Title 生成需求。</p>
+<p>当 <code>blog seo title generator</code> 的搜索量和业务优先级足够高，而且 Blog 标题有更具体的生成要求，就可以再增加一个独立页面：</p>
+<ul>
+<li><code>/seo-title-generator</code>：继续承接通用的 SEO Title 生成需求</li>
+<li><code>/blog-seo-title-generator</code>：专门承接 Blog 标题生成需求</li>
+</ul>
+<p>这不是把原来的同一组关键词硬拆开。</p>
+<p>而是一个细分词已经形成了更明确的需求，值得拥有自己的 Top Keyword、Keyword Cluster 和 Page Owner。</p>
+<p>Ahrefs 的 Writing Tools 就是一个很直观的案例。</p>
+<p>它既有通用的 Hashtag Generator，也为具体平台做了独立页面：</p>
+<ul>
+<li><code>/writing-tools/hashtag-generator</code></li>
+<li><code>/writing-tools/instagram-hashtag-generator</code></li>
+<li><code>/writing-tools/tiktok-hashtag-generator</code></li>
+</ul>
+<p>通用页继续承接 Social Media Hashtag 的大需求，Instagram 和 TikTok 页面分别承接平台相关的细分需求。</p>
+<p>这些页面的底层能力可能接近，但用户输入、平台语境、页面说明和最终结果可以做得更具体。</p>
+<p>所以要不要继续扩展子页面，可以看三个条件：</p>
+<ol>
+<li>细分词的搜索量和业务优先级是否值得单独投入</li>
+<li>SERP 是否已经把它当成相对独立的搜索需求</li>
+<li>新页面能否提供更具体的产品体验和内容，而不是只换 Title</li>
+</ol>
+<p>如果还不满足，就先由大词页面一起承接。</p>
+<p>满足以后，再增加子页面。原来的大词页面继续保留，不需要二选一。</p>
+<p><img src="/images/saas-seo-playbook/06-05-parent-and-child-pages.png" alt="图 6-5：通用大词页面与细分子页面可以同时存在"></p>
+<h2 id="五、建立-Page-Owner-表"><a href="#五、建立-Page-Owner-表" class="headerlink" title="五、建立 Page Owner 表"></a>五、建立 Page Owner 表</h2><p>Keyword-to-Page 最终应该沉淀成一张可以持续维护的 Page Owner 表。</p>
+<p>我建议至少保留这些字段：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Topic</td>
+<td>所属主题</td>
+</tr>
+<tr>
+<td>Keyword Cluster</td>
+<td>关键词簇</td>
+</tr>
+<tr>
+<td>Top Keyword</td>
+<td>词簇中搜索量最高的代表词，一个词簇只保留一个</td>
+</tr>
+<tr>
+<td>Secondary Keywords</td>
+<td>同一意图下的相关词和自然变体</td>
+</tr>
+<tr>
+<td>Search Intent</td>
+<td>主要搜索意图</td>
+</tr>
+<tr>
+<td>Page Type</td>
+<td>Homepage、Feature、Solution、Tool、Blog 等</td>
+</tr>
+<tr>
+<td>Page Owner</td>
+<td>负责承接需求的页面</td>
+</tr>
+<tr>
+<td>Proposed URL</td>
+<td>暂定 URL，下一章统一确认</td>
+</tr>
+<tr>
+<td>CTA</td>
+<td>页面希望用户完成的下一步</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Existing、Update、New、Merge</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>制作或优化优先级</td>
+</tr>
+</tbody></table>
+<p><img src="/images/saas-seo-playbook/06-06-page-owner-table.png" alt="图 6-6：Keyword-to-Page 的 Page Owner 规划表示例"></p>
+<p>这张表最重要的不是字段多完整，而是每个 Keyword Cluster 都有唯一的 Top Keyword、主要搜索意图和 Page Owner。</p>
+<p>以后发现新关键词时，不要马上新建页面。</p>
+<p>先回到 Page Owner 表里检查：</p>
+<ul>
+<li>现有页面能不能承接</li>
+<li>是补充现有页面，还是需要新建页面</li>
+<li>新页面会不会与已有页面争夺同一个意图</li>
+</ul>
+<p>这样可以从源头减少重复页面。</p>
+<blockquote>
+<p><strong>Tips：</strong>同一个关键词出现在多个页面里很正常。真正要避免的是，把同一个 Keyword Cluster 分给多个页面。新站提前分清页面归属即可，老站发现重复页面后再决定保留、更新或合并。</p>
+</blockquote>
+<h2 id="六、新站和老站怎么做"><a href="#六、新站和老站怎么做" class="headerlink" title="六、新站和老站怎么做"></a>六、新站和老站怎么做</h2><h3 id="1-新站先规划，再开发"><a href="#1-新站先规划，再开发" class="headerlink" title="1. 新站先规划，再开发"></a>1. 新站先规划，再开发</h3><p>新站可以直接从 Topic Map 和 Keyword Cluster 开始，为每个主要意图指定 Page Owner。</p>
+<p>先把首页、核心功能页、核心场景页等 SEO 必做型页面确定下来，再规划 SEO 增长型页面。</p>
+<p>这样开发、设计和内容团队一开始就知道网站需要哪些页面，不用上线以后再反复拆改。</p>
+<h3 id="2-老站先盘点，再补缺口"><a href="#2-老站先盘点，再补缺口" class="headerlink" title="2. 老站先盘点，再补缺口"></a>2. 老站先盘点，再补缺口</h3><p>老站不要直接拿关键词表批量新建页面。</p>
+<p>先导出现有 URL，检查每个页面当前承接什么关键词和搜索意图。</p>
+<p>然后分成四类：</p>
+<ul>
+<li>Keep：页面定位清楚，继续保留</li>
+<li>Update：方向正确，但内容或意图匹配需要加强</li>
+<li>Merge：与其他页面重复，准备合并</li>
+<li>New：现有页面无法承接，需要新建</li>
+</ul>
+<p>这一步做完，才知道网站真正缺的是页面，还是只是现有页面没有做好。</p>
+<p><img src="/images/saas-seo-playbook/06-07-new-vs-existing-site-workflow.png" alt="图 6-7：新站规划与老站盘点的 Keyword-to-Page 流程"></p>
+<h2 id="七、Keyword-to-Page-的执行步骤"><a href="#七、Keyword-to-Page-的执行步骤" class="headerlink" title="七、Keyword-to-Page 的执行步骤"></a>七、Keyword-to-Page 的执行步骤</h2><p>实际执行时，可以按照下面的顺序：</p>
+<ol>
+<li>从 Topic Map 中取出一组相关关键词</li>
+<li>根据搜索意图和 SERP 结果整理 Keyword Cluster</li>
+<li>选择搜索量最高的 Top Keyword，并记录 Secondary Keywords</li>
+<li>检查现有网站是否已经有页面承接</li>
+<li>判断细分需求是否值得建立独立页面</li>
+<li>为每个 Keyword Cluster 指定唯一的 Page Owner 和页面类型</li>
+<li>标记 Existing、Update、New 或 Merge，并确定优先级</li>
+<li>检查是否有多个页面被分配到同一个 Keyword Cluster</li>
+</ol>
+<p>这一步先确定页面归属。</p>
+<p>下一章再把这些页面放进 <code>/features</code>、<code>/tools</code>、<code>/blog</code>、<code>/compare</code> 等目录，形成完整的 URL Structure。</p>
+<h2 id="八、本章执行清单"><a href="#八、本章执行清单" class="headerlink" title="八、本章执行清单"></a>八、本章执行清单</h2><ul>
+<li><input disabled="" type="checkbox"> 每个 Keyword Cluster 是否只保留了一个搜索量最高的 Top Keyword？</li>
+<li><input disabled="" type="checkbox"> 每个 Keyword Cluster 是否有唯一的 Page Owner？</li>
+<li><input disabled="" type="checkbox"> 是否避免了机械地一词一页？</li>
+<li><input disabled="" type="checkbox"> 同一个 Keyword Cluster 是否避免建立多个重复页面？</li>
+<li><input disabled="" type="checkbox"> 细分需求达到优先级后，是否建立了独立的 Keyword Cluster 和 Page Owner？</li>
+<li><input disabled="" type="checkbox"> 页面类型是否符合 Google 当前展示的主流形态？</li>
+<li><input disabled="" type="checkbox"> SEO 必做型页面是否优先确定？</li>
+<li><input disabled="" type="checkbox"> 新建页面前，是否检查了现有页面能不能承接？</li>
+<li><input disabled="" type="checkbox"> Page Owner 表是否记录了页面状态和下一步动作？</li>
+</ul>
+<h2 id="九、小结"><a href="#九、小结" class="headerlink" title="九、小结"></a>九、小结</h2><p>Keyword-to-Page 不是把每个关键词机械地分配给一个新页面。</p>
+<p>它要做的是：把同一搜索意图下的关键词聚在一起，再指定一个主要页面负责承接。</p>
+<p>同一个 Keyword Cluster 先由一个页面负责，不要机械拆页。</p>
+<p>当大词下面的细分需求形成了更明确的任务，搜索量和业务优先级也值得投入时，再增加新的子页面。通用的大词页面继续保留，各自承接不同层级的需求。</p>
+<p>如果压缩成一句话：</p>
+<p><strong>不是一词一页，而是一个 Keyword Cluster，选择一个 Top Keyword，再由一个 Page Owner 负责到底。</strong></p>
+<blockquote>
+<p>本章节完毕，谢谢大家，欢迎随时讨论。</p>
+</blockquote>
+
+                <!-- WeChat Ad -->
+                <div class="wechat-ad">
+                    <div class="wechat-ad-inner">
+                        <div class="wechat-ad-text">
+                            <strong>👋 加我微信，交流 AI 出海 & SEO</strong>
+                            <p style="margin:4px 0 0;font-size:13px;color:#666;">微信号：qqcode168</p>
+                        </div>
+                        <img class="wechat-ad-qrcode" src="https://bysocket.com/images/wechat.jpg" alt="微信扫码添加">
+                    </div>
+                </div>
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="//chatgpt-fanout-queries/" data-toggle="tooltip" data-placement="top"
+                           title="GEO 开源 Skill：ChatGPT 的 Fan-out Queries 报告">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="//saas-seo-playbook/05-keyword-research-to-topic-map/" data-toggle="tooltip" data-placement="top"
+                           title="第 5 章 从关键词研究到 Topic Map">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E4%B8%8D%E6%98%AF%E4%B8%80%E8%AF%8D%E4%B8%80%E9%A1%B5%EF%BC%8C%E8%80%8C%E6%98%AF%E4%B8%80%E8%AF%8D%E7%B0%87%E4%B8%80%E9%A1%B5"><span class="toc-text">一、不是一词一页，而是一词簇一页</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%85%88%E7%A1%AE%E5%AE%9A-Page-Owner"><span class="toc-text">二、先确定 Page Owner</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%80%8E%E4%B9%88%E5%88%A4%E6%96%AD%E6%98%AF%E4%B8%8D%E6%98%AF%E5%90%8C%E4%B8%80%E4%B8%AA-Keyword-Cluster"><span class="toc-text">三、怎么判断是不是同一个 Keyword Cluster</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%90%9C%E7%B4%A2%E9%9C%80%E6%B1%82%E6%98%AF%E5%90%A6%E7%9B%B8%E5%90%8C"><span class="toc-text">1. 搜索需求是否相同</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%90%9C%E7%B4%A2%E6%84%8F%E5%9B%BE%E6%98%AF%E5%90%A6%E7%9B%B8%E5%90%8C"><span class="toc-text">2. 搜索意图是否相同</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-SERP-%E7%BB%93%E6%9E%9C%E6%98%AF%E5%90%A6%E5%A4%A7%E9%87%8F%E9%87%8D%E5%90%88"><span class="toc-text">3. SERP 结果是否大量重合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E6%A1%88%E4%BE%8B%EF%BC%9AAI-PPT-Generator-%E5%92%8C-AI-Slide-Generator"><span class="toc-text">一个有意思的案例：AI PPT Generator 和 AI Slide Generator</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BB%8E%E5%A4%A7%E8%AF%8D%E7%BB%A7%E7%BB%AD%E6%89%A9%E5%B1%95%E5%AD%90%E9%A1%B5%E9%9D%A2"><span class="toc-text">四、什么时候从大词继续扩展子页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%BB%BA%E7%AB%8B-Page-Owner-%E8%A1%A8"><span class="toc-text">五、建立 Page Owner 表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E6%96%B0%E7%AB%99%E5%92%8C%E8%80%81%E7%AB%99%E6%80%8E%E4%B9%88%E5%81%9A"><span class="toc-text">六、新站和老站怎么做</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%96%B0%E7%AB%99%E5%85%88%E8%A7%84%E5%88%92%EF%BC%8C%E5%86%8D%E5%BC%80%E5%8F%91"><span class="toc-text">1. 新站先规划，再开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%80%81%E7%AB%99%E5%85%88%E7%9B%98%E7%82%B9%EF%BC%8C%E5%86%8D%E8%A1%A5%E7%BC%BA%E5%8F%A3"><span class="toc-text">2. 老站先盘点，再补缺口</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81Keyword-to-Page-%E7%9A%84%E6%89%A7%E8%A1%8C%E6%AD%A5%E9%AA%A4"><span class="toc-text">七、Keyword-to-Page 的执行步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E6%9C%AC%E7%AB%A0%E6%89%A7%E8%A1%8C%E6%B8%85%E5%8D%95"><span class="toc-text">八、本章执行清单</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E5%B0%8F%E7%BB%93"><span class="toc-text">九、小结</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/CoderJeffLee">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/jeffpage0709">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 写增长的子木 2026
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://bysocket.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="https://bysocket.com/images/avatar.jpeg">
+</body>
+
+</html>

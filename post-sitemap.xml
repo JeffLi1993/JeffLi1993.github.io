@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://bysocket.com/saas-seo-playbook/06-keyword-to-page/</loc>
+        <lastmod>2026-10-17T04:11:20.389Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://bysocket.com/saas-seo-playbook/05-keyword-research-to-topic-map/</loc>
         <lastmod>2026-10-16T06:12:56.890Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -289,7 +297,7 @@
     </url>
 
     <url>
-        <loc>https://bysocket.com/ai-seo-for-indie-hacker/</loc>
+        <loc>https://bysocket.com/ai-seo-keywrods-research/</loc>
         <lastmod>2026-05-26T05:03:38.452Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -297,7 +305,7 @@
     </url>
 
     <url>
-        <loc>https://bysocket.com/ai-seo-keywrods-research/</loc>
+        <loc>https://bysocket.com/ai-seo-for-indie-hacker/</loc>
         <lastmod>2026-05-26T05:03:38.452Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
