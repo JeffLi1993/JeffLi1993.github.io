@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="写增长的子木，聚焦 SaaS 出海创业，分享 SEO、红人营销、Ads、EDM 等前沿增长策略，深入解析各类实操案例，帮助创业者实现产品推广和市场扩展。通过丰富的行业经验和详实的内容，为 SaaS 团队提供具实效性的增长见解，助力海外业务快速发展。">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="写增长的子木" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        第 7 章 URL Structure：把网站规划成一本书｜写增长的子木
+        
+    </title>
+
+    <link rel="canonical" href="https://bysocket.com//saas-seo-playbook/07-url-structure/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('https://bysocket.com/images/header-img.webp')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    写增长的子木
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="https://nanoskill.ai/" target="_blank">Agent Skills</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/saas-seo-playbook/">SEO 小册子</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="nullhttps://bysocket.com/images/hello-world/header-img.webp">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('https://bysocket.com/images/hello-world/header-img.webp?imageView2/1/w/1400/h/400/interlace/1/q/90')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>第 7 章 URL Structure：把网站规划成一本书</h1>
+                    
+                    <span class="meta">
+                         作者 子木
+                        <span>
+                          日期 2026-09-23
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#SEO"
+                           title="SEO">SEO</a>
+                        
+                        <a class="tag" href="/tags/#AI工具站"
+                           title="AI工具站">AI工具站</a>
+                        
+                        <a class="tag" href="/tags/#SaaS"
+                           title="SaaS">SaaS</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            第 7 章 URL Structure：把网站规划成一本书
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <blockquote>
+<p>📖 本文是《AI 工具站 SEO 小册子：图解入门》的一部分，完整目录与源文件见 GitHub：<a href="https://github.com/JeffLi1993/saas-seo-playbook">JeffLi1993&#x2F;saas-seo-playbook</a></p>
+</blockquote>
+<p>前面三章，我们已经做了三件事：</p>
+<ul>
+<li>用 Topic Map 确定网站长期要覆盖什么</li>
+<li>用 Keyword Cluster 整理具体的搜索需求</li>
+<li>用 Keyword-to-Page 确定每组需求由哪个页面承接</li>
+</ul>
+<p>下一步，就是把这些页面放进网站。</p>
+<p>哪些页面放在 <code>/tools</code>，哪些放在 <code>/features</code>，哪些进入 <code>/blog</code>？</p>
+<p>目录应该分几层？URL Slug 怎么写？多语言页面又应该放在哪里？</p>
+<p>这些问题合在一起，就是 URL Structure。</p>
+<p>我还是喜欢用一本书来理解：</p>
+<ul>
+<li>Entity 是这本书主要讲什么</li>
+<li>Topic Map 是全书大纲</li>
+<li>URL Structure 是按照大纲划分全书的部分和目录</li>
+<li>Keyword-to-Page 负责把每个关键词簇落实到具体页面，也就是目录下面的一篇具体章节</li>
+</ul>
+<p><strong>URL Structure 不是给页面随便起个地址，而是把网站内容规划成一套可以长期扩展的结构。</strong></p>
+<p><img src="/images/saas-seo-playbook/07-01-entity-to-url-structure.png" alt="图 7-1：用一本书理解网站结构"></p>
+<h2 id="一、URL-Structure-不只是-URL-Slug"><a href="#一、URL-Structure-不只是-URL-Slug" class="headerlink" title="一、URL Structure 不只是 URL Slug"></a>一、URL Structure 不只是 URL Slug</h2><p>很多人说 URL Structure，想到的只是 <code>/ai-video-generator</code> 应该怎么写。</p>
+<p>但一个完整的网站结构，至少包含三层：</p>
+<ol>
+<li>网站有哪些主要目录</li>
+<li>每个目录负责放什么页面</li>
+<li>每个页面的 URL Slug 怎么命名</li>
+</ol>
+<p>比如下面两个地址：</p>
+<ul>
+<li><code>/tools/ai-video-generator</code></li>
+<li><code>/blog/best-ai-video-generators</code></li>
+</ul>
+<p>它们不只是 Slug 不同。</p>
+<p><code>/tools</code> 代表可以直接使用的在线工具，<code>/blog</code> 代表教程、榜单、对比和其他文章内容。</p>
+<p>目录先告诉用户和团队这是什么页面，再由具体 Slug 说明这一页讲什么。</p>
+<p>如果一开始没有规划，网站很容易出现这些情况：</p>
+<ul>
+<li>所有页面都堆在根目录</li>
+<li>同一种页面被分散在多个目录</li>
+<li>Feature、Tool 和 Blog 的边界不清楚</li>
+<li>一个目录只有一页，另一个目录塞了几百页</li>
+<li>URL 上线后反复修改</li>
+</ul>
+<p>所以 URL Structure 的第一步不是起名字，而是先确定每个目录负责什么。</p>
+<h2 id="二、先按页面类型划分目录"><a href="#二、先按页面类型划分目录" class="headerlink" title="二、先按页面类型划分目录"></a>二、先按页面类型划分目录</h2><p>目录不是越多越专业。</p>
+<p>更实用的做法，是先看已经确认的 Page Owner 分别属于什么页面类型，再把相同类型的页面放到一起。</p>
+<p>AI 工具站和 SaaS 官网常见的目录有：</p>
+<table>
+<thead>
+<tr>
+<th>目录</th>
+<th>主要用途</th>
+<th>常见页面</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/features/</code></td>
+<td>展示产品已经具备的核心能力</td>
+<td>Product URL to Video、AI Ads Generator</td>
+</tr>
+<tr>
+<td><code>/tools/</code></td>
+<td>让用户直接完成一个具体任务</td>
+<td>Script Generator、Hook Generator</td>
+</tr>
+<tr>
+<td><code>/solutions/</code></td>
+<td>面向特定客群、行业或场景提供方案</td>
+<td>Ecommerce Video Ads、Video Ads for Small Business</td>
+</tr>
+<tr>
+<td><code>/templates/</code></td>
+<td>提供可以复用的模板与素材</td>
+<td>Product Video Templates、Social Ad Templates</td>
+</tr>
+<tr>
+<td><code>/blog/</code></td>
+<td>承载教程、榜单、对比和 Alternatives</td>
+<td>How-to、Best List、A vs B、A Alternatives</td>
+</tr>
+<tr>
+<td><code>/docs/</code></td>
+<td>产品使用和开发文档</td>
+<td>API Reference、Quick Start</td>
+</tr>
+<tr>
+<td><code>/integrations/</code></td>
+<td>展示产品与其他平台的连接能力</td>
+<td>Shopify、Zapier、WordPress</td>
+</tr>
+</tbody></table>
+<p>这不是所有网站必须照抄的标准答案。</p>
+<p>比如一个产品没有在线小工具，就不需要为了 SEO 硬建 <code>/tools</code>。没有稳定的模板内容，也不用先放一个空的 <code>/templates</code>。</p>
+<p><code>/compare</code> 和 <code>/alternatives</code> 也不一定要独立成目录。如果只是偶尔写几篇对比和替代文章，放在 <code>/blog</code> 就够了，也可以把 Comparison 和 Alternatives 作为 Blog 里的文章分类。只有当这类页面数量很多、模板稳定，而且确实是重要的商业流量方向时，再考虑单独建频道。</p>
+<p><strong>先有稳定的内容需求，再建立目录，不要先建目录等内容来填。</strong></p>
+<h3 id="子目录还是子域名"><a href="#子目录还是子域名" class="headerlink" title="子目录还是子域名"></a>子目录还是子域名</h3><p>如果这些内容仍然属于同一个产品和 Entity，我一般优先放在子目录里，比如：</p>
+<ul>
+<li><code>example.com/blog/</code></li>
+<li><code>example.com/tools/</code></li>
+</ul>
+<p>子域名更适合边界确实独立的产品、系统或团队，比如单独部署的开发者平台。</p>
+<p>不是说子域名一定做不了 SEO，而是对大部分新站来说，子目录的结构、数据和日常维护更简单。</p>
+<p>不要为了显得业务很多，把 Blog、Tools 和 Docs 全部拆成不同子域名。</p>
+<h2 id="三、一个-AI-Marketing-Video-网站怎么规划"><a href="#三、一个-AI-Marketing-Video-网站怎么规划" class="headerlink" title="三、一个 AI Marketing Video 网站怎么规划"></a>三、一个 AI Marketing Video 网站怎么规划</h2><p>继续用前两章的 AI Marketing Video 产品举例。</p>
+<p>根据已经确认的 Page Owner，第一版网站结构可以是：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">/</span><br><span class="line">├── features/</span><br><span class="line">│   ├── product-url-to-video</span><br><span class="line">│   └── ai-ads-video-generator</span><br><span class="line">├── solutions/</span><br><span class="line">│   ├── ecommerce-video-ads</span><br><span class="line">│   └── small-business-marketing-video</span><br><span class="line">├── tools/</span><br><span class="line">│   ├── video-script-generator</span><br><span class="line">│   └── video-hook-generator</span><br><span class="line">├── templates/</span><br><span class="line">│   ├── product-video-templates</span><br><span class="line">│   └── social-media-ad-templates</span><br><span class="line">├── blog/</span><br><span class="line">│   ├── how-to-make-a-product-video-with-ai</span><br><span class="line">│   ├── best-ai-product-video-generators</span><br><span class="line">│   └── heygen-alternatives</span><br><span class="line">├── docs/</span><br><span class="line">└── pricing</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/saas-seo-playbook/07-02-ai-marketing-video-site-tree.png" alt="图 7-2：AI Marketing Video 网站目录树"></p>
+<p>这棵目录树不是根据行业习惯拍脑袋画出来的。</p>
+<p>每一个目录，都应该能在前面的 Topic Map 和 Page Owner 表里找到依据。</p>
+<p>目录看起来多，不用怕，也不代表第一版网站就要一次全部做完。</p>
+<p>可以先把长期结构规划清楚，再按照优先级分阶段执行。第一阶段先完成首页、核心 Feature、核心 Solution、Pricing 等 SEO 必做型页面，同时选择少量优先级高的 Tool 或 Blog，作为 SEO 增长型页面验证流量。</p>
+<p>后面再用两条线同步推进：一条继续补齐产品必备页面，另一条根据关键词机会持续增加 SEO 增长型页面。</p>
+<p><strong>目录可以先规划完整，页面按优先级逐步上线。</strong></p>
+<p><img src="/images/saas-seo-playbook/07-03-url-structure-rollout.png" alt="图 7-3：URL Structure 分阶段执行"></p>
+<p>首页承接核心产品定位。Feature 页面讲产品能力，Solution 页面讲谁在什么场景下使用，Tool 页面让用户直接完成任务，Blog 负责教程和决策类内容。</p>
+<p>它们各有分工，但最后都围绕同一个 Entity 服务。</p>
+<h2 id="四、Hub、Cluster、Leaf-三层结构"><a href="#四、Hub、Cluster、Leaf-三层结构" class="headerlink" title="四、Hub、Cluster、Leaf 三层结构"></a>四、Hub、Cluster、Leaf 三层结构</h2><p>当一个目录里的页面越来越多，就需要继续分层。</p>
+<p>可以用 Hub、Cluster、Leaf 来理解：</p>
+<ul>
+<li>Hub：频道入口，负责汇总一个大方向</li>
+<li>Cluster：频道里的主题集合</li>
+<li>Leaf：真正承接具体需求的页面</li>
+</ul>
+<p>比如一个工具频道：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">/tools/                         Hub</span><br><span class="line">/tools/video-tools/             Cluster</span><br><span class="line">/tools/product-video-generator  Leaf</span><br><span class="line">/tools/video-script-generator   Leaf</span><br></pre></td></tr></table></figure>
+
+<p>但不要机械地套三层。</p>
+<p>如果网站现在只有 3 个工具页，直接放在 <code>/tools/</code> 下面更简单。等工具数量变多，确实出现视频工具、图片工具、音频工具等稳定分类以后，再增加 Cluster 页面。这里就是可以先不做 &#x2F;tools&#x2F;video-tools&#x2F; 这个 Cluster 页面。</p>
+<p>一个分类只有一页，通常没有必要单独建一层目录。</p>
+<p>还要注意，URL 层级和网站内链层级不是一回事。</p>
+<p>页面的 URL 可以比较短，但仍然要通过导航、频道页、面包屑和内链告诉 Google 页面之间是什么关系。</p>
+<p>不要为了追求扁平结构，把所有页面都扔到根目录。也不要为了结构看起来完整，给 URL 套很多没有意义的层级。</p>
+<p><strong>层级够表达关系就行，不需要为了 SEO 故意做深或做浅。</strong></p>
+<p>这里真正值得关注的是点击深度。</p>
+<p>核心页面应该能从首页、主导航或重要频道页比较容易地进入。Leaf 页面至少要从对应的 Hub 或 Cluster 获得正常链接，不能只出现在 sitemap 里。</p>
+<p>URL 看起来只有一层，但全站没有任何页面链接过去，它仍然是一张孤立页面。</p>
+<p><img src="/images/saas-seo-playbook/07-04-hub-cluster-leaf.png" alt="图 7-4：Hub、Cluster、Leaf 与站内入口"></p>
+<h2 id="五、什么内容值得单独建一个目录"><a href="#五、什么内容值得单独建一个目录" class="headerlink" title="五、什么内容值得单独建一个目录"></a>五、什么内容值得单独建一个目录</h2><p>Topic Map 里有一个主题，不代表它就应该成为一级目录。</p>
+<p>我认为至少要看四件事：</p>
+<ol>
+<li>是否符合网站的 Entity 和产品方向</li>
+<li>是否代表一个相对独立、长期存在的需求</li>
+<li>是否能支撑多个页面，而不是只有一篇内容</li>
+<li>这些页面是否可以使用相对一致的页面模板</li>
+</ol>
+<p>比如一个 AI Marketing Video 产品，长期会提供几十个在线工具，那么 <code>/tools</code> 很有必要。</p>
+<p>如果产品只有一个 API 页面，就没有必要单独规划一套复杂的 <code>/api</code> 目录。保留一个清楚的 API 页面，或者放进 <code>/docs</code>，可能更合适。</p>
+<p>目录也有优先级。</p>
+<p>原稿里提到一个很实用的判断：AI 工具站的 <code>/tools</code> 往往比 <code>/blog</code> 更接近使用和转化，因此规划和开发优先级可能更高。</p>
+<p>但这不是说所有网站都应该先做 Tools。</p>
+<p>还是要看产品能交付什么，以及前面已经确认的 SEO 必做型页面和 SEO 增长型页面。</p>
+<p>我自己的执行习惯是：</p>
+<ul>
+<li>月维度竞品 Research 分析，顺便规划和 Review 网站结构，判断下一阶段重点建设哪个频道</li>
+<li>周维度在已经确认的频道里做关键词研究和页面优先级</li>
+</ul>
+<p>不要每发现一个新词，就临时增加一个目录。目录是相对稳定的，目录下的页面才会持续增加。</p>
+<p><img src="/images/saas-seo-playbook/07-05-directory-decision.png" alt="图 7-5：判断一个主题是否值得单独建目录"></p>
+<h3 id="用竞品的-Site-Structure-校对"><a href="#用竞品的-Site-Structure-校对" class="headerlink" title="用竞品的 Site Structure 校对"></a>用竞品的 Site Structure 校对</h3><p>目录初步规划好以后，可以再看一遍 SEO 竞品的网站结构。</p>
+<p>在 Ahrefs Site Explorer 的 Site Structure 里展开对方目录，重点看：</p>
+<ul>
+<li>哪些目录贡献了主要自然流量</li>
+<li>每个目录有多少 Organic Pages</li>
+<li>哪些目录获得了更多 Referring Domains</li>
+<li><code>/tools</code>、<code>/features</code>、<code>/blog</code> 等频道的流量效率有什么差别</li>
+<li>最近增长最快的是哪个目录</li>
+</ul>
+<p>比如一个竞品的 <code>/tools</code> 页面不多，却贡献了很高的非品牌流量和外链，这个频道就值得继续拆解。</p>
+<p>但竞品结构只能用来校对，不能直接照抄。</p>
+<p>最后还是要回到自己的 Entity、产品能力和 Topic Map，判断这个目录适不适合自己。</p>
+<p><img src="/images/saas-seo-playbook/07-06-competitor-site-structure.png" alt="图 7-6：用竞品 Site Structure 校对目录机会"></p>
+<h2 id="六、URL-Slug-怎么写"><a href="#六、URL-Slug-怎么写" class="headerlink" title="六、URL Slug 怎么写"></a>六、URL Slug 怎么写</h2><p>目录确定以后，再给具体页面命名。</p>
+<p>我的建议很简单：<strong>短、清楚、稳定。</strong></p>
+<p>具体可以遵守下面几条：</p>
+<ul>
+<li>使用小写英文</li>
+<li>单词之间用连字符 <code>-</code></li>
+<li>尽量使用能看懂的单词，不要使用随机 ID</li>
+<li>删除逗号、冒号和括号等不必要的特殊字符</li>
+<li>自然包含页面的 Top Keyword，不要堆关键词</li>
+<li>不要把完整文章标题直接塞进 URL</li>
+<li>常青内容尽量不要带年份、数量和容易变化的版本号</li>
+<li>避免目录和 Slug 重复出现同一个关键词</li>
+<li>URL 上线后尽量不要修改</li>
+</ul>
+<p>几个例子：</p>
+<table>
+<thead>
+<tr>
+<th>推荐</th>
+<th>不推荐</th>
+<th>问题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/tools/ai-video-generator</code></td>
+<td><code>/tools/free-best-ai-video-generator-online</code></td>
+<td>堆了太多修饰词</td>
+</tr>
+<tr>
+<td><code>/blog/technical-seo-checklist</code></td>
+<td><code>/blog/how-to-do-a-complete-technical-seo-checklist-in-2026</code></td>
+<td>太长，而且年份会过期</td>
+</tr>
+<tr>
+<td><code>/integrations/shopify</code></td>
+<td><code>/integration?id=382</code></td>
+<td>用户和搜索引擎都看不懂</td>
+</tr>
+<tr>
+<td><code>/templates/product-video</code></td>
+<td><code>/Templates/Product_Video</code></td>
+<td>大小写和分隔方式不统一</td>
+</tr>
+<tr>
+<td><code>/tools/video-generator</code></td>
+<td><code>/tools/video-tools/ai-video-generator-tool</code></td>
+<td>目录和 Slug 重复堆词</td>
+</tr>
+</tbody></table>
+<p>这里还有一个容易踩的坑。</p>
+<p>Slug 不需要为了匹配关键词，把所有变体都写进去。一个页面只有一个主要 Slug，其他相关词由页面内容自然覆盖。</p>
+<p><img src="/images/saas-seo-playbook/07-07-good-vs-bad-url-slugs.png" alt="图 7-7：推荐与不推荐的 URL Slug"></p>
+<h2 id="七、URL-一旦上线，不要为了好看随便改"><a href="#七、URL-一旦上线，不要为了好看随便改" class="headerlink" title="七、URL 一旦上线，不要为了好看随便改"></a>七、URL 一旦上线，不要为了好看随便改</h2><p>新站可以从头规划，老站不能看到结构不顺眼就全部重做。</p>
+<p>一个已经获得收录、排名、外链和流量的 URL，本身就是资产。</p>
+<p>如果只是觉得旧 URL 不够漂亮，但页面表现正常，通常没有必要改。</p>
+<p>确实需要修改时，比如目录迁移、页面合并或产品改名，至少要同步处理：</p>
+<ul>
+<li>旧 URL 通过 301 跳转到最相关的新 URL</li>
+<li>更新站内链接，不要一直经过重定向</li>
+<li>更新 sitemap 中的 URL</li>
+<li>检查 canonical 是否指向新地址</li>
+<li>避免多次迁移形成重定向链</li>
+<li>上线后观察抓取、收录、排名和流量变化</li>
+</ul>
+<p><img src="/images/saas-seo-playbook/07-08-url-migration.png" alt="图 7-8：URL 迁移与同步更新"></p>
+<p>具体的 301、canonical 和 sitemap 配置，后面的 Technical SEO 章节会继续讲。</p>
+<p>这一章先记住一个原则：<strong>能在上线前规划好的 URL，不要留到上线后反复修改。</strong></p>
+<h2 id="八、多语言-URL-怎么选"><a href="#八、多语言-URL-怎么选" class="headerlink" title="八、多语言 URL 怎么选"></a>八、多语言 URL 怎么选</h2><p>多语言网站常见两种目录方式。</p>
+<p>第一种，默认语言放在根路径：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">/tools/ai-video-generator</span><br><span class="line">/ja/tools/ai-video-generator</span><br><span class="line">/ko/tools/ai-video-generator</span><br></pre></td></tr></table></figure>
+
+<p>第二种，所有语言都带前缀：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">/en/tools/ai-video-generator</span><br><span class="line">/ja/tools/ai-video-generator</span><br><span class="line">/ko/tools/ai-video-generator</span><br></pre></td></tr></table></figure>
+
+<p>两种都可以，重点是从一开始选定并保持一致。</p>
+<p>我自己更常用第一种。默认英文放在根路径，其他语言使用 <code>/ja/</code>、<code>/ko/</code> 等独立目录，结构清楚，维护也相对简单。</p>
+<p>最需要避免的是：</p>
+<ul>
+<li><code>/</code> 和 <code>/en/</code> 同时提供完全相同的英文内容</li>
+<li>只靠前端按钮切换语言，但 URL 不变</li>
+<li>有些语言放子目录，有些语言用参数</li>
+<li>同一种语言的路径规则到处变化</li>
+</ul>
+<p>每种语言都应该有独立、可以访问和索引的 URL。</p>
+<p>至于 Slug 是否也要翻译，可以根据团队能力选择。</p>
+<p>小团队为了维护一致，可以保留英文 Slug，只使用语言目录区分。真正准备长期经营某个语言市场时，也可以使用当地用户更容易理解的 Slug。</p>
+<p>但不要一部分翻译、一部分不翻译，又没有任何规则。</p>
+<p><code>hreflang</code>、canonical 和多语言 sitemap 的具体配置，会在国际化 SEO 章节展开。</p>
+<p><img src="/images/saas-seo-playbook/07-09-multilingual-url-options.png" alt="图 7-9：多语言 URL 的两种方案"></p>
+<h2 id="九、最后沉淀成一张-URL-Structure-表"><a href="#九、最后沉淀成一张-URL-Structure-表" class="headerlink" title="九、最后沉淀成一张 URL Structure 表"></a>九、最后沉淀成一张 URL Structure 表</h2><p>URL Structure 不应该只存在于脑子里，也不只是画一棵好看的树。</p>
+<p>最后可以整理成一张表，交给产品、设计、开发和内容团队一起使用。</p>
+<table>
+<thead>
+<tr>
+<th>Directory &#x2F; Path</th>
+<th>目录用途</th>
+<th>Page Type</th>
+<th>Topic &#x2F; Keyword Cluster</th>
+<th>Slug 示例</th>
+<th>页面规模</th>
+<th>优先级</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/</code></td>
+<td>承接核心产品定位</td>
+<td>Homepage</td>
+<td>AI Marketing Video</td>
+<td><code>/</code></td>
+<td>1</td>
+<td>必做</td>
+</tr>
+<tr>
+<td><code>/features/</code></td>
+<td>展示核心产品能力</td>
+<td>Feature</td>
+<td>Product URL to Video</td>
+<td><code>/features/product-url-to-video</code></td>
+<td>按核心能力规划</td>
+<td>必做</td>
+</tr>
+<tr>
+<td><code>/solutions/</code></td>
+<td>承接行业和场景需求</td>
+<td>Solution</td>
+<td>Ecommerce Video Ads</td>
+<td><code>/solutions/ecommerce-video-ads</code></td>
+<td>按核心客群和场景规划</td>
+<td>必做</td>
+</tr>
+<tr>
+<td><code>/tools/</code></td>
+<td>提供可直接使用的工具</td>
+<td>Tool</td>
+<td>Video Script Generator</td>
+<td><code>/tools/video-script-generator</code></td>
+<td>按已验证的工具需求规划</td>
+<td>增长</td>
+</tr>
+<tr>
+<td><code>/templates/</code></td>
+<td>提供可复用模板</td>
+<td>Template</td>
+<td>Product Video Templates</td>
+<td><code>/templates/product-video</code></td>
+<td>按模板类型规划</td>
+<td>增长</td>
+</tr>
+<tr>
+<td><code>/blog/</code></td>
+<td>承载教程和决策内容</td>
+<td>Blog</td>
+<td>How-to、Best、Alternatives</td>
+<td><code>/blog/heygen-alternatives</code></td>
+<td>按关键词机会持续增加</td>
+<td>持续</td>
+</tr>
+</tbody></table>
+<p>页面规模只是规划值，不是为了凑数量。</p>
+<p>真正做关键词研究和页面规划以后，可以继续调整。</p>
+<p>这张表主要解决三件事：</p>
+<ul>
+<li>网站第一版要有哪些目录</li>
+<li>每个目录分别负责什么</li>
+<li>后续新增页面应该放到哪里</li>
+</ul>
+<h2 id="十、URL-Structure-的执行步骤"><a href="#十、URL-Structure-的执行步骤" class="headerlink" title="十、URL Structure 的执行步骤"></a>十、URL Structure 的执行步骤</h2><p>实际执行时，可以按照下面的顺序：</p>
+<ol>
+<li>确认网站的 Entity 和 Topic Map</li>
+<li>整理已经确定的 Keyword Cluster 和 Page Owner</li>
+<li>按 Feature、Tool、Solution、Blog 等页面类型分组</li>
+<li>判断哪些页面组值得建立独立目录</li>
+<li>用竞品 Site Structure 校对频道机会和优先级</li>
+<li>规划 Hub、Cluster 和 Leaf 的层级与入口</li>
+<li>为每种页面确定统一的 Slug 规则</li>
+<li>确认多语言 URL 方案</li>
+<li>老站补充旧 URL 到新 URL 的迁移关系</li>
+<li>输出 URL Structure 表，交给产品、设计和开发 Review</li>
+</ol>
+<p>URL Structure 确认以后，网站大纲才算真正落地。</p>
+<p>后面开发新页面时，不需要每次重新讨论它属于哪个频道、URL 应该怎么起。</p>
+<h2 id="十一、本章执行清单"><a href="#十一、本章执行清单" class="headerlink" title="十一、本章执行清单"></a>十一、本章执行清单</h2><ul>
+<li><input disabled="" type="checkbox"> 每个目录是否有明确用途？</li>
+<li><input disabled="" type="checkbox"> 每个目录是否能支撑多个同类型页面？</li>
+<li><input disabled="" type="checkbox"> Homepage、Feature 和 Solution 等 SEO 必做型页面是否已经放好？</li>
+<li><input disabled="" type="checkbox"> Tool、Template 和 Blog 等增长型页面是否按优先级规划？</li>
+<li><input disabled="" type="checkbox"> <code>/compare</code>、<code>/alternatives</code> 等目录是否真的有足够页面支撑？</li>
+<li><input disabled="" type="checkbox"> Hub、Cluster 和 Leaf 是否清楚，但没有机械增加层级？</li>
+<li><input disabled="" type="checkbox"> 核心页面是否有清楚入口，没有只出现在 sitemap 里？</li>
+<li><input disabled="" type="checkbox"> 是否用竞品的目录流量、页面量和外链做过校对？</li>
+<li><input disabled="" type="checkbox"> URL 是否使用小写英文和连字符？</li>
+<li><input disabled="" type="checkbox"> Slug 是否短、清楚、稳定，没有特殊字符和关键词堆砌？</li>
+<li><input disabled="" type="checkbox"> 多语言 URL 是否使用统一规则？</li>
+<li><input disabled="" type="checkbox"> 老站是否避免为了美化 URL 进行无必要迁移？</li>
+<li><input disabled="" type="checkbox"> URL Structure 是否已经交给产品、设计、开发和内容团队 Review？</li>
+</ul>
+<h2 id="十二、小结"><a href="#十二、小结" class="headerlink" title="十二、小结"></a>十二、小结</h2><p>URL Structure 不是给页面起名字。</p>
+<p>它是把 Topic Map 和 Page Owner 真正放进网站，让每种页面都有清楚的位置和长期扩展空间。</p>
+<p>如果压缩成一句话：</p>
+<p><strong>Topic Map 决定网站写什么，Keyword-to-Page 决定谁来承接，URL Structure 决定这些页面放在哪里。</strong></p>
+<p>先把整本书的目录规划好，再开始持续增加章节。</p>
+<blockquote>
+<p>本章节完毕，谢谢大家，欢迎随时讨论。</p>
+</blockquote>
+
+                <!-- WeChat Ad -->
+                <div class="wechat-ad">
+                    <div class="wechat-ad-inner">
+                        <div class="wechat-ad-text">
+                            <strong>👋 加我微信，交流 AI 出海 & SEO</strong>
+                            <p style="margin:4px 0 0;font-size:13px;color:#666;">微信号：qqcode168</p>
+                        </div>
+                        <img class="wechat-ad-qrcode" src="https://bysocket.com/images/wechat.jpg" alt="微信扫码添加">
+                    </div>
+                </div>
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="//chatgpt-fanout-queries/" data-toggle="tooltip" data-placement="top"
+                           title="GEO 开源 Skill：ChatGPT 的 Fan-out Queries 报告">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="//saas-seo-playbook/06-keyword-to-page/" data-toggle="tooltip" data-placement="top"
+                           title="第 6 章 Keyword-to-Page：每个意图由谁承接">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81URL-Structure-%E4%B8%8D%E5%8F%AA%E6%98%AF-URL-Slug"><span class="toc-text">一、URL Structure 不只是 URL Slug</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%85%88%E6%8C%89%E9%A1%B5%E9%9D%A2%E7%B1%BB%E5%9E%8B%E5%88%92%E5%88%86%E7%9B%AE%E5%BD%95"><span class="toc-text">二、先按页面类型划分目录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%90%E7%9B%AE%E5%BD%95%E8%BF%98%E6%98%AF%E5%AD%90%E5%9F%9F%E5%90%8D"><span class="toc-text">子目录还是子域名</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E4%B8%80%E4%B8%AA-AI-Marketing-Video-%E7%BD%91%E7%AB%99%E6%80%8E%E4%B9%88%E8%A7%84%E5%88%92"><span class="toc-text">三、一个 AI Marketing Video 网站怎么规划</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81Hub%E3%80%81Cluster%E3%80%81Leaf-%E4%B8%89%E5%B1%82%E7%BB%93%E6%9E%84"><span class="toc-text">四、Hub、Cluster、Leaf 三层结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E4%BB%80%E4%B9%88%E5%86%85%E5%AE%B9%E5%80%BC%E5%BE%97%E5%8D%95%E7%8B%AC%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%9B%AE%E5%BD%95"><span class="toc-text">五、什么内容值得单独建一个目录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E7%AB%9E%E5%93%81%E7%9A%84-Site-Structure-%E6%A0%A1%E5%AF%B9"><span class="toc-text">用竞品的 Site Structure 校对</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81URL-Slug-%E6%80%8E%E4%B9%88%E5%86%99"><span class="toc-text">六、URL Slug 怎么写</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81URL-%E4%B8%80%E6%97%A6%E4%B8%8A%E7%BA%BF%EF%BC%8C%E4%B8%8D%E8%A6%81%E4%B8%BA%E4%BA%86%E5%A5%BD%E7%9C%8B%E9%9A%8F%E4%BE%BF%E6%94%B9"><span class="toc-text">七、URL 一旦上线，不要为了好看随便改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E5%A4%9A%E8%AF%AD%E8%A8%80-URL-%E6%80%8E%E4%B9%88%E9%80%89"><span class="toc-text">八、多语言 URL 怎么选</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E6%9C%80%E5%90%8E%E6%B2%89%E6%B7%80%E6%88%90%E4%B8%80%E5%BC%A0-URL-Structure-%E8%A1%A8"><span class="toc-text">九、最后沉淀成一张 URL Structure 表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E3%80%81URL-Structure-%E7%9A%84%E6%89%A7%E8%A1%8C%E6%AD%A5%E9%AA%A4"><span class="toc-text">十、URL Structure 的执行步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B8%80%E3%80%81%E6%9C%AC%E7%AB%A0%E6%89%A7%E8%A1%8C%E6%B8%85%E5%8D%95"><span class="toc-text">十一、本章执行清单</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81%E5%B0%8F%E7%BB%93"><span class="toc-text">十二、小结</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/CoderJeffLee">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/jeffpage0709">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 写增长的子木 2026
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://bysocket.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="https://bysocket.com/images/avatar.jpeg">
+</body>
+
+</html>
