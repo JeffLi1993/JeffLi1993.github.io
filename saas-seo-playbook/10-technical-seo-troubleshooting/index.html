@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="写增长的子木，聚焦 SaaS 出海创业，分享 SEO、红人营销、Ads、EDM 等前沿增长策略，深入解析各类实操案例，帮助创业者实现产品推广和市场扩展。通过丰富的行业经验和详实的内容，为 SaaS 团队提供具实效性的增长见解，助力海外业务快速发展。">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="写增长的子木" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        第 10 章 Technical SEO：真实踩坑与修复思路｜写增长的子木
+        
+    </title>
+
+    <link rel="canonical" href="https://bysocket.com//saas-seo-playbook/10-technical-seo-troubleshooting/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('https://bysocket.com/images/header-img.webp')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    写增长的子木
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="https://nanoskill.ai/" target="_blank">Agent Skills</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/saas-seo-playbook/">SEO 小册子</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="nullhttps://bysocket.com/images/hello-world/header-img.webp">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('https://bysocket.com/images/hello-world/header-img.webp?imageView2/1/w/1400/h/400/interlace/1/q/90')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>第 10 章 Technical SEO：真实踩坑与修复思路</h1>
+                    
+                    <span class="meta">
+                         作者 子木
+                        <span>
+                          日期 2026-10-29
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#SEO"
+                           title="SEO">SEO</a>
+                        
+                        <a class="tag" href="/tags/#AI工具站"
+                           title="AI工具站">AI工具站</a>
+                        
+                        <a class="tag" href="/tags/#SaaS"
+                           title="SaaS">SaaS</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            第 10 章 Technical SEO：真实踩坑与修复思路
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <blockquote>
+<p>📖 本文是《AI 工具站 SEO 小册子：图解入门》的一部分，完整目录与源文件见 GitHub：<a href="https://github.com/JeffLi1993/saas-seo-playbook">JeffLi1993&#x2F;saas-seo-playbook</a></p>
+</blockquote>
+<blockquote>
+<p>❤️ 这一章节来自我实际检查网站时遇到的 Technical SEO 问题。</p>
+</blockquote>
+<p>第 8 章讲的是新站应该从第一天搭好哪些 SEO 基建。</p>
+<p>这一章换个角度，直接看网站上线后最常见的错误。</p>
+<p>一句话说清 Technical SEO 要解决什么：</p>
+<p><strong>让网站具备被 Google 抓取、理解、收录和正常访问的基础能力。</strong></p>
+<p>它不直接保证排名。</p>
+<p>但页面打不开、URL 重复、状态码错误、sitemap 漏页，内容和外链做得再好也可能无法正常生效。</p>
+<p>Technical SEO 还有一个特点：<strong>错误往往不是一页出错，而是一个模板带着几百个页面一起出错。</strong></p>
+<p>所以发现问题以后，不要急着逐页修改。</p>
+<p>先判断它属于首页、页面模板，还是少数页面的特殊问题。</p>
+<p><img src="/images/saas-seo-playbook/10-01-technical-seo-troubleshooting.png" alt="Technical SEO 从发现异常到分层修复和全站复查的排查路径"></p>
+<h2 id="一、测试环境被-Google-收录"><a href="#一、测试环境被-Google-收录" class="headerlink" title="一、测试环境被 Google 收录"></a>一、测试环境被 Google 收录</h2><p>很多团队会把正式站复制一份，部署在：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">test.example.com</span><br><span class="line">staging.example.com</span><br></pre></td></tr></table></figure>
+
+<p>测试方便了，但如果任何人都能访问，Google 也可能发现它。</p>
+<p>最后正式站和测试站同时出现一套几乎相同的页面。</p>
+<h3 id="怎么发现"><a href="#怎么发现" class="headerlink" title="怎么发现"></a>怎么发现</h3><ul>
+<li>搜索 <code>site:staging.example.com</code></li>
+<li>在 GSC 中检查是否出现测试域名</li>
+<li>查看服务器日志里有没有 Googlebot</li>
+<li>检查测试域名是否能在未登录状态正常访问</li>
+</ul>
+<h3 id="怎么处理"><a href="#怎么处理" class="headerlink" title="怎么处理"></a>怎么处理</h3><p>最稳妥的方式，是给测试环境加登录或访问密码，让未授权用户和爬虫都进不去。</p>
+<p>如果测试环境必须公开访问，可以临时使用 <code>noindex</code>，并确保 Googlebot 能抓到这条规则。</p>
+<p>这里有个很容易踩的坑：</p>
+<p><strong>只在 <code>robots.txt</code> 里写 <code>Disallow</code>，不能保证 URL 不出现在搜索结果里。</strong></p>
+<p>因为 robots 主要控制抓取。Google 如果从其他链接发现这个 URL，仍然可能只收录地址。并且页面被 robots 阻止以后，Google 也读不到页面里的 <code>noindex</code>。</p>
+<p>所以测试环境的优先级是：</p>
+<ol>
+<li>密码或登录保护</li>
+<li>确实需要公开时使用 <code>noindex</code></li>
+<li><code>robots.txt</code> 只作为抓取管理，不把它当成保密或禁止收录工具</li>
+</ol>
+<p>如果测试站已经被收录，先修访问权限或 <code>noindex</code>，再通过 GSC 的移除工具临时隐藏结果。</p>
+<p><img src="/images/saas-seo-playbook/10-02-staging-index-control.png" alt="测试环境使用密码保护、noindex 与 robots.txt 的边界"></p>
+<h2 id="二、产品上了多语言，SEO-却没跟上"><a href="#二、产品上了多语言，SEO-却没跟上" class="headerlink" title="二、产品上了多语言，SEO 却没跟上"></a>二、产品上了多语言，SEO 却没跟上</h2><p>最常见的情况是：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">https://example.com/</span><br><span class="line">https://example.com/en/</span><br></pre></td></tr></table></figure>
+
+<p>两个地址都能打开，内容还是同一份英文。</p>
+<p>这不是多语言，只是同一份内容有两个 URL。</p>
+<p>我的建议是，从一开始就选定一种规则。</p>
+<p>比如默认英文放在根路径：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">https://example.com/</span><br><span class="line">https://example.com/ja/</span><br><span class="line">https://example.com/ko/</span><br></pre></td></tr></table></figure>
+
+<p>那么 <code>/en/</code> 就不要再同时提供同样的英文页面。已经存在时，可以统一 301 到不带 <code>/en/</code> 的版本。</p>
+<p>然后检查三件事：</p>
+<ol>
+<li>每种语言有独立、可索引的 URL</li>
+<li>每个语言页面使用自己的 self-canonical</li>
+<li><code>hreflang</code> 双向对应，并包含当前页面自身</li>
+</ol>
+<p>不要把所有日语、韩语页面都 canonical 到英文页。</p>
+<p>那相当于一边告诉 Google 这是日语页面，一边又说英文页面才是规范版本。</p>
+<p>另外，<code>lang</code> 属性应该正确填写，对浏览器和辅助技术有帮助。但 Google 判断页面语言时，主要看页面可见内容，不是单靠 <code>lang</code> 或 <code>hreflang</code>。</p>
+<p>多语言刚开始做时，可以优先检查：</p>
+<ul>
+<li>首页</li>
+<li>核心 Feature 页面</li>
+<li>核心 Solution 页面</li>
+<li>主要 Tool 页面</li>
+<li>已经获得流量的 Blog</li>
+</ul>
+<p>先把核心页面的语言关系做对，再扩展长尾页面。</p>
+<p><img src="/images/saas-seo-playbook/10-03-multilingual-canonical-hreflang.png" alt="多语言页面的 self-canonical 与 hreflang 正确关系"></p>
+<h2 id="三、同一个页面有多个可访问-URL"><a href="#三、同一个页面有多个可访问-URL" class="headerlink" title="三、同一个页面有多个可访问 URL"></a>三、同一个页面有多个可访问 URL</h2><p>同一份页面可能同时存在：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">http://example.com/page</span><br><span class="line">https://example.com/page</span><br><span class="line">https://www.example.com/page</span><br><span class="line">https://example.com/page/</span><br><span class="line">https://example.com/page?utm_source=test</span><br></pre></td></tr></table></figure>
+
+<p>如果这些地址都返回 <code>200</code>，就会产生多个重复 URL。</p>
+<p>先确定唯一的规范版本，然后让信号保持一致：</p>
+<ul>
+<li>HTTP 301 到 HTTPS</li>
+<li><code>www</code> 与非 <code>www</code> 二选一</li>
+<li>尾斜杠规则保持一致</li>
+<li>无用参数不要生成新的可索引页面</li>
+<li>canonical 指向规范 URL</li>
+<li>站内链接全部使用规范 URL</li>
+<li>sitemap 只提交规范 URL</li>
+</ul>
+<p>canonical 不是修复一切的万能胶。</p>
+<p>能通过 301 统一的 URL，就直接跳转。canonical 更适合页面仍需访问，但内容重复或高度相似的情况。</p>
+<p>可以先用下面的命令看真实响应：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -I https://example.com/page</span><br></pre></td></tr></table></figure>
+
+<p>重点检查状态码、<code>location</code> 和 canonical 最终是否指向同一个地址。</p>
+<p><img src="/images/saas-seo-playbook/10-04-canonical-url-alignment.png" alt="HTTP、www、尾斜杠和参数 URL 汇总到唯一规范 URL"></p>
+<h2 id="四、状态码与重定向用错"><a href="#四、状态码与重定向用错" class="headerlink" title="四、状态码与重定向用错"></a>四、状态码与重定向用错</h2><p>状态码看起来是开发问题，但它会直接影响 Google 怎么处理 URL。</p>
+<p>最常见的几种情况如下：</p>
+<table>
+<thead>
+<tr>
+<th>页面情况</th>
+<th>应该怎么处理</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>页面正常存在</td>
+<td>返回 <code>200</code></td>
+</tr>
+<tr>
+<td>页面永久迁移</td>
+<td>301 或 308 到最相关的新 URL</td>
+</tr>
+<tr>
+<td>页面临时迁移</td>
+<td>302 或 307</td>
+</tr>
+<tr>
+<td>页面永久删除，且没有替代内容</td>
+<td>返回 <code>404</code> 或 <code>410</code></td>
+</tr>
+<tr>
+<td>服务暂时异常</td>
+<td>返回正确的 <code>5xx</code>，修复后恢复 <code>200</code></td>
+</tr>
+</tbody></table>
+<h3 id="1-Soft-404"><a href="#1-Soft-404" class="headerlink" title="1. Soft 404"></a>1. Soft 404</h3><p>页面明明不存在，却返回 <code>200</code>，或者把所有失效 URL 都跳转到首页。</p>
+<p>这就是常见的 Soft 404。</p>
+<p>正确做法是：有明确替代页面才做 301；没有替代页面，就返回真实 <code>404</code> 或 <code>410</code>。</p>
+<h3 id="2-5xx-持续增加"><a href="#2-5xx-持续增加" class="headerlink" title="2. 5xx 持续增加"></a>2. 5xx 持续增加</h3><p>短暂的服务波动不一定是大问题。</p>
+<p>但如果大量 URL 持续返回 <code>500</code>、<code>502</code> 或 <code>503</code>，Google 会降低抓取速度，时间太久，已收录页面也可能受到影响。</p>
+<h3 id="3-重定向链"><a href="#3-重定向链" class="headerlink" title="3. 重定向链"></a>3. 重定向链</h3><p>比如：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">A → B → C → D</span><br></pre></td></tr></table></figure>
+
+<p>既然最终目标是 D，就让 A 直接跳到 D。</p>
+<p>同时更新站内链接，不要让用户和 Google 每次都走一串历史路径。</p>
+<p><img src="/images/saas-seo-playbook/10-05-status-code-decision.png" alt="200、301、302、404、410 与 5xx 状态码处理决策"></p>
+<h2 id="五、GSC-抓取状态突然异常"><a href="#五、GSC-抓取状态突然异常" class="headerlink" title="五、GSC 抓取状态突然异常"></a>五、GSC 抓取状态突然异常</h2><p>在 GSC 的 Crawl Stats 抓取统计里，可以重点看：</p>
+<ul>
+<li>Host availability</li>
+<li>按响应码分组的请求</li>
+<li>平均响应时间</li>
+<li>抓取最多的文件类型和目录</li>
+<li>Googlebot Smartphone 的请求变化</li>
+</ul>
+<p>如果某一天 <code>5xx</code> 或平均响应时间突然出现尖刺，可以回头对齐：</p>
+<ul>
+<li>当天是否发布了新版本</li>
+<li>Cloudflare、AWS 或其他基础服务是否异常</li>
+<li>数据库或生成接口是否超时</li>
+<li>是否上线了大量参数 URL</li>
+<li>是否有模板进入死循环，生成了接近无限的地址</li>
+</ul>
+<p>这里再说一下抓取预算。</p>
+<p>不是所有新站都需要把它当成核心问题。</p>
+<p>如果网站只有几百、几千个页面，而且新页面能在合理时间内被抓取，保持 sitemap 更新并查看 Page Indexing 就够了。</p>
+<p>抓取预算主要是大型或高频更新网站需要重点关注的问题，比如：</p>
+<ul>
+<li>页面达到几十万、上百万</li>
+<li>有一万以上页面，并且每天大量更新</li>
+<li>GSC 中长期出现大量 <code>Discovered - currently not indexed</code></li>
+</ul>
+<p>小站真正应该先解决的是服务器不稳定、重复 URL、错误状态码和页面质量。</p>
+<p>不要一看到 404，就说浪费抓取预算。先看这些错误是否成规模、是否持续发生，以及重要页面是否真的没有被抓取。</p>
+<p><img src="/images/saas-seo-playbook/10-06-crawl-stats-troubleshooting.png" alt="GSC 抓取异常与版本发布、云服务和参数 URL 的排查关系"></p>
+<h2 id="六、sitemap-xml-不完整，或者太脏"><a href="#六、sitemap-xml-不完整，或者太脏" class="headerlink" title="六、sitemap.xml 不完整，或者太脏"></a>六、sitemap.xml 不完整，或者太脏</h2><p>sitemap 是提交给 Google 的规范 URL 清单。</p>
+<p>常见问题不只是漏页，还有把不该提交的 URL 全放进去。</p>
+<p>一份干净的 sitemap，原则上只应该包含：</p>
+<ul>
+<li>返回 <code>200</code> 的页面</li>
+<li>允许索引的页面</li>
+<li>canonical 指向自身或预期规范版本的页面</li>
+<li>真正希望出现在 Google 搜索结果里的页面</li>
+</ul>
+<p>不应该长期包含：</p>
+<ul>
+<li><code>404</code>、<code>5xx</code> 页面</li>
+<li>301 后的旧 URL</li>
+<li><code>noindex</code> 页面</li>
+<li>参数重复页</li>
+<li>canonical 指向其他地址的页面</li>
+<li>测试环境 URL</li>
+</ul>
+<p>多语言网站还要检查是否漏掉某些语言版本。</p>
+<p>页面很多时，不要把所有 URL 挤进一个文件。</p>
+<p>单个 sitemap 不应该超过 50,000 个 URL 或未压缩 50MB。超过以后使用 sitemap index 分片。</p>
+<p>多语言网站，我更建议优先按语言拆分：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">sitemap.xml</span><br><span class="line">├── sitemap-en.xml</span><br><span class="line">├── sitemap-ja.xml</span><br><span class="line">└── sitemap-ko.xml</span><br></pre></td></tr></table></figure>
+
+<p>这样可以在 GSC 里分别看英文、日语和韩语页面的发现、抓取与收录情况。</p>
+<p>如果某一个语言版本的页面很多，再继续按页面类型细分：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">sitemap.xml</span><br><span class="line">├── sitemap-en-pages.xml</span><br><span class="line">├── sitemap-en-tools.xml</span><br><span class="line">├── sitemap-en-blog.xml</span><br><span class="line">├── sitemap-ja-pages.xml</span><br><span class="line">├── sitemap-ja-tools.xml</span><br><span class="line">└── sitemap-ja-blog.xml</span><br></pre></td></tr></table></figure>
+
+<p>不要像 <code>pages / tools / blog / ja / ko</code> 这样把页面类型和语言两个维度混在同一层，后面很难判断一条 URL 到底应该进入哪个 sitemap。</p>
+<p>单语言网站则可以直接按页面类型拆分，比如 Pages、Tools 和 Blog。</p>
+<p><code>lastmod</code> 也不要每次部署都把全站日期改成今天。只有页面主要内容真正更新时，才更新对应时间。</p>
+<p>检查时可以把 CMS 或数据库里的已发布页面数，与 sitemap URL 数量做一次对比，再抽样检查各模板。</p>
+<p><img src="/images/saas-seo-playbook/10-07-sitemap-health.png" alt="干净 sitemap、脏 sitemap 与多语言 sitemap 分片结构"></p>
+<h2 id="七、Schema-写了，但-Google-读不懂"><a href="#七、Schema-写了，但-Google-读不懂" class="headerlink" title="七、Schema 写了，但 Google 读不懂"></a>七、Schema 写了，但 Google 读不懂</h2><p>Schema 常见的问题有三类。</p>
+<h3 id="1-字段错误或缺失"><a href="#1-字段错误或缺失" class="headerlink" title="1. 字段错误或缺失"></a>1. 字段错误或缺失</h3><p>JSON-LD 能解析，不代表已经符合某种搜索展示的要求。</p>
+<p>应该根据页面类型查看 Google 当前支持的结构化数据，并用 Rich Results Test 检查。</p>
+<h3 id="2-Schema-与页面可见内容不一致"><a href="#2-Schema-与页面可见内容不一致" class="headerlink" title="2. Schema 与页面可见内容不一致"></a>2. Schema 与页面可见内容不一致</h3><p>页面里没有评分，却在 Schema 里写了五星评价。</p>
+<p>页面里没有价格，却在结构化数据里随便填一个数字。</p>
+<p>这种写法不是优化，而是在制造风险。</p>
+<h4 id="一个常见案例：自己给产品打五星"><a href="#一个常见案例：自己给产品打五星" class="headerlink" title="一个常见案例：自己给产品打五星"></a>一个常见案例：自己给产品打五星</h4><p>有些产品站没有评价系统，也没有真实用户评分，却直接在 Schema 里写：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">ratingValue: 4.9</span><br><span class="line">ratingCount: 1280</span><br></pre></td></tr></table></figure>
+
+<p>这两个数字在页面上找不到，也没有真实评价可以对应。</p>
+<p>如果产品在 Chrome Web Store、G2 等平台已经有真实评价，可以在页面上展示评分、评价数量和来源，作为用户判断产品的证据。</p>
+<p>但不要把外部平台的聚合分数直接复制成自己网站的 <code>aggregateRating</code>。站内评分 Schema 应该来自真实用户在站内留下的评价，而且评分、评价数量和评价内容也要在页面上看得到。</p>
+<p>如果暂时没有真实评分，就不要设置评分 Schema。真实分数不高，也不要自己填一个更高的分数。</p>
+<h3 id="3-多语言页面共用一份-Schema"><a href="#3-多语言页面共用一份-Schema" class="headerlink" title="3. 多语言页面共用一份 Schema"></a>3. 多语言页面共用一份 Schema</h3><p>日语页面里的名称、描述、URL、货币和语言信息，也应该对应日语版本。</p>
+<p>不要让所有语言页面继续输出英文 URL 和英文文案。</p>
+<p>Schema 最适合在模板层生成：</p>
+<ul>
+<li>Blog 模板生成 <code>Article</code> 与 <code>BreadcrumbList</code></li>
+<li>Tool 模板按真实内容生成合适的软件或工具信息</li>
+<li>Product 页面按真实价格与可见信息生成 <code>Product</code></li>
+</ul>
+<p>模板生成以后，至少抽查首页、Blog、Tool、Feature 和多语言页面各一条。</p>
+<p><img src="/images/saas-seo-playbook/10-08-schema-rating-evidence.png" alt="Schema 虚构评分与真实评价证据的正误对比"></p>
+<h2 id="八、页面只在-sitemap-里，站内没有入口"><a href="#八、页面只在-sitemap-里，站内没有入口" class="headerlink" title="八、页面只在 sitemap 里，站内没有入口"></a>八、页面只在 sitemap 里，站内没有入口</h2><p>页面进入 sitemap，不代表网站结构已经完成。</p>
+<p>如果全站没有任何页面链接到它，它就是 Orphan Page，也就是孤儿页。</p>
+<p>Google 可能通过 sitemap 发现它，但很难理解它在网站里的位置、重要程度和主题关系，用户也基本找不到。</p>
+<p>新页面上线时，至少检查：</p>
+<ul>
+<li>是否进入对应 Hub 或频道页</li>
+<li>是否有面包屑</li>
+<li>是否从相关 Feature、Tool 或 Blog 获得内链</li>
+<li>是否能链接回更核心的页面</li>
+<li>锚文本是否能说明目标页面内容</li>
+</ul>
+<p>一个很实用的检查方式，是分别拿两份 URL：</p>
+<ol>
+<li>sitemap 里的 URL</li>
+<li>从首页开始爬取得到的 URL</li>
+</ol>
+<p>出现在 sitemap、却无法通过站内链接爬到的页面，就是需要优先检查的孤儿页候选。</p>
+<p><img src="/images/saas-seo-playbook/10-09-orphan-page-detection.png" alt="通过 sitemap 与站内抓取结果发现孤儿页并补充入口"></p>
+<h2 id="九、Blog-URL-又长又乱"><a href="#九、Blog-URL-又长又乱" class="headerlink" title="九、Blog URL 又长又乱"></a>九、Blog URL 又长又乱</h2><p>检查老站时，经常会看到 Blog URL 直接使用完整文章标题，最后变成一长串 Slug。</p>
+<p>问题不在 AI，而是 CMS 和页面模板没有统一 URL 生成规则。</p>
+<p>常见问题包括：</p>
+<ul>
+<li>把完整标题直接变成超长 Slug</li>
+<li>大小写、下划线和连字符混用</li>
+<li>同一个标题生成重复 Slug</li>
+<li>修改标题时顺便修改已经上线的 URL</li>
+<li>URL 中出现随机字符或不必要的日期</li>
+</ul>
+<p>URL 的基本规范，第 7 章已经讲过。这里重点说怎么修。</p>
+<p>对于还没有发布的新页面，直接在 CMS 和模板里限制规则：</p>
+<ul>
+<li>CMS 创建页面时自动生成小写、连字符 Slug</li>
+<li>发布前检查 Slug 是否重复</li>
+<li>URL 规则在 Blog、Tools 和其他模板中保持一致</li>
+</ul>
+<p>对于已经收录、获得排名或外链的旧 URL，不要因为看着不漂亮就批量修改。</p>
+<p>页面发布后，修改标题也不要自动修改 URL。确实需要迁移时，记录旧地址并 301 到对应的新地址，同时更新内链、canonical 和 sitemap。</p>
+<p>不要只把 URL 规范写在文档里，然后让每个人凭记忆执行。</p>
+<p>能在 CMS 和代码里限制的，就直接限制。</p>
+<h2 id="十、修-Technical-SEO，不要逐页手改"><a href="#十、修-Technical-SEO，不要逐页手改" class="headerlink" title="十、修 Technical SEO，不要逐页手改"></a>十、修 Technical SEO，不要逐页手改</h2><p>这是这一章最重要的执行思路。</p>
+<p>我会把问题分成三层。</p>
+<h3 id="1-首页单独处理"><a href="#1-首页单独处理" class="headerlink" title="1. 首页单独处理"></a>1. 首页单独处理</h3><p>首页结构最特殊，通常也不会规模化复用。</p>
+<p>单独检查 canonical、语言入口、Schema、导航、性能和主要转化即可。</p>
+<h3 id="2-页面模板统一修复"><a href="#2-页面模板统一修复" class="headerlink" title="2. 页面模板统一修复"></a>2. 页面模板统一修复</h3><p>把其他页面按模板归类：</p>
+<ul>
+<li><code>/blog</code> 与 Blog Detail</li>
+<li><code>/tools</code> 与 Tool Detail</li>
+<li><code>/features</code> 与 Feature Detail</li>
+<li><code>/solutions</code> 与 Solution Detail</li>
+</ul>
+<p>如果 500 篇 Blog 都缺 canonical，不是创建 500 个修改任务，而是修 Blog 模板。</p>
+<p>如果所有 Tool 页面 Schema 都错了，就修 Tool 模板的生成逻辑。</p>
+<h3 id="3-少数特殊页面单独处理"><a href="#3-少数特殊页面单独处理" class="headerlink" title="3. 少数特殊页面单独处理"></a>3. 少数特殊页面单独处理</h3><p>有些问题只出现在一两个页面，不需要修改整个模板。</p>
+<p>比如某个 Tool 页面需要单独增加一种 Schema，或者某个活动页需要使用不同的 canonical，就给这个页面增加单独配置。</p>
+<p>不要为了一个特殊页面，改动所有同类型页面的通用规则。</p>
+<p>完整流程可以是：</p>
+<ol>
+<li>抓取全站并整理问题清单</li>
+<li>按首页、模板和单页问题归类</li>
+<li>按影响页面数和业务优先级排序</li>
+<li>先修模板，再处理少数例外</li>
+<li>每种模板抽样验证</li>
+<li>重新抓取全站，确认问题数量是否归零</li>
+</ol>
+<p><img src="/images/saas-seo-playbook/10-10-three-layer-fix.png" alt="Technical SEO 首页、页面模板和特殊页面三层修复法"></p>
+<h2 id="十一、顺手检查一个容易漏掉的项"><a href="#十一、顺手检查一个容易漏掉的项" class="headerlink" title="十一、顺手检查一个容易漏掉的项"></a>十一、顺手检查一个容易漏掉的项</h2><p>这不完全属于 Technical SEO，但我检查新站时也会一起看。</p>
+<p>网站有没有这些基础页面：</p>
+<ul>
+<li>About</li>
+<li>Pricing</li>
+<li>Privacy Policy</li>
+<li>Terms of Service</li>
+<li>Contact</li>
+</ul>
+<p>它们不是加上以后排名就会提高的按钮。</p>
+<p>但一个连公司是谁、怎么联系、如何收费、如何处理用户数据都说不清的网站，很难让用户建立信任。</p>
+<p>页面做出来以后，也要从 Footer 或合适的位置正常链接，不要只生成 URL。</p>
+<h2 id="十二、Technical-SEO-自查清单"><a href="#十二、Technical-SEO-自查清单" class="headerlink" title="十二、Technical SEO 自查清单"></a>十二、Technical SEO 自查清单</h2><ul>
+<li><input disabled="" type="checkbox"> 测试环境是否有密码或登录保护？</li>
+<li><input disabled="" type="checkbox"> <code>/</code> 与 <code>/en/</code> 是否出现默认语言重复？</li>
+<li><input disabled="" type="checkbox"> 每个语言版本是否 self-canonical，并正确配置 <code>hreflang</code>？</li>
+<li><input disabled="" type="checkbox"> HTTP、HTTPS、<code>www</code>、尾斜杠和参数 URL 是否统一？</li>
+<li><input disabled="" type="checkbox"> 不存在的页面是否返回真实 <code>404</code> 或 <code>410</code>？</li>
+<li><input disabled="" type="checkbox"> 永久迁移是否直接 301 到最终地址，没有重定向链？</li>
+<li><input disabled="" type="checkbox"> GSC Crawl Stats 是否出现持续的 <code>5xx</code> 或响应时间尖刺？</li>
+<li><input disabled="" type="checkbox"> 是否真的达到需要关注抓取预算的页面规模？</li>
+<li><input disabled="" type="checkbox"> sitemap 是否只包含 <code>200</code>、可索引的规范 URL？</li>
+<li><input disabled="" type="checkbox"> sitemap 是否漏掉页面类型或多语言版本？</li>
+<li><input disabled="" type="checkbox"> Schema 是否与页面可见内容和当前语言一致？</li>
+<li><input disabled="" type="checkbox"> 是否存在只在 sitemap、没有站内入口的孤儿页？</li>
+<li><input disabled="" type="checkbox"> CMS 是否限制 Slug 规则，并避免发布后自动修改 URL？</li>
+<li><input disabled="" type="checkbox"> 同类问题是否优先在模板层统一修复？</li>
+<li><input disabled="" type="checkbox"> 修复后是否重新抓取全站，而不是只检查一个页面？</li>
+</ul>
+<h2 id="十三、小结"><a href="#十三、小结" class="headerlink" title="十三、小结"></a>十三、小结</h2><p>Technical SEO 的很多问题都很确定。</p>
+<p>URL 是否唯一、状态码是否正确、测试站是否公开、sitemap 是否干净，都能检查，也都能修。</p>
+<p>难点不是知道多少术语，而是发现问题以后，能不能找到真正产生错误的模板和规则。</p>
+<p>如果压缩成一句话：</p>
+<p><strong>先保证网站能被正常抓取、理解和收录，再让内容与外链参与竞争；发现批量问题，优先回到模板层一次修复。</strong></p>
+<p>页面性能与 Core Web Vitals 会在下一章继续讲。</p>
+<blockquote>
+<p>本章节完毕，谢谢大家，欢迎随时讨论。</p>
+</blockquote>
+
+                <!-- WeChat Ad -->
+                <div class="wechat-ad">
+                    <div class="wechat-ad-inner">
+                        <div class="wechat-ad-text">
+                            <strong>👋 加我微信，交流 AI 出海 & SEO</strong>
+                            <p style="margin:4px 0 0;font-size:13px;color:#666;">微信号：qqcode168</p>
+                        </div>
+                        <img class="wechat-ad-qrcode" src="https://bysocket.com/images/wechat.jpg" alt="微信扫码添加">
+                    </div>
+                </div>
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="//saas-seo-playbook/09-on-page-seo/" data-toggle="tooltip" data-placement="top"
+                           title="第 9 章 On-Page SEO：从主关键词到发布检查">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="//saas-seo-playbook/08-seo-foundation/" data-toggle="tooltip" data-placement="top"
+                           title="第 8 章 SEO 基建：从第一天搭好地基">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E8%A2%AB-Google-%E6%94%B6%E5%BD%95"><span class="toc-text">一、测试环境被 Google 收录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E5%8F%91%E7%8E%B0"><span class="toc-text">怎么发现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86"><span class="toc-text">怎么处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E4%BA%A7%E5%93%81%E4%B8%8A%E4%BA%86%E5%A4%9A%E8%AF%AD%E8%A8%80%EF%BC%8CSEO-%E5%8D%B4%E6%B2%A1%E8%B7%9F%E4%B8%8A"><span class="toc-text">二、产品上了多语言，SEO 却没跟上</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%90%8C%E4%B8%80%E4%B8%AA%E9%A1%B5%E9%9D%A2%E6%9C%89%E5%A4%9A%E4%B8%AA%E5%8F%AF%E8%AE%BF%E9%97%AE-URL"><span class="toc-text">三、同一个页面有多个可访问 URL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E7%8A%B6%E6%80%81%E7%A0%81%E4%B8%8E%E9%87%8D%E5%AE%9A%E5%90%91%E7%94%A8%E9%94%99"><span class="toc-text">四、状态码与重定向用错</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Soft-404"><span class="toc-text">1. Soft 404</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5xx-%E6%8C%81%E7%BB%AD%E5%A2%9E%E5%8A%A0"><span class="toc-text">2. 5xx 持续增加</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%87%8D%E5%AE%9A%E5%90%91%E9%93%BE"><span class="toc-text">3. 重定向链</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81GSC-%E6%8A%93%E5%8F%96%E7%8A%B6%E6%80%81%E7%AA%81%E7%84%B6%E5%BC%82%E5%B8%B8"><span class="toc-text">五、GSC 抓取状态突然异常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81sitemap-xml-%E4%B8%8D%E5%AE%8C%E6%95%B4%EF%BC%8C%E6%88%96%E8%80%85%E5%A4%AA%E8%84%8F"><span class="toc-text">六、sitemap.xml 不完整，或者太脏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81Schema-%E5%86%99%E4%BA%86%EF%BC%8C%E4%BD%86-Google-%E8%AF%BB%E4%B8%8D%E6%87%82"><span class="toc-text">七、Schema 写了，但 Google 读不懂</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AD%97%E6%AE%B5%E9%94%99%E8%AF%AF%E6%88%96%E7%BC%BA%E5%A4%B1"><span class="toc-text">1. 字段错误或缺失</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Schema-%E4%B8%8E%E9%A1%B5%E9%9D%A2%E5%8F%AF%E8%A7%81%E5%86%85%E5%AE%B9%E4%B8%8D%E4%B8%80%E8%87%B4"><span class="toc-text">2. Schema 与页面可见内容不一致</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E5%B8%B8%E8%A7%81%E6%A1%88%E4%BE%8B%EF%BC%9A%E8%87%AA%E5%B7%B1%E7%BB%99%E4%BA%A7%E5%93%81%E6%89%93%E4%BA%94%E6%98%9F"><span class="toc-text">一个常见案例：自己给产品打五星</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%A4%9A%E8%AF%AD%E8%A8%80%E9%A1%B5%E9%9D%A2%E5%85%B1%E7%94%A8%E4%B8%80%E4%BB%BD-Schema"><span class="toc-text">3. 多语言页面共用一份 Schema</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E9%A1%B5%E9%9D%A2%E5%8F%AA%E5%9C%A8-sitemap-%E9%87%8C%EF%BC%8C%E7%AB%99%E5%86%85%E6%B2%A1%E6%9C%89%E5%85%A5%E5%8F%A3"><span class="toc-text">八、页面只在 sitemap 里，站内没有入口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81Blog-URL-%E5%8F%88%E9%95%BF%E5%8F%88%E4%B9%B1"><span class="toc-text">九、Blog URL 又长又乱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E3%80%81%E4%BF%AE-Technical-SEO%EF%BC%8C%E4%B8%8D%E8%A6%81%E9%80%90%E9%A1%B5%E6%89%8B%E6%94%B9"><span class="toc-text">十、修 Technical SEO，不要逐页手改</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%A6%96%E9%A1%B5%E5%8D%95%E7%8B%AC%E5%A4%84%E7%90%86"><span class="toc-text">1. 首页单独处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%A1%B5%E9%9D%A2%E6%A8%A1%E6%9D%BF%E7%BB%9F%E4%B8%80%E4%BF%AE%E5%A4%8D"><span class="toc-text">2. 页面模板统一修复</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%B0%91%E6%95%B0%E7%89%B9%E6%AE%8A%E9%A1%B5%E9%9D%A2%E5%8D%95%E7%8B%AC%E5%A4%84%E7%90%86"><span class="toc-text">3. 少数特殊页面单独处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B8%80%E3%80%81%E9%A1%BA%E6%89%8B%E6%A3%80%E6%9F%A5%E4%B8%80%E4%B8%AA%E5%AE%B9%E6%98%93%E6%BC%8F%E6%8E%89%E7%9A%84%E9%A1%B9"><span class="toc-text">十一、顺手检查一个容易漏掉的项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81Technical-SEO-%E8%87%AA%E6%9F%A5%E6%B8%85%E5%8D%95"><span class="toc-text">十二、Technical SEO 自查清单</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B8%89%E3%80%81%E5%B0%8F%E7%BB%93"><span class="toc-text">十三、小结</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/CoderJeffLee">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/jeffpage0709">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 写增长的子木 2026
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://bysocket.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="https://bysocket.com/images/avatar.jpeg">
+</body>
+
+</html>
