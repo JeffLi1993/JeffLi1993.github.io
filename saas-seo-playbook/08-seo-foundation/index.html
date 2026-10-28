@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="写增长的子木，聚焦 SaaS 出海创业，分享 SEO、红人营销、Ads、EDM 等前沿增长策略，深入解析各类实操案例，帮助创业者实现产品推广和市场扩展。通过丰富的行业经验和详实的内容，为 SaaS 团队提供具实效性的增长见解，助力海外业务快速发展。">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="写增长的子木" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        第 8 章 SEO 基建：从第一天搭好地基｜写增长的子木
+        
+    </title>
+
+    <link rel="canonical" href="https://bysocket.com//saas-seo-playbook/08-seo-foundation/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('https://bysocket.com/images/header-img.webp')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    写增长的子木
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="https://nanoskill.ai/" target="_blank">Agent Skills</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/saas-seo-playbook/">SEO 小册子</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="nullhttps://bysocket.com/images/hello-world/header-img.webp">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('https://bysocket.com/images/hello-world/header-img.webp?imageView2/1/w/1400/h/400/interlace/1/q/90')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>第 8 章 SEO 基建：从第一天搭好地基</h1>
+                    
+                    <span class="meta">
+                         作者 子木
+                        <span>
+                          日期 2026-10-28
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#SEO"
+                           title="SEO">SEO</a>
+                        
+                        <a class="tag" href="/tags/#AI工具站"
+                           title="AI工具站">AI工具站</a>
+                        
+                        <a class="tag" href="/tags/#SaaS"
+                           title="SaaS">SaaS</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            第 8 章 SEO 基建：从第一天搭好地基
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <blockquote>
+<p>📖 本文是《AI 工具站 SEO 小册子：图解入门》的一部分，完整目录与源文件见 GitHub：<a href="https://github.com/JeffLi1993/saas-seo-playbook">JeffLi1993&#x2F;saas-seo-playbook</a></p>
+</blockquote>
+<blockquote>
+<p>❤️ 这一章节内容，感谢阿彪师傅 @ Pollo.ai 的交流。</p>
+</blockquote>
+<p>前面几章，我们已经把网站的大纲、目录和页面规划清楚了。</p>
+<p>接下来要做的，是把这本书真正装订好，让 Google 找得到、翻得开、看得懂，用户也能顺畅使用。</p>
+<p>这就是 SEO 基建。</p>
+<p>很多人把 SEO 基建理解成上线以后再做一次技术检查。</p>
+<p>但我认为，只要确定网站中期会做 SEO，就应该从第一天开始搭。</p>
+<p><strong>SEO 基建不是网站上线后的补丁，而是产品开发的一部分。</strong></p>
+<p>这一章主要回答四个问题：</p>
+<ul>
+<li>What：SEO 基建到底是什么</li>
+<li>Why：为什么要从第一天开始做</li>
+<li>When：应该在哪个阶段介入</li>
+<li>How：第一版网站至少要搭好哪些东西</li>
+</ul>
+<h2 id="一、什么是网站的-SEO-基建"><a href="#一、什么是网站的-SEO-基建" class="headerlink" title="一、什么是网站的 SEO 基建"></a>一、什么是网站的 SEO 基建</h2><p>如果把网站当成一本书，SEO 基建就是这本书使用的纸张、油墨、印刷和装订。</p>
+<p>内容写得再好，如果纸张破损、文字模糊、章节缺页，读者很难正常阅读，搜索引擎也很难整理。</p>
+<p>也可以把网站理解成一栋房子。</p>
+<p>SEO 基建就是房子的地基与水电，包括：</p>
+<ul>
+<li>Technical SEO</li>
+<li>URL 与信息架构</li>
+<li><code>robots.txt</code></li>
+<li><code>sitemap.xml</code></li>
+<li>canonical</li>
+<li>状态码与重定向</li>
+<li>多语言与 <code>hreflang</code></li>
+<li>Schema 结构化数据</li>
+<li>页面性能与移动端体验</li>
+<li>GSC、GA4 与日志监控</li>
+</ul>
+<p>这些工作最后要让网站达到四个状态：</p>
+<ol>
+<li>可抓取：Googlebot 能进入并获取页面</li>
+<li>可索引：页面具备 Google 进入索引的条件</li>
+<li>可理解：Google 能判断页面讲什么、哪个 URL 才是规范版本</li>
+<li>可使用：用户能正常打开、阅读和使用页面功能</li>
+</ol>
+<p>这里要注意，具备收录条件不等于一定会被收录。</p>
+<p>页面即使返回 <code>200</code>，也没有屏蔽 Googlebot，还需要有真正可以索引的内容。Sitemap 和 GSC 提交也只是帮助 Google 发现页面，不是收录保证。</p>
+<p>所以 SEO 基建解决的是参与搜索竞争的资格，不是直接保证排名。</p>
+<p><img src="/images/saas-seo-playbook/08-01-seo-foundation-four-goals.png" alt="图 8-1：SEO 基建的四个目标"></p>
+<h2 id="二、为什么要从第一天开始做"><a href="#二、为什么要从第一天开始做" class="headerlink" title="二、为什么要从第一天开始做"></a>二、为什么要从第一天开始做</h2><p>新站一开始页面少，很多技术问题看起来不严重。</p>
+<p>一个 canonical 配错、一个目录结构不合理，似乎也不影响产品上线。</p>
+<p>但等网站有几百、几千个页面，再去修改路由、模板、数据结构和多语言规则，就会牵一发而动全身。</p>
+<p>这就是技术债。</p>
+<p>比如：</p>
+<ul>
+<li>上线后才发现同一个页面有多个 URL</li>
+<li>批量做多语言以后，才发现默认英文和 <code>/en/</code> 重复</li>
+<li>发布几千个页面以后，才发现 sitemap 漏页</li>
+<li>准备做 pSEO 时，才发现模板没有 canonical 和 Schema</li>
+<li>已经获得排名以后，才开始大规模调整 URL</li>
+</ul>
+<p>这些问题不是不能修。</p>
+<p>只是越晚修，涉及的页面越多，重定向、收录和流量风险也越大。</p>
+<p>所以只要 SEO 是网站确定要做的增长渠道，就应该在产品立项、路由设计和页面模板阶段介入。</p>
+<p><strong>能在模板层一次解决的问题，不要等上线后逐页打补丁。</strong></p>
+<p><img src="/images/saas-seo-playbook/08-02-seo-foundation-technical-debt.png" alt="图 8-2：越晚修，SEO 技术债越重"></p>
+<h2 id="三、SEO-基建不是只给-Google-做的"><a href="#三、SEO-基建不是只给-Google-做的" class="headerlink" title="三、SEO 基建不是只给 Google 做的"></a>三、SEO 基建不是只给 Google 做的</h2><p>SEO 基建一方面要让 Google 的搜索系统看懂，另一方面也要让用户用得顺。</p>
+<p>举个比较极端的例子。</p>
+<p>如果一个网站视觉和动效做到 100 分，但 Google 的可见性和可理解性只有 60 分，页面很炫，却抓不到核心内容，也很难获得搜索流量。</p>
+<p>与其这样，不如先做到：</p>
+<p><strong>用户体验 80 分 × 搜索引擎可见性 80 分。</strong></p>
+<p>整体 ROI 可能更高。</p>
+<p>当然，这不是让大家为了 SEO 做一个难看的网站。</p>
+<p>而是在产品体验、视觉效果和机器可读性之间做平衡。</p>
+<p>比如：</p>
+<ul>
+<li>重要文字不能只放在图片里</li>
+<li>核心内容不能必须登录后才能看到</li>
+<li>页面动效不能让首屏一直加载不出来</li>
+<li>JavaScript 不能让 Google 抓到一张空壳</li>
+<li>语言切换不能只有前端状态，却没有独立 URL</li>
+</ul>
+<p>SEO Friendly 的网站，应该是用户能用，机器也能读。</p>
+<p><img src="/images/saas-seo-playbook/08-03-user-and-search-balance.png" alt="图 8-3：机器能读，用户能用"></p>
+<h2 id="四、什么时候开始做-SEO-基建"><a href="#四、什么时候开始做-SEO-基建" class="headerlink" title="四、什么时候开始做 SEO 基建"></a>四、什么时候开始做 SEO 基建</h2><p>答案很简单：越早越好。</p>
+<p>但越早，不是让 SEO 一开始就写几十页技术需求。</p>
+<p>不同阶段做不同粒度的事情就行。</p>
+<h3 id="1-产品立项阶段"><a href="#1-产品立项阶段" class="headerlink" title="1. 产品立项阶段"></a>1. 产品立项阶段</h3><p>先确定：</p>
+<ul>
+<li>主域名与默认语言</li>
+<li>网站主要目录</li>
+<li>哪些页面需要被索引</li>
+<li>哪些页面不应该公开或进入搜索结果</li>
+<li>产品未来是否会做多语言、pSEO 或大量工具页</li>
+</ul>
+<p>这个阶段重点是不要把后面的路堵死。</p>
+<h3 id="2-设计与开发阶段"><a href="#2-设计与开发阶段" class="headerlink" title="2. 设计与开发阶段"></a>2. 设计与开发阶段</h3><p>把 SEO 要求放进页面模板和组件：</p>
+<ul>
+<li>Title、Description、H1 的字段</li>
+<li>canonical 与 <code>hreflang</code></li>
+<li>面包屑和内链模块</li>
+<li>Schema 的生成规则</li>
+<li>图片 Alt 的填写入口</li>
+<li>状态码与重定向规则</li>
+<li>页面性能与移动端适配</li>
+</ul>
+<h3 id="3-上线前"><a href="#3-上线前" class="headerlink" title="3. 上线前"></a>3. 上线前</h3><p>对生产环境做一次完整验收。</p>
+<p>重点确认测试环境没有被收录，生产环境也没有误带 <code>noindex</code> 或错误的 robots 规则。</p>
+<h3 id="4-上线后"><a href="#4-上线后" class="headerlink" title="4. 上线后"></a>4. 上线后</h3><p>通过 GSC、GA4 和服务端日志持续观察：</p>
+<ul>
+<li>Google 有没有发现和抓取页面</li>
+<li>页面有没有进入索引</li>
+<li>Google 选择的 canonical 是否正确</li>
+<li>用户进入页面后有没有正常使用和转化</li>
+<li>404、5xx 和重定向是否异常增加</li>
+</ul>
+<p>SEO 基建不是上线前检查一次就结束。</p>
+<p>第一次把规则搭好以后，后面主要做监控、巡检和模板级修复。</p>
+<p><img src="/images/saas-seo-playbook/08-04-seo-foundation-timeline.png" alt="图 8-4：SEO 基建贯穿产品的四个阶段"></p>
+<h2 id="五、第一版网站要搭好的四层基建"><a href="#五、第一版网站要搭好的四层基建" class="headerlink" title="五、第一版网站要搭好的四层基建"></a>五、第一版网站要搭好的四层基建</h2><p>不用一开始就把 Technical SEO 做得特别复杂。</p>
+<p>第一版先守住四层。</p>
+<h3 id="1-抓取与索引层"><a href="#1-抓取与索引层" class="headerlink" title="1. 抓取与索引层"></a>1. 抓取与索引层</h3><p>先保证 Google 能找到应该出现的页面，也不会把不该出现的页面当成核心内容。</p>
+<p>需要检查：</p>
+<ul>
+<li><code>robots.txt</code> 是否误拦截正式页面</li>
+<li>测试环境、后台和私有页面是否正确限制访问</li>
+<li><code>sitemap.xml</code> 是否只包含希望收录的规范 URL</li>
+<li>sitemap 是否自动更新，并使用真实的 <code>lastmod</code></li>
+<li>核心页面是否有正常的站内链接</li>
+<li>页面是否返回正确的 <code>200</code>、<code>301</code>、<code>404</code> 或 <code>410</code></li>
+<li>页面是否意外存在 <code>noindex</code></li>
+</ul>
+<p>这里最容易混淆的是 <code>robots.txt</code> 和 <code>noindex</code>。</p>
+<p><code>robots.txt</code> 主要管理抓取，不适合拿来保证某个网页不出现在搜索结果里。如果页面包含隐私内容，应该使用登录权限或密码保护；如果公开页面不希望被索引，可以使用 <code>noindex</code>，同时允许 Google 抓取并读取这条规则。</p>
+<p><img src="/images/saas-seo-playbook/08-05-robots-noindex-password.png" alt="图 8-5：抓取、索引与访问的三种开关"></p>
+<h3 id="2-URL-与规范化层"><a href="#2-URL-与规范化层" class="headerlink" title="2. URL 与规范化层"></a>2. URL 与规范化层</h3><p>同一份内容最好只有一个主要 URL。</p>
+<p>需要检查：</p>
+<ul>
+<li>HTTP 是否统一跳转到 HTTPS</li>
+<li><code>www</code> 与非 <code>www</code> 是否统一</li>
+<li>带参数和不带参数的页面如何处理</li>
+<li>尾斜杠规则是否一致</li>
+<li>每页 canonical 是否指向正确的规范 URL</li>
+<li>页面合并或迁移后是否配置 301</li>
+<li>多语言页面是否使用正确的 <code>lang</code> 与 <code>hreflang</code></li>
+</ul>
+<p>canonical、重定向和 sitemap 不是三套互相独立的规则。</p>
+<p>如果某个 URL 是规范版本，站内链接、canonical 和 sitemap 最好都指向它，不要一边提交 A，一边 canonical 到 B。</p>
+<p><img src="/images/saas-seo-playbook/08-06-canonical-signal-alignment.png" alt="图 8-6：规范 URL 的信号应该保持一致"></p>
+<h3 id="3-页面理解与体验层"><a href="#3-页面理解与体验层" class="headerlink" title="3. 页面理解与体验层"></a>3. 页面理解与体验层</h3><p>Google 抓到页面以后，还要能看懂页面，用户也要能正常使用。</p>
+<p>需要检查：</p>
+<ul>
+<li>页面是否有清楚的 Title、Description 和唯一 H1</li>
+<li>H2、H3 是否能表达内容层级</li>
+<li>图片是否有合适的 Alt</li>
+<li>重要内容是否能在渲染后的 HTML 中看到</li>
+<li>是否根据页面类型配置合适的 Schema</li>
+<li>移动端是否能正常阅读和操作</li>
+<li>核心功能是否稳定</li>
+<li>页面加载、交互响应和视觉稳定性是否合格</li>
+</ul>
+<p>Schema 不是有就一定能获得富媒体结果。</p>
+<p>它的作用是帮助搜索引擎理解页面内容，而且标记必须与用户实际看到的内容一致。</p>
+<p>Core Web Vitals 的具体优化会在第 11 章展开。这一章先把性能检查放进上线门槛，不要等用户和 Google 都遇到问题后再处理。</p>
+<h3 id="4-数据与监控层"><a href="#4-数据与监控层" class="headerlink" title="4. 数据与监控层"></a>4. 数据与监控层</h3><p>没有监控，就不知道基建到底有没有生效。</p>
+<p>第一版至少应该接入：</p>
+<ul>
+<li>Google Search Console：看抓取、索引、搜索词、曝光和点击</li>
+<li>Google Analytics 4：看落地页、用户行为和转化事件</li>
+<li>服务端或 CDN 日志：看 Googlebot 是否真实访问、状态码和抓取频率</li>
+<li>错误监控：及时发现 404、5xx、接口失败和页面不可用</li>
+</ul>
+<p>GSC 看到的是 Google 处理后的搜索数据，GA4 看到的是进入网站后的用户行为，日志看到的是服务器真实收到的请求。</p>
+<p>三者解决的问题不同，不能互相替代。</p>
+<p><img src="/images/saas-seo-playbook/08-07-four-layer-seo-foundation.png" alt="图 8-7：第一版网站的四层 SEO 基建"></p>
+<h2 id="六、新站怎么把-SEO-基建落到工程里"><a href="#六、新站怎么把-SEO-基建落到工程里" class="headerlink" title="六、新站怎么把 SEO 基建落到工程里"></a>六、新站怎么把 SEO 基建落到工程里</h2><p>现在很多新站就是一个全栈开发者，甚至一个独立开发者完成。</p>
+<p>不用硬拆 SEO、产品、设计和开发分别负责什么。</p>
+<p>更实际的问题是：<strong>什么应该写在代码工程里，什么应该放进 CMS，内容与真实功能怎么组合。</strong></p>
+<p>我建议新站先按三类页面处理。</p>
+<table>
+<thead>
+<tr>
+<th>页面类型</th>
+<th>主要放在哪里</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Homepage、核心 Feature &#x2F; Solution</td>
+<td>代码工程</td>
+<td>页面少、结构稳定、交互与产品强相关</td>
+</tr>
+<tr>
+<td><code>/blog</code></td>
+<td>Headless CMS</td>
+<td>文章会持续增加，需要方便编辑、发布和更新</td>
+</tr>
+<tr>
+<td><code>/tools</code></td>
+<td>CMS 内容 + 工程功能</td>
+<td>内容需要规模化管理，功能区需要真实代码运行</td>
+</tr>
+</tbody></table>
+<h3 id="1-首页和核心产品页放在代码工程"><a href="#1-首页和核心产品页放在代码工程" class="headerlink" title="1. 首页和核心产品页放在代码工程"></a>1. 首页和核心产品页放在代码工程</h3><p>首页通常不会规模化增长。</p>
+<p>它承担产品定位、核心品类词和主要转化，页面结构、视觉和交互也比较特殊，直接放在代码工程里更合适。</p>
+<p>核心 Feature、Solution、Pricing 等 SEO 必做型页面，也可以先使用工程里的固定模板和组件。</p>
+<p>至少把这些能力做进页面框架：</p>
+<ul>
+<li>Title、Description、H1 和 canonical</li>
+<li>OG Image 与社交分享字段</li>
+<li>Breadcrumb 与基础 Schema</li>
+<li>清楚的导航和内链入口</li>
+<li>Sitemap 自动收录规则</li>
+</ul>
+<p>这些页面数量不多，不需要为了看起来灵活，一开始就全部 CMS 化。</p>
+<h3 id="2-blog-用-Headless-CMS-管理"><a href="#2-blog-用-Headless-CMS-管理" class="headerlink" title="2. /blog 用 Headless CMS 管理"></a>2. <code>/blog</code> 用 Headless CMS 管理</h3><p>Blog 会随着关键词和内容规划持续增长，也会频繁修改、更新和多人编辑。</p>
+<p>这类内容不适合每发一篇文章都改代码、重新手写页面。</p>
+<p>我会推荐使用 Payload 这类 Headless CMS。它可以直接加入现有 Next.js 工程，通过 Collection 管理文章，通过 Blocks 组合正文、图片、表格、FAQ 和 CTA 等内容模块。</p>
+<p>一篇 Blog 至少可以有这些字段：</p>
+<ul>
+<li><code>title</code></li>
+<li><code>slug</code></li>
+<li><code>metaTitle</code></li>
+<li><code>metaDescription</code></li>
+<li><code>content</code></li>
+<li><code>author</code></li>
+<li><code>publishedAt</code> 与 <code>updatedAt</code></li>
+<li><code>language</code></li>
+<li><code>canonical</code></li>
+<li><code>featuredImage</code> 与图片 Alt</li>
+</ul>
+<p>发布文章以后，系统应该自动生成对应 URL，同时更新 sitemap、Article Schema、面包屑和相关文章内链。</p>
+<p>这样 Blog 的日常增长主要发生在 CMS，不需要反复改页面代码。</p>
+<h3 id="3-tools-使用内容与功能分离的模块化结构"><a href="#3-tools-使用内容与功能分离的模块化结构" class="headerlink" title="3. /tools 使用内容与功能分离的模块化结构"></a>3. <code>/tools</code> 使用内容与功能分离的模块化结构</h3><p><code>/tools</code> 要不要做、做多少，还是看前面的 Topic Map、Keyword-to-Page 和产品规划。</p>
+<p>但只要准备把 Tools 当成 SEO 增长频道，最好从第一天就做模块化设计。</p>
+<p>一个复杂工具页，可以拆成两部分：</p>
+<ul>
+<li>内容段放在 Payload：Title、Description、介绍、使用步骤、案例、FAQ、相关工具和 SEO 字段</li>
+<li>功能区放在代码工程：上传、输入、生成、API 调用、结果展示、下载和错误处理</li>
+</ul>
+<p>然后通过 URL Slug 对应一个确定的功能模块。</p>
+<p>比如 Payload 里有一条 Tool 数据：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">slug: background-remover</span><br><span class="line">toolKey: background-remover</span><br></pre></td></tr></table></figure>
+
+<p>代码工程里维护一个明确的功能映射：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">background-remover → BackgroundRemoverTool</span><br><span class="line">video-script-generator → VideoScriptGeneratorTool</span><br></pre></td></tr></table></figure>
+
+<p>用户访问 <code>/tools/background-remover</code> 时，页面先根据 Slug 读取 Payload 里的内容，再通过 <code>toolKey</code> 加载工程里的 <code>BackgroundRemoverTool</code> 功能区。</p>
+<p>这里不要让 CMS 直接执行任意组件名称。</p>
+<p>工程里应该维护一份允许使用的功能映射，CMS 只能选择已经存在的 <code>toolKey</code>。这样结构更稳定，也更安全。</p>
+<p>如果几个简单工具共用同一套能力，可以复用一个通用组件，通过配置改变输入和输出。</p>
+<p>如果是功能差异很大的复杂工具，就让 AI Coding 或开发者在工程里实现独立功能组件，再把它接到对应的 Slug。</p>
+<p><strong>CMS 负责内容增长，代码工程负责真实功能，Slug 负责把两边接起来。</strong></p>
+<p>以后新增 Tool，不需要复制整个页面。先判断是复用已有功能模块，还是开发新的功能组件，再补齐 Payload 里的内容和 SEO 字段。</p>
+<p><img src="/images/saas-seo-playbook/08-08-new-site-content-architecture.png" alt="图 8-8：CMS 内容与工程功能的组合"></p>
+<h2 id="七、上线前-SEO-基建-Checklist"><a href="#七、上线前-SEO-基建-Checklist" class="headerlink" title="七、上线前 SEO 基建 Checklist"></a>七、上线前 SEO 基建 Checklist</h2><p>下面这份清单可以直接放进新站或重大改版的上线流程。</p>
+<h3 id="信息架构与-URL"><a href="#信息架构与-URL" class="headerlink" title="信息架构与 URL"></a>信息架构与 URL</h3><ul>
+<li><input disabled="" type="checkbox"> Homepage、Feature、Solution、Tool、Blog 等目录是否符合规划？</li>
+<li><input disabled="" type="checkbox"> URL 是否使用统一的小写、连字符和尾斜杠规则？</li>
+<li><input disabled="" type="checkbox"> 每个 Keyword Cluster 是否有唯一的 Page Owner？</li>
+<li><input disabled="" type="checkbox"> 核心页面是否能从导航、频道页或内链进入？</li>
+</ul>
+<h3 id="内容与工程"><a href="#内容与工程" class="headerlink" title="内容与工程"></a>内容与工程</h3><ul>
+<li><input disabled="" type="checkbox"> 首页和核心产品页是否在工程里具备完整 SEO 字段？</li>
+<li><input disabled="" type="checkbox"> Blog 是否通过 CMS 管理 Slug、正文、作者、时间和 SEO 字段？</li>
+<li><input disabled="" type="checkbox"> Tool 内容与功能代码是否分开管理？</li>
+<li><input disabled="" type="checkbox"> Tool 的 Slug &#x2F; <code>toolKey</code> 是否只能映射到工程里允许使用的功能组件？</li>
+<li><input disabled="" type="checkbox"> 新页面发布后是否会自动更新 sitemap、Schema 和内链入口？</li>
+</ul>
+<h3 id="抓取与索引"><a href="#抓取与索引" class="headerlink" title="抓取与索引"></a>抓取与索引</h3><ul>
+<li><input disabled="" type="checkbox"> 正式页面是否没有被 <code>robots.txt</code> 误拦截？</li>
+<li><input disabled="" type="checkbox"> 测试环境和私有页面是否限制访问？</li>
+<li><input disabled="" type="checkbox"> 页面是否误带 <code>noindex</code>？</li>
+<li><input disabled="" type="checkbox"> sitemap 是否包含全部规范页面，并排除无效 URL？</li>
+<li><input disabled="" type="checkbox"> <code>lastmod</code> 是否随页面真实更新，而不是每次构建全部改写？</li>
+<li><input disabled="" type="checkbox"> canonical 是否与实际 URL、内链和 sitemap 保持一致？</li>
+</ul>
+<h3 id="状态码与重定向"><a href="#状态码与重定向" class="headerlink" title="状态码与重定向"></a>状态码与重定向</h3><ul>
+<li><input disabled="" type="checkbox"> 正常页面是否返回 <code>200</code>？</li>
+<li><input disabled="" type="checkbox"> 永久迁移是否使用 <code>301</code>？</li>
+<li><input disabled="" type="checkbox"> 不存在的页面是否返回真实 <code>404</code> 或 <code>410</code>？</li>
+<li><input disabled="" type="checkbox"> 是否存在重定向链、循环或错误跳转？</li>
+<li><input disabled="" type="checkbox"> HTTP、HTTPS、<code>www</code> 与非 <code>www</code> 是否已统一？</li>
+</ul>
+<h3 id="页面理解与多语言"><a href="#页面理解与多语言" class="headerlink" title="页面理解与多语言"></a>页面理解与多语言</h3><ul>
+<li><input disabled="" type="checkbox"> 每页是否有独立的 Title、Description 和 H1？</li>
+<li><input disabled="" type="checkbox"> 页面内容是否能被正常渲染和读取？</li>
+<li><input disabled="" type="checkbox"> Schema 是否与页面类型和可见内容一致？</li>
+<li><input disabled="" type="checkbox"> 是否使用 Rich Results Test 验证结构化数据？</li>
+<li><input disabled="" type="checkbox"> 多语言页面是否有独立 URL？</li>
+<li><input disabled="" type="checkbox"> <code>lang</code>、<code>hreflang</code> 和 canonical 是否配置正确？</li>
+</ul>
+<h3 id="性能与体验"><a href="#性能与体验" class="headerlink" title="性能与体验"></a>性能与体验</h3><ul>
+<li><input disabled="" type="checkbox"> 页面是否能在移动端正常查看和操作？</li>
+<li><input disabled="" type="checkbox"> 图片、字体和 JavaScript 是否经过基础优化？</li>
+<li><input disabled="" type="checkbox"> 核心功能是否能正常使用？</li>
+<li><input disabled="" type="checkbox"> 是否使用 PageSpeed Insights 检查页面性能？</li>
+</ul>
+<h3 id="数据与监控"><a href="#数据与监控" class="headerlink" title="数据与监控"></a>数据与监控</h3><ul>
+<li><input disabled="" type="checkbox"> 是否验证 Google Search Console？</li>
+<li><input disabled="" type="checkbox"> 是否提交 sitemap？</li>
+<li><input disabled="" type="checkbox"> 是否接入 GA4，并配置核心转化事件？</li>
+<li><input disabled="" type="checkbox"> 是否能查看服务端或 CDN 日志？</li>
+<li><input disabled="" type="checkbox"> 是否有 404、5xx 和服务异常监控？</li>
+<li><input disabled="" type="checkbox"> 是否用 URL Inspection 检查核心页面？</li>
+</ul>
+<p><img src="/images/saas-seo-playbook/08-09-pre-launch-seo-checklist.png" alt="图 8-9：上线前 SEO 基建验收"></p>
+<h2 id="八、让-Agent-做第一轮检查"><a href="#八、让-Agent-做第一轮检查" class="headerlink" title="八、让 Agent 做第一轮检查"></a>八、让 Agent 做第一轮检查</h2><p>现在也可以让 AI Coding Agent 帮忙做第一轮检查。</p>
+<p>如果使用的 Agent 支持 Skills，我推荐直接安装开源的 <code>seo-audit-skill</code>：</p>
+<p><a href="https://github.com/JeffLi1993/seo-audit-skill">https://github.com/JeffLi1993/seo-audit-skill</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npx skills add JeffLi1993/seo-audit-skill</span><br></pre></td></tr></table></figure>
+
+<p>安装以后，直接把页面地址交给 Agent：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">audit this page: https://example.com</span><br></pre></td></tr></table></figure>
+
+<p>它会检查 <code>robots.txt</code>、sitemap、canonical、Schema、Title、H1、内链等项目，并生成一份可以继续交给 Agent 修改的 HTML 报告。</p>
+<p>日常单页检查先用 <code>seo-audit</code>。需要进一步检查 PageSpeed、Sitemap URL 清单、测试环境和 GSC 数据时，再使用 <code>seo-audit-full</code>。</p>
+<p>如果暂时不安装 Skill，也可以直接使用下面这段 Prompt。</p>
+<p>但不要只说帮我优化 SEO。</p>
+<p>最好给它明确的页面、目标关键词和检查范围，比如：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">请检查 &#123;&#123;PAGE_URL&#125;&#125; 的 SEO 基建，并以 &#123;&#123;PRIMARY_KEYWORD&#125;&#125; 作为页面的 Top Keyword。</span><br><span class="line"></span><br><span class="line">检查以下内容：</span><br><span class="line">1. robots、sitemap、canonical、hreflang、状态码与重定向</span><br><span class="line">2. 移动端、页面性能与核心功能可用性</span><br><span class="line">3. Title、Description、H1、页面结构与内链</span><br><span class="line">4. 与页面类型匹配的 Schema</span><br><span class="line">5. GSC、GA4 与错误监控是否具备验证条件</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">- 当前问题</span><br><span class="line">- 修改建议或代码差异</span><br><span class="line">- 验证方法</span><br><span class="line">- 仍需人工确认的内容</span><br><span class="line"></span><br><span class="line">不要修改品牌、价格和核心产品设计。</span><br></pre></td></tr></table></figure>
+
+<p>Agent 可以帮大家发现问题、改模板和补测试。</p>
+<p>但最终还是要在真实生产环境里验证状态码、渲染结果、结构化数据、抓取情况和转化事件。</p>
+<h2 id="九、这一章先做到什么程度"><a href="#九、这一章先做到什么程度" class="headerlink" title="九、这一章先做到什么程度"></a>九、这一章先做到什么程度</h2><p>第 8 章不是让大家一次学完所有 Technical SEO。</p>
+<p>这一阶段的目标是建立一套最低可用的 SEO 基建，让网站上线时不会出现明显的系统性问题。</p>
+<p>后面几章会继续拆开：</p>
+<ul>
+<li>第 9 章讲单个页面如何做好 On-Page SEO</li>
+<li>第 10 章讲 Technical SEO 的真实踩坑与修复</li>
+<li>第 11 章讲页面体验与 Core Web Vitals</li>
+</ul>
+<p>遇到问题时，优先回到模板、组件和发布流程解决。</p>
+<p>不要上线 1000 个页面以后，再让运营逐页修改同一个错误。</p>
+<h2 id="十、小结"><a href="#十、小结" class="headerlink" title="十、小结"></a>十、小结</h2><p>只要确定中期会做 SEO，就从第一天把基建搭好。</p>
+<p>它不是为了讨好搜索引擎，也不只是开发团队的一次性任务。</p>
+<p>它要让网站同时做到：</p>
+<ul>
+<li>机器能发现、抓取、理解和索引</li>
+<li>用户能打开、阅读、使用和转化</li>
+<li>团队能监控、定位和修复问题</li>
+</ul>
+<p>如果压缩成一句话：</p>
+<p><strong>SEO 基建，是机器可理解 × 人类可转化的交集，也是后续 pSEO、国际化、内容和外链能够生效的前置条件。</strong></p>
+<blockquote>
+<p>本章节完毕，谢谢大家，欢迎随时讨论。</p>
+</blockquote>
+
+                <!-- WeChat Ad -->
+                <div class="wechat-ad">
+                    <div class="wechat-ad-inner">
+                        <div class="wechat-ad-text">
+                            <strong>👋 加我微信，交流 AI 出海 & SEO</strong>
+                            <p style="margin:4px 0 0;font-size:13px;color:#666;">微信号：qqcode168</p>
+                        </div>
+                        <img class="wechat-ad-qrcode" src="https://bysocket.com/images/wechat.jpg" alt="微信扫码添加">
+                    </div>
+                </div>
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="//chatgpt-fanout-queries/" data-toggle="tooltip" data-placement="top"
+                           title="GEO 开源 Skill：ChatGPT 的 Fan-out Queries 报告">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E7%BD%91%E7%AB%99%E7%9A%84-SEO-%E5%9F%BA%E5%BB%BA"><span class="toc-text">一、什么是网站的 SEO 基建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BB%8E%E7%AC%AC%E4%B8%80%E5%A4%A9%E5%BC%80%E5%A7%8B%E5%81%9A"><span class="toc-text">二、为什么要从第一天开始做</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81SEO-%E5%9F%BA%E5%BB%BA%E4%B8%8D%E6%98%AF%E5%8F%AA%E7%BB%99-Google-%E5%81%9A%E7%9A%84"><span class="toc-text">三、SEO 基建不是只给 Google 做的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%BC%80%E5%A7%8B%E5%81%9A-SEO-%E5%9F%BA%E5%BB%BA"><span class="toc-text">四、什么时候开始做 SEO 基建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BA%A7%E5%93%81%E7%AB%8B%E9%A1%B9%E9%98%B6%E6%AE%B5"><span class="toc-text">1. 产品立项阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%BC%80%E5%8F%91%E9%98%B6%E6%AE%B5"><span class="toc-text">2. 设计与开发阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%B8%8A%E7%BA%BF%E5%89%8D"><span class="toc-text">3. 上线前</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%B8%8A%E7%BA%BF%E5%90%8E"><span class="toc-text">4. 上线后</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E7%AC%AC%E4%B8%80%E7%89%88%E7%BD%91%E7%AB%99%E8%A6%81%E6%90%AD%E5%A5%BD%E7%9A%84%E5%9B%9B%E5%B1%82%E5%9F%BA%E5%BB%BA"><span class="toc-text">五、第一版网站要搭好的四层基建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%8A%93%E5%8F%96%E4%B8%8E%E7%B4%A2%E5%BC%95%E5%B1%82"><span class="toc-text">1. 抓取与索引层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-URL-%E4%B8%8E%E8%A7%84%E8%8C%83%E5%8C%96%E5%B1%82"><span class="toc-text">2. URL 与规范化层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%A1%B5%E9%9D%A2%E7%90%86%E8%A7%A3%E4%B8%8E%E4%BD%93%E9%AA%8C%E5%B1%82"><span class="toc-text">3. 页面理解与体验层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%95%B0%E6%8D%AE%E4%B8%8E%E7%9B%91%E6%8E%A7%E5%B1%82"><span class="toc-text">4. 数据与监控层</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E6%96%B0%E7%AB%99%E6%80%8E%E4%B9%88%E6%8A%8A-SEO-%E5%9F%BA%E5%BB%BA%E8%90%BD%E5%88%B0%E5%B7%A5%E7%A8%8B%E9%87%8C"><span class="toc-text">六、新站怎么把 SEO 基建落到工程里</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%A6%96%E9%A1%B5%E5%92%8C%E6%A0%B8%E5%BF%83%E4%BA%A7%E5%93%81%E9%A1%B5%E6%94%BE%E5%9C%A8%E4%BB%A3%E7%A0%81%E5%B7%A5%E7%A8%8B"><span class="toc-text">1. 首页和核心产品页放在代码工程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-blog-%E7%94%A8-Headless-CMS-%E7%AE%A1%E7%90%86"><span class="toc-text">2. &#x2F;blog 用 Headless CMS 管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-tools-%E4%BD%BF%E7%94%A8%E5%86%85%E5%AE%B9%E4%B8%8E%E5%8A%9F%E8%83%BD%E5%88%86%E7%A6%BB%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BB%93%E6%9E%84"><span class="toc-text">3. &#x2F;tools 使用内容与功能分离的模块化结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E4%B8%8A%E7%BA%BF%E5%89%8D-SEO-%E5%9F%BA%E5%BB%BA-Checklist"><span class="toc-text">七、上线前 SEO 基建 Checklist</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%9E%B6%E6%9E%84%E4%B8%8E-URL"><span class="toc-text">信息架构与 URL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E4%B8%8E%E5%B7%A5%E7%A8%8B"><span class="toc-text">内容与工程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%93%E5%8F%96%E4%B8%8E%E7%B4%A2%E5%BC%95"><span class="toc-text">抓取与索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E7%A0%81%E4%B8%8E%E9%87%8D%E5%AE%9A%E5%90%91"><span class="toc-text">状态码与重定向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E7%90%86%E8%A7%A3%E4%B8%8E%E5%A4%9A%E8%AF%AD%E8%A8%80"><span class="toc-text">页面理解与多语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E4%B8%8E%E4%BD%93%E9%AA%8C"><span class="toc-text">性能与体验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%B8%8E%E7%9B%91%E6%8E%A7"><span class="toc-text">数据与监控</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E8%AE%A9-Agent-%E5%81%9A%E7%AC%AC%E4%B8%80%E8%BD%AE%E6%A3%80%E6%9F%A5"><span class="toc-text">八、让 Agent 做第一轮检查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E8%BF%99%E4%B8%80%E7%AB%A0%E5%85%88%E5%81%9A%E5%88%B0%E4%BB%80%E4%B9%88%E7%A8%8B%E5%BA%A6"><span class="toc-text">九、这一章先做到什么程度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E3%80%81%E5%B0%8F%E7%BB%93"><span class="toc-text">十、小结</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/CoderJeffLee">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/jeffpage0709">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 写增长的子木 2026
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://bysocket.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="https://bysocket.com/images/avatar.jpeg">
+</body>
+
+</html>
