@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="写增长的子木，聚焦 SaaS 出海创业，分享 SEO、红人营销、Ads、EDM 等前沿增长策略，深入解析各类实操案例，帮助创业者实现产品推广和市场扩展。通过丰富的行业经验和详实的内容，为 SaaS 团队提供具实效性的增长见解，助力海外业务快速发展。">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="写增长的子木" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        第 12 章 关键词优先级：先做什么，后做什么｜写增长的子木
+        
+    </title>
+
+    <link rel="canonical" href="https://bysocket.com//saas-seo-playbook/12-keyword-priority/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('https://bysocket.com/images/header-img.webp')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    写增长的子木
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="https://nanoskill.ai/" target="_blank">Agent Skills</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/saas-seo-playbook/">SEO 小册子</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="nullhttps://bysocket.com/images/hello-world/header-img.webp">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('https://bysocket.com/images/hello-world/header-img.webp?imageView2/1/w/1400/h/400/interlace/1/q/90')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>第 12 章 关键词优先级：先做什么，后做什么</h1>
+                    
+                    <span class="meta">
+                         作者 子木
+                        <span>
+                          日期 2026-10-31
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#SEO"
+                           title="SEO">SEO</a>
+                        
+                        <a class="tag" href="/tags/#AI工具站"
+                           title="AI工具站">AI工具站</a>
+                        
+                        <a class="tag" href="/tags/#SaaS"
+                           title="SaaS">SaaS</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            第 12 章 关键词优先级：先做什么，后做什么
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <blockquote>
+<p>📖 本文是《AI 工具站 SEO 小册子：图解入门》的一部分，完整目录与源文件见 GitHub：<a href="https://github.com/JeffLi1993/saas-seo-playbook">JeffLi1993&#x2F;saas-seo-playbook</a></p>
+</blockquote>
+<p>做完关键词 Research，表格里可能已经有几百、几千个词。</p>
+<p>但每周的产能有限，不可能一起做。</p>
+<p>所以关键词研究结束以后，还要回答一个更现实的问题：</p>
+<p><strong>这周先做什么，下周再做什么？</strong></p>
+<p>关键词优先级，不是从表格里挑一个搜索量最大的词。</p>
+<p>它是先确定哪些页面必须有，再从剩下的关键词里，选择现阶段最值得投入的机会。</p>
+<h2 id="一、为什么关键词需要优先级"><a href="#一、为什么关键词需要优先级" class="headerlink" title="一、为什么关键词需要优先级"></a>一、为什么关键词需要优先级</h2><p>我还是喜欢用一本书来理解。</p>
+<p>一本书的书名，以及最重要的几个章节，本身都对应着这本书最重要的关键词。</p>
+<p>书名告诉读者整本书讲什么，核心章节告诉读者这本书重点讲什么。</p>
+<p>网站也是一样。</p>
+<p>首页、核心 Feature 和 Solution 页面，先负责说清楚网站是谁、提供什么、最想让用户记住什么。</p>
+<p>这些属于整本书的书名和核心章节。</p>
+<p>其他 Tool、Blog 和长尾页面，更像围绕主线继续增加的章节。</p>
+<p>所以优先级的第一步，不是比较所有关键词的搜索量和难度，而是先分清楚：</p>
+<ul>
+<li>哪些关键词属于产品定位，页面必须先有</li>
+<li>哪些关键词主要为了获得排名和自然流量，可以继续排序</li>
+</ul>
+<p><img src="/images/saas-seo-playbook/12-01-book-title-keyword-priority.png" alt="图 12-1：用一本书理解关键词优先级"></p>
+<h2 id="二、优先级先分成两大层"><a href="#二、优先级先分成两大层" class="headerlink" title="二、优先级先分成两大层"></a>二、优先级先分成两大层</h2><h3 id="1-SEO-必备页面对应的关键词"><a href="#1-SEO-必备页面对应的关键词" class="headerlink" title="1. SEO 必备页面对应的关键词"></a>1. SEO 必备页面对应的关键词</h3><p>第一层，是产品官网本来就应该具备的页面。</p>
+<p>常见的包括：</p>
+<ul>
+<li>Homepage：首页承接核心产品定位</li>
+<li>Feature Page：承接产品最想表达的核心功能亮点</li>
+<li>Solution Page：承接最重要的用户和使用场景</li>
+<li>Pricing、API、Docs：根据真实产品形态承接对应需求</li>
+</ul>
+<p>这一层的优先级其实很简单。</p>
+<p>先做产品最需要表达的页面。</p>
+<p>比如 Feature 页面，不是哪个词容易排名就先做哪个，而是产品最核心、最想让用户知道的功能先做。</p>
+<p>这类关键词即使竞争度很高，短期排不上去，页面也应该先建出来。</p>
+<p>因为它们首先属于产品定位，其次才属于 SEO。</p>
+<h3 id="2-SEO-排名流量页面对应的关键词"><a href="#2-SEO-排名流量页面对应的关键词" class="headerlink" title="2. SEO 排名流量页面对应的关键词"></a>2. SEO 排名流量页面对应的关键词</h3><p>第二层，是为了继续获得自然排名和流量而增加的页面。</p>
+<p>比如围绕已有产品方向继续扩展的 Tool、Blog 和其他长尾页面。</p>
+<p>这类页面不是全部必须马上做，可以根据机会安排先后顺序。</p>
+<p>这里才需要重点比较：</p>
+<ul>
+<li>搜索量</li>
+<li>SEO 排名竞争度</li>
+<li>产品相关度</li>
+</ul>
+<p><img src="/images/saas-seo-playbook/12-02-required-vs-growth-keywords.png" alt="图 12-2：SEO 必备页面与排名流量页面"></p>
+<h2 id="三、关键词机会从哪里来"><a href="#三、关键词机会从哪里来" class="headerlink" title="三、关键词机会从哪里来"></a>三、关键词机会从哪里来</h2><p>Research 关键词时，一个常用方法，是通过 Ahrefs 查看竞争对手的 Top Pages，再看每个页面对应的 Top Keyword。</p>
+<p>这样可以快速看到：</p>
+<ul>
+<li>哪些页面正在获得自然流量</li>
+<li>每个页面主要依靠什么关键词</li>
+<li>对方重点做的是 Feature、Tool，还是 Blog</li>
+<li>哪些方向可能也符合自己的产品</li>
+</ul>
+<p>这些关键词先进入候选词表，不代表马上就要做。</p>
+<p>接下来还是要回到自己的网站，判断它属于 SEO 必备型，还是排名流量型。</p>
+<p>如果属于排名流量型，再进入下一步排序。</p>
+<p><img src="/images/saas-seo-playbook/12-03-top-pages-to-keyword-pool.png" alt="图 12-3：从竞品 Top Pages 到候选词池"></p>
+<h2 id="四、排名流量型关键词看三个维度"><a href="#四、排名流量型关键词看三个维度" class="headerlink" title="四、排名流量型关键词看三个维度"></a>四、排名流量型关键词看三个维度</h2><h3 id="1-搜索量"><a href="#1-搜索量" class="headerlink" title="1. 搜索量"></a>1. 搜索量</h3><p>搜索量主要看两件事：大概有多少人搜，以及搜索趋势怎么变化。</p>
+<p>除了看 Ahrefs 或其他工具给出的月搜索量，还要看这个词属于哪一种趋势：</p>
+<ul>
+<li>稳定搜索：长期都有人搜，需求相对稳定</li>
+<li>季节性搜索：只在特定月份、节日或活动前后明显增长</li>
+<li>一波热词：因为新模型、新产品或热点突然爆发，后面可能快速下降</li>
+</ul>
+<p><img src="/images/saas-seo-playbook/12-04-keyword-search-trends.png" alt="图 12-4：三种关键词搜索趋势"></p>
+<p>它很重要，但不能单独决定优先级。</p>
+<p>搜索量很大，但产品接不住，流量也没有意义。</p>
+<p>还要看搜索量来自哪些国家。有些词的总搜索量很大，但主要来自产品暂时不服务、语言没有覆盖或无法正常付费的市场，这部分流量的实际价值也不高。</p>
+<p>搜索量不算特别大，但需求明确、离产品很近，反而可能更值得先做。</p>
+<h3 id="2-SEO-排名竞争度"><a href="#2-SEO-排名竞争度" class="headerlink" title="2. SEO 排名竞争度"></a>2. SEO 排名竞争度</h3><p>竞争度决定现阶段有没有机会进入搜索结果。</p>
+<p>我会把关键词分成三类：</p>
+<ul>
+<li>难度大的大词</li>
+<li>竞争中等的词</li>
+<li>更具体的蓝海词</li>
+</ul>
+<p>对于新站，我还是推荐农村包围城市的顺序：</p>
+<p><strong>蓝海词 → 中等词 → 大词。</strong></p>
+<p>先通过更具体、竞争相对低的需求获得排名，再逐步参与更大的关键词竞争。</p>
+<h3 id="3-产品相关度"><a href="#3-产品相关度" class="headerlink" title="3. 产品相关度"></a>3. 产品相关度</h3><p>产品相关度可以直接分成四档：</p>
+<ul>
+<li>高：产品能够直接完成这个需求</li>
+<li>中：与产品方向相关，可以自然连接到功能或场景</li>
+<li>低：只有一点话题关系，用户进入页面后很难自然使用产品</li>
+<li>0：与产品没有真实关系</li>
+</ul>
+<p>产品相关度为 0 的词，即使搜索量很大、竞争度很低，也不应该因为好像容易获得流量就去做。</p>
+<p>搜索意图越接近产品使用、比较和购买，通常越值得优先关注。</p>
+<p>所以关键词优先级不能只按搜索量排，还要看用户价值和转化意图。</p>
+<h2 id="五、新站优先做哪类词"><a href="#五、新站优先做哪类词" class="headerlink" title="五、新站优先做哪类词"></a>五、新站优先做哪类词</h2><p>三个维度放在一起以后，新站最优先的一类词通常是：</p>
+<p><strong>产品相关度高 + 排名竞争度低 + 搜索量还可以。</strong></p>
+<p>可以简单看成下面几种情况：</p>
+<table>
+<thead>
+<tr>
+<th>产品相关度</th>
+<th>排名竞争度</th>
+<th>搜索量</th>
+<th>建议</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>高</td>
+<td>低</td>
+<td>还可以</td>
+<td>优先做</td>
+</tr>
+<tr>
+<td>高</td>
+<td>中</td>
+<td>还可以</td>
+<td>排在下一批</td>
+</tr>
+<tr>
+<td>高</td>
+<td>高</td>
+<td>大</td>
+<td>必备页面先建，排名投入分阶段进行</td>
+</tr>
+<tr>
+<td>中</td>
+<td>低</td>
+<td>还可以</td>
+<td>有产能时验证</td>
+</tr>
+<tr>
+<td>低或 0</td>
+<td>低</td>
+<td>大</td>
+<td>不要只为了流量做</td>
+</tr>
+</tbody></table>
+<p>这里要区分两件事：页面什么时候建，排名什么时候重点投入。</p>
+<p>首页和核心 Feature 对应的词可能很难，但页面属于 SEO 必备型，还是要先建。</p>
+<p>农村包围城市策略，主要影响 SEO 排名流量页面先做哪个，不是让我们放弃产品必须表达的大词。</p>
+<p><img src="/images/saas-seo-playbook/12-05-keyword-priority-matrix.png" alt="图 12-5：新站关键词优先级"></p>
+<h2 id="六、每周怎么安排关键词产能"><a href="#六、每周怎么安排关键词产能" class="headerlink" title="六、每周怎么安排关键词产能"></a>六、每周怎么安排关键词产能</h2><p>关键词优先级最终要进入每周排期，否则表格做得再漂亮也没用。</p>
+<p>我会这样安排：</p>
+<ol>
+<li>先检查 SEO 必备页面还有哪些没有完成</li>
+<li>按产品当前最想表达的功能和场景，确定必备页面的顺序</li>
+<li>剩余产能留给排名流量型页面</li>
+<li>按搜索量、排名竞争度和产品相关度排列候选词</li>
+<li>只选择本周真实能够完成的页面数量</li>
+<li>新词进入候选池，下周重新排序</li>
+</ol>
+<p>比如团队一周只能完成 5 个页面，就不要同时安排 20 个所谓高优先级任务。</p>
+<p>先把 5 个最值得做的页面完成，再继续拿下一批。</p>
+<p>每周的最优解也不一定相同。</p>
+<p>产品发布了新功能，新的 Feature 页面可能直接进入第一层。行业出现了与产品高度相关的新词，也可能进入本周的排名流量计划。</p>
+<p>所以关键词优先级不是做一次以后永远不变，而是跟着产品和搜索需求持续调整。</p>
+<p><img src="/images/saas-seo-playbook/12-06-weekly-keyword-production.png" alt="图 12-6：每周关键词排产"></p>
+<h2 id="七、关键词永远挖不完"><a href="#七、关键词永远挖不完" class="headerlink" title="七、关键词永远挖不完"></a>七、关键词永远挖不完</h2><p>不要等关键词全部研究完再开始做。</p>
+<p>关键词本来就挖不完。</p>
+<p>用户每天都在产生新的需求，AI 行业每天也可能出现新模型、新功能和新词。</p>
+<p>关键词表应该是一个持续更新的候选池，不是一份必须一次做完的任务清单。</p>
+<p>真正要做的是：</p>
+<ul>
+<li>保持 Research</li>
+<li>持续加入新词</li>
+<li>每周重新判断优先级</li>
+<li>按真实产能完成最值得做的页面</li>
+</ul>
+<p>研究是持续的，页面生产也应该持续。</p>
+<h2 id="八、本章执行清单"><a href="#八、本章执行清单" class="headerlink" title="八、本章执行清单"></a>八、本章执行清单</h2><ul>
+<li><input disabled="" type="checkbox"> 是否先区分了 SEO 必备型与排名流量型关键词？</li>
+<li><input disabled="" type="checkbox"> 首页和核心产品页面是否优先承接了产品定位词？</li>
+<li><input disabled="" type="checkbox"> Feature 页面是否按照产品最想表达的功能亮点排序？</li>
+<li><input disabled="" type="checkbox"> 是否通过竞品 Top Pages 和 Top Keyword 补充候选词？</li>
+<li><input disabled="" type="checkbox"> 排名流量型关键词是否同时看搜索量、竞争度和产品相关度？</li>
+<li><input disabled="" type="checkbox"> 产品相关度为 0 的词是否已经排除？</li>
+<li><input disabled="" type="checkbox"> 新站是否优先选择产品相关度高、竞争度低、搜索量还可以的词？</li>
+<li><input disabled="" type="checkbox"> 是否区分了页面必须先建与排名投入分阶段进行？</li>
+<li><input disabled="" type="checkbox"> 每周排期是否符合真实产能？</li>
+<li><input disabled="" type="checkbox"> 是否保留候选词池，并持续加入新词？</li>
+</ul>
+<h2 id="九、小结"><a href="#九、小结" class="headerlink" title="九、小结"></a>九、小结</h2><p>关键词优先级先分两层。</p>
+<p>第一层是 SEO 必备页面，优先级由产品定位、核心功能和核心场景决定。</p>
+<p>第二层是为了获得排名和流量的页面，再看搜索量、排名竞争度和产品相关度。</p>
+<p>对于新站，先做产品相关度高、竞争度低、搜索量还可以的词。</p>
+<p>如果压缩成一句话：</p>
+<p><strong>先把整本书的书名和核心章节写清楚，再按每周产能，持续增加最值得做的新章节。</strong></p>
+<blockquote>
+<p>本章节完毕，谢谢大家，欢迎随时讨论。</p>
+</blockquote>
+
+                <!-- WeChat Ad -->
+                <div class="wechat-ad">
+                    <div class="wechat-ad-inner">
+                        <div class="wechat-ad-text">
+                            <strong>👋 加我微信，交流 AI 出海 & SEO</strong>
+                            <p style="margin:4px 0 0;font-size:13px;color:#666;">微信号：qqcode168</p>
+                        </div>
+                        <img class="wechat-ad-qrcode" src="https://bysocket.com/images/wechat.jpg" alt="微信扫码添加">
+                    </div>
+                </div>
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="//saas-seo-playbook/11-page-experience-core-web-vitals/" data-toggle="tooltip" data-placement="top"
+                           title="第 11 章 页面体验与 Core Web Vitals">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E5%85%B3%E9%94%AE%E8%AF%8D%E9%9C%80%E8%A6%81%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-text">一、为什么关键词需要优先级</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E4%BC%98%E5%85%88%E7%BA%A7%E5%85%88%E5%88%86%E6%88%90%E4%B8%A4%E5%A4%A7%E5%B1%82"><span class="toc-text">二、优先级先分成两大层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-SEO-%E5%BF%85%E5%A4%87%E9%A1%B5%E9%9D%A2%E5%AF%B9%E5%BA%94%E7%9A%84%E5%85%B3%E9%94%AE%E8%AF%8D"><span class="toc-text">1. SEO 必备页面对应的关键词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-SEO-%E6%8E%92%E5%90%8D%E6%B5%81%E9%87%8F%E9%A1%B5%E9%9D%A2%E5%AF%B9%E5%BA%94%E7%9A%84%E5%85%B3%E9%94%AE%E8%AF%8D"><span class="toc-text">2. SEO 排名流量页面对应的关键词</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%85%B3%E9%94%AE%E8%AF%8D%E6%9C%BA%E4%BC%9A%E4%BB%8E%E5%93%AA%E9%87%8C%E6%9D%A5"><span class="toc-text">三、关键词机会从哪里来</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%8E%92%E5%90%8D%E6%B5%81%E9%87%8F%E5%9E%8B%E5%85%B3%E9%94%AE%E8%AF%8D%E7%9C%8B%E4%B8%89%E4%B8%AA%E7%BB%B4%E5%BA%A6"><span class="toc-text">四、排名流量型关键词看三个维度</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%90%9C%E7%B4%A2%E9%87%8F"><span class="toc-text">1. 搜索量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-SEO-%E6%8E%92%E5%90%8D%E7%AB%9E%E4%BA%89%E5%BA%A6"><span class="toc-text">2. SEO 排名竞争度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BA%A7%E5%93%81%E7%9B%B8%E5%85%B3%E5%BA%A6"><span class="toc-text">3. 产品相关度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%96%B0%E7%AB%99%E4%BC%98%E5%85%88%E5%81%9A%E5%93%AA%E7%B1%BB%E8%AF%8D"><span class="toc-text">五、新站优先做哪类词</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E6%AF%8F%E5%91%A8%E6%80%8E%E4%B9%88%E5%AE%89%E6%8E%92%E5%85%B3%E9%94%AE%E8%AF%8D%E4%BA%A7%E8%83%BD"><span class="toc-text">六、每周怎么安排关键词产能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E5%85%B3%E9%94%AE%E8%AF%8D%E6%B0%B8%E8%BF%9C%E6%8C%96%E4%B8%8D%E5%AE%8C"><span class="toc-text">七、关键词永远挖不完</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E6%9C%AC%E7%AB%A0%E6%89%A7%E8%A1%8C%E6%B8%85%E5%8D%95"><span class="toc-text">八、本章执行清单</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E5%B0%8F%E7%BB%93"><span class="toc-text">九、小结</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/CoderJeffLee">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/jeffpage0709">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 写增长的子木 2026
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://bysocket.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="https://bysocket.com/images/avatar.jpeg">
+</body>
+
+</html>

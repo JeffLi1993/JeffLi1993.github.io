@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://bysocket.com/saas-seo-playbook/12-keyword-priority/</loc>
+        <lastmod>2026-10-30T09:56:46.776Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://bysocket.com/saas-seo-playbook/11-page-experience-core-web-vitals/</loc>
         <lastmod>2026-10-28T10:01:34.904Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -377,7 +385,7 @@
     </url>
 
     <url>
-        <loc>https://bysocket.com/keywords-research/</loc>
+        <loc>https://bysocket.com/ideas-research/</loc>
         <lastmod>2026-05-26T05:03:38.452Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -385,7 +393,7 @@
     </url>
 
     <url>
-        <loc>https://bysocket.com/ideas-research/</loc>
+        <loc>https://bysocket.com/keywords-research/</loc>
         <lastmod>2026-05-26T05:03:38.452Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
