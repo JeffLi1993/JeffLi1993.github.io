@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="写增长的子木，聚焦 SaaS 出海创业，分享 SEO、红人营销、Ads、EDM 等前沿增长策略，深入解析各类实操案例，帮助创业者实现产品推广和市场扩展。通过丰富的行业经验和详实的内容，为 SaaS 团队提供具实效性的增长见解，助力海外业务快速发展。">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="写增长的子木" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        第 16 章 信息增量与 E-E-A-T｜写增长的子木
+        
+    </title>
+
+    <link rel="canonical" href="https://bysocket.com//saas-seo-playbook/16-information-gain-and-eeat/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('https://bysocket.com/images/header-img.webp')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    写增长的子木
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="https://nanoskill.ai/" target="_blank">Agent Skills</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/saas-seo-playbook/">SEO 小册子</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="nullhttps://bysocket.com/images/hello-world/header-img.webp">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('https://bysocket.com/images/hello-world/header-img.webp?imageView2/1/w/1400/h/400/interlace/1/q/90')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>第 16 章 信息增量与 E-E-A-T</h1>
+                    
+                    <span class="meta">
+                         作者 子木
+                        <span>
+                          日期 2026-11-03
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#SEO"
+                           title="SEO">SEO</a>
+                        
+                        <a class="tag" href="/tags/#AI工具站"
+                           title="AI工具站">AI工具站</a>
+                        
+                        <a class="tag" href="/tags/#SaaS"
+                           title="SaaS">SaaS</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            第 16 章 信息增量与 E-E-A-T
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <blockquote>
+<p>📖 本文是《AI 工具站 SEO 小册子：图解入门》的一部分，完整目录与源文件见 GitHub：<a href="https://github.com/JeffLi1993/saas-seo-playbook">JeffLi1993&#x2F;saas-seo-playbook</a></p>
+</blockquote>
+<p>AI 时代不缺内容。</p>
+<p>同一个关键词，大家参考同一批 SERP 页面，让 AI 汇总大纲，再扩写正文，很容易做出一批差不多的页面。</p>
+<p>结构可能完整，但用户看完还是没有得到更多东西。</p>
+<p>站在 Google 的角度，我们希望提供的是：<strong>新的，而且对搜索用户有价值的内容。</strong></p>
+<p>这就是这一章要讲的信息增量。</p>
+<p>它可以来自自己的一手创造，也可以来自 Research 后得到的结论。关键是内容准确、有依据，能帮助用户解决当前问题。</p>
+<h2 id="一、信息增量从哪里来"><a href="#一、信息增量从哪里来" class="headerlink" title="一、信息增量从哪里来"></a>一、信息增量从哪里来</h2><p>我认为主要有两个方向。</p>
+<h3 id="1-自己创造的一手内容"><a href="#1-自己创造的一手内容" class="headerlink" title="1. 自己创造的一手内容"></a>1. 自己创造的一手内容</h3><p>比如：</p>
+<ul>
+<li>真实产品和功能</li>
+<li>自己操作后截取的界面与结果</li>
+<li>亲自完成的案例</li>
+<li>实测数据与效果差异</li>
+<li>失败原因、报错情况和调整方法</li>
+<li>不同场景下推荐的参数与配置</li>
+</ul>
+<p>这些内容来自实际做过的事情。</p>
+<p>尤其是失败经验。哪些输入效果不好，遇到什么问题应该怎么调整，往往比一句生成效果很好更有用。</p>
+<h3 id="2-Research-后得到的结论"><a href="#2-Research-后得到的结论" class="headerlink" title="2. Research 后得到的结论"></a>2. Research 后得到的结论</h3><p>不是所有内容都必须自己做实验。</p>
+<p>也可以研究专家观点、报告原始数据和用户讨论，再围绕当前问题整理出有依据的结论。</p>
+<p>比如从 Google People Also Ask、Reddit、Quora 中找到用户还在追问的问题，再继续研究：现有结果为什么没有讲清楚？我们能补充什么？</p>
+<p>Research 的价值，是把资料变成对用户有用的解释和判断。</p>
+<p>引用别人的测试或数据，就说明来源。自己的结论，也要让读者看得出依据在哪里。</p>
+<p><img src="/images/saas-seo-playbook/16-01-information-gain-sources.png" alt="图 16-1：一手创造与 Research 两类信息增量来源"></p>
+<h2 id="二、人有我有、人有我优、人无我有"><a href="#二、人有我有、人有我优、人无我有" class="headerlink" title="二、人有我有、人有我优、人无我有"></a>二、人有我有、人有我优、人无我有</h2><p>内容创作可以分成这三个层次。</p>
+<h3 id="人有我有：把基础内容讲完整"><a href="#人有我有：把基础内容讲完整" class="headerlink" title="人有我有：把基础内容讲完整"></a>人有我有：把基础内容讲完整</h3><p>先看 SERP，汇总前排页面的 H2、H3 和核心段落，知道用户普遍需要什么。</p>
+<p>这里要对齐的是核心问题与内容结构，再结合自己的产品来写。</p>
+<p>这一步建立基础，但只做到这里，页面还是很容易和其他结果一样。</p>
+<h3 id="人有我优：把已有内容讲得更具体"><a href="#人有我优：把已有内容讲得更具体" class="headerlink" title="人有我优：把已有内容讲得更具体"></a>人有我优：把已有内容讲得更具体</h3><p>同样讲一个功能，可以补上真实截图、操作过程、具体场景和结果。</p>
+<p>比如大家都有 How to，我们的教程能不能直接对应产品真实操作？大家都讲使用场景，我们能不能补一个具体小案例？</p>
+<p>同样支持某项能力，也可以讲清楚产品更强在哪里，或者在什么场景下该用什么配置。</p>
+<p>这些改进往往发生在 H3 和段落里。</p>
+<h3 id="人无我有：补上还没有被回答好的问题"><a href="#人无我有：补上还没有被回答好的问题" class="headerlink" title="人无我有：补上还没有被回答好的问题"></a>人无我有：补上还没有被回答好的问题</h3><p>继续研究搜索意图，找到现有页面没有覆盖、用户却真正关心的子问题。</p>
+<p>比如 <code>ai video generator</code> 页面，大家都介绍 Text &#x2F; Image &#x2F; Video to Video。</p>
+<p>如果产品确实支持 PDF、Audio 或 Music to Video，就可以把这些能力作为新的 H3 展开，说明输入、操作和结果。</p>
+<p>这些独有而且有价值的内容，可以前置介绍。</p>
+<p><strong>新内容要与搜索需求有关，也要与真实产品能力对得上。</strong></p>
+<p><img src="/images/saas-seo-playbook/16-02-content-improvement-three-levels.png" alt="图 16-2：人有我有、人有我优、人无我有的内容改进层次"></p>
+<h2 id="三、信息增量落在大纲和段落里"><a href="#三、信息增量落在大纲和段落里" class="headerlink" title="三、信息增量落在大纲和段落里"></a>三、信息增量落在大纲和段落里</h2><p>补信息增量时，可以分别看两层。</p>
+<table>
+<thead>
+<tr>
+<th>层面</th>
+<th>怎么补</th>
+<th>可以放什么</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>大纲</td>
+<td>增加值得单独讲的 H2、H3</td>
+<td>未覆盖的子问题、功能、场景和 FAQ</td>
+</tr>
+<tr>
+<td>段落</td>
+<td>把已有问题讲得更具体、更可信</td>
+<td>实操截图、数据、小案例、配置、失败原因和使用限制</td>
+</tr>
+</tbody></table>
+<p>有些页面大纲差不多，真正的区别就在段落里。</p>
+<p>一段泛泛的功能介绍，和一段带真实效果、操作细节、适用条件的说明，交付给用户的信息不同。</p>
+<p>所以补信息增量时，也要看自己是否真正理解这个场景：用户最关心什么、想得到什么结果、什么情况下适合用、什么情况下不适合。</p>
+<h2 id="四、E-E-A-T：这些内容凭什么可信"><a href="#四、E-E-A-T：这些内容凭什么可信" class="headerlink" title="四、E-E-A-T：这些内容凭什么可信"></a>四、E-E-A-T：这些内容凭什么可信</h2><p>信息增量回答的是：我们多提供了什么。</p>
+<p>E-E-A-T 继续问：这些内容有什么依据，读者为什么可以相信？</p>
+<p>可以从四个方面理解：</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>大白话理解</th>
+<th>内容里怎么体现</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Experience，经验</td>
+<td>你是否真的用过、做过</td>
+<td>真实操作、案例、截图、失败与调整过程</td>
+</tr>
+<tr>
+<td>Expertise，专业知识</td>
+<td>你是否理解这个问题</td>
+<td>解释差异和原因，给出配置、场景与限制，而不只是下结论</td>
+</tr>
+<tr>
+<td>Authoritativeness，权威性</td>
+<td>作者或来源在这个领域是否有认可和依据</td>
+<td>相关专家观点、原始报告，以及领域内对作者或团队的认可</td>
+</tr>
+<tr>
+<td>Trustworthiness，可信度</td>
+<td>内容是否真实、准确、可核对</td>
+<td>数据有来源，结论有证据，引用与亲测分清楚，限制如实说明</td>
+</tr>
+</tbody></table>
+<p>这几个方面会有重叠。</p>
+<p>比如一组真实测试，既能体现经验，也可以通过对结果的分析体现专业知识。把测试过程和来源交代清楚，又能增强可信度。</p>
+<p>AI 可以写出看起来很专业的句子，但实际经验、测试过程和证据，需要有人真正完成。</p>
+<p><img src="/images/saas-seo-playbook/16-03-eeat-content-evidence.png" alt="图 16-3：E-E-A-T 四个维度与内容证据的对应关系"></p>
+<h2 id="五、放到上一篇的测评博客里怎么做"><a href="#五、放到上一篇的测评博客里怎么做" class="headerlink" title="五、放到上一篇的测评博客里怎么做"></a>五、放到上一篇的测评博客里怎么做</h2><p>比如写 <code>best ai video generator</code>。</p>
+<p>如果每个产品下面都只有功能介绍，再写一句效果很好，用户还是很难选择。</p>
+<p>做真实测评时，可以把这些内容写进去：</p>
+<ul>
+<li>实际用了什么输入素材，怎么操作</li>
+<li>生成的结果是什么，配对应截图或视频</li>
+<li>几个工具在效果上有什么差别</li>
+<li>哪些情况失败了，后来怎么调整</li>
+<li>根据测试结果，分别适合什么人和场景</li>
+</ul>
+<p>这些就是一手经验和信息增量。</p>
+<p>如果再引用报告或其他人的测试，要和自己的实测分开交代。</p>
+<p>自己测到的，就说明测试过程；引用的，就给出原始来源。最后再根据这些材料给出选择建议。</p>
+<p>用户看到的不只有推荐结论，也能看到结论怎么来的。</p>
+<p><img src="/images/saas-seo-playbook/16-04-review-evidence-to-recommendation.png" alt="图 16-4：测评博客从操作、结果到推荐结论的结构示意，真实结果待实测填入"></p>
+<h2 id="六、AI-可以帮忙，证据还要人来补"><a href="#六、AI-可以帮忙，证据还要人来补" class="headerlink" title="六、AI 可以帮忙，证据还要人来补"></a>六、AI 可以帮忙，证据还要人来补</h2><p>AI 很适合先做这些工作：</p>
+<ul>
+<li>抓取和整理 SERP 页面结构</li>
+<li>汇总 H2、H3 初稿</li>
+<li>归纳 FAQ 和竞品共同内容</li>
+<li>改写表达、补全结构、生成初稿</li>
+</ul>
+<p>接下来要由人补上产品独有能力、实操截图、真实案例、数据和判断。</p>
+<p>AI 也可以帮助 Research 和整理材料，但结果仍然需要人工 Review。</p>
+<p>尤其要避免几种看起来高效、实际没有增加多少价值的做法：</p>
+<ul>
+<li>把视频或文章改写、拼贴成另一篇博客</li>
+<li>把 Chatbot 对话记录直接拼成页面</li>
+<li>同一个模板只替换关键词、数字或地区</li>
+</ul>
+<p>这些内容即使增加了字数，也未必增加了用户真正需要的信息。</p>
+<p>人工写作同样要回答这个问题：这页到底提供了什么价值？</p>
+<p><img src="/images/saas-seo-playbook/16-05-ai-and-human-content-workflow.png" alt="图 16-5：AI 整理结构、人工补充证据并审核内容的协作流程"></p>
+<h2 id="七、小结"><a href="#七、小结" class="headerlink" title="七、小结"></a>七、小结</h2><p>信息增量可以来自一手创造，也可以来自 Research 后形成的有依据的结论。</p>
+<p>先把基础内容讲完整，再用真实功能、案例、截图、数据和经验，把已有内容讲得更具体，并补上没有回答好的问题。</p>
+<p>E-E-A-T 则要落实在这些内容背后的经验、专业知识、权威与可信依据上。</p>
+<p><strong>多交付一点对用户有价值的新信息，也让读者知道这些信息为什么可信。</strong></p>
+<blockquote>
+<p>本章节完毕，谢谢大家，欢迎随时讨论。</p>
+</blockquote>
+
+                <!-- WeChat Ad -->
+                <div class="wechat-ad">
+                    <div class="wechat-ad-inner">
+                        <div class="wechat-ad-text">
+                            <strong>👋 加我微信，交流 AI 出海 & SEO</strong>
+                            <p style="margin:4px 0 0;font-size:13px;color:#666;">微信号：qqcode168</p>
+                        </div>
+                        <img class="wechat-ad-qrcode" src="https://bysocket.com/images/wechat.jpg" alt="微信扫码添加">
+                    </div>
+                </div>
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="//saas-seo-playbook/15-blog-content-formats/" data-toggle="tooltip" data-placement="top"
+                           title="第 15 章 博客、教程、榜单、对比与替代页">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="//saas-seo-playbook/12-keyword-priority/" data-toggle="tooltip" data-placement="top"
+                           title="第 12 章 关键词优先级：先做什么，后做什么">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E4%BF%A1%E6%81%AF%E5%A2%9E%E9%87%8F%E4%BB%8E%E5%93%AA%E9%87%8C%E6%9D%A5"><span class="toc-text">一、信息增量从哪里来</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%87%AA%E5%B7%B1%E5%88%9B%E9%80%A0%E7%9A%84%E4%B8%80%E6%89%8B%E5%86%85%E5%AE%B9"><span class="toc-text">1. 自己创造的一手内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Research-%E5%90%8E%E5%BE%97%E5%88%B0%E7%9A%84%E7%BB%93%E8%AE%BA"><span class="toc-text">2. Research 后得到的结论</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E4%BA%BA%E6%9C%89%E6%88%91%E6%9C%89%E3%80%81%E4%BA%BA%E6%9C%89%E6%88%91%E4%BC%98%E3%80%81%E4%BA%BA%E6%97%A0%E6%88%91%E6%9C%89"><span class="toc-text">二、人有我有、人有我优、人无我有</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%BA%E6%9C%89%E6%88%91%E6%9C%89%EF%BC%9A%E6%8A%8A%E5%9F%BA%E7%A1%80%E5%86%85%E5%AE%B9%E8%AE%B2%E5%AE%8C%E6%95%B4"><span class="toc-text">人有我有：把基础内容讲完整</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%BA%E6%9C%89%E6%88%91%E4%BC%98%EF%BC%9A%E6%8A%8A%E5%B7%B2%E6%9C%89%E5%86%85%E5%AE%B9%E8%AE%B2%E5%BE%97%E6%9B%B4%E5%85%B7%E4%BD%93"><span class="toc-text">人有我优：把已有内容讲得更具体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%BA%E6%97%A0%E6%88%91%E6%9C%89%EF%BC%9A%E8%A1%A5%E4%B8%8A%E8%BF%98%E6%B2%A1%E6%9C%89%E8%A2%AB%E5%9B%9E%E7%AD%94%E5%A5%BD%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">人无我有：补上还没有被回答好的问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E4%BF%A1%E6%81%AF%E5%A2%9E%E9%87%8F%E8%90%BD%E5%9C%A8%E5%A4%A7%E7%BA%B2%E5%92%8C%E6%AE%B5%E8%90%BD%E9%87%8C"><span class="toc-text">三、信息增量落在大纲和段落里</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81E-E-A-T%EF%BC%9A%E8%BF%99%E4%BA%9B%E5%86%85%E5%AE%B9%E5%87%AD%E4%BB%80%E4%B9%88%E5%8F%AF%E4%BF%A1"><span class="toc-text">四、E-E-A-T：这些内容凭什么可信</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%94%BE%E5%88%B0%E4%B8%8A%E4%B8%80%E7%AF%87%E7%9A%84%E6%B5%8B%E8%AF%84%E5%8D%9A%E5%AE%A2%E9%87%8C%E6%80%8E%E4%B9%88%E5%81%9A"><span class="toc-text">五、放到上一篇的测评博客里怎么做</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81AI-%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%BF%99%EF%BC%8C%E8%AF%81%E6%8D%AE%E8%BF%98%E8%A6%81%E4%BA%BA%E6%9D%A5%E8%A1%A5"><span class="toc-text">六、AI 可以帮忙，证据还要人来补</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E5%B0%8F%E7%BB%93"><span class="toc-text">七、小结</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/CoderJeffLee">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/jeffpage0709">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 写增长的子木 2026
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://bysocket.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="https://bysocket.com/images/avatar.jpeg">
+</body>
+
+</html>
