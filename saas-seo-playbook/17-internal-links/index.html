@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="写增长的子木，聚焦 SaaS 出海创业，分享 SEO、红人营销、Ads、EDM 等前沿增长策略，深入解析各类实操案例，帮助创业者实现产品推广和市场扩展。通过丰富的行业经验和详实的内容，为 SaaS 团队提供具实效性的增长见解，助力海外业务快速发展。">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="写增长的子木" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        第 17 章 内链：给 Google 和用户一张阅读地图｜写增长的子木
+        
+    </title>
+
+    <link rel="canonical" href="https://bysocket.com//saas-seo-playbook/17-internal-links/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('https://bysocket.com/images/header-img.webp')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    写增长的子木
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="https://nanoskill.ai/" target="_blank">Agent Skills</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/saas-seo-playbook/">SEO 小册子</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="nullhttps://bysocket.com/images/hello-world/header-img.webp">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('https://bysocket.com/images/hello-world/header-img.webp?imageView2/1/w/1400/h/400/interlace/1/q/90')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>第 17 章 内链：给 Google 和用户一张阅读地图</h1>
+                    
+                    <span class="meta">
+                         作者 子木
+                        <span>
+                          日期 2026-11-03
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#SEO"
+                           title="SEO">SEO</a>
+                        
+                        <a class="tag" href="/tags/#AI工具站"
+                           title="AI工具站">AI工具站</a>
+                        
+                        <a class="tag" href="/tags/#SaaS"
+                           title="SaaS">SaaS</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            第 17 章 内链：给 Google 和用户一张阅读地图
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <blockquote>
+<p>📖 本文是《AI 工具站 SEO 小册子：图解入门》的一部分，完整目录与源文件见 GitHub：<a href="https://github.com/JeffLi1993/saas-seo-playbook">JeffLi1993&#x2F;saas-seo-playbook</a></p>
+</blockquote>
+<p>网站页面少的时候，内链看起来很简单：在相关文章里放几个链接就行。</p>
+<p>但页面越来越多，问题就来了：哪些页面最重要？新页面从哪里被发现？用户读完一篇 Blog，下一步该去哪里？</p>
+<p>我认为，<strong>内链不是往正文里塞关键词的 SEO 技巧，而是网站的权重引导系统。</strong></p>
+<p>它既告诉 Google 网站的重点在哪里，也带着用户从当前页面走向更需要的内容和功能。</p>
+<h2 id="一、先决定哪些页面最重要"><a href="#一、先决定哪些页面最重要" class="headerlink" title="一、先决定哪些页面最重要"></a>一、先决定哪些页面最重要</h2><p>假设一个网站有 1 万个页面，Google 不可能把这 1 万个页面都当成同等重要。</p>
+<p>网站自己也要表达判断：</p>
+<ul>
+<li>哪些是核心章节</li>
+<li>哪些是重点章节</li>
+<li>哪些是支撑内容</li>
+</ul>
+<p>还是用一本书来理解。目录会让读者先看到整本书的结构，核心章节会被反复提到，辅助章节则帮助读者理解某个具体问题。</p>
+<p>网站也一样。首页、核心 Feature、重要 Tool 或 Solution 页面，以及围绕它们展开的 Blog，不应该是一堆平铺的 URL。</p>
+<p>前面做 Topic Map、Keyword-to-Page 和 URL Structure，是先确定书的大纲与章节。内链再把这些章节真正连起来，并让重点页面获得更清楚的入口。</p>
+<p><img src="/images/saas-seo-playbook/17-01-internal-links-as-reading-map.png" alt="图 17-1：内链连接首页、重点页面与相关内容，形成阅读地图"></p>
+<h2 id="二、内链主要做两件事"><a href="#二、内链主要做两件事" class="headerlink" title="二、内链主要做两件事"></a>二、内链主要做两件事</h2><h3 id="1-引导网站自己的“投票”"><a href="#1-引导网站自己的“投票”" class="headerlink" title="1. 引导网站自己的“投票”"></a>1. 引导网站自己的“投票”</h3><p>一个页面从首页、频道页和多篇相关内容获得清楚的内链，说明网站自己认为它重要。</p>
+<p>这也是内链最值得花心思的地方：<strong>把站内的链接入口，优先给真正希望排名、也能带来业务结果的页面。</strong></p>
+<p>这些页面通常是转化好的 Money Pages，也就是能把自然流量带向使用、注册或付费的高价值页面。</p>
+<p>比如某个 Tool 页转化很好，网站就不该只在 sitemap 里放着它。主导航、对应的工具集合页，以及讲同一需求的 Blog，都可以在合适的位置链接过去。</p>
+<p>这里也别机械地数链接。一个页面被更多相关页面指向，重要性会更清楚；但链接是否相关、入口是否容易找到，同样重要。把所有页面的页脚都塞满同一批链接，不等于这些页面就一定能排上去。</p>
+<h3 id="2-让-Google-和用户发现更多页面"><a href="#2-让-Google-和用户发现更多页面" class="headerlink" title="2. 让 Google 和用户发现更多页面"></a>2. 让 Google 和用户发现更多页面</h3><p>搜索引擎会沿着页面上的链接继续抓取。</p>
+<p>如果一个新页面没有任何站内链接指向它，即使进了 sitemap，Google 和用户也不容易从网站结构里找到它。</p>
+<p>所以新页面上线时，至少要有一个合理入口：从所属频道页、相关页面，或其他用户确实会经过的位置链接进来。</p>
+<p>内链可以帮助新页面被发现和理解，但不保证它一定被收录，更不能代替页面本身的质量。</p>
+<p><img src="/images/saas-seo-playbook/17-02-internal-link-priority-and-discovery.png" alt="图 17-2：内链表达站内重点，并帮助 Google 和用户发现新页面"></p>
+<h2 id="三、上行、横向、下行怎么连"><a href="#三、上行、横向、下行怎么连" class="headerlink" title="三、上行、横向、下行怎么连"></a>三、上行、横向、下行怎么连</h2><p>不用把内链想得太玄。按照网站原有结构，可以先看三个方向。</p>
+<table>
+<thead>
+<tr>
+<th>方向</th>
+<th>从哪里到哪里</th>
+<th>解决什么问题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>下行</td>
+<td>首页或 Hub → 分类和具体页面</td>
+<td>让重要页面有入口，方便继续浏览</td>
+</tr>
+<tr>
+<td>上行</td>
+<td>具体页面 → 所属 Hub 或核心页面</td>
+<td>告诉用户这页属于哪个主题，下一步能去哪里</td>
+</tr>
+<tr>
+<td>横向</td>
+<td>同一主题下的相关页面之间</td>
+<td>让相近需求互相连接，补齐阅读和使用路径</td>
+</tr>
+</tbody></table>
+<p>比如一个 AI 视频工具站：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">首页</span><br><span class="line">  ↓</span><br><span class="line">/tools/ 频道</span><br><span class="line">  ↓</span><br><span class="line">AI Video Generator 工具页 ← 相关教程 Blog</span><br><span class="line">  ↔</span><br><span class="line">相关的其他视频工具页</span><br></pre></td></tr></table></figure>
+
+<p>这不是要求每页都把三个方向塞满。</p>
+<p>用户读完一篇教程，下一步想实际生成视频，就链接到对应工具页。用户正在使用工具，想看操作方法，就链接到教程。两页确实有关联，横向链接才有价值。</p>
+<p>面包屑、频道页、正文推荐和相关内容模块，都可以承担这些链接。关键是用户能看懂为什么要点过去。</p>
+<p><img src="/images/saas-seo-playbook/17-03-up-side-down-internal-links.png" alt="图 17-3：上行、横向、下行内链与从阅读走向使用的路径"></p>
+<h2 id="四、让-Money-Pages-在产品路径里更突出"><a href="#四、让-Money-Pages-在产品路径里更突出" class="headerlink" title="四、让 Money Pages 在产品路径里更突出"></a>四、让 Money Pages 在产品路径里更突出</h2><p>如果某个页面转化好，而且正是产品想推广的能力，就值得持续争取更靠前的排名。</p>
+<p>内链规划要跟着这个目标走，也要符合产品设计。</p>
+<p>我会先问三个问题：</p>
+<ol>
+<li>哪些页面是当前最重要的 Money Pages？</li>
+<li>哪些现有页面的用户，接下来确实需要它们？</li>
+<li>这些链接应该放在导航、频道页、正文，还是 CTA 附近，用户才容易发现？</li>
+</ol>
+<p>例如一篇 <code>best ai video generator</code> 测评博客，读者看完比较，可能想直接试用某个工具。文章里就可以链接到对应的工具页，而不只是放一个笼统的首页按钮。</p>
+<p>反过来，工具页的用户可能需要教程、价格或其他相关功能，也应该能顺着页面继续找到。</p>
+<p><strong>内链的重点，不只是让 Google 看见某个页面重要，还要让用户自然走到那个页面。</strong></p>
+<p>但不是所有 Blog 都要导向同一个 Money Page。先看当前内容和产品能力是否相关，再决定链接到哪里。</p>
+<h2 id="五、锚文本写清楚目的地"><a href="#五、锚文本写清楚目的地" class="headerlink" title="五、锚文本写清楚目的地"></a>五、锚文本写清楚目的地</h2><p>锚文本就是用户实际点击的文字。</p>
+<p>它要让用户在点击前，大致知道下一个页面讲什么、能做什么。</p>
+<p>比如链接到 AI 视频生成工具页，可以写 <code>AI video generator</code> 或与当前句子自然衔接的具体说法。只写 <code>learn more</code>、<code>click here</code>，读者就得猜。</p>
+<p>也不要为了匹配关键词，在一篇文章里反复用同一句锚文本。先把句子写顺，再给真正相关的词或短语加链接。</p>
+<h2 id="六、什么时候重点做结构化内链"><a href="#六、什么时候重点做结构化内链" class="headerlink" title="六、什么时候重点做结构化内链"></a>六、什么时候重点做结构化内链</h2><p>早期网站只有几十个页面，整站积累还少。这个阶段，内链的边际收益可能没有新增高质量页面、获得外链那么明显。</p>
+<p>但这不等于可以让新页面变成孤儿页。基础的导航、频道入口、面包屑和相关页面链接，仍然应该从一开始就有。</p>
+<p>等页面到了几百、上千，再回头逐篇手动补链接就很费劲。这时更值得按 Hub、Cluster、Leaf 和页面类型，统一检查：</p>
+<ul>
+<li>核心页面是否获得了足够清楚的入口</li>
+<li>新页面是否能从所属频道和相关页面进入</li>
+<li>重要页面是否埋在很深的层级里</li>
+<li>是否有页面只在 sitemap 中出现，却没有站内链接</li>
+</ul>
+<p>同类页面可以在模板里设置面包屑、所属频道和相关内容模块，让新增页面自动进入结构。但具体推荐什么页面，还是要看主题和用户下一步需求；不要让模板把一批不相关链接复制到全站。</p>
+<p><img src="/images/saas-seo-playbook/17-04-internal-linking-by-site-scale.png" alt="图 17-4：新站先建立基础入口，页面上规模后系统整理内链"></p>
+<h2 id="七、小结"><a href="#七、小结" class="headerlink" title="七、小结"></a>七、小结</h2><p>内链先回答网站自己认为哪些页面重要，再帮助 Google 和用户沿着合理路径找到它们。</p>
+<p>早期先保证基础入口，不用为了多放链接而忙于优化。页面上规模以后，再认真梳理重点页面、上下级关系和孤儿页。</p>
+<p><strong>把最有价值的页面放在读者会经过的位置，也让其他章节能顺着这张地图被发现。</strong></p>
+<blockquote>
+<p>本章节完毕，谢谢大家，欢迎随时讨论。</p>
+</blockquote>
+
+                <!-- WeChat Ad -->
+                <div class="wechat-ad">
+                    <div class="wechat-ad-inner">
+                        <div class="wechat-ad-text">
+                            <strong>👋 加我微信，交流 AI 出海 & SEO</strong>
+                            <p style="margin:4px 0 0;font-size:13px;color:#666;">微信号：qqcode168</p>
+                        </div>
+                        <img class="wechat-ad-qrcode" src="https://bysocket.com/images/wechat.jpg" alt="微信扫码添加">
+                    </div>
+                </div>
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="//saas-seo-playbook/16-information-gain-and-eeat/" data-toggle="tooltip" data-placement="top"
+                           title="第 16 章 信息增量与 E-E-A-T">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="//saas-seo-playbook/12-keyword-priority/" data-toggle="tooltip" data-placement="top"
+                           title="第 12 章 关键词优先级：先做什么，后做什么">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%85%88%E5%86%B3%E5%AE%9A%E5%93%AA%E4%BA%9B%E9%A1%B5%E9%9D%A2%E6%9C%80%E9%87%8D%E8%A6%81"><span class="toc-text">一、先决定哪些页面最重要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%86%85%E9%93%BE%E4%B8%BB%E8%A6%81%E5%81%9A%E4%B8%A4%E4%BB%B6%E4%BA%8B"><span class="toc-text">二、内链主要做两件事</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%BC%95%E5%AF%BC%E7%BD%91%E7%AB%99%E8%87%AA%E5%B7%B1%E7%9A%84%E2%80%9C%E6%8A%95%E7%A5%A8%E2%80%9D"><span class="toc-text">1. 引导网站自己的“投票”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%AE%A9-Google-%E5%92%8C%E7%94%A8%E6%88%B7%E5%8F%91%E7%8E%B0%E6%9B%B4%E5%A4%9A%E9%A1%B5%E9%9D%A2"><span class="toc-text">2. 让 Google 和用户发现更多页面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E4%B8%8A%E8%A1%8C%E3%80%81%E6%A8%AA%E5%90%91%E3%80%81%E4%B8%8B%E8%A1%8C%E6%80%8E%E4%B9%88%E8%BF%9E"><span class="toc-text">三、上行、横向、下行怎么连</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E8%AE%A9-Money-Pages-%E5%9C%A8%E4%BA%A7%E5%93%81%E8%B7%AF%E5%BE%84%E9%87%8C%E6%9B%B4%E7%AA%81%E5%87%BA"><span class="toc-text">四、让 Money Pages 在产品路径里更突出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E9%94%9A%E6%96%87%E6%9C%AC%E5%86%99%E6%B8%85%E6%A5%9A%E7%9B%AE%E7%9A%84%E5%9C%B0"><span class="toc-text">五、锚文本写清楚目的地</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E9%87%8D%E7%82%B9%E5%81%9A%E7%BB%93%E6%9E%84%E5%8C%96%E5%86%85%E9%93%BE"><span class="toc-text">六、什么时候重点做结构化内链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E5%B0%8F%E7%BB%93"><span class="toc-text">七、小结</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/CoderJeffLee">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/jeffpage0709">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 写增长的子木 2026
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://bysocket.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="https://bysocket.com/images/avatar.jpeg">
+</body>
+
+</html>

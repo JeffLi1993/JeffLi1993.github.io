@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://bysocket.com/saas-seo-playbook/17-internal-links/</loc>
+        <lastmod>2026-11-03T05:13:45.780Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://bysocket.com/saas-seo-playbook/16-information-gain-and-eeat/</loc>
         <lastmod>2026-11-03T04:47:09.426Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -425,7 +433,7 @@
     </url>
 
     <url>
-        <loc>https://bysocket.com/keywords-research/</loc>
+        <loc>https://bysocket.com/lensgo-ai/</loc>
         <lastmod>2026-05-26T05:03:38.452Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -433,7 +441,7 @@
     </url>
 
     <url>
-        <loc>https://bysocket.com/lensgo-ai/</loc>
+        <loc>https://bysocket.com/keywords-research/</loc>
         <lastmod>2026-05-26T05:03:38.452Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
