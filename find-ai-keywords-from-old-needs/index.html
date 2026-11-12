@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="写增长的子木，聚焦 SaaS 出海创业，分享 SEO、红人营销、Ads、EDM 等前沿增长策略，深入解析各类实操案例，帮助创业者实现产品推广和市场扩展。通过丰富的行业经验和详实的内容，为 SaaS 团队提供具实效性的增长见解，助力海外业务快速发展。">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="写增长的子木" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        如何从老需求出发，找 AI 新词？｜写增长的子木
+        
+    </title>
+
+    <link rel="canonical" href="https://bysocket.com/find-ai-keywords-from-old-needs/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('https://bysocket.com/images/header-img.webp')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    写增长的子木
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="https://nanoskill.ai/" target="_blank">Agent Skills</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/saas-seo-playbook/">SEO 小册子</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="nullhttps://bysocket.com/images/hello-world/header-img.webp">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('https://bysocket.com/images/hello-world/header-img.webp?imageView2/1/w/1400/h/400/interlace/1/q/90')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>如何从老需求出发，找 AI 新词？</h1>
+                    
+                    <span class="meta">
+                         作者 子木
+                        <span>
+                          日期 2026-11-12
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#SEO"
+                           title="SEO">SEO</a>
+                        
+                        <a class="tag" href="/tags/#AI工具站"
+                           title="AI工具站">AI工具站</a>
+                        
+                        <a class="tag" href="/tags/#关键词调研"
+                           title="关键词调研">关键词调研</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            如何从老需求出发，找 AI 新词？
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <p><img src="https://bysocket.com/images/find-ai-keywords-from-old-needs/01-ai-new-terms-two-paths.png" alt="AI 新词的两条来路：新玩法与老需求加 AI"></p>
+<p>找 AI 新词，可以先从已经有人搜的老需求里翻机会。比如 <code>meme generator</code>，做 meme 的需求早就有了，加上 AI 后，用户开始找新的生成方式，也就有了 <code>ai meme generator</code>。</p>
+<p>这里把新词分成两类：</p>
+<ul>
+<li><p>新玩法带来的词，比如 <code>ai kirkify generator</code>、 <code>ai ghibli image generator</code>。</p>
+</li>
+<li><p>老需求加 AI，比如 <code>ai meme generator</code>。</p>
+</li>
+</ul>
+<p>下面主要聊第二类，拿 <code>generator</code> 这个词根举例。</p>
+<h2 id="一、先找到老需求，再组合-AI-看趋势"><a href="#一、先找到老需求，再组合-AI-看趋势" class="headerlink" title="一、先找到老需求，再组合 AI 看趋势"></a>一、先找到老需求，再组合 AI 看趋势</h2><p><img src="https://bysocket.com/images/find-ai-keywords-from-old-needs/02-find-old-needs.png" alt="image.png"></p>
+<p>打开 Ahrefs，在关键词挖掘里输入 <code>generator</code>，选好目标市场，按搜索量排序。</p>
+<p>这时候看到的，就是一批已经存在的需求。比如：</p>
+<ul>
+<li><p>font generator</p>
+</li>
+<li><p>qr code generator</p>
+</li>
+<li><p>… generator</p>
+</li>
+</ul>
+<p>从里面挑自己熟悉、能做的方向，再组合 AI，检查对应关键词有没有搜索、趋势有没有增长，以及现在排在前面的产品是什么。</p>
+<p>比如看到 <code>font generator</code>，就继续查 <code>ai font generator</code>。沿着这个词，重点看 AI 给这个老需求带来了什么变化：少了手动操作，还是能生成以前不好做的结果？这个变化，就是产品可以切进去的地方。</p>
+<h2 id="二、顺着关键词，找到对标站"><a href="#二、顺着关键词，找到对标站" class="headerlink" title="二、顺着关键词，找到对标站"></a>二、顺着关键词，找到对标站</h2><p><img src="https://bysocket.com/images/find-ai-keywords-from-old-needs/03-benchmark-site.png" alt="image.png"></p>
+<p>比如这次看字体方向，我找到了 yofont.com，做 AI Font generator。</p>
+<p>我看到的数据是：</p>
+<ul>
+<li><p>DR &#x3D; 5</p>
+</li>
+<li><p><code>ai font generator</code> 主词，美区排名第二。</p>
+</li>
+<li><p>再看 Similarweb 月访问量约 250k，9 月开始起量</p>
+</li>
+</ul>
+<p>一个 DR 才 5 的站，主词已经做到第二名，流量也刚起来，这就值得继续拆了。</p>
+<p>这样，调研就从一个搜索词，落到了一个具体产品上。你可以判断自己有没有能力做，以及还有什么地方能做得更好。</p>
+<p><img src="https://bysocket.com/images/find-ai-keywords-from-old-needs/04-yofont-data.png" alt="image.png"></p>
+<h2 id="三、generator-能找，editor、converter-等也能找"><a href="#三、generator-能找，editor、converter-等也能找" class="headerlink" title="三、generator 能找，editor、converter 等也能找"></a>三、generator 能找，editor、converter 等也能找</h2><p>这里用 <code>generator</code> 老需求词根举例，同样的方法也可以用在其他工具词根上。</p>
+<p>比如：</p>
+<ul>
+<li><p><code>editor</code>：image editor、video editor、PDF editor…</p>
+</li>
+<li><p><code>converter</code>：image converter、PDF converter、audio converter…</p>
+</li>
+<li><p><code>remover</code>：background remover、object remover…</p>
+</li>
+<li><p><code>enhancer</code>：photo enhancer、video enhancer…</p>
+</li>
+<li><p>…</p>
+</li>
+</ul>
+<p>这些词根都指向一个具体动作：生成、编辑、转换、移除、增强。先展开对应的老需求，再组合 AI 看搜索和趋势，最后去拆实际产品。</p>
+<p>不过，不同词根要留意用户习惯。比如一个需求已经常用 <code>AI</code> 来表达，继续机械加词就没意义；有些需求则会用更具体的功能词来搜。可以结合相关词和下拉建议，找到用户实际使用的表达。</p>
+<p>词根可以换，调研顺序基本一致。先从一个自己熟悉的词根开始，把里面的需求翻透，比同时铺开一大堆方向更容易找到具体机会。</p>
+<p><img src="https://bysocket.com/images/find-ai-keywords-from-old-needs/05-word-root-mining.png" alt="用词根打捞老需求，先挖透一口井"></p>
+<h2 id="四、小结"><a href="#四、小结" class="headerlink" title="四、小结"></a>四、小结</h2><p>从老需求找 AI 新词，可以先拿 <code>generator</code>、 <code>editor</code>、 <code>converter</code> 这类工具词根，在 Ahrefs 里展开需求，按搜索量筛选，再组合 AI 看趋势。</p>
+<p>找到有意思的词，就继续找产品、看排名、看流量。遇到低 DR、近期起量的小站，重点拆它怎么用 AI 满足这个老需求，再判断自己能从哪里切进去。</p>
+
+                <!-- WeChat Ad -->
+                <div class="wechat-ad">
+                    <div class="wechat-ad-inner">
+                        <div class="wechat-ad-text">
+                            <strong>👋 加我微信，交流 AI 出海 & SEO</strong>
+                            <p style="margin:4px 0 0;font-size:13px;color:#666;">微信号：qqcode168</p>
+                        </div>
+                        <img class="wechat-ad-qrcode" src="https://bysocket.com/images/wechat.jpg" alt="微信扫码添加">
+                    </div>
+                </div>
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="//saas-seo-playbook/13-serp-research/" data-toggle="tooltip" data-placement="top"
+                           title="第 13 章 SERP Research：先看 Google 已经选了什么">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%85%88%E6%89%BE%E5%88%B0%E8%80%81%E9%9C%80%E6%B1%82%EF%BC%8C%E5%86%8D%E7%BB%84%E5%90%88-AI-%E7%9C%8B%E8%B6%8B%E5%8A%BF"><span class="toc-text">一、先找到老需求，再组合 AI 看趋势</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E9%A1%BA%E7%9D%80%E5%85%B3%E9%94%AE%E8%AF%8D%EF%BC%8C%E6%89%BE%E5%88%B0%E5%AF%B9%E6%A0%87%E7%AB%99"><span class="toc-text">二、顺着关键词，找到对标站</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81generator-%E8%83%BD%E6%89%BE%EF%BC%8Ceditor%E3%80%81converter-%E7%AD%89%E4%B9%9F%E8%83%BD%E6%89%BE"><span class="toc-text">三、generator 能找，editor、converter 等也能找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%B0%8F%E7%BB%93"><span class="toc-text">四、小结</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/CoderJeffLee">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/jeffpage0709">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 写增长的子木 2026
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://bysocket.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="https://bysocket.com/images/avatar.jpeg">
+</body>
+
+</html>
