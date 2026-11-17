@@ -3,6 +3,27 @@
 
 
     <url>
+        <loc>https://bysocket.com/tags/%E5%88%9B%E4%B8%9A/</loc>
+        <lastmod>2026-11-17T23:57:56.430Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://bysocket.com/tags/AI%E5%BA%94%E7%94%A8/</loc>
+        <lastmod>2026-11-17T23:57:56.430Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://bysocket.com/tags/AI/</loc>
+        <lastmod>2026-11-17T23:57:56.430Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://bysocket.com/tags/%E6%95%B0%E6%8D%AE%E5%A4%8D%E7%9B%98/</loc>
         <lastmod>2026-11-15T18:25:50.220Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -194,13 +215,6 @@
     <url>
         <loc>https://bysocket.com/tags/Google/</loc>
         <lastmod>2026-07-06T04:09:21.602Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://bysocket.com/tags/AI/</loc>
-        <lastmod>2026-06-25T12:44:37.263Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
